@@ -13,3 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+---
+type: specs.openrewrite.org/v1beta/category
+name: JavaScript Codemods
+packageName: org.openrewrite.codemods
+description: Recipes that run JavaScript codemods.
