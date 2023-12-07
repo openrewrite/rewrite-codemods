@@ -17,14 +17,7 @@ package org.openrewrite.codemods;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.openrewrite.Recipe;
-import org.openrewrite.config.Environment;
-import org.openrewrite.config.YamlResourceLoader;
 import org.openrewrite.test.RewriteTest;
-
-import java.net.URI;
-import java.util.Objects;
-import java.util.Properties;
 
 import static org.openrewrite.test.SourceSpecs.text;
 
@@ -39,7 +32,7 @@ public class NextJsCodemodsTest implements RewriteTest {
             //language=js
             """
             import { Fira_Code } from "@next/font/google"
-                        
+            
             const firaCode = Fira_Code({
                 weight: "500",
                 subsets: ["latin"]
@@ -48,7 +41,7 @@ public class NextJsCodemodsTest implements RewriteTest {
             //language=js
             """
             import { Fira_Code } from "next/font/google"
-                        
+            
             const firaCode = Fira_Code({
                 weight: "500",
                 subsets: ["latin"]
@@ -57,14 +50,5 @@ public class NextJsCodemodsTest implements RewriteTest {
             spec -> spec.path("src/components/Code.js")
           )
         );
-    }
-
-    private static Recipe recipeFromInputStream(String yamlResource, String... activeRecipes) {
-        return Environment.builder()
-          .load(new YamlResourceLoader(
-            Objects.requireNonNull(NextJsCodemodsTest.class.getResourceAsStream(yamlResource)),
-            URI.create("rewrite.yml"), new Properties())
-          ).build()
-          .activateRecipes(activeRecipes);
     }
 }
