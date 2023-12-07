@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 import static java.util.Collections.emptyList;
@@ -98,8 +99,16 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     public Collection<? extends SourceFile> generate(Accumulator acc, ExecutionContext ctx) {
         String template = Optional.ofNullable(codemodCommandTemplate).orElse("${codemodArgs}");
         List<String> command = new ArrayList<>();
-        command.add("npx");
-        command.add(npmPackage + '@' + Optional.ofNullable(npmPackageVersion).orElse("latest"));
+        command.add("node");
+        // FIXME extract from jar
+        Path nodeModules = Paths.get("node_modules").toAbsolutePath();
+        // FIXME parse `bin` from `@next/codemod/package.json`
+        command.add(nodeModules.resolve(npmPackage).toString());
+        if (npmPackageVersion != null) {
+            command.add("--version");
+            command.add(npmPackageVersion);
+        }
+        command.add(nodeModules.resolve("@next/codemod/bin/next-codemod.js").toString());
 
         for (String part : template.split(" ")) {
             part = part.trim();
