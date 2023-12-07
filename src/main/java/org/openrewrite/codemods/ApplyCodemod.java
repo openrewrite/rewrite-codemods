@@ -78,11 +78,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
     @Override
     public Accumulator getInitialValue(ExecutionContext ctx) {
-        try {
-            return new Accumulator(Files.createTempDirectory("openrewrite-codemod"));
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
+        return new Accumulator(createDirectory(ctx, "codemods-repo"));
     }
 
     @Override
@@ -102,7 +98,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     public Collection<? extends SourceFile> generate(Accumulator acc, ExecutionContext ctx) {
         Path nodeModules = ctx.getMessage(NODE_MODULES_KEY);
         if (nodeModules == null) {
-            ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractNodeModules());
+            ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractCodemods(ctx).resolve("node_modules"));
         }
 
         List<String> command = new ArrayList<>();
@@ -151,26 +147,46 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         return emptyList();
     }
 
-    private Path extractNodeModules() {
+    private Path extractCodemods(ExecutionContext ctx) {
         try {
             URI uri = Objects.requireNonNull(ApplyCodemod.class.getClassLoader().getResource("codemods")).toURI();
             if ("jar".equals(uri.getScheme())) {
                 try (FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null)) {
                     Path codemodsPath = fileSystem.getPath("codemods");
-                    Path target = Files.createTempDirectory("codemods");
+                    Path target = createDirectory(ctx, "rewrite-codemods");
                     copyNodeModules(codemodsPath, target);
-                    return target.resolve("node_modules");
+                    return target;
                 }
             } else if ("file".equals(uri.getScheme())) {
                 Path codemodsPath = Paths.get(uri);
                 recreateBinSymlinks(codemodsPath);
-                return codemodsPath.resolve("node_modules");
+                return codemodsPath;
             } else {
                 throw new IllegalArgumentException("Unsupported scheme: " + uri.getScheme());
             }
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static Path createDirectory(ExecutionContext ctx, String prefix) {
+        // FIXME use `ExecutionContext.WORKING_DIRECTORY`
+        return Optional.ofNullable(ctx.<Path>getMessage("org.openrewrite.workingDirectory"))
+                .map(d -> d.resolve(prefix + System.nanoTime()))
+                .map(d -> {
+                    try {
+                        return Files.createDirectory(d);
+                    } catch (IOException e) {
+                        throw new UncheckedIOException(e);
+                    }
+                })
+                .orElseGet(() -> {
+                    try {
+                        return Files.createTempDirectory(prefix);
+                    } catch (IOException e) {
+                        throw new UncheckedIOException(e);
+                    }
+                });
     }
 
     private static void copyNodeModules(Path codemodsPath, Path target) throws IOException, InterruptedException {
