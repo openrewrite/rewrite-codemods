@@ -163,9 +163,8 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
                 }
             } else if ("file".equals(uri.getScheme())) {
                 Path codemodsPath = Paths.get(uri);
-                Path target = Files.createTempDirectory("codemods");
-                copyNodeModules(codemodsPath, target);
-                return target.resolve("node_modules");
+                recreateBinSymlinks(codemodsPath);
+                return codemodsPath.resolve("node_modules");
             } else {
                 throw new IllegalArgumentException("Unsupported scheme: " + uri.getScheme());
             }
@@ -178,7 +177,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         try (Stream<Path> stream = Files.walk(codemodsPath)) {
             stream.forEach(source -> {
                 try {
-                    Files.copy(source, target.resolve(codemodsPath.relativize(source)), StandardCopyOption.REPLACE_EXISTING);
+                    Files.copy(source, target.resolve(codemodsPath.relativize(source).toString()), StandardCopyOption.REPLACE_EXISTING);
                 } catch (Exception e) {
                     throw new RuntimeException(e.getMessage(), e);
                 }
