@@ -1,8 +1,0 @@
-{
-  "name": "rewrite-codemods",
-  "version": "1.0.0",
-  "description": "Codemods for OpenRewrite",
-  "dependencies": {
-    "@next/codemod": "^14.0.3"
-  }
-}

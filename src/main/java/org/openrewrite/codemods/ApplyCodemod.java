@@ -27,16 +27,19 @@ import org.openrewrite.tree.ParseError;
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.*;
 import java.util.*;
+import java.util.stream.Stream;
 
 import static java.util.Collections.emptyList;
 
 @Value
 @EqualsAndHashCode(callSuper = true)
 public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
+    private static final String NODE_MODULES_KEY = ApplyCodemod.class.getName() + ".NODE_MODULES";
+
     @Option(displayName = "NPM package containing the codemod",
             description = "The codemod's NPM package name.",
             example = "@next/codemod")
@@ -97,19 +100,18 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
     @Override
     public Collection<? extends SourceFile> generate(Accumulator acc, ExecutionContext ctx) {
-        String template = Optional.ofNullable(codemodCommandTemplate).orElse("${codemodArgs}");
+        Path nodeModules = ctx.getMessage(NODE_MODULES_KEY);
+        if (nodeModules == null) {
+            ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractNodeModules());
+        }
+
         List<String> command = new ArrayList<>();
         command.add("node");
         // FIXME extract from jar
-        Path nodeModules = Paths.get("node_modules").toAbsolutePath();
         // FIXME parse `bin` from `@next/codemod/package.json`
-        command.add(nodeModules.resolve(npmPackage).toString());
-        if (npmPackageVersion != null) {
-            command.add("--version");
-            command.add(npmPackageVersion);
-        }
-        command.add(nodeModules.resolve("@next/codemod/bin/next-codemod.js").toString());
+        command.add(nodeModules.resolve(npmPackage).resolve("bin/next-codemod.js").toString());
 
+        String template = Optional.ofNullable(codemodCommandTemplate).orElse("${codemodArgs}");
         for (String part : template.split(" ")) {
             part = part.trim();
             int argsIdx = part.indexOf("${codemodArgs}");
@@ -147,6 +149,67 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         }
         // FIXME check for generated files
         return emptyList();
+    }
+
+    private Path extractNodeModules() {
+        try {
+            URI uri = Objects.requireNonNull(ApplyCodemod.class.getClassLoader().getResource("codemods")).toURI();
+            if ("jar".equals(uri.getScheme())) {
+                try (FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null)) {
+                    Path codemodsPath = fileSystem.getPath("codemods");
+                    Path target = Files.createTempDirectory("codemods");
+                    copyNodeModules(codemodsPath, target);
+                    return target.resolve("node_modules");
+                }
+            } else if ("file".equals(uri.getScheme())) {
+                Path codemodsPath = Paths.get(uri);
+                Path target = Files.createTempDirectory("codemods");
+                copyNodeModules(codemodsPath, target);
+                return target.resolve("node_modules");
+            } else {
+                throw new IllegalArgumentException("Unsupported scheme: " + uri.getScheme());
+            }
+        } catch (URISyntaxException | IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void copyNodeModules(Path codemodsPath, Path target) throws IOException, InterruptedException {
+        try (Stream<Path> stream = Files.walk(codemodsPath)) {
+            stream.forEach(source -> {
+                try {
+                    Files.copy(source, target.resolve(codemodsPath.relativize(source)), StandardCopyOption.REPLACE_EXISTING);
+                } catch (Exception e) {
+                    throw new RuntimeException(e.getMessage(), e);
+                }
+            });
+        }
+        recreateBinSymlinks(target);
+    }
+
+    /**
+     * The `node_modules/.bin` directory contains symlinks (corresponding to the `bin` key in the package's `package.json`)
+     * that point to the package's corresponding script. These must exist in order for the codemod to work properly.
+     * <p>
+     * Since Gradle won't preserve relative symlinks properly (see https://github.com/gradle/gradle/issues/3982) and
+     * jar files cannot contain symlinks, these must be recreated manually.
+     */
+    private static void recreateBinSymlinks(Path target) throws IOException, InterruptedException {
+        try (Stream<Path> files = Files.list(target.resolve("node_modules/.bin"))) {
+            files.forEach(f -> {
+                try {
+                    Files.delete(f);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+        // FIXME instead of using `npm install` to recreate the symlinks, consider processing the package.json files
+        ProcessBuilder builder = new ProcessBuilder();
+        builder.command("npm", "install");
+        builder.directory(target.toFile());
+        Process process = builder.start();
+        process.waitFor();
     }
 
     @Override
