@@ -16,6 +16,8 @@
 package org.openrewrite.codemods;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Value;
 import org.openrewrite.*;
 import org.openrewrite.internal.lang.Nullable;
 import org.openrewrite.quark.Quark;
@@ -31,6 +33,8 @@ import java.util.*;
 
 import static java.util.Collections.emptyList;
 
+@Value
+@EqualsAndHashCode(callSuper = true)
 public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     @Option(displayName = "NPM package containing the codemod",
             description = "The codemod's NPM package name.",
@@ -46,7 +50,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
     @Option(displayName = "Codemod command arguments",
             description = "Arguments which get passed to the codemod command.",
-            example = "built-in-next-font,${repoDir},--force",
+            example = "built-in-next-font, ${repoDir}, --force",
             required = false)
     @Nullable
     List<String> codemodArgs;
@@ -92,7 +96,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
     @Override
     public Collection<? extends SourceFile> generate(Accumulator acc, ExecutionContext ctx) {
-        String template = Optional.ofNullable(codemodCommandTemplate).orElse("npx ${npmPackage}@${npmPackageVersion} ${codemodArgs}");
+        String template = Optional.ofNullable(codemodCommandTemplate).orElse("${codemodArgs}");
         List<String> command = new ArrayList<>();
         command.add("npx");
         command.add(npmPackage + '@' + Optional.ofNullable(npmPackageVersion).orElse("latest"));

@@ -1,5 +1,6 @@
 plugins {
     id("org.openrewrite.build.recipe-library") version "latest.release"
+    id("com.github.node-gradle.node") version "latest.release"
 }
 
 // Set as appropriate for your organization
