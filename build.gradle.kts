@@ -31,7 +31,7 @@ tasks.named("npmInstall") {
     dependsOn(tasks.named("processResources"))
 }
 
-tasks.named<Jar>("jar") {
+tasks.named("classes") {
     dependsOn(tasks.named("npmInstall"))
 }
 
