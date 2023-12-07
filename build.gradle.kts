@@ -18,17 +18,26 @@ dependencies {
     testImplementation("org.openrewrite:rewrite-test")
 }
 
-// We don't care about publishing javadocs anywhere, so don't waste time building them
-tasks.withType<Javadoc>().configureEach {
-    enabled = false
+license {
+    exclude("**/package.json")
+    exclude("**/package-lock.json")
 }
 
 node {
     nodeProjectDir.set(file("build/resources/main/codemods"))
 }
 
-tasks.named("processResources") {
-    dependsOn(tasks.withType(NpmInstallTask::class.java))
+tasks.named("npmInstall") {
+    dependsOn(tasks.named("processResources"))
+}
+
+tasks.named<Jar>("jar") {
+    dependsOn(tasks.named("npmInstall"))
+}
+
+// We don't care about publishing javadocs anywhere, so don't waste time building them
+tasks.withType<Javadoc>().configureEach {
+    enabled = false
 }
 
 tasks.named<Jar>("sourcesJar") {
