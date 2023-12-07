@@ -32,3 +32,7 @@ afterEvaluate {
 tasks.withType<Javadoc>().configureEach {
     enabled = false
 }
+
+node {
+    nodeProjectDir.set(file("src/main/resources/codemods"))
+}
