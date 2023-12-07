@@ -15,8 +15,8 @@
  */
 package org.openrewrite.codemods;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
 import org.openrewrite.test.RewriteTest;
 
 import static org.openrewrite.test.SourceSpecs.text;
@@ -24,7 +24,7 @@ import static org.openrewrite.test.SourceSpecs.text;
 public class NextJsCodemodsTest implements RewriteTest {
 
     @Test
-    @Disabled("Requires NodeJS to be installed")
+    @DisabledIfEnvironmentVariable(named = "CI", matches = "true")
     void builtInNextFont() {
         rewriteRun(
           spec -> spec.recipeFromResource("/META-INF/rewrite/nextjs.yml", "org.openrewrite.codemods.nextjs.v13.2.BuiltInNextFont"),
