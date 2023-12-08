@@ -18,20 +18,21 @@ type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.nextjs.NextJsCodemods
 displayName: Next.js Codemods for API Updates
 description: >
-  Next.js provides Codemod transformations to help upgrade your Next.js codebase when an API is updated or deprecated.
+  Next.js provides Codemod transformations to help upgrade your [Next.js](https://nextjs.org/) codebase when an API is
+  updated or deprecated.
 tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.nextjs.v14.NextOgImport
   - org.openrewrite.codemods.nextjs.v13.2.BuiltInNextFont
+  - org.openrewrite.codemods.nextjs.v14.NextOgImport
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.nextjs.v14.NextOgImport
 displayName: Migrate `ImageResponse` imports
 description: >
-  This codemod moves transforms imports from next/server to next/og for usage of [Dynamic OG Image Generation]
+  This codemod moves transforms imports from `next/server` to `next/og for` usage of [Dynamic OG Image Generation]
   (https://nextjs.org/docs/app/building-your-application/upgrading/codemods#next-og-import).
   
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#migrate-imageresponse-imports)
@@ -44,15 +45,15 @@ recipeList:
       npmPackage: "@next/codemod"
       codemodArgs:
         - next-og-import
-        - ${repoDir}
-        - --force
+        - "${repoDir}"
+        - "--force"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.nextjs.v13.2.BuiltInNextFont
 displayName: Use Built-in Font
 description: >
-  This codemod uninstalls the @next/font package and transforms @next/font imports into the built-in next/font.
+  This codemod uninstalls the `@next/font` package and transforms `@next/font` imports into the built-in `next/font`.
   
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#built-in-next-font)
     for more information.
@@ -64,5 +65,5 @@ recipeList:
       npmPackage: "@next/codemod"
       codemodArgs:
         - built-in-next-font
-        - ${repoDir}
-        - --force
+        - "${repoDir}"
+        - "--force"

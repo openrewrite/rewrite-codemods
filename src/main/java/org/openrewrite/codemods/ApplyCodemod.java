@@ -135,8 +135,8 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             builder.command(command);
             builder.directory(acc.getDirectory().toFile());
             // FIXME do something more meaningful with the output
-//            builder.redirectOutput(new File("/tmp/out.txt"));
-//            builder.redirectError(new File("/tmp/err.txt"));
+            builder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+            builder.redirectError(ProcessBuilder.Redirect.INHERIT);
             Process process = builder.start();
             process.waitFor();
         } catch (IOException e) {
@@ -224,6 +224,8 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         ProcessBuilder builder = new ProcessBuilder();
         builder.command("npm", "install");
         builder.directory(target.toFile());
+        builder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+        builder.redirectError(ProcessBuilder.Redirect.INHERIT);
         Process process = builder.start();
         if (process.waitFor() != 0) {
             throw new RuntimeException("`npm install` failed in: " + target);
