@@ -24,7 +24,6 @@ import org.openrewrite.quark.Quark;
 import org.openrewrite.text.PlainText;
 import org.openrewrite.tree.ParseError;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.net.URI;
@@ -86,7 +85,9 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         return new TreeVisitor<Tree, ExecutionContext>() {
             @Override
             public @Nullable Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
-                if (tree instanceof SourceFile && !(tree instanceof Quark) && !(tree instanceof ParseError)) {
+                if (tree instanceof SourceFile && !(tree instanceof Quark) && !(tree instanceof ParseError) &&
+                    !tree.getClass().getName().equals("org.openrewrite.java.tree.J$CompilationUnit")) {
+                    // FIXME filter out more source types; possibly only write plain text, json, and yaml?
                     acc.writeSource((SourceFile) tree);
                 }
                 return tree;
@@ -134,8 +135,8 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             builder.command(command);
             builder.directory(acc.getDirectory().toFile());
             // FIXME do something more meaningful with the output
-            builder.redirectOutput(new File("/tmp/out.txt"));
-            builder.redirectError(new File("/tmp/err.txt"));
+//            builder.redirectOutput(new File("/tmp/out.txt"));
+//            builder.redirectError(new File("/tmp/err.txt"));
             Process process = builder.start();
             process.waitFor();
         } catch (IOException e) {
@@ -152,7 +153,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             URI uri = Objects.requireNonNull(ApplyCodemod.class.getClassLoader().getResource("codemods")).toURI();
             if ("jar".equals(uri.getScheme())) {
                 try (FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null)) {
-                    Path codemodsPath = fileSystem.getPath("codemods");
+                    Path codemodsPath = fileSystem.getPath("/codemods");
                     Path target = createDirectory(ctx, "rewrite-codemods");
                     copyNodeModules(codemodsPath, target);
                     return target;
@@ -224,7 +225,9 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         builder.command("npm", "install");
         builder.directory(target.toFile());
         Process process = builder.start();
-        process.waitFor();
+        if (process.waitFor() != 0) {
+            throw new RuntimeException("`npm install` failed in: " + target);
+        }
     }
 
     @Override
