@@ -88,9 +88,9 @@ publishing {
                 }
             }
             scm {
-                connection.set("scm:git:git://github.com/openrewrite/rewrite-codemods.git")
-                developerConnection.set("scm:git:ssh://github.com:openrewrite/rewrite-codemods.git")
-                url.set("https://github.com/openrewrite/rewrite-codemods/tree/main")
+                connection.set("scm:git:git://github.com/moderneinc/rewrite-codemods.git")
+                developerConnection.set("scm:git:ssh://github.com:moderneinc/rewrite-codemods.git")
+                url.set("https://github.com/moderneinc/rewrite-codemods/tree/main")
             }
         }
     }
