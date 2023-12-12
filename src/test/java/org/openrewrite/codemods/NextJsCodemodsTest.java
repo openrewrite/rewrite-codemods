@@ -27,7 +27,7 @@ public class NextJsCodemodsTest implements RewriteTest {
     @DisabledIfEnvironmentVariable(named = "CI", matches = "true")
     void builtInNextFont() {
         rewriteRun(
-          spec -> spec.recipeFromResource("/META-INF/rewrite/nextjs.yml", "org.openrewrite.codemods.nextjs.v13.2.BuiltInNextFont"),
+          spec -> spec.recipeFromResource("/META-INF/rewrite/nextjs.yml", "org.openrewrite.codemods.nextjs.v13_2.BuiltInNextFont"),
           text(
             //language=js
             """

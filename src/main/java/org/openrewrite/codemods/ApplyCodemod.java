@@ -51,6 +51,12 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     @Nullable
     String npmPackageVersion;
 
+    @Option(displayName = "Codemod transform",
+            description = "Transform to be applied using `jscodeshift`.",
+            example = "built-in-next-font",
+            required = false)
+    String transform;
+
     @Option(displayName = "Codemod command arguments",
             description = "Arguments which get passed to the codemod command.",
             example = "built-in-next-font, ${repoDir}, --force",
@@ -59,8 +65,8 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     List<String> codemodArgs;
 
     @Option(displayName = "Codemod command template",
-            description = "Template for the command to execute (defaults to `${codemodArgs}`).",
-            example = "${codemodArgs}",
+            description = "Template for the command to execute (defaults to `${nodeModules}/.bin/jscodeshift -t ${npmPackage}/transforms/${transform} ${codemodArgs}`).",
+            example = "${nodeModules}/.bin/jscodeshift -t ${npmPackage}/transforms/${transform} ${codemodArgs}",
             required = false)
     @Nullable
     String codemodCommandTemplate;
@@ -106,11 +112,13 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         command.add("node");
         // FIXME extract from jar
         // FIXME parse `bin` from `@next/codemod/package.json`
-        command.add(nodeModules.resolve(npmPackage).resolve("bin/next-codemod.js").toString());
-
-        String template = Optional.ofNullable(codemodCommandTemplate).orElse("${codemodArgs}");
+        String template = Optional.ofNullable(codemodCommandTemplate).orElse("${nodeModules}/.bin/jscodeshift -t ${npmPackage}/transforms/${transform} ${codemodArgs}");
         for (String part : template.split(" ")) {
             part = part.trim();
+            part = part.replace("${nodeModules}", nodeModules.toString());
+            part = part.replace("${npmPackage}", npmPackage);
+            part = part.replace("${transform}", transform);
+            part = part.replace("${repoDir}", ".");
             int argsIdx = part.indexOf("${codemodArgs}");
             if (argsIdx != -1) {
                 String prefix = part.substring(0, argsIdx);
