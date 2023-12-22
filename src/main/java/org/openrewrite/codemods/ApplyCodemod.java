@@ -65,8 +65,8 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     List<String> codemodArgs;
 
     @Option(displayName = "Codemod command template",
-            description = "Template for the command to execute (defaults to `${nodeModules}/.bin/jscodeshift -t ${npmPackage}/transforms/${transform} ${codemodArgs}`).",
-            example = "${nodeModules}/.bin/jscodeshift -t ${npmPackage}/transforms/${transform} ${codemodArgs}",
+            description = "Template for the command to execute (defaults to `${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}`).",
+            example = "${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}",
             required = false)
     @Nullable
     String codemodCommandTemplate;
@@ -112,7 +112,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         command.add("node");
         // FIXME extract from jar
         // FIXME parse `bin` from `@next/codemod/package.json`
-        String template = Optional.ofNullable(codemodCommandTemplate).orElse("${nodeModules}/.bin/jscodeshift -t ${npmPackage}/transforms/${transform} ${codemodArgs}");
+        String template = Optional.ofNullable(codemodCommandTemplate).orElse("${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}");
         for (String part : template.split(" ")) {
             part = part.trim();
             part = part.replace("${nodeModules}", nodeModules.toString());
