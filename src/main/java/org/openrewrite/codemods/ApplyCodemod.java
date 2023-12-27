@@ -31,6 +31,7 @@ import java.io.UncheckedIOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
@@ -42,6 +43,7 @@ import static java.util.Collections.emptyList;
 public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
     private static final String FIRST_CODEMOD = ApplyCodemod.class.getName() + ".FIRST_CODEMOD";
+    private static final String PREVIOUS_CODEMOD = ApplyCodemod.class.getName() + ".PREVIOUS_CODEMOD";
     private static final String INIT_REPO_DIR = ApplyCodemod.class.getName() + ".INIT_REPO_DIR";
     private static final String NODE_MODULES_KEY = ApplyCodemod.class.getName() + ".NODE_MODULES";
 
@@ -89,11 +91,12 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
     @Override
     public Accumulator getInitialValue(ExecutionContext ctx) {
+        Path directory = createDirectory(ctx, "codemods-repo");
         if (ctx.getMessage(INIT_REPO_DIR) == null) {
-            ctx.putMessage(INIT_REPO_DIR, createDirectory(ctx, "codemods-repo"));
+            ctx.putMessage(INIT_REPO_DIR, directory);
             ctx.putMessage(FIRST_CODEMOD, ctx.getCycleDetails().getRecipePosition());
         }
-        return new Accumulator(ctx.getMessage(INIT_REPO_DIR));
+        return new Accumulator(directory);
     }
 
     @Override
@@ -123,17 +126,46 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
     @Override
     public Collection<? extends SourceFile> generate(Accumulator acc, ExecutionContext ctx) {
+        List<String> command = codemodCommand(acc, ctx);
+
+        Path previous = ctx.getMessage(PREVIOUS_CODEMOD);
+        if (previous != null) {
+            try {
+                Files.walkFileTree(previous, new SimpleFileVisitor<Path>() {
+                    @Override
+                    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                        Path target = acc.directory.resolve(previous.relativize(dir));
+                        if (!target.equals(acc.directory)) {
+                            Files.createDirectory(target);
+                        }
+                        return FileVisitResult.CONTINUE;
+                    }
+
+                    @Override
+                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                        Path target = acc.directory.resolve(previous.relativize(file));
+                        Files.copy(file, target);
+                        // TODO cleanup
+                        acc.modificationTimestamps.put(target, Files.getLastModifiedTime(target).toMillis());
+                        return super.visitFile(file, attrs);
+                    }
+                });
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
+        }
+
+        runCodemod(acc.getDirectory(), command);
+        ctx.putMessage(PREVIOUS_CODEMOD, acc.getDirectory());
+
+        // FIXME check for generated files
+        return emptyList();
+    }
+
+    private List<String> codemodCommand(Accumulator acc, ExecutionContext ctx) {
         Path nodeModules = ctx.getMessage(NODE_MODULES_KEY);
         if (nodeModules == null) {
             ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractCodemods(ctx).resolve("node_modules"));
-        }
-        String parser;
-        if (acc.extensionCounts.containsKey("tsx")) {
-            parser = "tsx";
-        } else if (acc.extensionCounts.containsKey("ts")) {
-            parser = "ts";
-        } else {
-            parser = "babel";
         }
 
         List<String> command = new ArrayList<>();
@@ -147,7 +179,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             part = part.replace("${npmPackage}", npmPackage);
             part = part.replace("${transform}", transform);
             part = part.replace("${repoDir}", ".");
-            part = part.replace("${parser}", parser);
+            part = part.replace("${parser}", acc.parser());
             int argsIdx = part.indexOf("${codemodArgs}");
             if (argsIdx != -1) {
                 String prefix = part.substring(0, argsIdx);
@@ -166,11 +198,14 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
                 command.add(part);
             }
         }
+        return command;
+    }
 
+    private static void runCodemod(Path dir, List<String> command) {
         try {
             ProcessBuilder builder = new ProcessBuilder();
             builder.command(command);
-            builder.directory(acc.getDirectory().toFile());
+            builder.directory(dir.toFile());
             // FIXME do something more meaningful with the output
             File nullFile = new File((System.getProperty("os.name").startsWith("Windows") ? "NUL" : "/dev/null"));
             builder.redirectOutput(ProcessBuilder.Redirect.appendTo(nullFile));
@@ -182,8 +217,6 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        // FIXME check for generated files
-        return emptyList();
     }
 
     private Path extractCodemods(ExecutionContext ctx) {
@@ -302,14 +335,21 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         final Map<Path, Long> modificationTimestamps = new HashMap<>();
         final Map<String, AtomicInteger> extensionCounts = new HashMap<>();
 
+        public String parser() {
+            if (extensionCounts.containsKey("tsx")) {
+                return "tsx";
+            } else if (extensionCounts.containsKey("ts")) {
+                return "ts";
+            } else {
+                return "babel";
+            }
+        }
         public void writeSource(SourceFile tree) {
             try {
                 Path path = resolvedPath(tree);
                 Files.createDirectories(path.getParent());
                 Path written = Files.write(path, tree.printAllAsBytes());
                 modificationTimestamps.put(written, Files.getLastModifiedTime(written).toMillis());
-                // TODO instead use life cycle hook or dedicated directory provided by recipe scheduler
-                written.toFile().deleteOnExit();
             } catch (IOException e) {
                 throw new UncheckedIOException(e);
             }
