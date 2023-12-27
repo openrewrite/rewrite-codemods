@@ -130,29 +130,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
         Path previous = ctx.getMessage(PREVIOUS_CODEMOD);
         if (previous != null) {
-            try {
-                Files.walkFileTree(previous, new SimpleFileVisitor<Path>() {
-                    @Override
-                    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                        Path target = acc.directory.resolve(previous.relativize(dir));
-                        if (!target.equals(acc.directory)) {
-                            Files.createDirectory(target);
-                        }
-                        return FileVisitResult.CONTINUE;
-                    }
-
-                    @Override
-                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                        Path target = acc.directory.resolve(previous.relativize(file));
-                        Files.copy(file, target);
-                        // TODO cleanup
-                        acc.modificationTimestamps.put(target, Files.getLastModifiedTime(target).toMillis());
-                        return super.visitFile(file, attrs);
-                    }
-                });
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
+            acc.copyFromPrevious(previous);
         }
 
         runCodemod(acc.getDirectory(), command);
@@ -334,6 +312,34 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         final Path directory;
         final Map<Path, Long> modificationTimestamps = new HashMap<>();
         final Map<String, AtomicInteger> extensionCounts = new HashMap<>();
+
+        private void copyFromPrevious(Path previous) {
+            try {
+                Files.walkFileTree(previous, new SimpleFileVisitor<Path>() {
+                    @Override
+                    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                        Path target = directory.resolve(previous.relativize(dir));
+                        if (!target.equals(directory)) {
+                            Files.createDirectory(target);
+                        }
+                        return FileVisitResult.CONTINUE;
+                    }
+
+                    @Override
+                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                        try {
+                            Path target = directory.resolve(previous.relativize(file));
+                            Files.copy(file, target);
+                            modificationTimestamps.put(target, Files.getLastModifiedTime(target).toMillis());
+                        } catch (NoSuchFileException ignore) {
+                        }
+                        return FileVisitResult.CONTINUE;
+                    }
+                });
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
+        }
 
         public String parser() {
             if (extensionCounts.containsKey("tsx")) {
