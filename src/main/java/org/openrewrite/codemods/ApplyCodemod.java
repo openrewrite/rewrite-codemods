@@ -25,6 +25,7 @@ import org.openrewrite.scheduling.WorkingDirectoryExecutionContextView;
 import org.openrewrite.text.PlainText;
 import org.openrewrite.tree.ParseError;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.net.URI;
@@ -100,20 +101,19 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         return new TreeVisitor<Tree, ExecutionContext>() {
             @Override
             public @Nullable Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
-                // only extract initial source files for first codemod recipe
-                if (!Objects.equals(ctx.getMessage(FIRST_CODEMOD), ctx.getCycleDetails().getRecipePosition())) {
-                    return tree;
-                }
-
                 if (tree instanceof SourceFile && !(tree instanceof Quark) && !(tree instanceof ParseError) &&
                     !tree.getClass().getName().equals("org.openrewrite.java.tree.J$CompilationUnit")) {
                     SourceFile sourceFile = (SourceFile) tree;
-                    // FIXME filter out more source types; possibly only write plain text, json, and yaml?
-                    acc.writeSource(sourceFile);
                     String fileName = sourceFile.getSourcePath().getFileName().toString();
                     if (fileName.indexOf('.') > 0) {
                         String extension = fileName.substring(fileName.lastIndexOf('.') + 1);
                         acc.extensionCounts.computeIfAbsent(extension, e -> new AtomicInteger(0)).incrementAndGet();
+                    }
+
+                    // only extract initial source files for first codemod recipe
+                    if (Objects.equals(ctx.getMessage(FIRST_CODEMOD), ctx.getCycleDetails().getRecipePosition())) {
+                        // FIXME filter out more source types; possibly only write plain text, json, and yaml?
+                        acc.writeSource(sourceFile);
                     }
                 }
                 return tree;
@@ -172,8 +172,9 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             builder.command(command);
             builder.directory(acc.getDirectory().toFile());
             // FIXME do something more meaningful with the output
-            builder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-            builder.redirectError(ProcessBuilder.Redirect.INHERIT);
+            File nullFile = new File((System.getProperty("os.name").startsWith("Windows") ? "NUL" : "/dev/null"));
+            builder.redirectOutput(ProcessBuilder.Redirect.appendTo(nullFile));
+            builder.redirectError(ProcessBuilder.Redirect.appendTo(nullFile));
             Process process = builder.start();
             process.waitFor();
         } catch (IOException e) {
