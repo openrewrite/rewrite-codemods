@@ -21,6 +21,7 @@ import lombok.Value;
 import org.openrewrite.*;
 import org.openrewrite.internal.lang.Nullable;
 import org.openrewrite.quark.Quark;
+import org.openrewrite.scheduling.WorkingDirectoryExecutionContextView;
 import org.openrewrite.text.PlainText;
 import org.openrewrite.tree.ParseError;
 
@@ -38,6 +39,9 @@ import static java.util.Collections.emptyList;
 @Value
 @EqualsAndHashCode(callSuper = true)
 public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
+
+    private static final String FIRST_CODEMOD = ApplyCodemod.class.getName() + ".FIRST_CODEMOD";
+    private static final String INIT_REPO_DIR = ApplyCodemod.class.getName() + ".INIT_REPO_DIR";
     private static final String NODE_MODULES_KEY = ApplyCodemod.class.getName() + ".NODE_MODULES";
 
     @Option(displayName = "NPM package containing the codemod",
@@ -84,7 +88,11 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
     @Override
     public Accumulator getInitialValue(ExecutionContext ctx) {
-        return new Accumulator(createDirectory(ctx, "codemods-repo"));
+        if (ctx.getMessage(INIT_REPO_DIR) == null) {
+            ctx.putMessage(INIT_REPO_DIR, createDirectory(ctx, "codemods-repo"));
+            ctx.putMessage(FIRST_CODEMOD, ctx.getCycleDetails().getRecipePosition());
+        }
+        return new Accumulator(ctx.getMessage(INIT_REPO_DIR));
     }
 
     @Override
@@ -92,6 +100,11 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         return new TreeVisitor<Tree, ExecutionContext>() {
             @Override
             public @Nullable Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
+                // only extract initial source files for first codemod recipe
+                if (!Objects.equals(ctx.getMessage(FIRST_CODEMOD), ctx.getCycleDetails().getRecipePosition())) {
+                    return tree;
+                }
+
                 if (tree instanceof SourceFile && !(tree instanceof Quark) && !(tree instanceof ParseError) &&
                     !tree.getClass().getName().equals("org.openrewrite.java.tree.J$CompilationUnit")) {
                     SourceFile sourceFile = (SourceFile) tree;
@@ -195,8 +208,8 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     }
 
     private static Path createDirectory(ExecutionContext ctx, String prefix) {
-        // FIXME use `ExecutionContext.WORKING_DIRECTORY`
-        return Optional.ofNullable(ctx.<Path>getMessage("org.openrewrite.workingDirectory"))
+        WorkingDirectoryExecutionContextView view = WorkingDirectoryExecutionContextView.view(ctx);
+        return Optional.of(view.getWorkingDirectory())
                 .map(d -> d.resolve(prefix + System.nanoTime()))
                 .map(d -> {
                     try {
