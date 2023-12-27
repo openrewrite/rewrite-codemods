@@ -30,6 +30,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.*;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 import static java.util.Collections.emptyList;
@@ -93,8 +94,14 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             public @Nullable Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
                 if (tree instanceof SourceFile && !(tree instanceof Quark) && !(tree instanceof ParseError) &&
                     !tree.getClass().getName().equals("org.openrewrite.java.tree.J$CompilationUnit")) {
+                    SourceFile sourceFile = (SourceFile) tree;
                     // FIXME filter out more source types; possibly only write plain text, json, and yaml?
-                    acc.writeSource((SourceFile) tree);
+                    acc.writeSource(sourceFile);
+                    String fileName = sourceFile.getSourcePath().getFileName().toString();
+                    if (fileName.indexOf('.') > 0) {
+                        String extension = fileName.substring(fileName.lastIndexOf('.') + 1);
+                        acc.extensionCounts.computeIfAbsent(extension, e -> new AtomicInteger(0)).incrementAndGet();
+                    }
                 }
                 return tree;
             }
@@ -106,6 +113,14 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         Path nodeModules = ctx.getMessage(NODE_MODULES_KEY);
         if (nodeModules == null) {
             ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractCodemods(ctx).resolve("node_modules"));
+        }
+        String parser;
+        if (acc.extensionCounts.containsKey("tsx")) {
+            parser = "tsx";
+        } else if (acc.extensionCounts.containsKey("ts")) {
+            parser = "ts";
+        } else {
+            parser = "babel";
         }
 
         List<String> command = new ArrayList<>();
@@ -119,6 +134,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             part = part.replace("${npmPackage}", npmPackage);
             part = part.replace("${transform}", transform);
             part = part.replace("${repoDir}", ".");
+            part = part.replace("${parser}", parser);
             int argsIdx = part.indexOf("${codemodArgs}");
             if (argsIdx != -1) {
                 String prefix = part.substring(0, argsIdx);
@@ -270,6 +286,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     public static class Accumulator {
         final Path directory;
         final Map<Path, Long> modificationTimestamps = new HashMap<>();
+        final Map<String, AtomicInteger> extensionCounts = new HashMap<>();
 
         public void writeSource(SourceFile tree) {
             try {
