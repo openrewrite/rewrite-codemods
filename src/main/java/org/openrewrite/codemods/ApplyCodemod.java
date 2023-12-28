@@ -245,7 +245,8 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         try (Stream<Path> stream = Files.walk(codemodsPath)) {
             stream.forEach(source -> {
                 try {
-                    Files.copy(source, target.resolve(codemodsPath.relativize(source)), StandardCopyOption.REPLACE_EXISTING);
+                    // IMPORTANT: `toString()` call here is required as paths have different file systems
+                    Files.copy(source, target.resolve(codemodsPath.relativize(source).toString()), StandardCopyOption.REPLACE_EXISTING);
                 } catch (Exception e) {
                     throw new RuntimeException(e.getMessage(), e);
                 }
