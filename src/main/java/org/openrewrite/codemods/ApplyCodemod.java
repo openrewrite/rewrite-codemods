@@ -133,7 +133,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         List<String> command = codemodCommand(acc, ctx);
 
         Path previous = ctx.getMessage(PREVIOUS_CODEMOD);
-        if (previous != null) {
+        if (previous != null && !Objects.equals(ctx.getMessage(FIRST_CODEMOD), ctx.getCycleDetails().getRecipePosition())) {
             acc.copyFromPrevious(previous);
         }
 
