@@ -122,6 +122,8 @@ class NodeModules {
                             if (entry.getValue() instanceof TextNode) {
                                 Path binScript = p.resolveSibling(entry.getValue().asText());
                                 if (Files.exists(binScript)) {
+                                    //noinspection ResultOfMethodCallIgnored
+                                    binScript.toFile().setExecutable(true);
                                     Path symlink = binDir.resolve(entry.getKey());
                                     Files.createSymbolicLink(symlink, binDir.relativize(binScript));
                                 }
