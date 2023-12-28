@@ -45,7 +45,9 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
     @Option(displayName = "NPM package containing the codemod",
             description = "The codemod's NPM package name.",
-            example = "@next/codemod")
+            example = "@next/codemod",
+            required = false)
+    @Nullable
     String npmPackage;
 
     @Option(displayName = "Codemod NPM package version",
@@ -73,7 +75,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             example = "${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}",
             required = false)
     @Nullable
-    String codemodCommandTemplate;
+    String commandTemplate;
 
     @Override
     public String getDisplayName() {
@@ -141,11 +143,13 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
 
         List<String> command = new ArrayList<>();
         command.add("node");
-        String template = Optional.ofNullable(codemodCommandTemplate).orElse("${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}");
+        String template = Optional.ofNullable(commandTemplate).orElse("${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}");
         for (String part : template.split(" ")) {
             part = part.trim();
             part = part.replace("${nodeModules}", nodeModules.toString());
-            part = part.replace("${npmPackage}", npmPackage);
+            if (npmPackage != null) {
+                part = part.replace("${npmPackage}", npmPackage);
+            }
             part = part.replace("${transform}", transform);
             part = part.replace("${repoDir}", ".");
             part = part.replace("${parser}", acc.parser());
