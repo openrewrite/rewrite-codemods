@@ -15,10 +15,6 @@
  */
 package org.openrewrite.codemods;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.node.TextNode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
@@ -32,13 +28,10 @@ import org.openrewrite.tree.ParseError;
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Stream;
 
 import static java.util.Collections.emptyList;
 
@@ -49,7 +42,6 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     private static final String FIRST_CODEMOD = ApplyCodemod.class.getName() + ".FIRST_CODEMOD";
     private static final String PREVIOUS_CODEMOD = ApplyCodemod.class.getName() + ".PREVIOUS_CODEMOD";
     private static final String INIT_REPO_DIR = ApplyCodemod.class.getName() + ".INIT_REPO_DIR";
-    private static final String NODE_MODULES_KEY = ApplyCodemod.class.getName() + ".NODE_MODULES";
 
     @Option(displayName = "NPM package containing the codemod",
             description = "The codemod's NPM package name.",
@@ -145,10 +137,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     }
 
     private List<String> codemodCommand(Accumulator acc, ExecutionContext ctx) {
-        Path nodeModules = ctx.getMessage(NODE_MODULES_KEY);
-        if (nodeModules == null) {
-            ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractNodeModules(ctx).resolve("node_modules"));
-        }
+        Path nodeModules = NodeModules.getNodeModulesDir(ctx);
 
         List<String> command = new ArrayList<>();
         command.add("node");
@@ -199,32 +188,10 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         }
     }
 
-    private Path extractNodeModules(ExecutionContext ctx) {
-        try {
-            URI uri = Objects.requireNonNull(ApplyCodemod.class.getClassLoader().getResource("codemods")).toURI();
-            if ("jar".equals(uri.getScheme())) {
-                try (FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null)) {
-                    Path codemodsPath = fileSystem.getPath("/codemods");
-                    Path target = createDirectory(ctx, "codemods-npm");
-                    copyNodeModules(codemodsPath, target);
-                    return target;
-                }
-            } else if ("file".equals(uri.getScheme())) {
-                Path codemodsPath = Paths.get(uri);
-                recreateBinSymlinks(codemodsPath);
-                return codemodsPath;
-            } else {
-                throw new IllegalArgumentException("Unsupported scheme: " + uri.getScheme());
-            }
-        } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private static Path createDirectory(ExecutionContext ctx, String prefix) {
         WorkingDirectoryExecutionContextView view = WorkingDirectoryExecutionContextView.view(ctx);
         return Optional.of(view.getWorkingDirectory())
-                .map(d -> d.resolve(prefix + System.nanoTime()))
+                .map(d -> d.resolve(prefix))
                 .map(d -> {
                     try {
                         return Files.createDirectory(d);
@@ -232,80 +199,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
                         throw new UncheckedIOException(e);
                     }
                 })
-                .orElseGet(() -> {
-                    try {
-                        return Files.createTempDirectory(prefix);
-                    } catch (IOException e) {
-                        throw new UncheckedIOException(e);
-                    }
-                });
-    }
-
-    private static void copyNodeModules(Path codemodsPath, Path target) throws IOException, InterruptedException {
-        try (Stream<Path> stream = Files.walk(codemodsPath)) {
-            stream.forEach(source -> {
-                try {
-                    // IMPORTANT: `toString()` call here is required as paths have different file systems
-                    Files.copy(source, target.resolve(codemodsPath.relativize(source).toString()), StandardCopyOption.REPLACE_EXISTING);
-                } catch (Exception e) {
-                    throw new RuntimeException(e.getMessage(), e);
-                }
-            });
-        }
-        recreateBinSymlinks(target);
-    }
-
-    /**
-     * The `node_modules/.bin` directory contains symlinks (corresponding to the `bin` key in the package's `package.json`)
-     * that point to the package's corresponding script. These must exist in order for the codemod to work properly.
-     * <p>
-     * Since Gradle won't preserve relative symlinks properly (see https://github.com/gradle/gradle/issues/3982) and
-     * jar files cannot contain symlinks, these must be recreated manually.
-     */
-    private static void recreateBinSymlinks(Path target) throws IOException, InterruptedException {
-        Path binDir = target.resolve("node_modules/.bin");
-
-        // delete any existing files
-        try (Stream<Path> files = Files.list(binDir)) {
-            files.forEach(f -> {
-                try {
-                    Files.delete(f);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-        }
-
-        // recreate symlinks from `package.json`
-        try (Stream<Path> packageJsonFiles = Files.walk(target.resolve("node_modules"), 2)
-                .filter(p -> p.getFileName().toString().equals("package.json"))) {
-            ObjectMapper mapper = new ObjectMapper();
-            packageJsonFiles.forEach(p -> {
-                try {
-                    JsonNode jsonNode = mapper.readTree(p.toFile());
-                    JsonNode bin = jsonNode.get("bin");
-                    if (bin instanceof ObjectNode) {
-                        for (Iterator<java.util.Map.Entry<String, JsonNode>> it = bin.fields(); it.hasNext(); ) {
-                            Map.Entry<String, JsonNode> entry = it.next();
-                            if (entry.getValue() instanceof TextNode) {
-                                Path binScript = p.resolveSibling(entry.getValue().asText());
-                                if (Files.exists(binScript)) {
-                                    Path symlink = binDir.resolve(entry.getKey());
-                                    Files.createSymbolicLink(symlink, binDir.relativize(binScript));
-                                }
-                            }
-                        }
-                    } else if (bin instanceof TextNode) {
-                        Path binScript = p.resolveSibling(bin.asText());
-                        if (Files.exists(binScript)) {
-                            Path symlink = binDir.resolve(bin.asText());
-                            Files.createSymbolicLink(symlink, binDir.relativize(binScript));
-                        }
-                    }
-                } catch (IOException ignore) {
-                }
-            });
-        }
+                .orElseThrow(() -> new IllegalStateException("Failed to create working directory for " + prefix));
     }
 
     @Override
@@ -378,6 +272,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
                 return "babel";
             }
         }
+
         public void writeSource(SourceFile tree) {
             try {
                 Path path = resolvedPath(tree);
