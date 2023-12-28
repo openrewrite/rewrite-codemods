@@ -15,6 +15,10 @@
  */
 package org.openrewrite.codemods;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.TextNode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
@@ -143,13 +147,11 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
     private List<String> codemodCommand(Accumulator acc, ExecutionContext ctx) {
         Path nodeModules = ctx.getMessage(NODE_MODULES_KEY);
         if (nodeModules == null) {
-            ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractCodemods(ctx).resolve("node_modules"));
+            ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractNodeModules(ctx).resolve("node_modules"));
         }
 
         List<String> command = new ArrayList<>();
         command.add("node");
-        // FIXME extract from jar
-        // FIXME parse `bin` from `@next/codemod/package.json`
         String template = Optional.ofNullable(codemodCommandTemplate).orElse("${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}");
         for (String part : template.split(" ")) {
             part = part.trim();
@@ -184,7 +186,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             ProcessBuilder builder = new ProcessBuilder();
             builder.command(command);
             builder.directory(dir.toFile());
-            // FIXME do something more meaningful with the output
+            // FIXME do something more meaningful with the output (including error handling)
             File nullFile = new File((System.getProperty("os.name").startsWith("Windows") ? "NUL" : "/dev/null"));
             builder.redirectOutput(ProcessBuilder.Redirect.appendTo(nullFile));
             builder.redirectError(ProcessBuilder.Redirect.appendTo(nullFile));
@@ -197,13 +199,13 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         }
     }
 
-    private Path extractCodemods(ExecutionContext ctx) {
+    private Path extractNodeModules(ExecutionContext ctx) {
         try {
             URI uri = Objects.requireNonNull(ApplyCodemod.class.getClassLoader().getResource("codemods")).toURI();
             if ("jar".equals(uri.getScheme())) {
                 try (FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null)) {
                     Path codemodsPath = fileSystem.getPath("/codemods");
-                    Path target = createDirectory(ctx, "rewrite-codemods");
+                    Path target = createDirectory(ctx, "codemods-npm");
                     copyNodeModules(codemodsPath, target);
                     return target;
                 }
@@ -243,7 +245,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
         try (Stream<Path> stream = Files.walk(codemodsPath)) {
             stream.forEach(source -> {
                 try {
-                    Files.copy(source, target.resolve(codemodsPath.relativize(source).toString()), StandardCopyOption.REPLACE_EXISTING);
+                    Files.copy(source, target.resolve(codemodsPath.relativize(source)), StandardCopyOption.REPLACE_EXISTING);
                 } catch (Exception e) {
                     throw new RuntimeException(e.getMessage(), e);
                 }
@@ -260,7 +262,10 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
      * jar files cannot contain symlinks, these must be recreated manually.
      */
     private static void recreateBinSymlinks(Path target) throws IOException, InterruptedException {
-        try (Stream<Path> files = Files.list(target.resolve("node_modules/.bin"))) {
+        Path binDir = target.resolve("node_modules/.bin");
+
+        // delete any existing files
+        try (Stream<Path> files = Files.list(binDir)) {
             files.forEach(f -> {
                 try {
                     Files.delete(f);
@@ -269,15 +274,36 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
                 }
             });
         }
-        // FIXME instead of using `npm install` to recreate the symlinks, consider processing the package.json files
-        ProcessBuilder builder = new ProcessBuilder();
-        builder.command("npm", "install");
-        builder.directory(target.toFile());
-        builder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-        builder.redirectError(ProcessBuilder.Redirect.INHERIT);
-        Process process = builder.start();
-        if (process.waitFor() != 0) {
-            throw new RuntimeException("`npm install` failed in: " + target);
+
+        // recreate symlinks from `package.json`
+        try (Stream<Path> packageJsonFiles = Files.walk(target.resolve("node_modules"), 2)
+                .filter(p -> p.getFileName().toString().equals("package.json"))) {
+            ObjectMapper mapper = new ObjectMapper();
+            packageJsonFiles.forEach(p -> {
+                try {
+                    JsonNode jsonNode = mapper.readTree(p.toFile());
+                    JsonNode bin = jsonNode.get("bin");
+                    if (bin instanceof ObjectNode) {
+                        for (Iterator<java.util.Map.Entry<String, JsonNode>> it = bin.fields(); it.hasNext(); ) {
+                            Map.Entry<String, JsonNode> entry = it.next();
+                            if (entry.getValue() instanceof TextNode) {
+                                Path binScript = p.resolveSibling(entry.getValue().asText());
+                                if (Files.exists(binScript)) {
+                                    Path symlink = binDir.resolve(entry.getKey());
+                                    Files.createSymbolicLink(symlink, binDir.relativize(binScript));
+                                }
+                            }
+                        }
+                    } else if (bin instanceof TextNode) {
+                        Path binScript = p.resolveSibling(bin.asText());
+                        if (Files.exists(binScript)) {
+                            Path symlink = binDir.resolve(bin.asText());
+                            Files.createSymbolicLink(symlink, binDir.relativize(binScript));
+                        }
+                    }
+                } catch (IOException ignore) {
+                }
+            });
         }
     }
 
@@ -289,6 +315,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
                 if (tree instanceof SourceFile) {
                     SourceFile sourceFile = (SourceFile) tree;
                     if (acc.wasModified(sourceFile)) {
+                        // TODO parse sources like JSON where parser doesn't require an environment
                         return new PlainText(
                                 tree.getId(),
                                 sourceFile.getSourcePath(),
