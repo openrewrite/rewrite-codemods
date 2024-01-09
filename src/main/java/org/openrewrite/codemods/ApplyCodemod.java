@@ -61,6 +61,7 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             description = "Transform to be applied using `jscodeshift`.",
             example = "built-in-next-font",
             required = false)
+    @Nullable
     String transform;
 
     @Option(displayName = "Codemod command arguments",
@@ -150,7 +151,9 @@ public class ApplyCodemod extends ScanningRecipe<ApplyCodemod.Accumulator> {
             if (npmPackage != null) {
                 part = part.replace("${npmPackage}", npmPackage);
             }
-            part = part.replace("${transform}", transform);
+            if (transform != null) {
+                part = part.replace("${transform}", transform);
+            }
             part = part.replace("${repoDir}", ".");
             part = part.replace("${parser}", acc.parser());
             int argsIdx = part.indexOf("${codemodArgs}");
