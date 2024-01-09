@@ -21,7 +21,7 @@ import org.openrewrite.test.RewriteTest;
 
 import static org.openrewrite.test.SourceSpecs.text;
 
-public class NextJsCodemodsTest implements RewriteTest {
+class NextJsCodemodsTest implements RewriteTest {
 
     @SuppressWarnings({"NpmUsedModulesInstalled", "JSUnusedLocalSymbols"})
     @Test
