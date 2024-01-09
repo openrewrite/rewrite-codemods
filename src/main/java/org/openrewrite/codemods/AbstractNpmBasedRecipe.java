@@ -89,7 +89,7 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
 
     private void runNpm(Accumulator acc, ExecutionContext ctx) {
         Path dir = acc.getDirectory();
-        Path nodeModules = NodeModules.getNodeModulesDir(ctx);
+        Path nodeModules = NodeModules.init(ctx);
 
         List<String> command = getNpmCommand(acc, ctx);
         command.replaceAll(s -> s
@@ -100,6 +100,7 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
             ProcessBuilder builder = new ProcessBuilder();
             builder.command(command);
             builder.directory(dir.toFile());
+            builder.environment().put("NODE_PATH", nodeModules.toString());
             // FIXME do something more meaningful with the output (including error handling)
             File nullFile = new File((System.getProperty("os.name").startsWith("Windows") ? "NUL" : "/dev/null"));
             builder.redirectOutput(ProcessBuilder.Redirect.appendTo(nullFile));

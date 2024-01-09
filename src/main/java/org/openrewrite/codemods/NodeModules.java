@@ -36,7 +36,7 @@ import java.util.stream.Stream;
 class NodeModules {
     private static final String NODE_MODULES_KEY = ApplyCodemod.class.getName() + ".NODE_MODULES";
 
-    static Path getNodeModulesDir(ExecutionContext ctx) {
+    static Path init(ExecutionContext ctx) {
         Path nodeModules = ctx.getMessage(NODE_MODULES_KEY);
         if (nodeModules == null) {
             ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractNodeModules(() -> {
@@ -53,18 +53,26 @@ class NodeModules {
 
     private static Path extractNodeModules(Supplier<Path> dir) {
         try {
-            URI uri = Objects.requireNonNull(ApplyCodemod.class.getClassLoader().getResource("codemods")).toURI();
+            Path result = extractResources("codemods", dir);
+            recreateBinSymlinks(result);
+            return result;
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static Path extractResources(String resource, Supplier<Path> dir) {
+        try {
+            URI uri = Objects.requireNonNull(NodeModules.class.getClassLoader().getResource(resource)).toURI();
             if ("jar".equals(uri.getScheme())) {
                 try (FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null)) {
-                    Path codemodsPath = fileSystem.getPath("/codemods");
+                    Path codemodsPath = fileSystem.getPath("/" + resource);
                     Path target = dir.get();
-                    copyNodeModules(codemodsPath, target);
+                    copyRecursively(codemodsPath, target);
                     return target;
                 }
             } else if ("file".equals(uri.getScheme())) {
-                Path codemodsPath = Paths.get(uri);
-                recreateBinSymlinks(codemodsPath);
-                return codemodsPath;
+                return Paths.get(uri);
             } else {
                 throw new IllegalArgumentException("Unsupported scheme: " + uri.getScheme());
             }
@@ -73,18 +81,17 @@ class NodeModules {
         }
     }
 
-    private static void copyNodeModules(Path codemodsPath, Path target) throws IOException, InterruptedException {
-        try (Stream<Path> stream = Files.walk(codemodsPath)) {
+    private static void copyRecursively(Path sourceDir, Path targetDir) throws IOException, InterruptedException {
+        try (Stream<Path> stream = Files.walk(sourceDir)) {
             stream.forEach(source -> {
                 try {
                     // IMPORTANT: `toString()` call here is required as paths have different file systems
-                    Files.copy(source, target.resolve(codemodsPath.relativize(source).toString()), StandardCopyOption.REPLACE_EXISTING);
+                    Files.copy(source, targetDir.resolve(sourceDir.relativize(source).toString()), StandardCopyOption.REPLACE_EXISTING);
                 } catch (Exception e) {
                     throw new RuntimeException(e.getMessage(), e);
                 }
             });
         }
-        recreateBinSymlinks(target);
     }
 
     /**
