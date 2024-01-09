@@ -17,24 +17,34 @@ package org.openrewrite.codemods;
 
 import org.openrewrite.ExecutionContext;
 
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
 public class ESLint extends AbstractNpmBasedRecipe {
 
+    private static final String PRETTIER_DIR = ESLint.class.getName() + ".PRETTIER_DIR";
+
     @Override
     public String getDisplayName() {
-        return "Run `eslint --fix`";
+        return "Lint source code with ESLint";
     }
 
     @Override
     public String getDescription() {
         return "Run [ESLint](https://eslint.org/) across the code to fix common static analysis issues in the code.\n\n" +
-                "This requires the code to have an existing ESLint configuration.";
+               "This requires the code to have an existing ESLint configuration.";
+    }
+
+    @Override
+    public Accumulator getInitialValue(ExecutionContext ctx) {
+        Path path = NodeModules.extractResources("config", "eslint-prettier", ctx);
+        ctx.putMessage(PRETTIER_DIR, path);
+        return super.getInitialValue(ctx);
     }
 
     @Override
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
-        return Arrays.asList("${nodeModules}/.bin/eslint", "--fix", "**/*.js");
+        return Arrays.asList("node", ctx.getMessage(PRETTIER_DIR).toString() + "/eslint-driver.js");
     }
 }

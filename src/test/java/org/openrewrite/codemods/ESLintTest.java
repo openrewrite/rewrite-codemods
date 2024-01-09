@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 the original author or authors.
+ * Copyright 2024 the original author or authors.
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,34 +29,14 @@ public class ESLintTest implements RewriteTest {
         rewriteRun(
           spec -> spec.recipe(new ESLint()),
           text(
-            //language=json
-            """
-            {
-              "type": "module"
-            }
-            """,
-            spec -> spec.path("package.json")
-          ),
-          text(
-            //language=json
-            """
-            {
-                "rules": {
-                    "curly": "error",
-                    "eqeqeq": "error"
-                }
-            }
-            """,
-            spec -> spec.path(".eslintrc.json")
-          ),
-          text(
             //language=js
             """
-            if (2 == 42) { }
+            console.log('foo')
             """,
             //language=js
             """
-            if (2 === 42) { }
+            console.log("foo");
+
             """,
             spec -> spec.path("src/Foo.js")
           )

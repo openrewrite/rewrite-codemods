@@ -103,8 +103,8 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
             builder.environment().put("NODE_PATH", nodeModules.toString());
             // FIXME do something more meaningful with the output (including error handling)
             File nullFile = new File((System.getProperty("os.name").startsWith("Windows") ? "NUL" : "/dev/null"));
-            builder.redirectOutput(ProcessBuilder.Redirect.appendTo(nullFile));
-            builder.redirectError(ProcessBuilder.Redirect.appendTo(nullFile));
+            builder.redirectOutput(ProcessBuilder.Redirect.appendTo(new File("/tmp/out.txt")));
+            builder.redirectError(ProcessBuilder.Redirect.appendTo(new File("/tmp/err.txt")));
             Process process = builder.start();
             process.waitFor();
         } catch (IOException e) {
@@ -224,7 +224,7 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
         }
     }
 
-    private static Path createDirectory(ExecutionContext ctx, String prefix) {
+    protected static Path createDirectory(ExecutionContext ctx, String prefix) {
         WorkingDirectoryExecutionContextView view = WorkingDirectoryExecutionContextView.view(ctx);
         return Optional.of(view.getWorkingDirectory())
                 .map(d -> d.resolve(prefix))

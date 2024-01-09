@@ -61,6 +61,17 @@ class NodeModules {
         }
     }
 
+    public static Path extractResources(String resource, String dir, ExecutionContext ctx) {
+        return extractResources(resource, () -> {
+            try {
+                WorkingDirectoryExecutionContextView view = WorkingDirectoryExecutionContextView.view(ctx);
+                return Files.createDirectory(view.getWorkingDirectory().resolve(dir));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
     private static Path extractResources(String resource, Supplier<Path> dir) {
         try {
             URI uri = Objects.requireNonNull(NodeModules.class.getClassLoader().getResource(resource)).toURI();
