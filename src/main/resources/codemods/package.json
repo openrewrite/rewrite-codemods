@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@next/codemod": "^14.0.4"
+    "@next/codemod": "^14.0.4",
+    "eslint": "^8.56.0"
   }
 }
