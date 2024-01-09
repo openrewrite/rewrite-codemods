@@ -23,6 +23,7 @@ import static org.openrewrite.test.SourceSpecs.text;
 
 public class NextJsCodemodsTest implements RewriteTest {
 
+    @SuppressWarnings({"NpmUsedModulesInstalled", "JSUnusedLocalSymbols"})
     @Test
     @DisabledIfEnvironmentVariable(named = "CI", matches = "true")
     void builtInNextFont() {
