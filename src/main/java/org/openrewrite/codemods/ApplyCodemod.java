@@ -21,10 +21,6 @@ import org.openrewrite.ExecutionContext;
 import org.openrewrite.Option;
 import org.openrewrite.internal.lang.Nullable;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UncheckedIOException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -81,53 +77,25 @@ public class ApplyCodemod extends AbstractNpmBasedRecipe {
     }
 
     @Override
-    protected void runNpm(Accumulator acc, ExecutionContext ctx) {
-        Path dir = acc.getDirectory();
-        List<String> command = codemodCommand(acc, ctx);
-        try {
-            ProcessBuilder builder = new ProcessBuilder();
-            builder.command(command);
-            builder.directory(dir.toFile());
-            // FIXME do something more meaningful with the output (including error handling)
-            File nullFile = new File((System.getProperty("os.name").startsWith("Windows") ? "NUL" : "/dev/null"));
-            builder.redirectOutput(ProcessBuilder.Redirect.appendTo(nullFile));
-            builder.redirectError(ProcessBuilder.Redirect.appendTo(nullFile));
-            Process process = builder.start();
-            process.waitFor();
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private List<String> codemodCommand(Accumulator acc, ExecutionContext ctx) {
-        Path nodeModules = NodeModules.getNodeModulesDir(ctx);
-
+    protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
         List<String> command = new ArrayList<>();
         command.add("node");
         String template = Optional.ofNullable(commandTemplate).orElse("${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}");
         for (String part : template.split(" ")) {
             part = part.trim();
-            part = part.replace("${nodeModules}", nodeModules.toString());
             if (npmPackage != null) {
                 part = part.replace("${npmPackage}", npmPackage);
             }
             if (transform != null) {
                 part = part.replace("${transform}", transform);
             }
-            part = part.replace("${repoDir}", ".");
-            part = part.replace("${parser}", acc.parser());
             int argsIdx = part.indexOf("${codemodArgs}");
             if (argsIdx != -1) {
                 String prefix = part.substring(0, argsIdx);
                 if (!prefix.isEmpty()) {
                     command.add(prefix);
                 }
-                for (String arg : Optional.ofNullable(codemodArgs).orElse(emptyList())) {
-                    arg = arg.replace("${repoDir}", ".");
-                    command.add(arg);
-                }
+                command.addAll(Optional.ofNullable(codemodArgs).orElse(emptyList()));
                 String suffix = part.substring(argsIdx + "${codemodArgs}".length());
                 if (!suffix.isEmpty()) {
                     command.add(suffix);

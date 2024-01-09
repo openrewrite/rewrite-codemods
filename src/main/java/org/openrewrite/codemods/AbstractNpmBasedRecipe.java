@@ -8,6 +8,7 @@ import org.openrewrite.scheduling.WorkingDirectoryExecutionContextView;
 import org.openrewrite.text.PlainText;
 import org.openrewrite.tree.ParseError;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.*;
@@ -71,7 +72,33 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
         return emptyList();
     }
 
-    protected abstract void runNpm(Accumulator acc, ExecutionContext ctx);
+    private void runNpm(Accumulator acc, ExecutionContext ctx) {
+        Path dir = acc.getDirectory();
+        Path nodeModules = NodeModules.getNodeModulesDir(ctx);
+
+        List<String> command = getNpmCommand(acc, ctx);
+        command.replaceAll(s -> s
+                .replace("${nodeModules}", nodeModules.toString())
+                .replace("${repoDir}", ".")
+                .replace("${parser}", acc.parser()));
+        try {
+            ProcessBuilder builder = new ProcessBuilder();
+            builder.command(command);
+            builder.directory(dir.toFile());
+            // FIXME do something more meaningful with the output (including error handling)
+            File nullFile = new File((System.getProperty("os.name").startsWith("Windows") ? "NUL" : "/dev/null"));
+            builder.redirectOutput(ProcessBuilder.Redirect.appendTo(nullFile));
+            builder.redirectError(ProcessBuilder.Redirect.appendTo(nullFile));
+            Process process = builder.start();
+            process.waitFor();
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    protected abstract List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx);
 
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor(Accumulator acc) {
