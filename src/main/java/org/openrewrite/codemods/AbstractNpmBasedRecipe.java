@@ -29,6 +29,7 @@ import java.io.UncheckedIOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.Collections.emptyList;
@@ -96,21 +97,32 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
                 .replace("${nodeModules}", nodeModules.toString())
                 .replace("${repoDir}", ".")
                 .replace("${parser}", acc.parser()));
+        Path err = null;
         try {
             ProcessBuilder builder = new ProcessBuilder();
             builder.command(command);
             builder.directory(dir.toFile());
             builder.environment().put("NODE_PATH", nodeModules.toString());
-            // FIXME do something more meaningful with the output (including error handling)
+
+            err = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
             File nullFile = new File((System.getProperty("os.name").startsWith("Windows") ? "NUL" : "/dev/null"));
             builder.redirectOutput(ProcessBuilder.Redirect.appendTo(nullFile));
-            builder.redirectError(ProcessBuilder.Redirect.appendTo(nullFile));
+            builder.redirectError(ProcessBuilder.Redirect.appendTo(err.toFile()));
+
             Process process = builder.start();
-            process.waitFor();
+            process.waitFor(5, TimeUnit.MINUTES);
+            if (process.exitValue() != 0) {
+                throw new RuntimeException(new String(Files.readAllBytes(err)));
+            }
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        } finally {
+            if (err != null) {
+                //noinspection ResultOfMethodCallIgnored
+                err.toFile().delete();
+            }
         }
     }
 
