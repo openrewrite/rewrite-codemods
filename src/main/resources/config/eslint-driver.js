@@ -20,21 +20,40 @@ const {ESLint} = require("eslint");
         {
             cwd: process.cwd(),
             errorOnUnmatchedPattern: false,
+            allowInlineConfig: false,
             overrideConfig: {
+                parserOptions: {
+                    ecmaVersion: "latest",
+                    ecmaFeatures: {
+                        jsx: true
+                    },
+                    sourceType: "module"
+                },
                 plugins: ["prettier"],
                 rules: {
-                    "prettier/prettier": "error"
+                    "prettier/prettier": [
+                        "error",
+                        {},
+                        {
+                            "usePrettierrc": false
+                        }
+                    ]
                 }
             },
             // overrideConfigFile: "config/prettier.eslintrc.json",
-            resolvePluginsRelativeTo: "../codemods",
+            // resolvePluginsRelativeTo: "../codemods-npm",
             useEslintrc: false,
             fix: true,
             fixTypes: ["directive", "problem", "suggestion", "layout"]
         }
     );
 
-    const results = await eslint.lintFiles(["**/*.js"]);
+    const results = await eslint.lintFiles(["**/*.js", "**/*.jsx"]);
+    // const formatter = await eslint.loadFormatter("stylish");
+    // const resultText = formatter.format(results);
+
+    // 4. Output it.
+    // console.log(resultText);
     await ESLint.outputFixes(results);
 })().catch((error) => {
     process.exitCode = 1;
