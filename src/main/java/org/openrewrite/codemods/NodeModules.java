@@ -76,8 +76,14 @@ class NodeModules {
         try {
             URI uri = Objects.requireNonNull(NodeModules.class.getClassLoader().getResource(resource)).toURI();
             if ("jar".equals(uri.getScheme())) {
-                try (FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null)) {
-                    Path codemodsPath = fileSystem.getPath("/" + resource);
+                FileSystem fileSystem;
+                try {
+                    fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null);
+                } catch (FileSystemAlreadyExistsException e) {
+                    fileSystem = FileSystems.getFileSystem(uri);
+                }
+                try (FileSystem localFileSystem = fileSystem) {
+                    Path codemodsPath = localFileSystem.getPath("/" + resource);
                     Path target = dir.get();
                     copyRecursively(codemodsPath, target);
                     return target;
