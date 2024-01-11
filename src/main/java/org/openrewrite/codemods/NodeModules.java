@@ -78,9 +78,9 @@ class NodeModules {
             if ("jar".equals(uri.getScheme())) {
                 FileSystem fileSystem;
                 try {
-                    fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null);
-                } catch (FileSystemAlreadyExistsException e) {
                     fileSystem = FileSystems.getFileSystem(uri);
+                } catch (FileSystemNotFoundException e) {
+                    fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap(), null);
                 }
                 try (FileSystem localFileSystem = fileSystem) {
                     Path codemodsPath = localFileSystem.getPath("/" + resource);
