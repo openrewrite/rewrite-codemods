@@ -72,7 +72,7 @@ class NodeModules {
         });
     }
 
-    private static Path extractResources(String resource, Supplier<Path> dir) {
+    private static synchronized Path extractResources(String resource, Supplier<Path> dir) {
         try {
             URI uri = Objects.requireNonNull(NodeModules.class.getClassLoader().getResource(resource)).toURI();
             if ("jar".equals(uri.getScheme())) {
