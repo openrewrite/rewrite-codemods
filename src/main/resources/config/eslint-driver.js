@@ -22,10 +22,6 @@ const optionator = require('optionator')({
         type: 'Boolean',
         description: 'displays help',
     }, {
-        option: 'format',
-        type: 'Boolean',
-        description: 'Format source code using Prettier.',
-    }, {
         option: 'patterns',
         type: '[String]',
         concatRepeatedArrays: true,
@@ -35,6 +31,21 @@ const optionator = require('optionator')({
         type: 'Object',
         concatRepeatedArrays: true,
         description: 'Env setting for ESLint.',
+    }, {
+        option: 'plugins',
+        type: '[String]',
+        concatRepeatedArrays: true,
+        description: 'ESLint plugins.',
+    }, {
+        option: 'extends',
+        type: '[String]',
+        concatRepeatedArrays: true,
+        description: 'ESLint extends',
+    }, {
+        option: 'rules',
+        type: 'Object',
+        concatRepeatedArrays: true,
+        description: 'ESLint rules.',
     }]
 });
 
@@ -47,18 +58,11 @@ const optionator = require('optionator')({
 
     const patterns = options['patterns'] || ['**/*.js', '**/*.jsx'];
     const env = options['env'] || {};
-    const format = options['format'];
-
-    const plugins = ["@typescript-eslint"];
-    const extend = ["eslint:recommended", "plugin:@typescript-eslint/recommended"];
-    const rules = {
-        "eqeqeq": "error",
-        "no-duplicate-imports": "error",
-    };
-    if (format) {
-        plugins.push("prettier");
-        extend.push("plugin:prettier/recommended");
-        rules["prettier/prettier"] = [ "error", {}, { "usePrettierrc": false } ]
+    const plugins = options["plugins"] || ['@typescript-eslint'];
+    const extend = options["extends"] || ['eslint:recommended', 'plugin:@typescript-eslint/recommended'];
+    const rules = options["rules"] || {"eqeqeq": 2, "no-duplicate-imports": 2};
+    if (rules["prettier/prettier"]) {
+        rules["prettier/prettier"] = [ rules["prettier/prettier"], {}, { "usePrettierrc": false } ]
     }
 
     const eslint = new ESLint(

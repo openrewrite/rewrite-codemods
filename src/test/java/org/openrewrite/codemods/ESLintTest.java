@@ -27,15 +27,19 @@ public class ESLintTest implements RewriteTest {
     @DisabledIfEnvironmentVariable(named = "CI", matches = "true")
     void formatStatement() {
         rewriteRun(
-          spec -> spec.recipe(new ESLint(null, null, false)),
+          spec -> spec.recipe(new ESLint(null, null, null, null, null)),
           text(
             //language=js
             """
-            console.log('foo')
-            """,
+              console.log('foo')
+              """,
             """
-            ~~(ERROR: 'console' is not defined.)~~>console.log('foo')
-            """,
+              ~~(ERROR: 'console' is not defined.
+                          
+              Disallow the use of undeclared variables unless mentioned in `/*global */` comments
+                          
+              Rule: no-undef)~~>console.log('foo')
+              """,
             spec -> spec.path("src/Foo.js")
           )
         );

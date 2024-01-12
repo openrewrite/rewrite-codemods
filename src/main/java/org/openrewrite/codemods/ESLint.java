@@ -61,11 +61,26 @@ public class ESLint extends AbstractNodeBasedRecipe {
     @Nullable
     List<String> envs;
 
-    @Option(displayName = "Format source code",
-            description = "Whether the source code should be formatted using [Prettier](https://prettier.io/). Defaults to `false`.",
+    @Option(displayName = "ESLint plugins",
+            description = "A list of plugins for ESLint. Defaults to `@typescript-eslint`.",
+            example = "@typescript-eslint, prettier",
             required = false)
     @Nullable
-    Boolean format;
+    List<String> plugins;
+
+    @Option(displayName = "ESLint extends",
+            description = "A list of extends for ESLint. Defaults to `eslint:recommended, plugin:@typescript-eslint/recommended`.",
+            example = "eslint:recommended, prettier",
+            required = false)
+    @Nullable
+    List<String> extend;
+
+    @Option(displayName = "ESLint rules",
+            description = "List of rules to be checked by ESLint. Optionally, the severity can also be specified as `warn` or `error` (defaults to `error`). Defaults to `eqeqeq, no-duplicate-imports`.",
+            example = "eqeqeq: warn, prettier/prettier",
+            required = false)
+    @Nullable
+    List<String> rules;
 
     @Override
     public String getDisplayName() {
@@ -99,8 +114,29 @@ public class ESLint extends AbstractNodeBasedRecipe {
         if (envs != null) {
             envs.forEach(e -> command.add("--env={" + e + "}"));
         }
-        if (Boolean.TRUE.equals(format)) {
-            command.add("--format");
+        if (plugins != null) {
+            plugins.forEach(p -> command.add("--plugins=" + p));
+        } else {
+            command.add("--plugins=@typescript-eslint");
+        }
+        if (extend != null) {
+            extend.forEach(e -> command.add("--extends=" + e));
+        } else {
+            command.add("--extends=eslint:recommended");
+            command.add("--extends=plugin:@typescript-eslint/recommended");
+        }
+        if (rules != null) {
+            rules.forEach(r -> {
+                int colonIndex = r.indexOf(':');
+                if (colonIndex != -1) {
+                    command.add("--rules={" + r + "}");
+                } else {
+                    command.add("--rules={" + r + ": 2}");
+                }
+            });
+        } else {
+            command.add("--rules={eqeqeq: 2}");
+            command.add("--rules={no-duplicate-imports: 2}");
         }
         return command;
     }
