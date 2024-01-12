@@ -25,7 +25,7 @@ import org.openrewrite.SourceFile;
 import org.openrewrite.internal.lang.Nullable;
 import org.openrewrite.marker.Marker;
 import org.openrewrite.marker.Markers;
-import org.openrewrite.marker.Markup;
+import org.openrewrite.marker.SearchResult;
 import org.openrewrite.text.PlainText;
 
 import java.io.IOException;
@@ -148,11 +148,11 @@ public class ESLint extends AbstractNodeBasedRecipe {
             String messageText = message.get("message").asText();
             String ruleId = message.get("ruleId").asText();
             JsonNode jsonNode = metadata.get(ruleId);
-            String detail = jsonNode != null ? jsonNode.get("docs").get("description").asText() + "\n\nSee: [" + ruleId + "](" + jsonNode.get("docs").get("url").asText() + ")" : "Rule: " + ruleId;
-            Marker marker = new Markup.Info(randomId(), (severity == 2 ? "ERROR: " : "WARNING: ") + messageText, detail);
+            String detail = jsonNode != null ? jsonNode.get("docs").get("description").asText() + "\n\nRule: " + ruleId : "Rule: " + ruleId;
+            Marker marker = new SearchResult(randomId(), (severity == 2 ? "ERROR: " : "WARNING: ") + messageText + "\n\n" + detail);
             messages.insertRow(
                     ctx, new ESLintMessages.Row(
-                            before.getSourcePath(),
+                            before.getSourcePath().toString(),
                             ruleId,
                             ESLintMessages.Severity.of(severity),
                             message.has("fatal") && message.get("fatal").asBoolean(),

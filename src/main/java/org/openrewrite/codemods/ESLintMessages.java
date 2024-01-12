@@ -19,8 +19,6 @@ import lombok.Value;
 import org.openrewrite.DataTable;
 import org.openrewrite.Recipe;
 
-import java.nio.file.Path;
-
 public class ESLintMessages extends DataTable<ESLintMessages.Row> {
 
     public ESLintMessages(Recipe recipe) {
@@ -31,7 +29,7 @@ public class ESLintMessages extends DataTable<ESLintMessages.Row> {
 
     @Value
     public static class Row {
-        Path sourcePath;
+        String sourcePath;
         String ruleId;
         Severity severity;
         boolean fatal;
