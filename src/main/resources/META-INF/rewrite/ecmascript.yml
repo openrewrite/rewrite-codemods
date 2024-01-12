@@ -16,7 +16,7 @@
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.ESLintTypeScriptDefaults
-displayName: Run ESLint using default config for TypeScript
+displayName: Lint TypeScript code using ESLint
 description: >
   The default config includes the `@typescript-eslint` plugin and the corresponding `plugin:@typescript-eslint/recommended` extend.
 tags:
@@ -29,7 +29,7 @@ recipeList:
         - "**/*.tsx"
       plugins:
         - "@typescript-eslint"
-      extends:
+      extend:
         - "eslint:recommended"
         - "plugin:@typescript-eslint/recommended"
 ---
@@ -48,7 +48,7 @@ recipeList:
         - "**/*.tsx"
       plugins:
         - prettier
-      extends:
+      extend:
         - prettier
       rules:
         - "prettier/prettier"
