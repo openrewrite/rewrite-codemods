@@ -17,7 +17,7 @@ package org.openrewrite.codemods;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Value;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Option;
@@ -38,7 +38,8 @@ import java.util.Map;
 
 import static org.openrewrite.Tree.randomId;
 
-@AllArgsConstructor
+@Value
+@EqualsAndHashCode(callSuper = true)
 public class ESLint extends AbstractNpmBasedRecipe {
 
     private static final String ESLINT_DIR = ESLint.class.getName() + ".ESLINT_DIR";
