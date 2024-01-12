@@ -32,3 +32,23 @@ recipeList:
       extends:
         - "eslint:recommended"
         - "plugin:@typescript-eslint/recommended"
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.ecmascript.ESLintTypeScriptPrettier
+displayName: Format TypeScript using ESLing Prettier plugin
+description: >
+  Formats all TypeScript source code using the ESLint Prettier plugin.
+tags:
+  - codemods
+  - eslint
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.ts"
+        - "**/*.tsx"
+      plugins:
+        - prettier
+      extends:
+        - prettier
+      rules:
+        - "prettier/prettier"
