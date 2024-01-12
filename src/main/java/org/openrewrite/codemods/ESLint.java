@@ -93,7 +93,7 @@ public class ESLint extends AbstractNodeBasedRecipe {
 
     @Override
     public Accumulator getInitialValue(ExecutionContext ctx) {
-        Path path = NodeModules.extractResources("config", "eslint-config", ctx);
+        Path path = RecipeResources.from(getClass()).extractResources("config", "eslint-config", ctx);
         ctx.putMessage(ESLINT_DIR, path);
         return super.getInitialValue(ctx);
     }

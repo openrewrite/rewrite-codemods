@@ -38,13 +38,6 @@ public class ApplyCodemod extends AbstractNodeBasedRecipe {
     @Nullable
     String npmPackage;
 
-    @Option(displayName = "Codemod NPM package version",
-            description = "The codemod's NPM package version (defaults to `latest`).",
-            example = "14.0.3",
-            required = false)
-    @Nullable
-    String npmPackageVersion;
-
     @Option(displayName = "Codemod transform",
             description = "Transform to be applied using `jscodeshift`.",
             example = "built-in-next-font",

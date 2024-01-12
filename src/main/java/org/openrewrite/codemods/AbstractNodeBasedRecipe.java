@@ -93,7 +93,7 @@ abstract class AbstractNodeBasedRecipe extends ScanningRecipe<AbstractNodeBasedR
 
     private void runNode(Accumulator acc, ExecutionContext ctx) {
         Path dir = acc.getDirectory();
-        Path nodeModules = NodeModules.init(ctx);
+        Path nodeModules = RecipeResources.from(getClass()).init(ctx);
 
         List<String> command = getNpmCommand(acc, ctx);
         if (command.isEmpty()) {

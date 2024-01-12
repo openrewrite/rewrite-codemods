@@ -20,11 +20,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 import org.openrewrite.ExecutionContext;
+import org.openrewrite.Recipe;
 import org.openrewrite.scheduling.WorkingDirectoryExecutionContextView;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.*;
 import java.util.Collections;
 import java.util.Iterator;
@@ -33,13 +35,25 @@ import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-class NodeModules {
-    private static final String NODE_MODULES_KEY = ApplyCodemod.class.getName() + ".NODE_MODULES";
+public final class RecipeResources {
+    private final String nodeModulesKey;
 
-    static Path init(ExecutionContext ctx) {
-        Path nodeModules = ctx.getMessage(NODE_MODULES_KEY);
+    private RecipeResources(String keyPrefix) {
+        nodeModulesKey = keyPrefix + ".NODE_MODULES";
+    }
+
+    public static RecipeResources from(Class<? extends Recipe> recipeClass) {
+        String recipeClassPath = recipeClass.getName().replace('.', '/') + ".class";
+        URL resource = recipeClass.getClassLoader().getResource(recipeClassPath);
+        assert resource != null;
+        String key = resource.toString().substring(0, resource.toString().length() - recipeClassPath.length());
+        return new RecipeResources(key);
+    }
+
+    Path init(ExecutionContext ctx) {
+        Path nodeModules = ctx.getMessage(nodeModulesKey);
         if (nodeModules == null) {
-            ctx.putMessage(NODE_MODULES_KEY, nodeModules = extractNodeModules(() -> {
+            ctx.putMessage(nodeModulesKey, nodeModules = extractNodeModules(() -> {
                 try {
                     WorkingDirectoryExecutionContextView view = WorkingDirectoryExecutionContextView.view(ctx);
                     return Files.createDirectory(view.getWorkingDirectory().resolve("codemods-npm"));
@@ -61,7 +75,7 @@ class NodeModules {
         }
     }
 
-    public static Path extractResources(String resource, String dir, ExecutionContext ctx) {
+    public Path extractResources(String resource, String dir, ExecutionContext ctx) {
         return extractResources(resource, () -> {
             try {
                 WorkingDirectoryExecutionContextView view = WorkingDirectoryExecutionContextView.view(ctx);
@@ -74,7 +88,7 @@ class NodeModules {
 
     private static synchronized Path extractResources(String resource, Supplier<Path> dir) {
         try {
-            URI uri = Objects.requireNonNull(NodeModules.class.getClassLoader().getResource(resource)).toURI();
+            URI uri = Objects.requireNonNull(RecipeResources.class.getClassLoader().getResource(resource)).toURI();
             if ("jar".equals(uri.getScheme())) {
                 FileSystem fileSystem;
                 try {
