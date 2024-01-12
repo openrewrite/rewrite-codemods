@@ -22,6 +22,10 @@ const optionator = require('optionator')({
         type: 'Boolean',
         description: 'displays help',
     }, {
+        option: 'format',
+        type: 'Boolean',
+        description: 'Format source code using Prettier.',
+    }, {
         option: 'patterns',
         type: '[String]',
         concatRepeatedArrays: true,
@@ -43,6 +47,19 @@ const optionator = require('optionator')({
 
     const patterns = options['patterns'] || ['**/*.js', '**/*.jsx'];
     const env = options['env'] || {};
+    const format = options['format'];
+
+    const plugins = ["@typescript-eslint"];
+    const extend = ["eslint:recommended", "plugin:@typescript-eslint/recommended"];
+    const rules = {
+        "eqeqeq": "error",
+        "no-duplicate-imports": "error",
+    };
+    if (format) {
+        plugins.push("prettier");
+        extend.push("plugin:prettier/recommended");
+        rules["prettier/prettier"] = [ "error", {}, { "usePrettierrc": false } ]
+    }
 
     const eslint = new ESLint(
         {
@@ -59,20 +76,9 @@ const optionator = require('optionator')({
                     sourceType: "module"
                 },
                 env: env,
-                plugins: ["@typescript-eslint", "prettier"],
-                extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
-                root: true,
-                rules: {
-                    "eqeqeq": "error",
-                    "no-duplicate-imports": "error",
-                    "prettier/prettier": [
-                        "error",
-                        {},
-                        {
-                            "usePrettierrc": false
-                        }
-                    ]
-                }
+                plugins: plugins,
+                extends: extend,
+                rules: rules
             },
             // overrideConfigFile: "config/prettier.eslintrc.json",
             // resolvePluginsRelativeTo: "../codemods-npm",

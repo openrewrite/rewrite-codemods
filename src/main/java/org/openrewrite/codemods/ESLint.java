@@ -59,6 +59,12 @@ public class ESLint extends AbstractNpmBasedRecipe {
     @Nullable
     List<String> envs;
 
+    @Option(displayName = "Format source code",
+            description = "Whether the source code should be formatted using [Prettier](https://prettier.io/). Defaults to `false`.",
+            required = false)
+    @Nullable
+    Boolean format;
+
     @Override
     public String getDisplayName() {
         return "Lint source code with ESLint";
@@ -90,6 +96,9 @@ public class ESLint extends AbstractNpmBasedRecipe {
         }
         if (envs != null) {
             envs.forEach(e -> command.add("--env={" + e + "}"));
+        }
+        if (Boolean.TRUE.equals(format)) {
+            command.add("--format");
         }
         return command;
     }

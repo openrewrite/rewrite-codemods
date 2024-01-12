@@ -27,15 +27,14 @@ public class ESLintTest implements RewriteTest {
     @DisabledIfEnvironmentVariable(named = "CI", matches = "true")
     void formatStatement() {
         rewriteRun(
-          spec -> spec.recipe(new ESLint(null, null)),
+          spec -> spec.recipe(new ESLint(null, null, false)),
           text(
             //language=js
             """
             console.log('foo')
             """,
             """
-            ~~('console'~~(Parsing error: ')' expected.)~~> is not defined.)~~>console.log("foo");
-            
+            ~~('console' is not defined.)~~>console.log('foo')
             """,
             spec -> spec.path("src/Foo.js")
           )

@@ -28,6 +28,7 @@ import org.openrewrite.tree.ParseError;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
@@ -231,7 +232,9 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
             try {
                 Path path = resolvedPath(tree);
                 Files.createDirectories(path.getParent());
-                Path written = Files.write(path, tree.printAllAsBytes());
+                PrintOutputCapture.MarkerPrinter markerPrinter = new PrintOutputCapture.MarkerPrinter() {
+                };
+                Path written = Files.write(path, tree.printAll(new PrintOutputCapture<>(0, markerPrinter)).getBytes(tree.getCharset() != null ? tree.getCharset() : StandardCharsets.UTF_8));
                 beforeModificationTimestamps.put(written, Files.getLastModifiedTime(written).toMillis());
             } catch (IOException e) {
                 throw new UncheckedIOException(e);
