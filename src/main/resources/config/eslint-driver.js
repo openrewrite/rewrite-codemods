@@ -89,10 +89,9 @@ const optionator = require('optionator')({
     );
 
     const results = await eslint.lintFiles(patterns);
-    const formatter = await eslint.loadFormatter("json");
+    const formatter = await eslint.loadFormatter("json-with-metadata");
     const resultText = formatter.format(results);
 
-    // 4. Output it.
     console.log(resultText);
     await ESLint.outputFixes(results);
 })().catch((error) => {

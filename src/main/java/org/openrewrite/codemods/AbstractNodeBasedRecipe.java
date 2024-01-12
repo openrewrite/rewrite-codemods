@@ -37,10 +37,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.Collections.emptyList;
 
-abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRecipe.Accumulator> {
-    protected static final String FIRST_CODEMOD = AbstractNpmBasedRecipe.class.getName() + ".FIRST_CODEMOD";
-    protected static final String PREVIOUS_CODEMOD = AbstractNpmBasedRecipe.class.getName() + ".PREVIOUS_CODEMOD";
-    protected static final String INIT_REPO_DIR = AbstractNpmBasedRecipe.class.getName() + ".INIT_REPO_DIR";
+abstract class AbstractNodeBasedRecipe extends ScanningRecipe<AbstractNodeBasedRecipe.Accumulator> {
+    protected static final String FIRST_CODEMOD = AbstractNodeBasedRecipe.class.getName() + ".FIRST_CODEMOD";
+    protected static final String PREVIOUS_CODEMOD = AbstractNodeBasedRecipe.class.getName() + ".PREVIOUS_CODEMOD";
+    protected static final String INIT_REPO_DIR = AbstractNodeBasedRecipe.class.getName() + ".INIT_REPO_DIR";
 
     @Override
     public Accumulator getInitialValue(ExecutionContext ctx) {
@@ -155,14 +155,14 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
                 if (tree instanceof SourceFile) {
                     SourceFile sourceFile = (SourceFile) tree;
                     // TODO parse sources like JSON where parser doesn't require an environment
-                    return createAfter(sourceFile, acc);
+                    return createAfter(sourceFile, acc, ctx);
                 }
                 return tree;
             }
         };
     }
 
-    protected SourceFile createAfter(SourceFile before, Accumulator acc) {
+    protected SourceFile createAfter(SourceFile before, Accumulator acc, ExecutionContext ctx) {
         if (!acc.wasModified(before)) {
             return before;
         }

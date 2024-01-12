@@ -29,7 +29,7 @@ import static java.util.Collections.emptyList;
 
 @Value
 @EqualsAndHashCode(callSuper = true)
-public class ApplyCodemod extends AbstractNpmBasedRecipe {
+public class ApplyCodemod extends AbstractNodeBasedRecipe {
 
     @Option(displayName = "NPM package containing the codemod",
             description = "The codemod's NPM package name.",

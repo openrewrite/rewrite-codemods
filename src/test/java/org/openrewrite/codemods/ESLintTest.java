@@ -34,7 +34,7 @@ public class ESLintTest implements RewriteTest {
             console.log('foo')
             """,
             """
-            ~~('console' is not defined.)~~>console.log('foo')
+            ~~(ERROR: 'console' is not defined.)~~>console.log('foo')
             """,
             spec -> spec.path("src/Foo.js")
           )

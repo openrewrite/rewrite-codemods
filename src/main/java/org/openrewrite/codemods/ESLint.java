@@ -40,9 +40,11 @@ import static org.openrewrite.Tree.randomId;
 
 @Value
 @EqualsAndHashCode(callSuper = true)
-public class ESLint extends AbstractNpmBasedRecipe {
+public class ESLint extends AbstractNodeBasedRecipe {
 
     private static final String ESLINT_DIR = ESLint.class.getName() + ".ESLINT_DIR";
+
+    transient ESLintMessages messages = new ESLintMessages(this);
 
     @Option(displayName = "The lint target files",
             description = "The lint target files. This can contain any of file paths, directory paths, and glob patterns.\n\n" +
@@ -109,38 +111,56 @@ public class ESLint extends AbstractNpmBasedRecipe {
             Map<Path, JsonNode> results = new HashMap<>();
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode resultsNode = objectMapper.readTree(output.toFile());
-            for (JsonNode resultNode : resultsNode) {
+            for (JsonNode resultNode : resultsNode.get("results")) {
                 if (resultNode.get("errorCount").intValue() > 0 || resultNode.get("warningCount").intValue() > 0) {
                     results.put(Paths.get(resultNode.get("filePath").asText()), resultNode);
                 }
             }
             acc.putData("results", results);
+            acc.putData("metadata", resultsNode.get("metadata").get("rulesMeta"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    protected SourceFile createAfter(SourceFile before, Accumulator acc) {
+    protected SourceFile createAfter(SourceFile before, Accumulator acc, ExecutionContext ctx) {
         Map<Path, JsonNode> results = acc.getData("results");
         JsonNode resultNode = results.get(acc.resolvedPath(before));
         if (resultNode == null) {
-            return super.createAfter(before, acc);
+            return super.createAfter(before, acc, ctx);
         }
 
+        JsonNode metadata = acc.getData("metadata");
         String content = acc.content(before);
         List<PlainText.Snippet> snippets = new ArrayList<>();
         SourcePosition currentPosition = new SourcePosition(content, 1, 1, 0);
         PlainText.Snippet currentSnippet = new PlainText.Snippet(randomId(), Markers.EMPTY, "");
         for (JsonNode message : resultNode.get("messages")) {
-            SourcePosition nextPosition = currentPosition.scanForwardTo(message.get("line").asInt(), message.get("column").asInt());
+            int line = message.get("line").asInt();
+            int column = message.get("column").asInt();
+            SourcePosition nextPosition = currentPosition.scanForwardTo(line, column);
             if (nextPosition.offset > currentPosition.offset) {
                 snippets.add(currentSnippet.withText(content.substring(currentPosition.offset, nextPosition.offset)));
                 currentSnippet = new PlainText.Snippet(randomId(), Markers.EMPTY, "");
             }
             int severity = message.get("severity").asInt();
             String messageText = message.get("message").asText();
-            Marker marker = new Markup.Info(randomId(), (severity == 2 ? "ERROR: " : "WARNING: ") + messageText, "Rule: " + message.get("ruleId").asText());
+            String ruleId = message.get("ruleId").asText();
+            JsonNode jsonNode = metadata.get(ruleId);
+            String detail = jsonNode != null ? jsonNode.get("docs").get("description").asText() + "\n\nSee: [" + ruleId + "](" + jsonNode.get("docs").get("url").asText() + ")" : "Rule: " + ruleId;
+            Marker marker = new Markup.Info(randomId(), (severity == 2 ? "ERROR: " : "WARNING: ") + messageText, detail);
+            messages.insertRow(
+                    ctx, new ESLintMessages.Row(
+                            before.getSourcePath(),
+                            ruleId,
+                            ESLintMessages.Severity.of(severity),
+                            message.has("fatal") && message.get("fatal").asBoolean(),
+                            messageText,
+                            line,
+                            column
+                    )
+            );
             currentSnippet = currentSnippet.withMarkers(currentSnippet.getMarkers().add(marker));
             currentPosition = nextPosition;
         }
