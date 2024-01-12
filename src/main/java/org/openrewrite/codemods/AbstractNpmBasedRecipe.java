@@ -15,7 +15,10 @@
  */
 package org.openrewrite.codemods;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import org.openrewrite.*;
 import org.openrewrite.internal.lang.Nullable;
 import org.openrewrite.quark.Quark;
@@ -23,7 +26,6 @@ import org.openrewrite.scheduling.WorkingDirectoryExecutionContextView;
 import org.openrewrite.text.PlainText;
 import org.openrewrite.tree.ParseError;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.*;
@@ -81,14 +83,14 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
             acc.copyFromPrevious(previous);
         }
 
-        runNpm(acc, ctx);
+        runNode(acc, ctx);
         ctx.putMessage(PREVIOUS_CODEMOD, acc.getDirectory());
 
         // FIXME check for generated files
         return emptyList();
     }
 
-    private void runNpm(Accumulator acc, ExecutionContext ctx) {
+    private void runNode(Accumulator acc, ExecutionContext ctx) {
         Path dir = acc.getDirectory();
         Path nodeModules = NodeModules.init(ctx);
 
@@ -97,28 +99,41 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
                 .replace("${nodeModules}", nodeModules.toString())
                 .replace("${repoDir}", ".")
                 .replace("${parser}", acc.parser()));
-        Path err = null;
+        Path out = null, err = null;
         try {
             ProcessBuilder builder = new ProcessBuilder();
             builder.command(command);
             builder.directory(dir.toFile());
             builder.environment().put("NODE_PATH", nodeModules.toString());
+            builder.environment().put("TERM", "dumb");
 
+            out = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
             err = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
-            File nullFile = new File((System.getProperty("os.name").startsWith("Windows") ? "NUL" : "/dev/null"));
-            builder.redirectOutput(ProcessBuilder.Redirect.appendTo(nullFile));
-            builder.redirectError(ProcessBuilder.Redirect.appendTo(err.toFile()));
+            builder.redirectOutput(ProcessBuilder.Redirect.to(out.toFile()));
+            builder.redirectError(ProcessBuilder.Redirect.to(err.toFile()));
 
             Process process = builder.start();
             process.waitFor(5, TimeUnit.MINUTES);
             if (process.exitValue() != 0) {
                 throw new RuntimeException(new String(Files.readAllBytes(err)));
+            } else {
+                for (Map.Entry<Path, Long> entry : acc.beforeModificationTimestamps.entrySet()) {
+                    Path path = entry.getKey();
+                    if (!Files.exists(path) || Files.getLastModifiedTime(path).toMillis() > entry.getValue()) {
+                        acc.modified(path);
+                    }
+                }
+                processOutput(out, acc, ctx);
             }
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
+            if (out != null) {
+                //noinspection ResultOfMethodCallIgnored
+                out.toFile().delete();
+            }
             if (err != null) {
                 //noinspection ResultOfMethodCallIgnored
                 err.toFile().delete();
@@ -128,6 +143,9 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
 
     protected abstract List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx);
 
+    protected void processOutput(Path out, Accumulator acc, ExecutionContext ctx) {
+    }
+
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor(Accumulator acc) {
         return new TreeVisitor<Tree, ExecutionContext>() {
@@ -135,31 +153,41 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
             public @Nullable Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
                 if (tree instanceof SourceFile) {
                     SourceFile sourceFile = (SourceFile) tree;
-                    if (acc.wasModified(sourceFile)) {
-                        // TODO parse sources like JSON where parser doesn't require an environment
-                        return new PlainText(
-                                tree.getId(),
-                                sourceFile.getSourcePath(),
-                                sourceFile.getMarkers(),
-                                sourceFile.getCharset() != null ? sourceFile.getCharset().name() : null,
-                                sourceFile.isCharsetBomMarked(),
-                                sourceFile.getFileAttributes(),
-                                null,
-                                acc.content(sourceFile),
-                                emptyList()
-                        );
-                    }
+                    // TODO parse sources like JSON where parser doesn't require an environment
+                    return createAfter(sourceFile, acc);
                 }
                 return tree;
             }
         };
     }
 
-    @Data
+    protected SourceFile createAfter(SourceFile before, Accumulator acc) {
+        if (!acc.wasModified(before)) {
+            return before;
+        }
+        return new PlainText(
+                before.getId(),
+                before.getSourcePath(),
+                before.getMarkers(),
+                before.getCharset() != null ? before.getCharset().name() : null,
+                before.isCharsetBomMarked(),
+                before.getFileAttributes(),
+                null,
+                acc.content(before),
+                emptyList()
+        );
+    }
+
+    @ToString
+    @EqualsAndHashCode
+    @RequiredArgsConstructor
     public static class Accumulator {
+        @Getter
         final Path directory;
-        final Map<Path, Long> modificationTimestamps = new HashMap<>();
+        final Map<Path, Long> beforeModificationTimestamps = new HashMap<>();
+        final Set<Path> modified = new LinkedHashSet<>();
         final Map<String, AtomicInteger> extensionCounts = new HashMap<>();
+        final Map<String, Object> data = new HashMap<>();
 
         public void copyFromPrevious(Path previous) {
             try {
@@ -178,7 +206,7 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
                         try {
                             Path target = directory.resolve(previous.relativize(file));
                             Files.copy(file, target);
-                            modificationTimestamps.put(target, Files.getLastModifiedTime(target).toMillis());
+                            beforeModificationTimestamps.put(target, Files.getLastModifiedTime(target).toMillis());
                         } catch (NoSuchFileException ignore) {
                         }
                         return FileVisitResult.CONTINUE;
@@ -204,21 +232,18 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
                 Path path = resolvedPath(tree);
                 Files.createDirectories(path.getParent());
                 Path written = Files.write(path, tree.printAllAsBytes());
-                modificationTimestamps.put(written, Files.getLastModifiedTime(written).toMillis());
+                beforeModificationTimestamps.put(written, Files.getLastModifiedTime(written).toMillis());
             } catch (IOException e) {
                 throw new UncheckedIOException(e);
             }
         }
 
+        public void modified(Path path) {
+            modified.add(path);
+        }
+
         public boolean wasModified(SourceFile tree) {
-            Path path = resolvedPath(tree);
-            Long before = modificationTimestamps.get(path);
-            try {
-                if (before == null) return false;
-                return Files.getLastModifiedTime(path).toMillis() > before;
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
+            return modified.contains(resolvedPath(tree));
         }
 
         public String content(SourceFile tree) {
@@ -231,8 +256,17 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
             }
         }
 
-        private Path resolvedPath(SourceFile tree) {
+        protected Path resolvedPath(SourceFile tree) {
             return directory.resolve(tree.getSourcePath());
+        }
+
+        public <T> void putData(String key, T value) {
+            data.put(key, value);
+        }
+
+        public <T> T getData(String key) {
+            //noinspection unchecked
+            return (T) data.get(key);
         }
     }
 
@@ -242,7 +276,7 @@ abstract class AbstractNpmBasedRecipe extends ScanningRecipe<AbstractNpmBasedRec
                 .map(d -> d.resolve(prefix))
                 .map(d -> {
                     try {
-                        return Files.createDirectory(d);
+                        return Files.createDirectory(d).toRealPath();
                     } catch (IOException e) {
                         throw new UncheckedIOException(e);
                     }

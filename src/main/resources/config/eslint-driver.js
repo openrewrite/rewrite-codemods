@@ -14,14 +14,43 @@
  * limitations under the License.
  */
 const {ESLint} = require("eslint");
+const optionator = require('optionator')({
+    prepend: 'Usage: eslint-driver [options]',
+    options: [{
+        option: 'help',
+        alias: 'h',
+        type: 'Boolean',
+        description: 'displays help',
+    }, {
+        option: 'patterns',
+        type: '[String]',
+        concatRepeatedArrays: true,
+        description: 'The lint target files. This can contain any of file paths, directory paths, and glob patterns.',
+    }, {
+        option: 'env',
+        type: 'Object',
+        concatRepeatedArrays: true,
+        description: 'Env setting for ESLint.',
+    }]
+});
 
 (async function main() {
+    const options = optionator.parseArgv(process.argv);
+    if (options.help) {
+        console.log(optionator.generateHelp());
+        return;
+    }
+
+    const patterns = options['patterns'] || ['**/*.js', '**/*.jsx'];
+    const env = options['env'] || {};
+
     const eslint = new ESLint(
         {
             cwd: process.cwd(),
             errorOnUnmatchedPattern: false,
             allowInlineConfig: false,
             overrideConfig: {
+                parser: "@typescript-eslint/parser",
                 parserOptions: {
                     ecmaVersion: "latest",
                     ecmaFeatures: {
@@ -29,8 +58,13 @@ const {ESLint} = require("eslint");
                     },
                     sourceType: "module"
                 },
-                plugins: ["prettier"],
+                env: env,
+                plugins: ["@typescript-eslint", "prettier"],
+                extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+                root: true,
                 rules: {
+                    "eqeqeq": "error",
+                    "no-duplicate-imports": "error",
                     "prettier/prettier": [
                         "error",
                         {},
@@ -48,12 +82,12 @@ const {ESLint} = require("eslint");
         }
     );
 
-    const results = await eslint.lintFiles(["**/*.js", "**/*.jsx"]);
-    // const formatter = await eslint.loadFormatter("stylish");
-    // const resultText = formatter.format(results);
+    const results = await eslint.lintFiles(patterns);
+    const formatter = await eslint.loadFormatter("json");
+    const resultText = formatter.format(results);
 
     // 4. Output it.
-    // console.log(resultText);
+    console.log(resultText);
     await ESLint.outputFixes(results);
 })().catch((error) => {
     process.exitCode = 1;

@@ -25,18 +25,17 @@ public class ESLintTest implements RewriteTest {
 
     @Test
     @DisabledIfEnvironmentVariable(named = "CI", matches = "true")
-    void unneededTernary() {
+    void formatStatement() {
         rewriteRun(
-          spec -> spec.recipe(new ESLint()),
+          spec -> spec.recipe(new ESLint(null, null)),
           text(
             //language=js
             """
             console.log('foo')
             """,
-            //language=js
             """
-            console.log("foo");
-
+            ~~('console'~~(Parsing error: ')' expected.)~~> is not defined.)~~>console.log("foo");
+            
             """,
             spec -> spec.path("src/Foo.js")
           )
