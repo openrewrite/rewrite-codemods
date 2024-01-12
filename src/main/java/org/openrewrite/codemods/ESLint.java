@@ -140,7 +140,7 @@ public class ESLint extends AbstractNpmBasedRecipe {
             }
             int severity = message.get("severity").asInt();
             String messageText = message.get("message").asText();
-            Marker marker = severity == 2 ? new Markup.Error(randomId(), messageText, "") : new Markup.Warn(randomId(), messageText, "");
+            Marker marker = new Markup.Info(randomId(), (severity == 2 ? "ERROR: " : "WARNING: ") + messageText, "Rule: " + message.get("ruleId").asText());
             currentSnippet = currentSnippet.withMarkers(currentSnippet.getMarkers().add(marker));
             currentPosition = nextPosition;
         }
