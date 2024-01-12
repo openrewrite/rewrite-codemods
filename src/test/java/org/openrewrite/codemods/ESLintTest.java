@@ -19,6 +19,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
 import org.openrewrite.test.RewriteTest;
 
+import java.util.List;
+
 import static org.openrewrite.test.SourceSpecs.text;
 
 public class ESLintTest implements RewriteTest {
@@ -27,7 +29,7 @@ public class ESLintTest implements RewriteTest {
     @DisabledIfEnvironmentVariable(named = "CI", matches = "true")
     void formatStatement() {
         rewriteRun(
-          spec -> spec.recipe(new ESLint(null, null, null, null, null)),
+          spec -> spec.recipe(new ESLint(null, null, null, List.of("eslint:recommended"), null)),
           text(
             //language=js
             """

@@ -96,6 +96,10 @@ abstract class AbstractNodeBasedRecipe extends ScanningRecipe<AbstractNodeBasedR
         Path nodeModules = NodeModules.init(ctx);
 
         List<String> command = getNpmCommand(acc, ctx);
+        if (command.isEmpty()) {
+            return;
+        }
+
         command.replaceAll(s -> s
                 .replace("${nodeModules}", nodeModules.toString())
                 .replace("${repoDir}", ".")
@@ -267,6 +271,7 @@ abstract class AbstractNodeBasedRecipe extends ScanningRecipe<AbstractNodeBasedR
             data.put(key, value);
         }
 
+        @Nullable
         public <T> T getData(String key) {
             //noinspection unchecked
             return (T) data.get(key);

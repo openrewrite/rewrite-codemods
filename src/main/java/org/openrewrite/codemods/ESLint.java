@@ -31,11 +31,9 @@ import org.openrewrite.text.PlainText;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import static java.util.Collections.emptyList;
 import static org.openrewrite.Tree.randomId;
 
 @Value
@@ -47,8 +45,7 @@ public class ESLint extends AbstractNodeBasedRecipe {
     transient ESLintMessages messages = new ESLintMessages(this);
 
     @Option(displayName = "The lint target files",
-            description = "The lint target files. This can contain any of file paths, directory paths, and glob patterns.\n\n" +
-                          "Defaults to `**/*.js, **/*.jsx`",
+            description = "The lint target files. This can contain any of file paths, directory paths, and glob patterns.",
             example = "lib/**/*.js",
             required = false)
     @Nullable
@@ -62,21 +59,22 @@ public class ESLint extends AbstractNodeBasedRecipe {
     List<String> envs;
 
     @Option(displayName = "ESLint plugins",
-            description = "A list of plugins for ESLint. Defaults to `@typescript-eslint`.",
+            description = "A list of plugins for ESLint.",
             example = "@typescript-eslint, prettier",
             required = false)
     @Nullable
     List<String> plugins;
 
     @Option(displayName = "ESLint extends",
-            description = "A list of extends for ESLint. Defaults to `eslint:recommended, plugin:@typescript-eslint/recommended`.",
+            description = "A list of extends for ESLint.",
             example = "eslint:recommended, prettier",
             required = false)
     @Nullable
     List<String> extend;
 
     @Option(displayName = "ESLint rules",
-            description = "List of rules to be checked by ESLint. Optionally, the severity can also be specified as `warn` or `error` (defaults to `error`). Defaults to `eqeqeq, no-duplicate-imports`.",
+            description = "List of rules to be checked by ESLint. Optionally, the severity can also be specified as `off`, `warn` or `error` (defaults to `error`). " +
+                          "The severity `off` is useful when the rule is configured by `extends`.",
             example = "eqeqeq: warn, prettier/prettier",
             required = false)
     @Nullable
@@ -102,28 +100,24 @@ public class ESLint extends AbstractNodeBasedRecipe {
 
     @Override
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
+        if ((plugins == null || plugins.isEmpty()) && (extend == null || extend.isEmpty()) && (rules == null || rules.isEmpty())) {
+            return emptyList();
+        }
+
         List<String> command = new ArrayList<>();
         command.add("node");
         command.add(ctx.getMessage(ESLINT_DIR).toString() + "/eslint-driver.js");
         if (patterns != null) {
             patterns.forEach(p -> command.add("--patterns=" + p));
-        } else {
-            command.add("--patterns=**/*.js");
-            command.add("--patterns=**/*.jsx");
         }
         if (envs != null) {
             envs.forEach(e -> command.add("--env={" + e + "}"));
         }
         if (plugins != null) {
             plugins.forEach(p -> command.add("--plugins=" + p));
-        } else {
-            command.add("--plugins=@typescript-eslint");
         }
         if (extend != null) {
             extend.forEach(e -> command.add("--extends=" + e));
-        } else {
-            command.add("--extends=eslint:recommended");
-            command.add("--extends=plugin:@typescript-eslint/recommended");
         }
         if (rules != null) {
             rules.forEach(r -> {
@@ -134,9 +128,6 @@ public class ESLint extends AbstractNodeBasedRecipe {
                     command.add("--rules={" + r + ": 2}");
                 }
             });
-        } else {
-            command.add("--rules={eqeqeq: 2}");
-            command.add("--rules={no-duplicate-imports: 2}");
         }
         return command;
     }
@@ -162,6 +153,9 @@ public class ESLint extends AbstractNodeBasedRecipe {
     @Override
     protected SourceFile createAfter(SourceFile before, Accumulator acc, ExecutionContext ctx) {
         Map<Path, JsonNode> results = acc.getData("results");
+        if (results == null) {
+            return super.createAfter(before, acc, ctx);
+        }
         JsonNode resultNode = results.get(acc.resolvedPath(before));
         if (resultNode == null) {
             return super.createAfter(before, acc, ctx);
@@ -183,7 +177,7 @@ public class ESLint extends AbstractNodeBasedRecipe {
             int severity = message.get("severity").asInt();
             String messageText = message.get("message").asText();
             String ruleId = message.get("ruleId").asText();
-            JsonNode jsonNode = metadata.get(ruleId);
+            JsonNode jsonNode = metadata != null ? metadata.get(ruleId) : null;
             String detail = jsonNode != null ? jsonNode.get("docs").get("description").asText() + "\n\nRule: " + ruleId : "Rule: " + ruleId;
             Marker marker = new SearchResult(randomId(), (severity == 2 ? "ERROR: " : "WARNING: ") + messageText + "\n\n" + detail);
             messages.insertRow(
