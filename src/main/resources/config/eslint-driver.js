@@ -61,7 +61,7 @@ const optionator = require('optionator')({
     const plugins = options["plugins"] || ['@typescript-eslint'];
     const extend = options["extends"] || ['eslint:recommended', 'plugin:@typescript-eslint/recommended'];
     const rules = options["rules"] || {"eqeqeq": 2, "no-duplicate-imports": 2};
-    if (rules["prettier/prettier"]) {
+    if (typeof rules["prettier/prettier"] === "number" || typeof rules["prettier/prettier"] === "string") {
         rules["prettier/prettier"] = [ rules["prettier/prettier"], {}, { "usePrettierrc": false } ]
     }
 
