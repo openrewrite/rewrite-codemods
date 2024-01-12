@@ -28,7 +28,7 @@ recipeList:
         - "**/*.ts"
         - "**/*.tsx"
       plugins:
-        - @typescript-eslint
+        - "@typescript-eslint"
       extends:
-        - eslint:recommended
-        - plugin:@typescript-eslint/recommended
+        - "eslint:recommended"
+        - "plugin:@typescript-eslint/recommended"
