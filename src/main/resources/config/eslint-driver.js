@@ -32,6 +32,24 @@ const optionator = require('optionator')({
         concatRepeatedArrays: true,
         description: 'Env setting for ESLint.',
     }, {
+        option: 'parser',
+        type: 'String',
+        description: 'Parser to be used by ESLint.',
+    }, {
+        option: 'parserOptions',
+        type: 'Object',
+        concatRepeatedArrays: true,
+        description: 'Parser options for ESLint.',
+    }, {
+        option: 'allow-inline-config',
+        type: 'Boolean',
+        description: 'Whether inline config comments are allowed or not.',
+    }, {
+        option: 'globals',
+        type: 'Object',
+        concatRepeatedArrays: true,
+        description: 'Globals variables for ESLint.',
+    }, {
         option: 'plugins',
         type: '[String]',
         concatRepeatedArrays: true,
@@ -46,6 +64,14 @@ const optionator = require('optionator')({
         type: 'Object',
         concatRepeatedArrays: true,
         description: 'ESLint rules.',
+    }, {
+        option: 'fix',
+        type: 'Boolean',
+        description: 'Fix the lint errors.',
+    }, {
+        option: 'config-file',
+        type: 'String',
+        description: 'The path of the config file.',
     }]
 });
 
@@ -57,40 +83,51 @@ const optionator = require('optionator')({
     }
 
     const patterns = options['patterns'] || ['**/*.js', '**/*.jsx'];
+    const parser = options['parser'] || '@typescript-eslint/parser';
+    const parserOptions = options['parserOptions'] || {
+        ecmaVersion: "latest",
+        ecmaFeatures: {jsx: true},
+        sourceType: "module"
+    };
+    const allowInlineConfig = options['allowInlineConfig'] || false;
     const env = options['env'] || {};
+    const globals = options["globals"] || {};
     const plugins = options["plugins"] || ['@typescript-eslint'];
     const extend = options["extends"] || ['eslint:recommended', 'plugin:@typescript-eslint/recommended'];
     const rules = options["rules"] || {"eqeqeq": 2, "no-duplicate-imports": 2};
+    const fix = options['fix'] || true;
+    const configFile = options['configFile'];
+
     if (typeof rules["prettier/prettier"] === "number" || typeof rules["prettier/prettier"] === "string") {
-        rules["prettier/prettier"] = [ rules["prettier/prettier"], {}, { "usePrettierrc": false } ]
+        rules["prettier/prettier"] = [rules["prettier/prettier"], {}, {"usePrettierrc": false}]
     }
 
-    const eslint = new ESLint(
-        {
-            cwd: process.cwd(),
-            errorOnUnmatchedPattern: false,
-            allowInlineConfig: false,
-            overrideConfig: {
-                parser: "@typescript-eslint/parser",
-                parserOptions: {
-                    ecmaVersion: "latest",
-                    ecmaFeatures: {
-                        jsx: true
+    const eslint =
+        (configFile) ?
+            new ESLint({useEslintrc: false, overrideConfigFile: configFile, fix: false})
+            :
+            new ESLint(
+                {
+                    cwd: process.cwd(),
+                    errorOnUnmatchedPattern: false,
+                    allowInlineConfig: allowInlineConfig,
+                    overrideConfig: {
+                        parser: parser,
+                        parserOptions: parserOptions,
+                        env: env,
+                        globals: globals,
+                        plugins: plugins,
+                        extends: extend,
+                        rules: rules
                     },
-                    sourceType: "module"
-                },
-                env: env,
-                plugins: plugins,
-                extends: extend,
-                rules: rules
-            },
-            // overrideConfigFile: "config/prettier.eslintrc.json",
-            // resolvePluginsRelativeTo: "../codemods-npm",
-            useEslintrc: false,
-            fix: true,
-            fixTypes: ["directive", "problem", "suggestion", "layout"]
-        }
-    );
+                    // overrideConfigFile: "config/prettier.eslintrc.json",
+                    // resolvePluginsRelativeTo: "../codemods-npm",
+                    useEslintrc: false,
+                    fix: fix,
+                    fixTypes: ["directive", "problem", "suggestion", "layout"]
+                }
+            )
+    ;
 
     const results = await eslint.lintFiles(patterns);
     const formatter = await eslint.loadFormatter("json-with-metadata");

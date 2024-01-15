@@ -26,9 +26,12 @@ import org.openrewrite.internal.lang.Nullable;
 import org.openrewrite.marker.Marker;
 import org.openrewrite.marker.Markers;
 import org.openrewrite.marker.SearchResult;
+import org.openrewrite.scheduling.WorkingDirectoryExecutionContextView;
 import org.openrewrite.text.PlainText;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -51,12 +54,44 @@ public class ESLint extends AbstractNodeBasedRecipe {
     @Nullable
     List<String> patterns;
 
+    @Option(displayName = "Parser to be used by ESLint",
+            description = "Parser used by ESLint to parse the source files. Defaults to `@typescript-eslint/parser`. " +
+                          "See [ESLint documentation](https://eslint.org/docs/latest/use/configure/parsers) for more details.",
+            example = "esprima",
+            required = false)
+    @Nullable
+    String parser;
+
+    @Option(displayName = "List of parser options for ESLint",
+            description = "A list of parser options for ESLint. The format is `key: value`. Defaults to " +
+                          "`ecmaVersion: \"latest\", ecmaFeatures: { jsx: true }, sourceType: \"module\"`. See " +
+                          "[ESLint documentation](https://eslint.org/docs/latest/use/configure/language-options#specifying-parser-options) for more details.",
+            example = "ecmaVersion: 6, ecmaFeatures: { jsx: true }",
+            required = false)
+    @Nullable
+    List<String> parserOptions;
+
+    @Option(displayName = "Allow inline configuration for ESLint",
+            description = "Whether inline config comments are allowed. Defaults to `false`. See " +
+                          "[ESLint documentation](https://eslint.org/docs/latest/use/configure/rules#disabling-inline-comments) for more details.",
+            example = "true",
+            required = false)
+    @Nullable
+    Boolean allowInlineConfig;
+
     @Option(displayName = "List of `env` mappings for ESLint",
             description = "A list of `env` mappings for ESLint. The format is `key: value`.",
             example = "browser: true",
             required = false)
     @Nullable
     List<String> envs;
+
+    @Option(displayName = "ESLint global variables",
+            description = "Define global variables for rules that require knowledge of these.",
+            example = "var1, var2: writable",
+            required = false)
+    @Nullable
+    List<String> globals;
 
     @Option(displayName = "ESLint plugins",
             description = "A list of plugins for ESLint.",
@@ -72,13 +107,31 @@ public class ESLint extends AbstractNodeBasedRecipe {
     @Nullable
     List<String> extend;
 
-    @Option(displayName = "ESLint rules",
-            description = "List of rules to be checked by ESLint. Optionally, the severity can also be specified as `off`, `warn` or `error` (defaults to `error`). " +
-                          "The severity `off` is useful when the rule is configured by `extends`.",
-            example = "eqeqeq: warn, prettier/prettier",
+    @Option(displayName = "ESLint rules and rule configuration",
+            description = "List of rules to be checked by ESLint. Optionally, the severity and other rule options can " +
+                          "also be specified as e.g. `off`, `warn` or `[\"error\", \"always\"]`. " +
+                          "The severity `off` is useful when the rule is declared by an extended " +
+                          "[shareable config](https://eslint.org/docs/latest/extend/ways-to-extend#shareable-configs). " +
+                          "For more information, see the [ESLint documentation](https://eslint.org/docs/latest/use/configure/rules)",
+            example = "eqeqeq: warn, multiline-comment-style: [\"error\", \"starred-block\"], prettier/prettier",
             required = false)
     @Nullable
     List<String> rules;
+
+    @Option(displayName = "Autofix",
+            description = "Automatically fix violations when possible. Defaults to `true`.",
+            example = "false",
+            required = false)
+    @Nullable
+    Boolean fix;
+
+    @Option(displayName = "Override config file",
+            description = "Allows specifying the full ESLint configuration file contents as JSON. " +
+                          "See [ESLint documentation](https://eslint.org/docs/latest/use/configure/configuration-files) for more details.\n\n" +
+                          "Note that this will override any other configuration options.",
+            required = false)
+    @Nullable
+    String configFile;
 
     @Override
     public String getDisplayName() {
@@ -100,34 +153,60 @@ public class ESLint extends AbstractNodeBasedRecipe {
 
     @Override
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
-        if ((plugins == null || plugins.isEmpty()) && (extend == null || extend.isEmpty()) && (rules == null || rules.isEmpty())) {
+        if ((plugins == null || plugins.isEmpty()) && (extend == null || extend.isEmpty()) && (rules == null || rules.isEmpty()) && configFile == null) {
             return emptyList();
         }
 
         List<String> command = new ArrayList<>();
         command.add("node");
         command.add(ctx.getMessage(ESLINT_DIR).toString() + "/eslint-driver.js");
+
         if (patterns != null) {
             patterns.forEach(p -> command.add("--patterns=" + p));
         }
-        if (envs != null) {
-            envs.forEach(e -> command.add("--env={" + e + "}"));
-        }
-        if (plugins != null) {
-            plugins.forEach(p -> command.add("--plugins=" + p));
-        }
-        if (extend != null) {
-            extend.forEach(e -> command.add("--extends=" + e));
-        }
-        if (rules != null) {
-            rules.forEach(r -> {
-                int colonIndex = r.indexOf(':');
-                if (colonIndex != -1) {
-                    command.add("--rules={" + r + "}");
-                } else {
-                    command.add("--rules={" + r + ": 2}");
-                }
-            });
+        if (configFile != null) {
+            try {
+                Path directory = WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory();
+                Path configFile = Files.write(Files.createTempFile(directory, "eslint-config", null), this.configFile.getBytes(StandardCharsets.UTF_8));
+                command.add("--config-file=" + configFile);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            if (parser != null) {
+                command.add("--parser=" + parser);
+            }
+            if (parserOptions != null) {
+                parserOptions.forEach(p -> command.add("--parser-options=" + p));
+            }
+            if (allowInlineConfig != null) {
+                command.add("--allow-inline-config=" + allowInlineConfig);
+            }
+            if (envs != null) {
+                envs.forEach(e -> command.add("--env={" + e + "}"));
+            }
+            if (globals != null) {
+                globals.forEach(g -> command.add("--globals={" + g + "}"));
+            }
+            if (plugins != null) {
+                plugins.forEach(p -> command.add("--plugins=" + p));
+            }
+            if (extend != null) {
+                extend.forEach(e -> command.add("--extends=" + e));
+            }
+            if (rules != null) {
+                rules.forEach(r -> {
+                    int colonIndex = r.indexOf(':');
+                    if (colonIndex != -1) {
+                        command.add("--rules={" + r + "}");
+                    } else {
+                        command.add("--rules={" + r + ": 2}");
+                    }
+                });
+            }
+            if (fix != null) {
+                command.add("--fix=" + fix);
+            }
         }
         return command;
     }
@@ -178,8 +257,11 @@ public class ESLint extends AbstractNodeBasedRecipe {
             String messageText = message.get("message").asText();
             String ruleId = message.get("ruleId").asText();
             JsonNode jsonNode = metadata != null ? metadata.get(ruleId) : null;
-            String detail = jsonNode != null ? jsonNode.get("docs").get("description").asText() + "\n\nRule: " + ruleId : "Rule: " + ruleId;
-            Marker marker = new SearchResult(randomId(), (severity == 2 ? "ERROR: " : "WARNING: ") + messageText + "\n\n" + detail);
+            String detail = jsonNode != null && jsonNode.has("docs") ?
+                    jsonNode.get("docs").get("description").asText() + "\n\nRule: " + ruleId :
+                    "Rule: " + ruleId;
+            detail += ", Severity: " + (severity == 2 ? "ERROR" : "WARNING");
+            Marker marker = new SearchResult(randomId(), messageText + "\n\n" + detail);
             messages.insertRow(
                     ctx, new ESLintMessages.Row(
                             before.getSourcePath().toString(),

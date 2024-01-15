@@ -23,24 +23,51 @@ import java.util.List;
 
 import static org.openrewrite.test.SourceSpecs.text;
 
+@DisabledIfEnvironmentVariable(named = "CI", matches = "true")
 public class ESLintTest implements RewriteTest {
 
     @Test
-    @DisabledIfEnvironmentVariable(named = "CI", matches = "true")
     void formatStatement() {
         rewriteRun(
-          spec -> spec.recipe(new ESLint(null, null, null, List.of("eslint:recommended"), null)),
+          spec -> spec.recipe( new ESLint(null, null, null, null, null, null, null, List.of("eslint:recommended"), null, null, null)),
           text(
             //language=js
             """
               console.log('foo')
               """,
             """
-              ~~(ERROR: 'console' is not defined.
+              ~~('console' is not defined.
                           
               Disallow the use of undeclared variables unless mentioned in `/*global */` comments
                           
-              Rule: no-undef)~~>console.log('foo')
+              Rule: no-undef, Severity: ERROR)~~>console.log('foo')
+              """,
+            spec -> spec.path("src/Foo.js")
+          )
+        );
+    }
+
+    @Test
+    void configFile() {
+        rewriteRun(
+          spec -> spec.recipe( new ESLint(List.of("**/*.js"), null, null, null, null, null, null, null, null, null, """
+            {
+                "rules": {
+                    "eqeqeq": "error",
+                }
+            }
+            """)),
+          text(
+            //language=js
+            """
+              2 == 42;
+              """,
+            """
+              2 ~~(Expected '===' and instead saw '=='.
+                            
+              Require the use of `===` and `!==`
+                            
+              Rule: eqeqeq, Severity: ERROR)~~>== 42;
               """,
             spec -> spec.path("src/Foo.js")
           )
