@@ -17,6 +17,7 @@ package org.openrewrite.codemods;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 import org.openrewrite.ExecutionContext;
@@ -34,7 +35,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.Collections.emptyList;
 import static org.openrewrite.Tree.randomId;
@@ -245,11 +249,22 @@ public class ESLint extends AbstractNodeBasedRecipe {
         List<PlainText.Snippet> snippets = new ArrayList<>();
         SourcePosition currentPosition = new SourcePosition(content, 1, 1, 0);
         PlainText.Snippet currentSnippet = new PlainText.Snippet(randomId(), Markers.EMPTY, "");
-        for (JsonNode message : resultNode.get("messages")) {
+        JsonNode previousMessage = null;
+        ArrayNode messagesNode = (ArrayNode) resultNode.get("messages");
+        for (int i = 0; i < messagesNode.size(); i++) {
+            JsonNode message = messagesNode.get(i);
             int line = message.get("line").asInt();
             int column = message.get("column").asInt();
             SourcePosition nextPosition = currentPosition.scanForwardTo(line, column);
             if (nextPosition.offset > currentPosition.offset) {
+                if (previousMessage != null) {
+                    SourcePosition endPosition = currentPosition.scanForwardTo(previousMessage.get("endLine").intValue(), previousMessage.get("endColumn").intValue());
+                    if (endPosition.offset < nextPosition.offset) {
+                        snippets.add(currentSnippet.withText(content.substring(currentPosition.offset, endPosition.offset)));
+                        currentSnippet = new PlainText.Snippet(randomId(), Markers.EMPTY, "");
+                        currentPosition = endPosition;
+                    }
+                }
                 snippets.add(currentSnippet.withText(content.substring(currentPosition.offset, nextPosition.offset)));
                 currentSnippet = new PlainText.Snippet(randomId(), Markers.EMPTY, "");
             }
@@ -275,6 +290,15 @@ public class ESLint extends AbstractNodeBasedRecipe {
             );
             currentSnippet = currentSnippet.withMarkers(currentSnippet.getMarkers().add(marker));
             currentPosition = nextPosition;
+            previousMessage = message.has("endLine") ? message : null;
+        }
+        if (previousMessage != null) {
+            SourcePosition endPosition = currentPosition.scanForwardTo(previousMessage.get("endLine").intValue(), previousMessage.get("endColumn").intValue());
+            if (endPosition.offset < content.length()) {
+                snippets.add(currentSnippet.withText(content.substring(currentPosition.offset, endPosition.offset)));
+                currentSnippet = new PlainText.Snippet(randomId(), Markers.EMPTY, "");
+                currentPosition = endPosition;
+            }
         }
         snippets.add(currentSnippet.withText(content.substring(currentPosition.offset)));
 
@@ -299,6 +323,9 @@ public class ESLint extends AbstractNodeBasedRecipe {
         int offset;
 
         private SourcePosition scanForwardTo(int line, int column) {
+            if (line == this.line && column == this.column) {
+                return this;
+            }
             int currentLine = this.line;
             int currentColumn = this.column;
             int currentOffset = this.offset;

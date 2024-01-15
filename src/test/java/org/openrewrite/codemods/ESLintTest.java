@@ -17,10 +17,12 @@ package org.openrewrite.codemods;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
+import org.openrewrite.marker.SearchResult;
 import org.openrewrite.test.RewriteTest;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.openrewrite.test.SourceSpecs.text;
 
 @DisabledIfEnvironmentVariable(named = "CI", matches = "true")
@@ -43,6 +45,57 @@ public class ESLintTest implements RewriteTest {
               Rule: no-undef, Severity: ERROR)~~>console.log('foo')
               """,
             spec -> spec.path("src/Foo.js")
+          )
+        );
+    }
+
+    @Test
+    void multiple() {
+        rewriteRun(
+          spec -> spec.recipe( new ESLint(null, null, null, null, null, null, null, List.of("eslint:recommended"), null, null, null)),
+          text(
+            //language=js
+            """
+              console.log('foo')
+              console.log('bar')
+              """,
+            """
+              ~~('console' is not defined.
+              
+              Disallow the use of undeclared variables unless mentioned in `/*global */` comments
+              
+              Rule: no-undef, Severity: ERROR)~~>console.log('foo')
+              ~~('console' is not defined.
+              
+              Disallow the use of undeclared variables unless mentioned in `/*global */` comments
+              
+              Rule: no-undef, Severity: ERROR)~~>console.log('bar')
+              """,
+            spec -> spec.path("src/Foo.js")
+              .afterRecipe(text -> {
+                  assertThat(text.getSnippets()).satisfiesExactly(
+                    snippet -> {
+                        assertThat(snippet.getText()).isEqualTo("console");
+                        assertThat(snippet.getMarkers().getMarkers()).satisfiesExactly(
+                          m -> assertThat(((SearchResult) m).getDescription()).contains("'console' is not defined.")
+                        );
+                    },
+                    snippet -> {
+                        assertThat(snippet.getText()).isEqualTo(".log('foo')\n");
+                        assertThat(snippet.getMarkers().getMarkers()).isEmpty();
+                    },
+                    snippet -> {
+                        assertThat(snippet.getText()).isEqualTo("console");
+                        assertThat(snippet.getMarkers().getMarkers()).satisfiesExactly(
+                          m -> assertThat(((SearchResult) m).getDescription()).contains("'console' is not defined.")
+                        );
+                    },
+                    snippet -> {
+                        assertThat(snippet.getText()).isEqualTo(".log('bar')");
+                        assertThat(snippet.getMarkers().getMarkers()).isEmpty();
+                    }
+                  );
+              })
           )
         );
     }
