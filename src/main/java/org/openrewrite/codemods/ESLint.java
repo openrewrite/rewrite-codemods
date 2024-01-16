@@ -45,7 +45,7 @@ import static org.openrewrite.Tree.randomId;
 
 @Value
 @EqualsAndHashCode(callSuper = true)
-public class ESLint extends AbstractNodeBasedRecipe {
+public class ESLint extends NodeBasedRecipe {
 
     private static final String ESLINT_DIR = ESLint.class.getName() + ".ESLINT_DIR";
 

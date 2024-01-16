@@ -37,10 +37,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.Collections.emptyList;
 
-abstract class AbstractNodeBasedRecipe extends ScanningRecipe<AbstractNodeBasedRecipe.Accumulator> {
-    protected static final String FIRST_CODEMOD = AbstractNodeBasedRecipe.class.getName() + ".FIRST_CODEMOD";
-    protected static final String PREVIOUS_CODEMOD = AbstractNodeBasedRecipe.class.getName() + ".PREVIOUS_CODEMOD";
-    protected static final String INIT_REPO_DIR = AbstractNodeBasedRecipe.class.getName() + ".INIT_REPO_DIR";
+abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Accumulator> {
+    private static final String FIRST_CODEMOD = NodeBasedRecipe.class.getName() + ".FIRST_CODEMOD";
+    private static final String PREVIOUS_CODEMOD = NodeBasedRecipe.class.getName() + ".PREVIOUS_CODEMOD";
+    private static final String INIT_REPO_DIR = NodeBasedRecipe.class.getName() + ".INIT_REPO_DIR";
 
     @Override
     public Accumulator getInitialValue(ExecutionContext ctx) {
