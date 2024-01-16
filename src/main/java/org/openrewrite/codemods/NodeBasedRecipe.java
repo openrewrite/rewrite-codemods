@@ -263,7 +263,7 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
             }
         }
 
-        protected Path resolvedPath(SourceFile tree) {
+        public Path resolvedPath(SourceFile tree) {
             return directory.resolve(tree.getSourcePath());
         }
 
