@@ -37,7 +37,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.Collections.emptyList;
 
-abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Accumulator> {
+public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Accumulator> {
     private static final String FIRST_CODEMOD = NodeBasedRecipe.class.getName() + ".FIRST_CODEMOD";
     private static final String PREVIOUS_CODEMOD = NodeBasedRecipe.class.getName() + ".PREVIOUS_CODEMOD";
     private static final String INIT_REPO_DIR = NodeBasedRecipe.class.getName() + ".INIT_REPO_DIR";
