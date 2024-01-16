@@ -56,7 +56,7 @@ public final class RecipeResources {
             ctx.putMessage(nodeModulesKey, nodeModules = extractNodeModules(() -> {
                 try {
                     WorkingDirectoryExecutionContextView view = WorkingDirectoryExecutionContextView.view(ctx);
-                    return Files.createDirectory(view.getWorkingDirectory().resolve("codemods-npm"));
+                    return Files.createDirectory(view.getWorkingDirectory().resolve("npm-registry"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

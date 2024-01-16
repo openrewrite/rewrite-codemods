@@ -38,16 +38,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static java.util.Collections.emptyList;
 
 public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Accumulator> {
-    private static final String FIRST_CODEMOD = NodeBasedRecipe.class.getName() + ".FIRST_CODEMOD";
-    private static final String PREVIOUS_CODEMOD = NodeBasedRecipe.class.getName() + ".PREVIOUS_CODEMOD";
+    private static final String FIRST_RECIPE = NodeBasedRecipe.class.getName() + ".FIRST_RECIPE";
+    private static final String PREVIOUS_RECIPE = NodeBasedRecipe.class.getName() + ".PREVIOUS_RECIPE";
     private static final String INIT_REPO_DIR = NodeBasedRecipe.class.getName() + ".INIT_REPO_DIR";
 
     @Override
     public Accumulator getInitialValue(ExecutionContext ctx) {
-        Path directory = createDirectory(ctx, "codemods-repo");
+        Path directory = createDirectory(ctx, "repo");
         if (ctx.getMessage(INIT_REPO_DIR) == null) {
             ctx.putMessage(INIT_REPO_DIR, directory);
-            ctx.putMessage(FIRST_CODEMOD, ctx.getCycleDetails().getRecipePosition());
+            ctx.putMessage(FIRST_RECIPE, ctx.getCycleDetails().getRecipePosition());
         }
         return new Accumulator(directory);
     }
@@ -67,7 +67,7 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
                     }
 
                     // only extract initial source files for first codemod recipe
-                    if (Objects.equals(ctx.getMessage(FIRST_CODEMOD), ctx.getCycleDetails().getRecipePosition())) {
+                    if (Objects.equals(ctx.getMessage(FIRST_RECIPE), ctx.getCycleDetails().getRecipePosition())) {
                         // FIXME filter out more source types; possibly only write plain text, json, and yaml?
                         acc.writeSource(sourceFile);
                     }
@@ -79,13 +79,13 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
 
     @Override
     public Collection<? extends SourceFile> generate(Accumulator acc, ExecutionContext ctx) {
-        Path previous = ctx.getMessage(PREVIOUS_CODEMOD);
-        if (previous != null && !Objects.equals(ctx.getMessage(FIRST_CODEMOD), ctx.getCycleDetails().getRecipePosition())) {
+        Path previous = ctx.getMessage(PREVIOUS_RECIPE);
+        if (previous != null && !Objects.equals(ctx.getMessage(FIRST_RECIPE), ctx.getCycleDetails().getRecipePosition())) {
             acc.copyFromPrevious(previous);
         }
 
         runNode(acc, ctx);
-        ctx.putMessage(PREVIOUS_CODEMOD, acc.getDirectory());
+        ctx.putMessage(PREVIOUS_RECIPE, acc.getDirectory());
 
         // FIXME check for generated files
         return emptyList();
