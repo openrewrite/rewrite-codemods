@@ -130,7 +130,7 @@ public class ESLint extends NodeBasedRecipe {
     Boolean fix;
 
     @Option(displayName = "Override config file",
-            description = "Allows specifying the full ESLint configuration file contents as JSON. " +
+            description = "Allows specifying the full ESLint configuration file contents as multiline JSON. " +
                           "See [ESLint documentation](https://eslint.org/docs/latest/use/configure/configuration-files) for more details.\n\n" +
                           "Note that this will override any other configuration options.",
             required = false)
