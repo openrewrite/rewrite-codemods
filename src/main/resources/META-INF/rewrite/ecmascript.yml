@@ -52,3 +52,18 @@ recipeList:
         - prettier
       rules:
         - "prettier/prettier"
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.ecmascript.cjsToEsm
+displayName: Transform CommonJS style `require()` calls to ES6 `import` statements
+description: >
+  Transform CommonJS style `require()` calls to ES6 `import` statements
+tags:
+  - codemods
+  - 5to6
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      npmPackage: node_modules/5to6-codemod
+      transform: cjs
+      codemodArgs:
+        - hoist=true

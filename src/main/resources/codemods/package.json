@@ -4,6 +4,7 @@
     "@stylistic/eslint-plugin": "1.6.1",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
+    "5to6-codemod": "1.8.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-babel": "^5.3.1",
@@ -21,6 +22,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-typescript-sort-keys": "^3.1.0",
-    "eslint-webpack-plugin": "^4.0.1"
+    "eslint-webpack-plugin": "^4.0.1",
+    "js-codemod": "7.0.0"
   }
 }
