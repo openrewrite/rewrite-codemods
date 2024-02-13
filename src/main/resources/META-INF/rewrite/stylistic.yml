@@ -15,12 +15,96 @@
 #
 ---
 type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.ArrayBracketNewline
+displayName: Enforce linebreaks after opening and before closing array brackets
+description: |
+  Enforce linebreaks after opening and before closing array brackets
+
+  See [rule details](https://eslint.style/rules/default/array-bracket-newline)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/array-bracket-newline": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.ArrayBracketSpacing
+displayName: Enforce consistent spacing inside array brackets
+description: |
+  Enforce consistent spacing inside array brackets
+
+  See [rule details](https://eslint.style/rules/default/array-bracket-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/array-bracket-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.ArrayElementNewline
+displayName: Enforce line breaks after each array element
+description: |
+  Enforce line breaks after each array element
+
+  See [rule details](https://eslint.style/rules/default/array-element-newline)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/array-element-newline": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.stylistic.ArrowParens
 displayName: Require parentheses around arrow function arguments
 description: |
-  Require parentheses around arrow function arguments.
+  Require parentheses around arrow function arguments
+
+  See [rule details](https://eslint.style/rules/default/arrow-parens)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -36,3 +120,2312 @@ recipeList:
             "node": true
           }
         }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.ArrowSpacing
+displayName: Enforce consistent spacing before and after the arrow in arrow functions
+description: |
+  Enforce consistent spacing before and after the arrow in arrow functions
+
+  See [rule details](https://eslint.style/rules/default/arrow-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/arrow-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.BlockSpacing
+displayName: Disallow or enforce spaces inside of blocks after opening block and before closing block
+description: |
+  Disallow or enforce spaces inside of blocks after opening block and before closing block
+
+  See [rule details](https://eslint.style/rules/default/block-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/block-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.BraceStyle
+displayName: Enforce consistent brace style for blocks
+description: |
+  Enforce consistent brace style for blocks
+
+  See [rule details](https://eslint.style/rules/default/brace-style)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/brace-style": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.CommaDangle
+displayName: Require or disallow trailing commas
+description: |
+  Require or disallow trailing commas
+
+  See [rule details](https://eslint.style/rules/default/comma-dangle)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/comma-dangle": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.CommaSpacing
+displayName: Enforce consistent spacing before and after commas
+description: |
+  Enforce consistent spacing before and after commas
+
+  See [rule details](https://eslint.style/rules/default/comma-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/comma-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.CommaStyle
+displayName: Enforce consistent comma style
+description: |
+  Enforce consistent comma style
+
+  See [rule details](https://eslint.style/rules/default/comma-style)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/comma-style": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.ComputedPropertySpacing
+displayName: Enforce consistent spacing inside computed property brackets
+description: |
+  Enforce consistent spacing inside computed property brackets
+
+  See [rule details](https://eslint.style/rules/default/computed-property-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/computed-property-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.DotLocation
+displayName: Enforce consistent newlines before and after dots
+description: |
+  Enforce consistent newlines before and after dots
+
+  See [rule details](https://eslint.style/rules/default/dot-location)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/dot-location": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.EolLast
+displayName: Require or disallow newline at the end of files
+description: |
+  Require or disallow newline at the end of files
+
+  See [rule details](https://eslint.style/rules/default/eol-last)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/eol-last": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.FuncCallSpacing
+displayName: Require or disallow spacing between function identifiers and their invocations. Alias of `function-call-spacing`.
+description: |
+  Require or disallow spacing between function identifiers and their invocations. Alias of `function-call-spacing`.
+
+  See [rule details](https://eslint.style/rules/default/func-call-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/func-call-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.FunctionCallArgumentNewline
+displayName: Enforce line breaks between arguments of a function call
+description: |
+  Enforce line breaks between arguments of a function call
+
+  See [rule details](https://eslint.style/rules/default/function-call-argument-newline)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/function-call-argument-newline": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.FunctionCallSpacing
+displayName: Require or disallow spacing between function identifiers and their invocations
+description: |
+  Require or disallow spacing between function identifiers and their invocations
+
+  See [rule details](https://eslint.style/rules/default/function-call-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/function-call-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.FunctionParenNewline
+displayName: Enforce consistent line breaks inside function parentheses
+description: |
+  Enforce consistent line breaks inside function parentheses
+
+  See [rule details](https://eslint.style/rules/default/function-paren-newline)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/function-paren-newline": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.GeneratorStarSpacing
+displayName: Enforce consistent spacing around `*` operators in generator functions
+description: |
+  Enforce consistent spacing around `*` operators in generator functions
+
+  See [rule details](https://eslint.style/rules/default/generator-star-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/generator-star-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.ImplicitArrowLinebreak
+displayName: Enforce the location of arrow function bodies
+description: |
+  Enforce the location of arrow function bodies
+
+  See [rule details](https://eslint.style/rules/default/implicit-arrow-linebreak)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/implicit-arrow-linebreak": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.Indent
+displayName: Enforce consistent indentation
+description: |
+  Enforce consistent indentation
+
+  See [rule details](https://eslint.style/rules/default/indent)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/indent": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.IndentBinaryOps
+displayName: Indentation for binary operators
+description: |
+  Indentation for binary operators
+
+  See [rule details](https://eslint.style/rules/default/indent-binary-ops)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/indent-binary-ops": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxClosingBracketLocation
+displayName: Enforce closing bracket location in JSX
+description: |
+  Enforce closing bracket location in JSX
+
+  See [rule details](https://eslint.style/rules/default/jsx-closing-bracket-location)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-closing-bracket-location": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxClosingTagLocation
+displayName: Enforce closing tag location for multiline JSX
+description: |
+  Enforce closing tag location for multiline JSX
+
+  See [rule details](https://eslint.style/rules/default/jsx-closing-tag-location)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-closing-tag-location": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxCurlyBracePresence
+displayName: Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
+description: |
+  Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
+
+  See [rule details](https://eslint.style/rules/default/jsx-curly-brace-presence)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-curly-brace-presence": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxCurlyNewline
+displayName: Enforce consistent linebreaks in curly braces in JSX attributes and expressions
+description: |
+  Enforce consistent linebreaks in curly braces in JSX attributes and expressions
+
+  See [rule details](https://eslint.style/rules/default/jsx-curly-newline)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-curly-newline": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxCurlySpacing
+displayName: Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+description: |
+  Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+
+  See [rule details](https://eslint.style/rules/default/jsx-curly-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-curly-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxEqualsSpacing
+displayName: Enforce or disallow spaces around equal signs in JSX attributes
+description: |
+  Enforce or disallow spaces around equal signs in JSX attributes
+
+  See [rule details](https://eslint.style/rules/default/jsx-equals-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-equals-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxFirstPropNewLine
+displayName: Enforce proper position of the first property in JSX
+description: |
+  Enforce proper position of the first property in JSX
+
+  See [rule details](https://eslint.style/rules/default/jsx-first-prop-new-line)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-first-prop-new-line": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxIndent
+displayName: Enforce JSX indentation
+description: |
+  Enforce JSX indentation
+
+  See [rule details](https://eslint.style/rules/default/jsx-indent)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-indent": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxIndentProps
+displayName: Enforce props indentation in JSX
+description: |
+  Enforce props indentation in JSX
+
+  See [rule details](https://eslint.style/rules/default/jsx-indent-props)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-indent-props": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxMaxPropsPerLine
+displayName: Enforce maximum of props on a single line in JSX
+description: |
+  Enforce maximum of props on a single line in JSX
+
+  See [rule details](https://eslint.style/rules/default/jsx-max-props-per-line)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-max-props-per-line": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxNewline
+displayName: Require or prevent a new line after jsx elements and expressions.
+description: |
+  Require or prevent a new line after jsx elements and expressions.
+
+  See [rule details](https://eslint.style/rules/default/jsx-newline)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-newline": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxOneExpressionPerLine
+displayName: Require one JSX element per line
+description: |
+  Require one JSX element per line
+
+  See [rule details](https://eslint.style/rules/default/jsx-one-expression-per-line)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-one-expression-per-line": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxPascalCase
+displayName: Enforce PascalCase for user-defined JSX components
+description: |
+  Enforce PascalCase for user-defined JSX components
+
+  See [rule details](https://eslint.style/rules/default/jsx-pascal-case)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-pascal-case": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxPropsNoMultiSpaces
+displayName: Disallow multiple spaces between inline JSX props
+description: |
+  Disallow multiple spaces between inline JSX props
+
+  See [rule details](https://eslint.style/rules/default/jsx-props-no-multi-spaces)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-props-no-multi-spaces": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxQuotes
+displayName: Enforce the consistent use of either double or single quotes in JSX attributes
+description: |
+  Enforce the consistent use of either double or single quotes in JSX attributes
+
+  See [rule details](https://eslint.style/rules/default/jsx-quotes)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-quotes": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxSelfClosingComp
+displayName: Disallow extra closing tags for components without children
+description: |
+  Disallow extra closing tags for components without children
+
+  See [rule details](https://eslint.style/rules/default/jsx-self-closing-comp)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-self-closing-comp": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxSortProps
+displayName: Enforce props alphabetical sorting
+description: |
+  Enforce props alphabetical sorting
+
+  See [rule details](https://eslint.style/rules/default/jsx-sort-props)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-sort-props": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxTagSpacing
+displayName: Enforce whitespace in and around the JSX opening and closing brackets
+description: |
+  Enforce whitespace in and around the JSX opening and closing brackets
+
+  See [rule details](https://eslint.style/rules/default/jsx-tag-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-tag-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.JsxWrapMultilines
+displayName: Disallow missing parentheses around multiline JSX
+description: |
+  Disallow missing parentheses around multiline JSX
+
+  See [rule details](https://eslint.style/rules/default/jsx-wrap-multilines)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/jsx-wrap-multilines": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.KeySpacing
+displayName: Enforce consistent spacing between keys and values in object literal properties
+description: |
+  Enforce consistent spacing between keys and values in object literal properties
+
+  See [rule details](https://eslint.style/rules/default/key-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/key-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.KeywordSpacing
+displayName: Enforce consistent spacing before and after keywords
+description: |
+  Enforce consistent spacing before and after keywords
+
+  See [rule details](https://eslint.style/rules/default/keyword-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/keyword-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.LinebreakStyle
+displayName: Enforce consistent linebreak style
+description: |
+  Enforce consistent linebreak style
+
+  See [rule details](https://eslint.style/rules/default/linebreak-style)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/linebreak-style": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.LinesAroundComment
+displayName: Require empty lines around comments
+description: |
+  Require empty lines around comments
+
+  See [rule details](https://eslint.style/rules/default/lines-around-comment)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/lines-around-comment": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.LinesBetweenClassMembers
+displayName: Require or disallow an empty line between class members
+description: |
+  Require or disallow an empty line between class members
+
+  See [rule details](https://eslint.style/rules/default/lines-between-class-members)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/lines-between-class-members": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.MemberDelimiterStyle
+displayName: Require a specific member delimiter style for interfaces and type literals
+description: |
+  Require a specific member delimiter style for interfaces and type literals
+
+  See [rule details](https://eslint.style/rules/default/member-delimiter-style)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/member-delimiter-style": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.MultilineTernary
+displayName: Enforce newlines between operands of ternary expressions
+description: |
+  Enforce newlines between operands of ternary expressions
+
+  See [rule details](https://eslint.style/rules/default/multiline-ternary)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/multiline-ternary": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NewParens
+displayName: Enforce or disallow parentheses when invoking a constructor with no arguments
+description: |
+  Enforce or disallow parentheses when invoking a constructor with no arguments
+
+  See [rule details](https://eslint.style/rules/default/new-parens)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/new-parens": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NewlinePerChainedCall
+displayName: Require a newline after each call in a method chain
+description: |
+  Require a newline after each call in a method chain
+
+  See [rule details](https://eslint.style/rules/default/newline-per-chained-call)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/newline-per-chained-call": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NoConfusingArrow
+displayName: Disallow arrow functions where they could be confused with comparisons
+description: |
+  Disallow arrow functions where they could be confused with comparisons
+
+  See [rule details](https://eslint.style/rules/default/no-confusing-arrow)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/no-confusing-arrow": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NoExtraParens
+displayName: Disallow unnecessary parentheses
+description: |
+  Disallow unnecessary parentheses
+
+  See [rule details](https://eslint.style/rules/default/no-extra-parens)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/no-extra-parens": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NoExtraSemi
+displayName: Disallow unnecessary semicolons
+description: |
+  Disallow unnecessary semicolons
+
+  See [rule details](https://eslint.style/rules/default/no-extra-semi)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/no-extra-semi": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NoFloatingDecimal
+displayName: Disallow leading or trailing decimal points in numeric literals
+description: |
+  Disallow leading or trailing decimal points in numeric literals
+
+  See [rule details](https://eslint.style/rules/default/no-floating-decimal)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/no-floating-decimal": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NoMultiSpaces
+displayName: Disallow multiple spaces
+description: |
+  Disallow multiple spaces
+
+  See [rule details](https://eslint.style/rules/default/no-multi-spaces)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/no-multi-spaces": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NoMultipleEmptyLines
+displayName: Disallow multiple empty lines
+description: |
+  Disallow multiple empty lines
+
+  See [rule details](https://eslint.style/rules/default/no-multiple-empty-lines)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/no-multiple-empty-lines": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NoTrailingSpaces
+displayName: Disallow trailing whitespace at the end of lines
+description: |
+  Disallow trailing whitespace at the end of lines
+
+  See [rule details](https://eslint.style/rules/default/no-trailing-spaces)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/no-trailing-spaces": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NoWhitespaceBeforeProperty
+displayName: Disallow whitespace before properties
+description: |
+  Disallow whitespace before properties
+
+  See [rule details](https://eslint.style/rules/default/no-whitespace-before-property)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/no-whitespace-before-property": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.NonblockStatementBodyPosition
+displayName: Enforce the location of single-line statements
+description: |
+  Enforce the location of single-line statements
+
+  See [rule details](https://eslint.style/rules/default/nonblock-statement-body-position)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/nonblock-statement-body-position": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.ObjectCurlyNewline
+displayName: Enforce consistent line breaks after opening and before closing braces
+description: |
+  Enforce consistent line breaks after opening and before closing braces
+
+  See [rule details](https://eslint.style/rules/default/object-curly-newline)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/object-curly-newline": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.ObjectCurlySpacing
+displayName: Enforce consistent spacing inside braces
+description: |
+  Enforce consistent spacing inside braces
+
+  See [rule details](https://eslint.style/rules/default/object-curly-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/object-curly-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.ObjectPropertyNewline
+displayName: Enforce placing object properties on separate lines
+description: |
+  Enforce placing object properties on separate lines
+
+  See [rule details](https://eslint.style/rules/default/object-property-newline)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/object-property-newline": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.OneVarDeclarationPerLine
+displayName: Require or disallow newlines around variable declarations
+description: |
+  Require or disallow newlines around variable declarations
+
+  See [rule details](https://eslint.style/rules/default/one-var-declaration-per-line)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/one-var-declaration-per-line": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.OperatorLinebreak
+displayName: Enforce consistent linebreak style for operators
+description: |
+  Enforce consistent linebreak style for operators
+
+  See [rule details](https://eslint.style/rules/default/operator-linebreak)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/operator-linebreak": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.PaddedBlocks
+displayName: Require or disallow padding within blocks
+description: |
+  Require or disallow padding within blocks
+
+  See [rule details](https://eslint.style/rules/default/padded-blocks)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/padded-blocks": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.PaddingLineBetweenStatements
+displayName: Require or disallow padding lines between statements
+description: |
+  Require or disallow padding lines between statements
+
+  See [rule details](https://eslint.style/rules/default/padding-line-between-statements)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/padding-line-between-statements": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.QuoteProps
+displayName: Require quotes around object literal property names
+description: |
+  Require quotes around object literal property names
+
+  See [rule details](https://eslint.style/rules/default/quote-props)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/quote-props": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.Quotes
+displayName: Enforce the consistent use of either backticks
+description: |
+  Enforce the consistent use of either backticks
+
+  See [rule details](https://eslint.style/rules/default/quotes)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/quotes": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.RestSpreadSpacing
+displayName: Enforce spacing between rest and spread operators and their expressions
+description: |
+  Enforce spacing between rest and spread operators and their expressions
+
+  See [rule details](https://eslint.style/rules/default/rest-spread-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/rest-spread-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.Semi
+displayName: Require or disallow semicolons instead of ASI
+description: |
+  Require or disallow semicolons instead of ASI
+
+  See [rule details](https://eslint.style/rules/default/semi)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/semi": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.SemiSpacing
+displayName: Enforce consistent spacing before and after semicolons
+description: |
+  Enforce consistent spacing before and after semicolons
+
+  See [rule details](https://eslint.style/rules/default/semi-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/semi-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.SemiStyle
+displayName: Enforce location of semicolons
+description: |
+  Enforce location of semicolons
+
+  See [rule details](https://eslint.style/rules/default/semi-style)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/semi-style": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.SpaceBeforeBlocks
+displayName: Enforce consistent spacing before blocks
+description: |
+  Enforce consistent spacing before blocks
+
+  See [rule details](https://eslint.style/rules/default/space-before-blocks)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/space-before-blocks": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.SpaceBeforeFunctionParen
+displayName: Enforce consistent spacing before `function` definition opening parenthesis
+description: |
+  Enforce consistent spacing before `function` definition opening parenthesis
+
+  See [rule details](https://eslint.style/rules/default/space-before-function-paren)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/space-before-function-paren": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.SpaceInParens
+displayName: Enforce consistent spacing inside parentheses
+description: |
+  Enforce consistent spacing inside parentheses
+
+  See [rule details](https://eslint.style/rules/default/space-in-parens)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/space-in-parens": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.SpaceInfixOps
+displayName: Require spacing around infix operators
+description: |
+  Require spacing around infix operators
+
+  See [rule details](https://eslint.style/rules/default/space-infix-ops)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/space-infix-ops": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.SpaceUnaryOps
+displayName: Enforce consistent spacing before or after unary operators
+description: |
+  Enforce consistent spacing before or after unary operators
+
+  See [rule details](https://eslint.style/rules/default/space-unary-ops)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/space-unary-ops": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.SpacedComment
+displayName: Enforce consistent spacing after the `//` or `/*` in a comment
+description: |
+  Enforce consistent spacing after the `//` or `/*` in a comment
+
+  See [rule details](https://eslint.style/rules/default/spaced-comment)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/spaced-comment": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.SwitchColonSpacing
+displayName: Enforce spacing around colons of switch statements
+description: |
+  Enforce spacing around colons of switch statements
+
+  See [rule details](https://eslint.style/rules/default/switch-colon-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/switch-colon-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.TemplateCurlySpacing
+displayName: Require or disallow spacing around embedded expressions of template strings
+description: |
+  Require or disallow spacing around embedded expressions of template strings
+
+  See [rule details](https://eslint.style/rules/default/template-curly-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/template-curly-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.TemplateTagSpacing
+displayName: Require or disallow spacing between template tags and their literals
+description: |
+  Require or disallow spacing between template tags and their literals
+
+  See [rule details](https://eslint.style/rules/default/template-tag-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/template-tag-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.TypeAnnotationSpacing
+displayName: Require consistent spacing around type annotations
+description: |
+  Require consistent spacing around type annotations
+
+  See [rule details](https://eslint.style/rules/default/type-annotation-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/type-annotation-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.TypeGenericSpacing
+displayName: Enforces consistent spacing inside TypeScript type generics
+description: |
+  Enforces consistent spacing inside TypeScript type generics
+
+  See [rule details](https://eslint.style/rules/default/type-generic-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/type-generic-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.TypeNamedTupleSpacing
+displayName: Expect space before the type declaration in the named tuple
+description: |
+  Expect space before the type declaration in the named tuple
+
+  See [rule details](https://eslint.style/rules/default/type-named-tuple-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/type-named-tuple-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.WrapIife
+displayName: Require parentheses around immediate `function` invocations
+description: |
+  Require parentheses around immediate `function` invocations
+
+  See [rule details](https://eslint.style/rules/default/wrap-iife)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/wrap-iife": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.WrapRegex
+displayName: Require parenthesis around regex literals
+description: |
+  Require parenthesis around regex literals
+
+  See [rule details](https://eslint.style/rules/default/wrap-regex)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/wrap-regex": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.YieldStarSpacing
+displayName: Require or disallow spacing around the `*` in `yield*` expressions
+description: |
+  Require or disallow spacing around the `*` in `yield*` expressions
+
+  See [rule details](https://eslint.style/rules/default/yield-star-spacing)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/yield-star-spacing": 2
+          },
+          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.stylistic.RecommendedESLintStyling
+displayName: Recommended ESLint Styling
+description: |
+  Collection of stylistic ESLint rules that are recommended by [ESLint Style.](https://eslint.style/)
+
+recipeList:
+  - org.openrewrite.codemods.stylistic.ArrayBracketNewline
+  - org.openrewrite.codemods.stylistic.ArrayBracketSpacing
+  - org.openrewrite.codemods.stylistic.ArrayElementNewline
+  - org.openrewrite.codemods.stylistic.ArrowParens
+  - org.openrewrite.codemods.stylistic.ArrowSpacing
+  - org.openrewrite.codemods.stylistic.BlockSpacing
+  - org.openrewrite.codemods.stylistic.BraceStyle
+  - org.openrewrite.codemods.stylistic.CommaDangle
+  - org.openrewrite.codemods.stylistic.CommaSpacing
+  - org.openrewrite.codemods.stylistic.CommaStyle
+  - org.openrewrite.codemods.stylistic.ComputedPropertySpacing
+  - org.openrewrite.codemods.stylistic.DotLocation
+  - org.openrewrite.codemods.stylistic.EolLast
+  - org.openrewrite.codemods.stylistic.FuncCallSpacing
+  - org.openrewrite.codemods.stylistic.FunctionCallArgumentNewline
+  - org.openrewrite.codemods.stylistic.FunctionCallSpacing
+  - org.openrewrite.codemods.stylistic.FunctionParenNewline
+  - org.openrewrite.codemods.stylistic.GeneratorStarSpacing
+  - org.openrewrite.codemods.stylistic.ImplicitArrowLinebreak
+  - org.openrewrite.codemods.stylistic.Indent
+  - org.openrewrite.codemods.stylistic.IndentBinaryOps
+  - org.openrewrite.codemods.stylistic.JsxClosingBracketLocation
+  - org.openrewrite.codemods.stylistic.JsxClosingTagLocation
+  - org.openrewrite.codemods.stylistic.JsxCurlyBracePresence
+  - org.openrewrite.codemods.stylistic.JsxCurlyNewline
+  - org.openrewrite.codemods.stylistic.JsxCurlySpacing
+  - org.openrewrite.codemods.stylistic.JsxEqualsSpacing
+  - org.openrewrite.codemods.stylistic.JsxFirstPropNewLine
+  - org.openrewrite.codemods.stylistic.JsxIndent
+  - org.openrewrite.codemods.stylistic.JsxIndentProps
+  - org.openrewrite.codemods.stylistic.JsxMaxPropsPerLine
+  - org.openrewrite.codemods.stylistic.JsxNewline
+  - org.openrewrite.codemods.stylistic.JsxOneExpressionPerLine
+  - org.openrewrite.codemods.stylistic.JsxPascalCase
+  - org.openrewrite.codemods.stylistic.JsxPropsNoMultiSpaces
+  - org.openrewrite.codemods.stylistic.JsxQuotes
+  - org.openrewrite.codemods.stylistic.JsxSelfClosingComp
+  - org.openrewrite.codemods.stylistic.JsxSortProps
+  - org.openrewrite.codemods.stylistic.JsxTagSpacing
+  - org.openrewrite.codemods.stylistic.JsxWrapMultilines
+  - org.openrewrite.codemods.stylistic.KeySpacing
+  - org.openrewrite.codemods.stylistic.KeywordSpacing
+  - org.openrewrite.codemods.stylistic.LinebreakStyle
+  - org.openrewrite.codemods.stylistic.LinesAroundComment
+  - org.openrewrite.codemods.stylistic.LinesBetweenClassMembers
+  - org.openrewrite.codemods.stylistic.MemberDelimiterStyle
+  - org.openrewrite.codemods.stylistic.MultilineTernary
+  - org.openrewrite.codemods.stylistic.NewParens
+  - org.openrewrite.codemods.stylistic.NewlinePerChainedCall
+  - org.openrewrite.codemods.stylistic.NoConfusingArrow
+  - org.openrewrite.codemods.stylistic.NoExtraParens
+  - org.openrewrite.codemods.stylistic.NoExtraSemi
+  - org.openrewrite.codemods.stylistic.NoFloatingDecimal
+  - org.openrewrite.codemods.stylistic.NoMultiSpaces
+  - org.openrewrite.codemods.stylistic.NoMultipleEmptyLines
+  - org.openrewrite.codemods.stylistic.NoTrailingSpaces
+  - org.openrewrite.codemods.stylistic.NoWhitespaceBeforeProperty
+  - org.openrewrite.codemods.stylistic.NonblockStatementBodyPosition
+  - org.openrewrite.codemods.stylistic.ObjectCurlyNewline
+  - org.openrewrite.codemods.stylistic.ObjectCurlySpacing
+  - org.openrewrite.codemods.stylistic.ObjectPropertyNewline
+  - org.openrewrite.codemods.stylistic.OneVarDeclarationPerLine
+  - org.openrewrite.codemods.stylistic.OperatorLinebreak
+  - org.openrewrite.codemods.stylistic.PaddedBlocks
+  - org.openrewrite.codemods.stylistic.PaddingLineBetweenStatements
+  - org.openrewrite.codemods.stylistic.QuoteProps
+  - org.openrewrite.codemods.stylistic.Quotes
+  - org.openrewrite.codemods.stylistic.RestSpreadSpacing
+  - org.openrewrite.codemods.stylistic.Semi
+  - org.openrewrite.codemods.stylistic.SemiSpacing
+  - org.openrewrite.codemods.stylistic.SemiStyle
+  - org.openrewrite.codemods.stylistic.SpaceBeforeBlocks
+  - org.openrewrite.codemods.stylistic.SpaceBeforeFunctionParen
+  - org.openrewrite.codemods.stylistic.SpaceInParens
+  - org.openrewrite.codemods.stylistic.SpaceInfixOps
+  - org.openrewrite.codemods.stylistic.SpaceUnaryOps
+  - org.openrewrite.codemods.stylistic.SpacedComment
+  - org.openrewrite.codemods.stylistic.SwitchColonSpacing
+  - org.openrewrite.codemods.stylistic.TemplateCurlySpacing
+  - org.openrewrite.codemods.stylistic.TemplateTagSpacing
+  - org.openrewrite.codemods.stylistic.TypeAnnotationSpacing
+  - org.openrewrite.codemods.stylistic.TypeGenericSpacing
+  - org.openrewrite.codemods.stylistic.TypeNamedTupleSpacing
+  - org.openrewrite.codemods.stylistic.WrapIife
+  - org.openrewrite.codemods.stylistic.WrapRegex
+  - org.openrewrite.codemods.stylistic.YieldStarSpacing
