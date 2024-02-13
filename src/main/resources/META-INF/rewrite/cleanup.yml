@@ -1,0 +1,833 @@
+#
+# Copyright 2023 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.ArrowBodyStyle
+displayName: Require braces around arrow function bodies
+description: |
+  Require braces around arrow function bodies
+  
+    See [rule details](https://eslint.org/docs/latest/rules/arrow-body-style)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "arrow-body-style": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.CapitalizedComments
+displayName: 'Enforce or disallow capitalization of the first letter of a comment '
+description: |
+  Enforce or disallow capitalization of the first letter of a comment  
+  
+     See [rule details](https://eslint.org/docs/latest/rules/capitalized-comments)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "capitalized-comments": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.Curly
+displayName: 'Enforce consistent brace style for all control statements '
+description: |
+  Enforce consistent brace style for all control statements 
+  
+    See [rule  details](https://eslint.org/docs/latest/rules/curly)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "curly": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.DotNotation
+displayName: 'Enforce dot notation whenever possible '
+description: |
+  Enforce dot notation whenever possible 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/dot-notation)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "dot-notation": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": truee
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.Eqeqeq
+displayName: 'Require the use of === and !== '
+description: |
+  Require the use of === and !== 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/eqeqeq)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "eqeqeq": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.LogicalAssignmentOperators
+displayName: 'Require or disallow logical assignment operator shorthand '
+description: |
+  Require or disallow logical assignment operator shorthand 
+  
+    See [rule  details](https://eslint.org/docs/latest/rules/logical-assignment-operators)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "logical-assignment-operators": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.MultilineCommentStyle
+displayName: 'Enforce a particular style for multiline comments '
+description: |
+  Enforce a particular style for multiline comments 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/multiline-comment-style)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "multiline-comment-style": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoDivRegex
+displayName: 'Disallow equal signs explicitly at the beginning of regular expressions '
+description: |
+  Disallow equal signs explicitly at the beginning of regular expressions  
+  
+     See [rule details](https://eslint.org/docs/latest/rules/no-div-regex)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-div-regex": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": truee
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoElseReturn
+displayName: 'Disallow else blocks after return statements in if statements '
+description: |
+  Disallow else blocks after return statements in if statements 
+  
+    See  [rule details](https://eslint.org/docs/latest/rules/no-else-return)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-else-return": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoExtraBind
+displayName: 'Disallow unnecessary calls to .bind() '
+description: |
+  Disallow unnecessary calls to .bind() 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/no-extra-bind)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-extra-bind": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoExtraLabel
+displayName: 'Disallow unnecessary labels '
+description: |
+  Disallow unnecessary labels 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/no-extra-label)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-extra-label": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoImplicitCoercion
+displayName: 'Disallow shorthand type conversions '
+description: |
+  Disallow shorthand type conversions 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/no-implicit-coercion)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-implicit-coercion": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoLonelyIf
+displayName: 'Disallow if statements as the only statement in else blocks '
+description: |
+  Disallow if statements as the only statement in else blocks 
+  
+    See  [rule details](https://eslint.org/docs/latest/rules/no-lonely-if)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-lonely-if": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": truee
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoUndefInit
+displayName: 'Disallow initializing variables to undefined '
+description: |
+  Disallow initializing variables to undefined 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/no-undef-init)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-undef-init": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoUnneededTernary
+displayName: 'Disallow ternary operators when simpler alternatives exist '
+description: |
+  Disallow ternary operators when simpler alternatives exist 
+  
+    See [rule  details](https://eslint.org/docs/latest/rules/no-unneeded-ternary)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-unneeded-ternary": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoUselessComputedKey
+displayName: 'Disallow unnecessary computed property keys in objects and classes '
+description: |
+  Disallow unnecessary computed property keys in objects and classes 
+  
+     See [rule details](https://eslint.org/docs/latest/rules/no-useless-computed-key)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-useless-computed-key": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoUselessRename
+displayName:
+  'Disallow renaming import, export, and destructured assignments to the
+  same name '
+description: |
+  Disallow renaming import, export, and destructured assignments to the  same name 
+  
+     See [rule details](https://eslint.org/docs/latest/rules/no-useless-rename)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-useless-rename": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoUselessReturn
+displayName: 'Disallow redundant return statements '
+description: |
+  Disallow redundant return statements 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/no-useless-return)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-useless-return": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.NoVar
+displayName: 'Require let or const instead of var '
+description: |
+  Require let or const instead of var 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/no-var)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "no-var": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.ObjectShorthand
+displayName:
+  'Require or disallow method and property shorthand syntax for object
+  literals '
+description: |
+  Require or disallow method and property shorthand syntax for object  literals 
+  
+     See [rule details](https://eslint.org/docs/latest/rules/object-shorthand)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "object-shorthand": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.OneVar
+displayName: 'Enforce variables to be declared either together or separately in functions '
+description: |
+  Enforce variables to be declared either together or separately in functions  
+  
+     See [rule details](https://eslint.org/docs/latest/rules/one-var)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "one-var": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.OperatorAssignment
+displayName: 'Require or disallow assignment operator shorthand where possible '
+description: |
+  Require or disallow assignment operator shorthand where possible 
+  
+     See [rule details](https://eslint.org/docs/latest/rules/operator-assignment)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "operator-assignment": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.PreferArrowCallback
+displayName: 'Require using arrow functions for callbacks '
+description: |
+  Require using arrow functions for callbacks 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/prefer-arrow-callback)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "prefer-arrow-callback": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.PreferConst
+displayName:
+  'Require const declarations for variables that are never reassigned after
+  declared '
+description: |
+  Require const declarations for variables that are never reassigned after  declared 
+  
+     See [rule details](https://eslint.org/docs/latest/rules/prefer-const)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "prefer-const": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": truee
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.PreferDestructuring
+displayName: 'Require destructuring from arrays and/or objects '
+description: |
+  Require destructuring from arrays and/or objects 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/prefer-destructuring)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "prefer-destructuring": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.PreferExponentiationOperator
+displayName: 'Disallow the use of Math.pow in favor of the ** operator '
+description: |
+  Disallow the use of Math.pow in favor of the ** operator 
+  
+    See [rule  details](https://eslint.org/docs/latest/rules/prefer-exponentiation-operator)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "prefer-exponentiation-operator": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.PreferNumericLiterals
+displayName:
+  'Disallow parseInt() and Number.parseInt() in favor of binary, octal,
+  and hexadecimal literals '
+description: |
+  Disallow parseInt() and Number.parseInt() in favor of binary, octal,  and hexadecimal literals 
+  
+     See [rule details](https://eslint.org/docs/latest/rules/prefer-numeric-literals)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "prefer-numeric-literals": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.PreferObjectHasOwn
+displayName:
+  'Disallow use of Object.prototype.hasOwnProperty.call() and prefer use
+  of Object.hasOwn() '
+description: |
+  Disallow use of Object.prototype.hasOwnProperty.call() and prefer use  of Object.hasOwn() 
+  
+     See [rule details](https://eslint.org/docs/latest/rules/prefer-object-has-own)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "prefer-object-has-own": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.PreferObjectSpread
+displayName:
+  'Disallow using Object.assign with an object literal as the first argument
+  and prefer the use of object spread instead '
+description: |
+  Disallow using Object.assign with an object literal as the first argument  and prefer the use of object spread instead 
+  
+     See [rule details](https://eslint.org/docs/latest/rules/prefer-object-spread)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "prefer-object-spread": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.PreferTemplate
+displayName: 'Require template literals instead of string concatenation '
+description: |
+  Require template literals instead of string concatenation 
+  
+    See [rule  details](https://eslint.org/docs/latest/rules/prefer-template)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "prefer-template": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.SortImports
+displayName: 'Enforce sorted import declarations within modules '
+description: |
+  Enforce sorted import declarations within modules 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/sort-imports)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "sort-imports": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": truee
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.SortVars
+displayName: 'Require variables within the same declaration block to be sorted '
+description: |
+  Require variables within the same declaration block to be sorted 
+  
+     See [rule details](https://eslint.org/docs/latest/rules/sort-vars)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "sort-vars": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.Strict
+displayName: 'Require or disallow strict mode directives '
+description: |
+  Require or disallow strict mode directives 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/strict)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "strict": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.Yoda
+displayName: 'Require or disallow 201CYoda201D conditions '
+description: |
+  Require or disallow 201CYoda201D conditions 
+  
+    See [rule details](https://eslint.org/docs/latest/rules/yoda)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "yoda": 2
+          },
+          "g: {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.eslint.UnicodeBom
+displayName: Require or disallow Unicode byte order mark (BOM)
+description: |
+  Require or disallow Unicode byte order mark (BOM)
+  
+    See [rule details](https://eslint.org/docs/latest/rules/unicode-bom)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "rules": {
+            "unicode-bom": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
