@@ -1,0 +1,1126 @@
+#
+# Copyright 2023 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.deprecations
+displayName: All deprecations of older MUI versions
+description: >
+  Clean-up deprecations from older MUI versions
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "deprecations/all"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.AdapterV4
+displayName: Converts components to use the v4 adapter module
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#adapter-v4)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/adapter-v4"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.AutocompleteRenameCloseicon
+displayName: Renames `closeIcon` prop to `closeButtonIcon`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#autocomplete-rename-closeicon)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/autocomplete-rename-closeicon"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.AutocompleteRenameOption
+displayName: Renames `option` prop to `getOptionLabel`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#autocomplete-rename-option)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/autocomplete-rename-option"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.AvatarCircleCircular
+displayName: Updates `circle` prop to `variant="circular"`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#avatar-circle-circular)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/avatar-circle-circular"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BadgeOverlapValue
+displayName: Updates `overlap` prop to `variant="dot"`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#badge-overlap-value)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/badge-overlap-value"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BaseHookImports
+displayName: Converts base imports to use React hooks
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-hook-imports)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/base-hook-imports"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BaseRemoveComponentProp
+displayName: Removes `component` prop from base components
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-remove-component-prop)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/base-remove-component-prop"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BaseRemoveUnstyledSuffix
+displayName: Removes `Unstyled` suffix from base components
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-remove-unstyled-suffix)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/base-remove-unstyled-suffix"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BaseRenameComponentsToSlots
+displayName: Renames base components to slots
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-rename-components-to-slots)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/base-rename-components-to-slots"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BaseUseNamedExports
+displayName: Updates base imports to use named exports
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#base-use-named-exports)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/base-use-named-exports"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BoxBorderradiusValues
+displayName: Updates `borderRadius` prop values
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#box-borderradius-values)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/box-borderradius-values"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BoxRenameCss
+displayName: Renames CSS properties for Box component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#box-rename-css)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/box-rename-css"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BoxRenameGap
+displayName: Renames `gap` prop to `spacing`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#box-rename-gap)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/box-rename-gap"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.BoxSxProp
+displayName: Converts `sx` prop to `sx` style prop
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#box-sx-prop)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/box-sx-prop"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ButtonColorProp
+displayName: Renames `color` prop to `colorOverride`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#button-color-prop)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/button-color-prop"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ChipVariantProp
+displayName: Updates `variant` prop for Chip component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#chip-variant-prop)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/chip-variant-prop"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.CircularprogressVariant
+displayName: Updates `variant` prop for CircularProgress component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#circularprogress-variant)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/circularprogress-variant"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.CollapseRenameCollapsedheight
+displayName: Renames `collapsedHeight` prop to `transitionCollapsedHeight`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#collapse-rename-collapsedheight)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/collapse-rename-collapsedheight"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ComponentRenameProp
+displayName: Renames `component` prop to `as`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#component-rename-prop)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/component-rename-prop"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.CoreStylesImport
+displayName: Updates import paths for core styles
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#core-styles-import)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/core-styles-import"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.CreateTheme
+displayName: Updates createMuiTheme usage
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#create-theme)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/create-theme"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.DatePickersMovedToX
+displayName: Moves date pickers to `@mui/x-date-picker`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#date-pickers-moved-to-x)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/date-pickers-moved-to-x"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.DialogProps
+displayName: Updates props for Dialog component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#dialog-props)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/dialog-props"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.DialogTitleProps
+displayName: Updates props for DialogTitle component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#dialog-title-props)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/dialog-title-props"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.EmotionPrependCache
+displayName: Prepends emotion cache
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#emotion-prepend-cache)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/emotion-prepend-cache"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ExpansionPanelComponent
+displayName: Converts ExpansionPanel to use ExpansionPanel component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#expansion-panel-component)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/expansion-panel-component"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.FabVariant
+displayName: Updates `variant` prop for Fab component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#fab-variant)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/fab-variant"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.FadeRenameAlpha
+displayName: Renames `alpha` prop to `opacity`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#fade-rename-alpha)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/fade-rename-alpha"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.GridJustifyJustifycontent
+displayName: Updates `justify` prop to `justifyContent` for Grid component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#grid-justify-justifycontent)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/grid-justify-justifycontent"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.GridListComponent
+displayName: Converts GridList to use Grid component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#grid-list-component)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/grid-list-component"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.HiddenDownProps
+displayName: Updates `down` prop for Hidden component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#hidden-down-props)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/hidden-down-props"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.IconButtonSize
+displayName: Updates `size` prop for IconButton component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#icon-button-size)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/icon-button-size"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.JoyAvatarRemoveImgProps
+displayName: Removes `imgProps` prop from Avatar component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-avatar-remove-imgProps)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/joy-avatar-remove-imgProps"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.JoyRenameClassnamePrefix
+displayName: Renames `Mui` classname prefix
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-rename-classname-prefix)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/joy-rename-classname-prefix"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.JoyRenameComponentsToSlots
+displayName: Renames components to slots
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-rename-components-to-slots)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/joy-rename-components-to-slots"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.JoyRenameRowProp
+displayName: Renames `row` prop to `flexDirection="row"`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-rename-row-prop)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/joy-rename-row-prop"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.JoyTextFieldToInput
+displayName: Renames `TextField` to `Input`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-text-field-to-input)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/joy-text-field-to-input"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.JssToStyled
+displayName: Converts JSS styles to styled-components
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#jss-to-styled)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/jss-to-styled"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.JssToTssReact
+displayName: Converts JSS to TypeScript in React components
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#jss-to-tss-react)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/jss-to-tss-react"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.LinkUnderlineHover
+displayName: Updates link underline on hover
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#link-underline-hover)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/link-underline-hover"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.MaterialUiStyles
+displayName: Updates usage of `@mui/styles`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#material-ui-styles)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/material-ui-styles"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.MaterialUiTypes
+displayName: Updates usage of `@mui/types`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#material-ui-types)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/material-ui-types"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ModalProps
+displayName: Updates props for Modal component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#modal-props)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/modal-props"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.MovedLabModules
+displayName: Moves lab modules to `@mui/material`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#moved-lab-modules)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/moved-lab-modules"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.MuiReplace
+displayName: Replaces `@mui` imports with `@mui/material`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#mui-replace)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/mui-replace"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.OptimalImports
+displayName: Optimizes imports
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#optimal-imports)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/optimal-imports"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.PaginationRoundCircular
+displayName: Updates `circular` prop to `variant="circular"`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#pagination-round-circular)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/pagination-round-circular"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.PresetSafe
+displayName: A combination of all important transformers for migrating v4 to v5.
+description: |
+  **Note**: This codemod should be run only once
+
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#preset-safe)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/preset-safe"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.RenameCssVariables
+displayName: Renames CSS variables
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#rename-css-variables)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/rename-css-variables"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.RootRef
+displayName: Converts `rootRef` to `ref`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#root-ref)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/root-ref"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.SkeletonVariant
+displayName: Updates `variant` prop for Skeleton component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#skeleton-variant)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/skeleton-variant"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.StyledEngineProvider
+displayName: Updates usage of styled engine provider
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#styled-engine-provider)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/styled-engine-provider"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.TableProps
+displayName: Updates props for Table component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#table-props)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/table-props"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.TabsScrollButtons
+displayName: Updates scroll buttons for Tabs component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#tabs-scroll-buttons)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/tabs-scroll-buttons"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.TextareaMinmaxRows
+displayName: Updates `minRows` and `maxRows` props for TextareaAutosize component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#textarea-minmax-rows)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/textarea-minmax-rows"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemeAugment
+displayName: Adds `DefaultTheme` module augmentation to typescript projects.
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-augment)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/theme-augment"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemeBreakpointsWidth
+displayName: Updates `width` values for theme breakpoints
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-breakpoints-width)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/theme-breakpoints-width"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemeBreakpoints
+displayName: Updates theme breakpoints
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-breakpoints)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/theme-breakpoints"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemeOptions
+displayName: Updates theme options
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-options)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/theme-options"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemePaletteMode
+displayName: Updates theme palette mode
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-palette-mode)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/theme-palette-mode"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemeProvider
+displayName: Updates usage of ThemeProvider
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-provider)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/theme-provider"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemeSpacing
+displayName: Updates theme spacing
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-spacing)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/theme-spacing"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemeTypographyRound
+displayName: Updates `round` values for theme typography
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-typography-round)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/theme-typography-round"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.TopLevelImports
+displayName: Converts all `@mui/material` submodule imports to the root module
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#top-level-imports)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/top-level-imports"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.Transitions
+displayName: Updates usage of transitions
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#transitions)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/transitions"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.TreeViewMovedToX
+displayName: Moves tree view to `@mui/x-tree-view`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#tree-view-moved-to-x)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/tree-view-moved-to-x"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.UseAutocomplete
+displayName: Updates usage of useAutocomplete
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#use-autocomplete)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/use-autocomplete"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.UseTransitionprops
+displayName: Updates usage of useTransitionProps
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#use-transitionprops)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/use-transitionprops"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.VariantProp
+displayName: Updates `variant` prop usage
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#variant-prop)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/variant-prop"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.WithMobileDialog
+displayName: Updates withMobileDialog higher-order component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#with-mobile-dialog)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/with-mobile-dialog"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.WithWidth
+displayName: Updates withWidth higher-order component
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#with-width)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v5.0.0/with-width"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.OptimalImports
+displayName: Optimizes imports
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#optimal-imports)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v4.0.0/optimal-imports"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemeSpacingApi
+displayName: Updates theme spacing API
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-spacing-api)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v4.0.0/theme-spacing-api"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"

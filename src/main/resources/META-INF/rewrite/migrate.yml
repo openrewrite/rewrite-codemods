@@ -18,14 +18,14 @@ type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreArray
 displayName: Replace lodash and underscore array functions with native JavaScript
 description: |
-  - `_.head(x)`` -> `x[0]``
-  - `_.head(x, n)`` -> `x.slice(n)``
+  - `_.head(x)` -> `x[0]`
+  - `_.head(x, n)` -> `x.slice(n)`
   - `_.first (alias for _.head)
-  - `_.tail(x)`` -> `x.slice(1)``
-  - `_.tail(x, n)`` -> `x.slice(n)``
+  - `_.tail(x)` -> `x.slice(1)`
+  - `_.tail(x, n)` -> `x.slice(n)`
   - `_.rest (alias for _.tail)
-  - `_.last(x)`` -> `x[x.length - 1]``
-  - `_.last(x, n)`` -> `x.slice(x.length - n)``
+  - `_.last(x)` -> `x[x.length - 1]`
+  - `_.last(x, n)` -> `x.slice(x.length - n)`
 tags:
   - codemods
   - lodash
@@ -40,7 +40,7 @@ name: org.openrewrite.codemods.migrate.lodashUnderscoreFunction
 displayName: Replace lodash and underscore function functions with native JavaScript
 description: |
   - `_.bind(fn, obj, ...x)` -> `fn.bind(obj, ...x)`
-  - `_.partial(fn, a, b);`` -> `(...args) => fn(a, b, ...args)`
+  - `_.partial(fn, a, b);` -> `(...args) => fn(a, b, ...args)`
 tags:
   - codemods
   - lodash
@@ -88,17 +88,3 @@ recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
       npmPackage: "@kevinbarabash/codemods"
       transform: util.js
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.migrate.mui.deprecations
-displayName: All deprecations of older MUI versions
-description: >
-  Clean-up deprecations from older MUI versions
-tags:
-  - codemods
-  - material-ui
-  - mui
-recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      transform: "deprecations/all"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
