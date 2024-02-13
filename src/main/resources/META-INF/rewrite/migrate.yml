@@ -1,0 +1,90 @@
+#
+# Copyright 2023 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.lodashUnderscoreArray
+displayName: Replace lodash and underscore array functions with native JavaScript
+description: >
+  - `_.head(x)`` -> `x[0]``
+  - `_.head(x, n)`` -> `x.slice(n)``
+  - `_.first (alias for _.head)
+  - `_.tail(x)`` -> `x.slice(1)``
+  - `_.tail(x, n)`` -> `x.slice(n)``
+  - `_.rest (alias for _.tail)
+  - `_.last(x)`` -> `x[x.length - 1]``
+  - `_.last(x, n)`` -> `x.slice(x.length - n)``
+tags:
+  - codemods
+  - lodash
+  - underscore
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      npmPackage: "@kevinbarabash/codemods"
+      transform: array.js
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.lodashUnderscoreFunction
+displayName: Replace lodash and underscore function functions with native JavaScript
+description: >
+  - `_.bind(fn, obj, ...x)` -> `fn.bind(obj, ...x)`
+  - `_.partial(fn, a, b);`` -> `(...args) => fn(a, b, ...args)`
+tags:
+  - codemods
+  - lodash
+  - underscore
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      npmPackage: "@kevinbarabash/codemods"
+      transform: function.js
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.lodashUnderscoreObjects
+displayName: Replace lodash and underscore object functions with native JavaScript
+description: >
+  - `_.clone(x)` -> `{ ...x }`
+  - `_.extend({}, x, y)` -> `{ ...x, ...y }`
+  - `_.extend(obj, x, y)` -> `Object.assign(obj, x, y)`
+  - `_.keys(x)` -> `Object.keys(x)`
+  - `_.pairs(x)` -> `Object.entries(x)`
+  - `_.values(x)` -> `Object.values(x)`
+tags:
+  - codemods
+  - lodash
+  - underscore
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      npmPackage: "@kevinbarabash/codemods"
+      transform: object.js
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.lodashUnderscoreUtil
+displayName: Replace lodash and underscore utility functions with native JavaScript
+description: >
+  - `_.isArray(x)` -> `Array.isArray(x)`
+  - `_.isBoolean(x)` -> `typeof(x) === 'boolean'`
+  - `_.isFinite(x)` -> `Number.isFinite(x)`
+  - `_.isFunction(x)` -> `typeof(x) === 'function'`
+  - `_.isNull(x)` -> `x === null`
+  - `_.isString(x)` -> `typeof(x) === 'string'`
+  - `_.isUndefined(x)` -> `typeof(x) === 'undefined'`
+tags:
+  - codemods
+  - lodash
+  - underscore
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      npmPackage: "@kevinbarabash/codemods"
+      transform: util.js
