@@ -67,7 +67,7 @@ public class SimpleCodemod extends NodeBasedRecipe {
         List<String> command = new ArrayList<>();
         command.add("node");
 
-        String exec = Optional.ofNullable(executable).orElse("${nodeModules}/.bin/jscodeshift -t");
+        String exec = Optional.ofNullable(executable).orElse(".bin/jscodeshift -t");
         String template = "${nodeModules}/${exec} ${transform} ${repoDir} ${codemodArgs}";
 
         for (String part : template.split(" ")) {
