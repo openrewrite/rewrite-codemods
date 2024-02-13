@@ -21,9 +21,11 @@ description: |
   Enforce linebreaks after opening and before closing array brackets
 
   See [rule details](https://eslint.style/rules/default/array-bracket-newline)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -33,7 +35,6 @@ recipeList:
           "rules": {
             "@stylistic/array-bracket-newline": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -48,9 +49,11 @@ description: |
   Enforce consistent spacing inside array brackets
 
   See [rule details](https://eslint.style/rules/default/array-bracket-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -60,7 +63,6 @@ recipeList:
           "rules": {
             "@stylistic/array-bracket-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -75,9 +77,11 @@ description: |
   Enforce line breaks after each array element
 
   See [rule details](https://eslint.style/rules/default/array-element-newline)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -87,7 +91,6 @@ recipeList:
           "rules": {
             "@stylistic/array-element-newline": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -102,9 +105,11 @@ description: |
   Require parentheses around arrow function arguments
 
   See [rule details](https://eslint.style/rules/default/arrow-parens)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -114,7 +119,6 @@ recipeList:
           "rules": {
             "@stylistic/arrow-parens": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -129,9 +133,11 @@ description: |
   Enforce consistent spacing before and after the arrow in arrow functions
 
   See [rule details](https://eslint.style/rules/default/arrow-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -141,7 +147,6 @@ recipeList:
           "rules": {
             "@stylistic/arrow-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -156,9 +161,11 @@ description: |
   Disallow or enforce spaces inside of blocks after opening block and before closing block
 
   See [rule details](https://eslint.style/rules/default/block-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -168,7 +175,6 @@ recipeList:
           "rules": {
             "@stylistic/block-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -183,9 +189,11 @@ description: |
   Enforce consistent brace style for blocks
 
   See [rule details](https://eslint.style/rules/default/brace-style)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -195,7 +203,6 @@ recipeList:
           "rules": {
             "@stylistic/brace-style": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -210,9 +217,11 @@ description: |
   Require or disallow trailing commas
 
   See [rule details](https://eslint.style/rules/default/comma-dangle)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -222,7 +231,6 @@ recipeList:
           "rules": {
             "@stylistic/comma-dangle": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -237,9 +245,11 @@ description: |
   Enforce consistent spacing before and after commas
 
   See [rule details](https://eslint.style/rules/default/comma-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -249,7 +259,6 @@ recipeList:
           "rules": {
             "@stylistic/comma-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -264,9 +273,11 @@ description: |
   Enforce consistent comma style
 
   See [rule details](https://eslint.style/rules/default/comma-style)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -276,7 +287,6 @@ recipeList:
           "rules": {
             "@stylistic/comma-style": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -291,9 +301,11 @@ description: |
   Enforce consistent spacing inside computed property brackets
 
   See [rule details](https://eslint.style/rules/default/computed-property-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -303,7 +315,6 @@ recipeList:
           "rules": {
             "@stylistic/computed-property-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -318,9 +329,11 @@ description: |
   Enforce consistent newlines before and after dots
 
   See [rule details](https://eslint.style/rules/default/dot-location)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -330,7 +343,6 @@ recipeList:
           "rules": {
             "@stylistic/dot-location": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -345,9 +357,11 @@ description: |
   Require or disallow newline at the end of files
 
   See [rule details](https://eslint.style/rules/default/eol-last)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -357,7 +371,6 @@ recipeList:
           "rules": {
             "@stylistic/eol-last": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -372,9 +385,11 @@ description: |
   Require or disallow spacing between function identifiers and their invocations. Alias of `function-call-spacing`.
 
   See [rule details](https://eslint.style/rules/default/func-call-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -384,7 +399,6 @@ recipeList:
           "rules": {
             "@stylistic/func-call-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -399,9 +413,11 @@ description: |
   Enforce line breaks between arguments of a function call
 
   See [rule details](https://eslint.style/rules/default/function-call-argument-newline)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -411,7 +427,6 @@ recipeList:
           "rules": {
             "@stylistic/function-call-argument-newline": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -426,9 +441,11 @@ description: |
   Require or disallow spacing between function identifiers and their invocations
 
   See [rule details](https://eslint.style/rules/default/function-call-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -438,7 +455,6 @@ recipeList:
           "rules": {
             "@stylistic/function-call-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -453,9 +469,11 @@ description: |
   Enforce consistent line breaks inside function parentheses
 
   See [rule details](https://eslint.style/rules/default/function-paren-newline)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -465,7 +483,6 @@ recipeList:
           "rules": {
             "@stylistic/function-paren-newline": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -480,9 +497,11 @@ description: |
   Enforce consistent spacing around `*` operators in generator functions
 
   See [rule details](https://eslint.style/rules/default/generator-star-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -492,7 +511,6 @@ recipeList:
           "rules": {
             "@stylistic/generator-star-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -507,9 +525,11 @@ description: |
   Enforce the location of arrow function bodies
 
   See [rule details](https://eslint.style/rules/default/implicit-arrow-linebreak)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -519,7 +539,6 @@ recipeList:
           "rules": {
             "@stylistic/implicit-arrow-linebreak": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -534,9 +553,11 @@ description: |
   Enforce consistent indentation
 
   See [rule details](https://eslint.style/rules/default/indent)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -546,7 +567,6 @@ recipeList:
           "rules": {
             "@stylistic/indent": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -561,9 +581,11 @@ description: |
   Indentation for binary operators
 
   See [rule details](https://eslint.style/rules/default/indent-binary-ops)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -573,7 +595,6 @@ recipeList:
           "rules": {
             "@stylistic/indent-binary-ops": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -588,9 +609,11 @@ description: |
   Enforce closing bracket location in JSX
 
   See [rule details](https://eslint.style/rules/default/jsx-closing-bracket-location)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -600,7 +623,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-closing-bracket-location": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -615,9 +637,11 @@ description: |
   Enforce closing tag location for multiline JSX
 
   See [rule details](https://eslint.style/rules/default/jsx-closing-tag-location)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -627,7 +651,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-closing-tag-location": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -642,9 +665,11 @@ description: |
   Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
 
   See [rule details](https://eslint.style/rules/default/jsx-curly-brace-presence)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -654,7 +679,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-curly-brace-presence": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -669,9 +693,11 @@ description: |
   Enforce consistent linebreaks in curly braces in JSX attributes and expressions
 
   See [rule details](https://eslint.style/rules/default/jsx-curly-newline)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -681,7 +707,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-curly-newline": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -696,9 +721,11 @@ description: |
   Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
 
   See [rule details](https://eslint.style/rules/default/jsx-curly-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -708,7 +735,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-curly-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -723,9 +749,11 @@ description: |
   Enforce or disallow spaces around equal signs in JSX attributes
 
   See [rule details](https://eslint.style/rules/default/jsx-equals-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -735,7 +763,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-equals-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -750,9 +777,11 @@ description: |
   Enforce proper position of the first property in JSX
 
   See [rule details](https://eslint.style/rules/default/jsx-first-prop-new-line)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -762,7 +791,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-first-prop-new-line": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -777,9 +805,11 @@ description: |
   Enforce JSX indentation
 
   See [rule details](https://eslint.style/rules/default/jsx-indent)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -789,7 +819,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-indent": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -804,9 +833,11 @@ description: |
   Enforce props indentation in JSX
 
   See [rule details](https://eslint.style/rules/default/jsx-indent-props)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -816,7 +847,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-indent-props": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -831,9 +861,11 @@ description: |
   Enforce maximum of props on a single line in JSX
 
   See [rule details](https://eslint.style/rules/default/jsx-max-props-per-line)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -843,7 +875,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-max-props-per-line": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -858,9 +889,11 @@ description: |
   Require or prevent a new line after jsx elements and expressions.
 
   See [rule details](https://eslint.style/rules/default/jsx-newline)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -870,7 +903,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-newline": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -885,9 +917,11 @@ description: |
   Require one JSX element per line
 
   See [rule details](https://eslint.style/rules/default/jsx-one-expression-per-line)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -897,7 +931,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-one-expression-per-line": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -912,9 +945,11 @@ description: |
   Enforce PascalCase for user-defined JSX components
 
   See [rule details](https://eslint.style/rules/default/jsx-pascal-case)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -924,7 +959,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-pascal-case": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -939,9 +973,11 @@ description: |
   Disallow multiple spaces between inline JSX props
 
   See [rule details](https://eslint.style/rules/default/jsx-props-no-multi-spaces)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -951,7 +987,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-props-no-multi-spaces": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -966,9 +1001,11 @@ description: |
   Enforce the consistent use of either double or single quotes in JSX attributes
 
   See [rule details](https://eslint.style/rules/default/jsx-quotes)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -978,7 +1015,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-quotes": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -993,9 +1029,11 @@ description: |
   Disallow extra closing tags for components without children
 
   See [rule details](https://eslint.style/rules/default/jsx-self-closing-comp)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1005,7 +1043,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-self-closing-comp": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1020,9 +1057,11 @@ description: |
   Enforce props alphabetical sorting
 
   See [rule details](https://eslint.style/rules/default/jsx-sort-props)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1032,7 +1071,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-sort-props": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1047,9 +1085,11 @@ description: |
   Enforce whitespace in and around the JSX opening and closing brackets
 
   See [rule details](https://eslint.style/rules/default/jsx-tag-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1059,7 +1099,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-tag-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1074,9 +1113,11 @@ description: |
   Disallow missing parentheses around multiline JSX
 
   See [rule details](https://eslint.style/rules/default/jsx-wrap-multilines)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1086,7 +1127,6 @@ recipeList:
           "rules": {
             "@stylistic/jsx-wrap-multilines": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1101,9 +1141,11 @@ description: |
   Enforce consistent spacing between keys and values in object literal properties
 
   See [rule details](https://eslint.style/rules/default/key-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1113,7 +1155,6 @@ recipeList:
           "rules": {
             "@stylistic/key-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1128,9 +1169,11 @@ description: |
   Enforce consistent spacing before and after keywords
 
   See [rule details](https://eslint.style/rules/default/keyword-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1140,7 +1183,6 @@ recipeList:
           "rules": {
             "@stylistic/keyword-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1155,9 +1197,11 @@ description: |
   Enforce consistent linebreak style
 
   See [rule details](https://eslint.style/rules/default/linebreak-style)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1167,7 +1211,6 @@ recipeList:
           "rules": {
             "@stylistic/linebreak-style": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1182,9 +1225,11 @@ description: |
   Require empty lines around comments
 
   See [rule details](https://eslint.style/rules/default/lines-around-comment)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1194,7 +1239,6 @@ recipeList:
           "rules": {
             "@stylistic/lines-around-comment": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1209,9 +1253,11 @@ description: |
   Require or disallow an empty line between class members
 
   See [rule details](https://eslint.style/rules/default/lines-between-class-members)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1221,7 +1267,6 @@ recipeList:
           "rules": {
             "@stylistic/lines-between-class-members": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1236,9 +1281,11 @@ description: |
   Require a specific member delimiter style for interfaces and type literals
 
   See [rule details](https://eslint.style/rules/default/member-delimiter-style)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1248,7 +1295,6 @@ recipeList:
           "rules": {
             "@stylistic/member-delimiter-style": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1263,9 +1309,11 @@ description: |
   Enforce newlines between operands of ternary expressions
 
   See [rule details](https://eslint.style/rules/default/multiline-ternary)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1275,7 +1323,6 @@ recipeList:
           "rules": {
             "@stylistic/multiline-ternary": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1290,9 +1337,11 @@ description: |
   Enforce or disallow parentheses when invoking a constructor with no arguments
 
   See [rule details](https://eslint.style/rules/default/new-parens)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1302,7 +1351,6 @@ recipeList:
           "rules": {
             "@stylistic/new-parens": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1317,9 +1365,11 @@ description: |
   Require a newline after each call in a method chain
 
   See [rule details](https://eslint.style/rules/default/newline-per-chained-call)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1329,7 +1379,6 @@ recipeList:
           "rules": {
             "@stylistic/newline-per-chained-call": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1344,9 +1393,11 @@ description: |
   Disallow arrow functions where they could be confused with comparisons
 
   See [rule details](https://eslint.style/rules/default/no-confusing-arrow)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1356,7 +1407,6 @@ recipeList:
           "rules": {
             "@stylistic/no-confusing-arrow": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1371,9 +1421,11 @@ description: |
   Disallow unnecessary parentheses
 
   See [rule details](https://eslint.style/rules/default/no-extra-parens)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1383,7 +1435,6 @@ recipeList:
           "rules": {
             "@stylistic/no-extra-parens": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1398,9 +1449,11 @@ description: |
   Disallow unnecessary semicolons
 
   See [rule details](https://eslint.style/rules/default/no-extra-semi)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1410,7 +1463,6 @@ recipeList:
           "rules": {
             "@stylistic/no-extra-semi": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1425,9 +1477,11 @@ description: |
   Disallow leading or trailing decimal points in numeric literals
 
   See [rule details](https://eslint.style/rules/default/no-floating-decimal)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1437,7 +1491,6 @@ recipeList:
           "rules": {
             "@stylistic/no-floating-decimal": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1452,9 +1505,11 @@ description: |
   Disallow multiple spaces
 
   See [rule details](https://eslint.style/rules/default/no-multi-spaces)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1464,7 +1519,6 @@ recipeList:
           "rules": {
             "@stylistic/no-multi-spaces": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1479,9 +1533,11 @@ description: |
   Disallow multiple empty lines
 
   See [rule details](https://eslint.style/rules/default/no-multiple-empty-lines)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1491,7 +1547,6 @@ recipeList:
           "rules": {
             "@stylistic/no-multiple-empty-lines": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1506,9 +1561,11 @@ description: |
   Disallow trailing whitespace at the end of lines
 
   See [rule details](https://eslint.style/rules/default/no-trailing-spaces)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1518,7 +1575,6 @@ recipeList:
           "rules": {
             "@stylistic/no-trailing-spaces": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1533,9 +1589,11 @@ description: |
   Disallow whitespace before properties
 
   See [rule details](https://eslint.style/rules/default/no-whitespace-before-property)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1545,7 +1603,6 @@ recipeList:
           "rules": {
             "@stylistic/no-whitespace-before-property": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1560,9 +1617,11 @@ description: |
   Enforce the location of single-line statements
 
   See [rule details](https://eslint.style/rules/default/nonblock-statement-body-position)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1572,7 +1631,6 @@ recipeList:
           "rules": {
             "@stylistic/nonblock-statement-body-position": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1587,9 +1645,11 @@ description: |
   Enforce consistent line breaks after opening and before closing braces
 
   See [rule details](https://eslint.style/rules/default/object-curly-newline)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1599,7 +1659,6 @@ recipeList:
           "rules": {
             "@stylistic/object-curly-newline": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1614,9 +1673,11 @@ description: |
   Enforce consistent spacing inside braces
 
   See [rule details](https://eslint.style/rules/default/object-curly-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1626,7 +1687,6 @@ recipeList:
           "rules": {
             "@stylistic/object-curly-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1641,9 +1701,11 @@ description: |
   Enforce placing object properties on separate lines
 
   See [rule details](https://eslint.style/rules/default/object-property-newline)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1653,7 +1715,6 @@ recipeList:
           "rules": {
             "@stylistic/object-property-newline": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1668,9 +1729,11 @@ description: |
   Require or disallow newlines around variable declarations
 
   See [rule details](https://eslint.style/rules/default/one-var-declaration-per-line)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1680,7 +1743,6 @@ recipeList:
           "rules": {
             "@stylistic/one-var-declaration-per-line": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1695,9 +1757,11 @@ description: |
   Enforce consistent linebreak style for operators
 
   See [rule details](https://eslint.style/rules/default/operator-linebreak)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1707,7 +1771,6 @@ recipeList:
           "rules": {
             "@stylistic/operator-linebreak": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1722,9 +1785,11 @@ description: |
   Require or disallow padding within blocks
 
   See [rule details](https://eslint.style/rules/default/padded-blocks)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1734,7 +1799,6 @@ recipeList:
           "rules": {
             "@stylistic/padded-blocks": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1749,9 +1813,11 @@ description: |
   Require or disallow padding lines between statements
 
   See [rule details](https://eslint.style/rules/default/padding-line-between-statements)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1761,7 +1827,6 @@ recipeList:
           "rules": {
             "@stylistic/padding-line-between-statements": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1776,9 +1841,11 @@ description: |
   Require quotes around object literal property names
 
   See [rule details](https://eslint.style/rules/default/quote-props)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1788,7 +1855,6 @@ recipeList:
           "rules": {
             "@stylistic/quote-props": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1803,9 +1869,11 @@ description: |
   Enforce the consistent use of either backticks
 
   See [rule details](https://eslint.style/rules/default/quotes)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1815,7 +1883,6 @@ recipeList:
           "rules": {
             "@stylistic/quotes": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1830,9 +1897,11 @@ description: |
   Enforce spacing between rest and spread operators and their expressions
 
   See [rule details](https://eslint.style/rules/default/rest-spread-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1842,7 +1911,6 @@ recipeList:
           "rules": {
             "@stylistic/rest-spread-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1857,9 +1925,11 @@ description: |
   Require or disallow semicolons instead of ASI
 
   See [rule details](https://eslint.style/rules/default/semi)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1869,7 +1939,6 @@ recipeList:
           "rules": {
             "@stylistic/semi": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1884,9 +1953,11 @@ description: |
   Enforce consistent spacing before and after semicolons
 
   See [rule details](https://eslint.style/rules/default/semi-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1896,7 +1967,6 @@ recipeList:
           "rules": {
             "@stylistic/semi-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1911,9 +1981,11 @@ description: |
   Enforce location of semicolons
 
   See [rule details](https://eslint.style/rules/default/semi-style)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1923,7 +1995,6 @@ recipeList:
           "rules": {
             "@stylistic/semi-style": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1938,9 +2009,11 @@ description: |
   Enforce consistent spacing before blocks
 
   See [rule details](https://eslint.style/rules/default/space-before-blocks)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1950,7 +2023,6 @@ recipeList:
           "rules": {
             "@stylistic/space-before-blocks": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1965,9 +2037,11 @@ description: |
   Enforce consistent spacing before `function` definition opening parenthesis
 
   See [rule details](https://eslint.style/rules/default/space-before-function-paren)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -1977,7 +2051,6 @@ recipeList:
           "rules": {
             "@stylistic/space-before-function-paren": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -1992,9 +2065,11 @@ description: |
   Enforce consistent spacing inside parentheses
 
   See [rule details](https://eslint.style/rules/default/space-in-parens)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2004,7 +2079,6 @@ recipeList:
           "rules": {
             "@stylistic/space-in-parens": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2019,9 +2093,11 @@ description: |
   Require spacing around infix operators
 
   See [rule details](https://eslint.style/rules/default/space-infix-ops)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2031,7 +2107,6 @@ recipeList:
           "rules": {
             "@stylistic/space-infix-ops": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2046,9 +2121,11 @@ description: |
   Enforce consistent spacing before or after unary operators
 
   See [rule details](https://eslint.style/rules/default/space-unary-ops)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2058,7 +2135,6 @@ recipeList:
           "rules": {
             "@stylistic/space-unary-ops": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2073,9 +2149,11 @@ description: |
   Enforce consistent spacing after the `//` or `/*` in a comment
 
   See [rule details](https://eslint.style/rules/default/spaced-comment)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2085,7 +2163,6 @@ recipeList:
           "rules": {
             "@stylistic/spaced-comment": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2100,9 +2177,11 @@ description: |
   Enforce spacing around colons of switch statements
 
   See [rule details](https://eslint.style/rules/default/switch-colon-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2112,7 +2191,6 @@ recipeList:
           "rules": {
             "@stylistic/switch-colon-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2127,9 +2205,11 @@ description: |
   Require or disallow spacing around embedded expressions of template strings
 
   See [rule details](https://eslint.style/rules/default/template-curly-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2139,7 +2219,6 @@ recipeList:
           "rules": {
             "@stylistic/template-curly-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2154,9 +2233,11 @@ description: |
   Require or disallow spacing between template tags and their literals
 
   See [rule details](https://eslint.style/rules/default/template-tag-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2166,7 +2247,6 @@ recipeList:
           "rules": {
             "@stylistic/template-tag-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2181,9 +2261,11 @@ description: |
   Require consistent spacing around type annotations
 
   See [rule details](https://eslint.style/rules/default/type-annotation-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2193,7 +2275,6 @@ recipeList:
           "rules": {
             "@stylistic/type-annotation-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2208,9 +2289,11 @@ description: |
   Enforces consistent spacing inside TypeScript type generics
 
   See [rule details](https://eslint.style/rules/default/type-generic-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2220,7 +2303,6 @@ recipeList:
           "rules": {
             "@stylistic/type-generic-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2235,9 +2317,11 @@ description: |
   Expect space before the type declaration in the named tuple
 
   See [rule details](https://eslint.style/rules/default/type-named-tuple-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2247,7 +2331,6 @@ recipeList:
           "rules": {
             "@stylistic/type-named-tuple-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2262,9 +2345,11 @@ description: |
   Require parentheses around immediate `function` invocations
 
   See [rule details](https://eslint.style/rules/default/wrap-iife)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2274,7 +2359,6 @@ recipeList:
           "rules": {
             "@stylistic/wrap-iife": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2289,9 +2373,11 @@ description: |
   Require parenthesis around regex literals
 
   See [rule details](https://eslint.style/rules/default/wrap-regex)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2301,7 +2387,6 @@ recipeList:
           "rules": {
             "@stylistic/wrap-regex": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2316,9 +2401,11 @@ description: |
   Require or disallow spacing around the `*` in `yield*` expressions
 
   See [rule details](https://eslint.style/rules/default/yield-star-spacing)
+tags:
+  - eslint
+  - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
-      fix: true
       configFile: |
         {
           "root": true,
@@ -2328,7 +2415,6 @@ recipeList:
           "rules": {
             "@stylistic/yield-star-spacing": 2
           },
-          "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"],
           "globals": {
             "browser": true,
             "node": true
@@ -2340,92 +2426,109 @@ type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.stylistic.RecommendedESLintStyling
 displayName: Recommended ESLint Styling
 description: |
-  Collection of stylistic ESLint rules that are recommended by [ESLint Style.](https://eslint.style/)
-
+  Collection of stylistic ESLint rules that are recommended by the [ESLint Style.](https://eslint.style/)
+tags:
+  - eslint
+  - stylistic
 recipeList:
-  - org.openrewrite.codemods.stylistic.ArrayBracketNewline
-  - org.openrewrite.codemods.stylistic.ArrayBracketSpacing
-  - org.openrewrite.codemods.stylistic.ArrayElementNewline
-  - org.openrewrite.codemods.stylistic.ArrowParens
-  - org.openrewrite.codemods.stylistic.ArrowSpacing
-  - org.openrewrite.codemods.stylistic.BlockSpacing
-  - org.openrewrite.codemods.stylistic.BraceStyle
-  - org.openrewrite.codemods.stylistic.CommaDangle
-  - org.openrewrite.codemods.stylistic.CommaSpacing
-  - org.openrewrite.codemods.stylistic.CommaStyle
-  - org.openrewrite.codemods.stylistic.ComputedPropertySpacing
-  - org.openrewrite.codemods.stylistic.DotLocation
-  - org.openrewrite.codemods.stylistic.EolLast
-  - org.openrewrite.codemods.stylistic.FuncCallSpacing
-  - org.openrewrite.codemods.stylistic.FunctionCallArgumentNewline
-  - org.openrewrite.codemods.stylistic.FunctionCallSpacing
-  - org.openrewrite.codemods.stylistic.FunctionParenNewline
-  - org.openrewrite.codemods.stylistic.GeneratorStarSpacing
-  - org.openrewrite.codemods.stylistic.ImplicitArrowLinebreak
-  - org.openrewrite.codemods.stylistic.Indent
-  - org.openrewrite.codemods.stylistic.IndentBinaryOps
-  - org.openrewrite.codemods.stylistic.JsxClosingBracketLocation
-  - org.openrewrite.codemods.stylistic.JsxClosingTagLocation
-  - org.openrewrite.codemods.stylistic.JsxCurlyBracePresence
-  - org.openrewrite.codemods.stylistic.JsxCurlyNewline
-  - org.openrewrite.codemods.stylistic.JsxCurlySpacing
-  - org.openrewrite.codemods.stylistic.JsxEqualsSpacing
-  - org.openrewrite.codemods.stylistic.JsxFirstPropNewLine
-  - org.openrewrite.codemods.stylistic.JsxIndent
-  - org.openrewrite.codemods.stylistic.JsxIndentProps
-  - org.openrewrite.codemods.stylistic.JsxMaxPropsPerLine
-  - org.openrewrite.codemods.stylistic.JsxNewline
-  - org.openrewrite.codemods.stylistic.JsxOneExpressionPerLine
-  - org.openrewrite.codemods.stylistic.JsxPascalCase
-  - org.openrewrite.codemods.stylistic.JsxPropsNoMultiSpaces
-  - org.openrewrite.codemods.stylistic.JsxQuotes
-  - org.openrewrite.codemods.stylistic.JsxSelfClosingComp
-  - org.openrewrite.codemods.stylistic.JsxSortProps
-  - org.openrewrite.codemods.stylistic.JsxTagSpacing
-  - org.openrewrite.codemods.stylistic.JsxWrapMultilines
-  - org.openrewrite.codemods.stylistic.KeySpacing
-  - org.openrewrite.codemods.stylistic.KeywordSpacing
-  - org.openrewrite.codemods.stylistic.LinebreakStyle
-  - org.openrewrite.codemods.stylistic.LinesAroundComment
-  - org.openrewrite.codemods.stylistic.LinesBetweenClassMembers
-  - org.openrewrite.codemods.stylistic.MemberDelimiterStyle
-  - org.openrewrite.codemods.stylistic.MultilineTernary
-  - org.openrewrite.codemods.stylistic.NewParens
-  - org.openrewrite.codemods.stylistic.NewlinePerChainedCall
-  - org.openrewrite.codemods.stylistic.NoConfusingArrow
-  - org.openrewrite.codemods.stylistic.NoExtraParens
-  - org.openrewrite.codemods.stylistic.NoExtraSemi
-  - org.openrewrite.codemods.stylistic.NoFloatingDecimal
-  - org.openrewrite.codemods.stylistic.NoMultiSpaces
-  - org.openrewrite.codemods.stylistic.NoMultipleEmptyLines
-  - org.openrewrite.codemods.stylistic.NoTrailingSpaces
-  - org.openrewrite.codemods.stylistic.NoWhitespaceBeforeProperty
-  - org.openrewrite.codemods.stylistic.NonblockStatementBodyPosition
-  - org.openrewrite.codemods.stylistic.ObjectCurlyNewline
-  - org.openrewrite.codemods.stylistic.ObjectCurlySpacing
-  - org.openrewrite.codemods.stylistic.ObjectPropertyNewline
-  - org.openrewrite.codemods.stylistic.OneVarDeclarationPerLine
-  - org.openrewrite.codemods.stylistic.OperatorLinebreak
-  - org.openrewrite.codemods.stylistic.PaddedBlocks
-  - org.openrewrite.codemods.stylistic.PaddingLineBetweenStatements
-  - org.openrewrite.codemods.stylistic.QuoteProps
-  - org.openrewrite.codemods.stylistic.Quotes
-  - org.openrewrite.codemods.stylistic.RestSpreadSpacing
-  - org.openrewrite.codemods.stylistic.Semi
-  - org.openrewrite.codemods.stylistic.SemiSpacing
-  - org.openrewrite.codemods.stylistic.SemiStyle
-  - org.openrewrite.codemods.stylistic.SpaceBeforeBlocks
-  - org.openrewrite.codemods.stylistic.SpaceBeforeFunctionParen
-  - org.openrewrite.codemods.stylistic.SpaceInParens
-  - org.openrewrite.codemods.stylistic.SpaceInfixOps
-  - org.openrewrite.codemods.stylistic.SpaceUnaryOps
-  - org.openrewrite.codemods.stylistic.SpacedComment
-  - org.openrewrite.codemods.stylistic.SwitchColonSpacing
-  - org.openrewrite.codemods.stylistic.TemplateCurlySpacing
-  - org.openrewrite.codemods.stylistic.TemplateTagSpacing
-  - org.openrewrite.codemods.stylistic.TypeAnnotationSpacing
-  - org.openrewrite.codemods.stylistic.TypeGenericSpacing
-  - org.openrewrite.codemods.stylistic.TypeNamedTupleSpacing
-  - org.openrewrite.codemods.stylistic.WrapIife
-  - org.openrewrite.codemods.stylistic.WrapRegex
-  - org.openrewrite.codemods.stylistic.YieldStarSpacing
+  - org.openrewrite.codemods.ESLint:
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/array-bracket-newline": 2,
+            "@stylistic/array-bracket-spacing": 2,
+            "@stylistic/array-element-newline": 2,
+            "@stylistic/arrow-parens": 2,
+            "@stylistic/arrow-spacing": 2,
+            "@stylistic/block-spacing": 2,
+            "@stylistic/brace-style": 2,
+            "@stylistic/comma-dangle": 2,
+            "@stylistic/comma-spacing": 2,
+            "@stylistic/comma-style": 2,
+            "@stylistic/computed-property-spacing": 2,
+            "@stylistic/dot-location": 2,
+            "@stylistic/eol-last": 2,
+            "@stylistic/func-call-spacing": 2,
+            "@stylistic/function-call-argument-newline": 2,
+            "@stylistic/function-call-spacing": 2,
+            "@stylistic/function-paren-newline": 2,
+            "@stylistic/generator-star-spacing": 2,
+            "@stylistic/implicit-arrow-linebreak": 2,
+            "@stylistic/indent": 2,
+            "@stylistic/indent-binary-ops": 2,
+            "@stylistic/jsx-closing-bracket-location": 2,
+            "@stylistic/jsx-closing-tag-location": 2,
+            "@stylistic/jsx-curly-brace-presence": 2,
+            "@stylistic/jsx-curly-newline": 2,
+            "@stylistic/jsx-curly-spacing": 2,
+            "@stylistic/jsx-equals-spacing": 2,
+            "@stylistic/jsx-first-prop-new-line": 2,
+            "@stylistic/jsx-indent": 2,
+            "@stylistic/jsx-indent-props": 2,
+            "@stylistic/jsx-max-props-per-line": 2,
+            "@stylistic/jsx-newline": 2,
+            "@stylistic/jsx-one-expression-per-line": 2,
+            "@stylistic/jsx-pascal-case": 2,
+            "@stylistic/jsx-props-no-multi-spaces": 2,
+            "@stylistic/jsx-quotes": 2,
+            "@stylistic/jsx-self-closing-comp": 2,
+            "@stylistic/jsx-sort-props": 2,
+            "@stylistic/jsx-tag-spacing": 2,
+            "@stylistic/jsx-wrap-multilines": 2,
+            "@stylistic/key-spacing": 2,
+            "@stylistic/keyword-spacing": 2,
+            "@stylistic/linebreak-style": 2,
+            "@stylistic/lines-around-comment": 2,
+            "@stylistic/lines-between-class-members": 2,
+            "@stylistic/member-delimiter-style": 2,
+            "@stylistic/multiline-ternary": 2,
+            "@stylistic/new-parens": 2,
+            "@stylistic/newline-per-chained-call": 2,
+            "@stylistic/no-confusing-arrow": 2,
+            "@stylistic/no-extra-parens": 2,
+            "@stylistic/no-extra-semi": 2,
+            "@stylistic/no-floating-decimal": 2,
+            "@stylistic/no-multi-spaces": 2,
+            "@stylistic/no-multiple-empty-lines": 2,
+            "@stylistic/no-trailing-spaces": 2,
+            "@stylistic/no-whitespace-before-property": 2,
+            "@stylistic/nonblock-statement-body-position": 2,
+            "@stylistic/object-curly-newline": 2,
+            "@stylistic/object-curly-spacing": 2,
+            "@stylistic/object-property-newline": 2,
+            "@stylistic/one-var-declaration-per-line": 2,
+            "@stylistic/operator-linebreak": 2,
+            "@stylistic/padded-blocks": 2,
+            "@stylistic/padding-line-between-statements": 2,
+            "@stylistic/quote-props": 2,
+            "@stylistic/quotes": 2,
+            "@stylistic/rest-spread-spacing": 2,
+            "@stylistic/semi": 2,
+            "@stylistic/semi-spacing": 2,
+            "@stylistic/semi-style": 2,
+            "@stylistic/space-before-blocks": 2,
+            "@stylistic/space-before-function-paren": 2,
+            "@stylistic/space-in-parens": 2,
+            "@stylistic/space-infix-ops": 2,
+            "@stylistic/space-unary-ops": 2,
+            "@stylistic/spaced-comment": 2,
+            "@stylistic/switch-colon-spacing": 2,
+            "@stylistic/template-curly-spacing": 2,
+            "@stylistic/template-tag-spacing": 2,
+            "@stylistic/type-annotation-spacing": 2,
+            "@stylistic/type-generic-spacing": 2,
+            "@stylistic/type-named-tuple-spacing": 2,
+            "@stylistic/wrap-iife": 2,
+            "@stylistic/wrap-regex": 2,
+            "@stylistic/yield-star-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
