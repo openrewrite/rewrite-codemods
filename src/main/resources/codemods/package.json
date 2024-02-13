@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@next/codemod": "^14.0.4",
+    "@stylistic/eslint-plugin": "1.6.1",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
     "eslint": "^8.56.0",
