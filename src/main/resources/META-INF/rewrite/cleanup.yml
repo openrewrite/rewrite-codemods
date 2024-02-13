@@ -66,7 +66,7 @@ displayName: 'Enforce consistent brace style for all control statements '
 description: |
   Enforce consistent brace style for all control statements 
   
-    See [rule  details](https://eslint.org/docs/latest/rules/curly)
+    See [rule details](https://eslint.org/docs/latest/rules/curly)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       configFile: |
@@ -135,7 +135,7 @@ displayName: 'Require or disallow logical assignment operator shorthand '
 description: |
   Require or disallow logical assignment operator shorthand 
   
-    See [rule  details](https://eslint.org/docs/latest/rules/logical-assignment-operators)
+    See [rule details](https://eslint.org/docs/latest/rules/logical-assignment-operators)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       configFile: |
@@ -342,7 +342,7 @@ displayName: 'Disallow ternary operators when simpler alternatives exist '
 description: |
   Disallow ternary operators when simpler alternatives exist 
   
-    See [rule  details](https://eslint.org/docs/latest/rules/no-unneeded-ternary)
+    See [rule details](https://eslint.org/docs/latest/rules/no-unneeded-ternary)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       configFile: |
@@ -601,7 +601,7 @@ displayName: 'Disallow the use of Math.pow in favor of the ** operator '
 description: |
   Disallow the use of Math.pow in favor of the ** operator 
   
-    See [rule  details](https://eslint.org/docs/latest/rules/prefer-exponentiation-operator)
+    See [rule details](https://eslint.org/docs/latest/rules/prefer-exponentiation-operator)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       configFile: |
@@ -699,7 +699,7 @@ displayName: 'Require template literals instead of string concatenation '
 description: |
   Require template literals instead of string concatenation 
   
-    See [rule  details](https://eslint.org/docs/latest/rules/prefer-template)
+    See [rule details](https://eslint.org/docs/latest/rules/prefer-template)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       configFile: |
