@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@codemod/cli": "^3.3.0",
     "@kevinbarabash/codemods": "github:kevinbarabash/codemods",
     "@mui/codemod": "5.15.10",
     "@next/codemod": "^14.0.4",
@@ -25,6 +26,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-typescript-sort-keys": "^3.1.0",
     "eslint-webpack-plugin": "^4.0.1",
-    "js-codemod": "7.0.0"
+    "js-codemod": "7.0.0",
+    "react-declassify": "^0.2.0"
   }
 }

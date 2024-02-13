@@ -1,0 +1,31 @@
+#
+# Copyright 2023 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.react.ClassComponentToFunctionComponent
+displayName: React class component to function component
+description: |
+  Class components are still going to be supported by React for the foreseeable future. However, it is no longer recommended to write new components in class-style.
+  
+    This recipe will convert class components to function components using [react-declassify](https://github.com/wantedly/react-declassify)
+
+tags:
+  - codemods
+  - react
+  - reactjs
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      commandTemplate: "${nodeModules}/.bin/codemod --plugin react-declassify ${repoDir}/**/*.(j|t)sx"
