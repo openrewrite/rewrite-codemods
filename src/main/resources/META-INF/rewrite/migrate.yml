@@ -88,3 +88,17 @@ recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
       npmPackage: "@kevinbarabash/codemods"
       transform: util.js
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.deprecations
+displayName: All deprecations of older MUI versions
+description: >
+  Clean-up deprecations from older MUI versions
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "deprecations/all"
+      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
