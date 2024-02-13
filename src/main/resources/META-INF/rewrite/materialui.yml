@@ -747,8 +747,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
+      executable: "@mui/codemod/codemod.js"
       transform: "v5.0.0/preset-safe"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe

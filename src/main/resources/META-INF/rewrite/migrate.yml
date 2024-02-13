@@ -31,9 +31,8 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: "@kevinbarabash/codemods"
-      transform: array.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "@kevinbarabash/codemods/array.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreFunction
@@ -46,9 +45,8 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: "@kevinbarabash/codemods"
-      transform: function.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "@kevinbarabash/codemods/function.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreObjects
@@ -65,9 +63,8 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: "@kevinbarabash/codemods"
-      transform: object.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "@kevinbarabash/codemods/object.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreUtil
@@ -85,6 +82,5 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: "@kevinbarabash/codemods"
-      transform: util.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "@kevinbarabash/codemods/util.js"

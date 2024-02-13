@@ -43,7 +43,7 @@ displayName: Use `withRouter`
 description: >
   Transforms the deprecated automatically injected url property on top level pages to using `withRouter` and the `router` 
   property it injects. Read more here: https://nextjs.org/docs/messages/url-deprecated
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#url-to-withrouter)
     for more information.
 tags:
@@ -60,7 +60,7 @@ name: org.openrewrite.codemods.nextjs.v8.WithAmpToConfig
 displayName: Transform AMP HOC into page config
 description: >
   Transforms the `withAmp` HOC into Next.js 9 page configuration.
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#withamp-to-config)
     for more information.
 tags:
@@ -78,9 +78,9 @@ displayName: Transform Anonymous Components into Named Components
 description: >
   Transforms anonymous components into named components to make sure they work with
   [Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh).
-  
+
   The component will have a camel-cased name based on the name of the file, and it also works with arrow functions.
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#name-default-component)
     for more information.
 tags:
@@ -98,7 +98,7 @@ displayName: Add React imports
 description: >
   Transforms files that do not import `React` to include the import in order for the new
   [React JSX](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) transform to work.
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#add-missing-react-import)
     for more information.
 tags:
@@ -116,7 +116,7 @@ displayName: Rename Next Image Imports
 description: >
   Safely renames `next/image` imports in existing Next.js 10, 11, or 12 applications to `next/legacy/image` in Next.js
   13. Also renames `next/future/image` to `next/image`.
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#cra-to-next)
     for more information.
 tags:
@@ -134,7 +134,7 @@ displayName: Rename Next Image Imports
 description: >
   Safely renames `next/image` imports in existing Next.js 10, 11, or 12 applications to `next/legacy/image` in Next.js
   13. Also renames `next/future/image` to `next/image`.
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#next-image-to-legacy-image)
     for more information.
 tags:
@@ -157,7 +157,7 @@ description: >
   - Removes `objectPosition` prop and adds `style`.
   - Removes `lazyBoundary` prop.
   - Removes `lazyRoot` prop.
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#next-image-experimental)
     for more information.
 tags:
@@ -175,10 +175,10 @@ displayName: Remove `<a>` Tags From Link Components
 description: >
   Remove `<a>` tags inside [Link Components](https://nextjs.org/docs/app/api-reference/components/link), or add a
   `legacyBehavior` prop to Links that cannot be auto-fixed.
-  
+
   In cases where auto-fixing can't be applied, the `legacyBehavior` prop is added. This allows your app to keep
   functioning using the old behavior for that particular link.
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#new-link)
     for more information.
 tags:
@@ -195,7 +195,7 @@ name: org.openrewrite.codemods.nextjs.v13_2.BuiltInNextFont
 displayName: Use Built-in Font
 description: >
   This codemod uninstalls the `@next/font` package and transforms `@next/font` imports into the built-in `next/font`.
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#built-in-next-font)
     for more information.
 tags:
@@ -213,7 +213,7 @@ displayName: Migrate `ImageResponse` imports
 description: >
   This codemod moves transforms imports from `next/server` to `next/og for` usage of [Dynamic OG Image Generation]
   (https://nextjs.org/docs/app/building-your-application/upgrading/codemods#next-og-import).
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#migrate-imageresponse-imports)
   for more information.
 tags:
@@ -230,13 +230,14 @@ name: org.openrewrite.codemods.nextjs.v14_0.UseViewportExport
 displayName: Use `viewport` export
 description: >
   This codemod migrates certain viewport metadata to `viewport` export.
-  
+
   See [documentation](https://nextjs.org/docs/app/building-your-application/upgrading/codemods#metadata-to-viewport-export)
   for more information.
 tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "metadata-to-viewport-export"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      codemodArgs: "--force --jscodeshift='--parser=${parser}'"
