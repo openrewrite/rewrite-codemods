@@ -102,7 +102,7 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": truee
+            "node": true
           }
         }
 ---
@@ -194,7 +194,7 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": truee
+            "node": true
           }
         }
 ---
@@ -309,7 +309,7 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": truee
+            "node": true
           }
         }
 ---
@@ -568,7 +568,7 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": truee
+            "node": true
           }
         }
 ---
@@ -735,7 +735,7 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": truee
+            "node": true
           }
         }
 ---
