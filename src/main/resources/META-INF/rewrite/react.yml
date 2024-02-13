@@ -28,4 +28,4 @@ tags:
   - reactjs
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      commandTemplate: "${nodeModules}/@codemod/cli/bin/codemod --plugin react-declassify ${repoDir}/**/*.(j|t)sx"
+      commandTemplate: "${nodeModules}/@codemod/cli/bin/codemod --plugin ${nodeModules}/react-declassify ${repoDir}/**/*.(j|t)sx"
