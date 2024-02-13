@@ -108,7 +108,7 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.Eqeqeq
-displayName: 'Require the use of === and !== '
+displayName: 'Require the use of `===` and `!==` '
 description: |
   Require the use of === and !== 
   
