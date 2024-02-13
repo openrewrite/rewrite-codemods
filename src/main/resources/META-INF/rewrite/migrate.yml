@@ -17,7 +17,7 @@
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreArray
 displayName: Replace lodash and underscore array functions with native JavaScript
-description: >
+description: |
   - `_.head(x)`` -> `x[0]``
   - `_.head(x, n)`` -> `x.slice(n)``
   - `_.first (alias for _.head)
@@ -38,7 +38,7 @@ recipeList:
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreFunction
 displayName: Replace lodash and underscore function functions with native JavaScript
-description: >
+description: |
   - `_.bind(fn, obj, ...x)` -> `fn.bind(obj, ...x)`
   - `_.partial(fn, a, b);`` -> `(...args) => fn(a, b, ...args)`
 tags:
@@ -53,7 +53,7 @@ recipeList:
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreObjects
 displayName: Replace lodash and underscore object functions with native JavaScript
-description: >
+description: |
   - `_.clone(x)` -> `{ ...x }`
   - `_.extend({}, x, y)` -> `{ ...x, ...y }`
   - `_.extend(obj, x, y)` -> `Object.assign(obj, x, y)`
@@ -72,7 +72,7 @@ recipeList:
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreUtil
 displayName: Replace lodash and underscore utility functions with native JavaScript
-description: >
+description: |
   - `_.isArray(x)` -> `Array.isArray(x)`
   - `_.isBoolean(x)` -> `typeof(x) === 'boolean'`
   - `_.isFinite(x)` -> `Number.isFinite(x)`
