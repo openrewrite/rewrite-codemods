@@ -27,7 +27,7 @@ tags:
   - react
   - reactjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       executable: "@codemod/cli/bin/codemod --plugin"
-      transform: "react-declassify"
+      transform: react-declassify
       fileFilter: "**/*.(j|t)sx"
