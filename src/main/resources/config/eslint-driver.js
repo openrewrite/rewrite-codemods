@@ -106,10 +106,7 @@ const optionator = require('optionator')({
   const allowInlineConfig = options['allowInlineConfig'] || false;
   const env = options['env'] || {};
   const globals = options['globals'] || {};
-  const defaultPlugins = ['@typescript-eslint', 'unicorn', '@next/next'];
-  const plugins = options['plugins']
-    ? [...defaultPlugins, ...options['plugins']]
-    : defaultPlugins;
+  const plugins = options['plugins'] || ['@typescript-eslint'];
   const extend = options['extends'] || [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -122,21 +119,6 @@ const optionator = require('optionator')({
       ? JSON.parse(options['configFile'])
       : null;
   } catch (error) {}
-
-  /**
-   * We want to disable some rules by default. Any config containing these rules
-   * will override these defaults.
-   */
-  const defaultRulesToDisable = {
-    'no-undef': 'off',
-    'no-redeclare': 'off',
-    'no-inner-declarations': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/no-namespace': 'off',
-    'no-constant-condition': 'off',
-  };
 
   if (
     typeof rules['prettier/prettier'] === 'number' ||
@@ -153,15 +135,8 @@ const optionator = require('optionator')({
     ? new ESLint({
         useEslintrc: false,
         errorOnUnmatchedPattern: false,
-        overrideConfigFile: {
-          ...configFile,
-          plugins: configFile.plugins ? configFile.plugins : defaultPlugins,
-          rules: {
-            ...defaultRulesToDisable,
-            ...configFile.rules,
-          },
-        },
-        fix: fix,
+        overrideConfigFile: configFile,
+        fix,
       })
     : new ESLint({
         cwd: process.cwd(),
