@@ -140,9 +140,7 @@ const optionator = require('optionator')({
         errorOnUnmatchedPattern: false,
         overrideConfigFile: {
           ...configFile,
-          plugins: configFile.plugins
-            ? [...defaultPlugins, ...configFile.plugins]
-            : defaultPlugins,
+          plugins: configFile.plugins ? configFile.plugins : defaultPlugins,
         },
         fix: fix,
       })
