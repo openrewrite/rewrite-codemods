@@ -123,6 +123,15 @@ const optionator = require('optionator')({
       : null;
   } catch (error) {}
 
+  /**
+   * We want to disable some rules by default. Any config containing these rules
+   * will override these defaults.
+   */
+  const defaultRulesToDisable = {
+    'no-undef': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+  };
+
   if (
     typeof rules['prettier/prettier'] === 'number' ||
     typeof rules['prettier/prettier'] === 'string'
@@ -141,6 +150,10 @@ const optionator = require('optionator')({
         overrideConfigFile: {
           ...configFile,
           plugins: configFile.plugins ? configFile.plugins : defaultPlugins,
+          rules: {
+            ...defaultRulesToDisable,
+            ...configFile.rules,
+          },
         },
         fix: fix,
       })
