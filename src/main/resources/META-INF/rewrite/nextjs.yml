@@ -16,7 +16,7 @@
 ---
 type: specs.openrewrite.org/v1beta/category
 name: Next.js
-packageName: org.openrewrite.codemods.nextjs
+packageName: org.openrewrite.codemods.migrate.nextjs
 description: Recipes that run improve the use of [Next.js](https://nextjs.org/).
 ---
 type: specs.openrewrite.org/v1beta/recipe
