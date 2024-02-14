@@ -120,7 +120,11 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
             Process process = builder.start();
             process.waitFor(5, TimeUnit.MINUTES);
             if (process.exitValue() != 0) {
-                throw new RuntimeException(new String(Files.readAllBytes(err)));
+                String error = "Command failed: " + String.join(" ", command);
+                if (Files.exists(err)) {
+                    error += "\n" + new String(Files.readAllBytes(err));
+                }
+                throw new RuntimeException(error);
             } else {
                 for (Map.Entry<Path, Long> entry : acc.beforeModificationTimestamps.entrySet()) {
                     Path path = entry.getKey();

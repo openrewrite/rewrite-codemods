@@ -71,8 +71,8 @@ public class SimpleCodemod extends NodeBasedRecipe {
         String transformer;
 
         if (executable == null) {
-            exec = "${nodeModules}/.bin/jscodeshift";
-            transformer = "-t ${nodeModules}/" + transform;
+            exec = "${nodeModules}/.bin/jscodeshift -t";
+            transformer = "${nodeModules}/" + transform;
         } else {
             exec = "${nodeModules}/" + executable;
             transformer = transform;
