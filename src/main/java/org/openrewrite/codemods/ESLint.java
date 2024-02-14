@@ -305,7 +305,7 @@ public class ESLint extends NodeBasedRecipe {
         return new PlainText(
                 before.getId(),
                 before.getSourcePath(),
-                before.getMarkers(),
+                Boolean.TRUE.equals(fix) ? Markers.EMPTY : before.getMarkers(),
                 before.getCharset() != null ? before.getCharset().name() : null,
                 before.isCharsetBomMarked(),
                 before.getFileAttributes(),
