@@ -31,7 +31,7 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "@kevinbarabash/codemods/transforms/array.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -45,7 +45,7 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "@kevinbarabash/codemods/transforms/function.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -63,7 +63,7 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "@kevinbarabash/codemods/transforms/object.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -82,5 +82,5 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "@kevinbarabash/codemods/transforms/util.js"

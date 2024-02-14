@@ -61,7 +61,7 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "5to6-codemod/transforms/cjs.js"
       codemodArgs:
         - hoist=true
@@ -75,7 +75,7 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "5to6-codemod/transforms/amd.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -87,7 +87,7 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "5to6-codemod/transforms/no-strict.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -99,7 +99,7 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "5to6-codemod/transforms/named-export-generation.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -111,7 +111,7 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "5to6-codemod/transforms/let.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -123,5 +123,5 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.SimpleCodemod:
+  - org.openrewrite.codemods.ApplyCodemod:
       transform: "5to6-codemod/transforms/simple-arrow.js"

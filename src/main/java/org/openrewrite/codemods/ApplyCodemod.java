@@ -23,6 +23,7 @@ import org.openrewrite.internal.lang.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static java.util.Collections.emptyList;
@@ -30,34 +31,34 @@ import static java.util.Collections.emptyList;
 @Value
 @EqualsAndHashCode(callSuper = true)
 public class ApplyCodemod extends NodeBasedRecipe {
-
-    @Option(displayName = "NPM package containing the codemod",
-            description = "The codemod's NPM package name.",
-            example = "@next/codemod",
-            required = false)
-    @Nullable
-    String npmPackage;
-
     @Option(displayName = "Codemod transform",
-            description = "Transform to be applied using `jscodeshift`.",
-            example = "built-in-next-font",
-            required = false)
+            description = "Transform to be applied using the executable.",
+            example = "-t path/to/transform/optimus-prime"
+    )
     @Nullable
     String transform;
 
+    @Option(displayName = "Codemod executable",
+            description = "Path to the codemod executable relative to the NPM directory. Defaults to `jscodeshift/bin/jscodeshift.js`.",
+            example = "@next/codemod/bin/next-codemod.js",
+            required = false)
+    @Nullable
+    String executable;
+
+
+    @Option(displayName = "File filter",
+            description = "Optional glob pattern to filter files to apply the codemod to. Defaults to all files. Note: not all codemods support file glob filtering.",
+            example = "**/*.(j|t)sx"
+    )
+    @Nullable
+    String fileFilter;
+
     @Option(displayName = "Codemod command arguments",
             description = "Arguments which get passed to the codemod command.",
-            example = "built-in-next-font, ${repoDir}, --force",
+            example = "--force --jscodeshift='--parser=${parser}'",
             required = false)
     @Nullable
     List<String> codemodArgs;
-
-    @Option(displayName = "Codemod command template",
-            description = "Template for the command to execute (defaults to `${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}`).",
-            example = "${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}",
-            required = false)
-    @Nullable
-    String commandTemplate;
 
     @Override
     public String getDisplayName() {
@@ -73,15 +74,21 @@ public class ApplyCodemod extends NodeBasedRecipe {
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
         List<String> command = new ArrayList<>();
         command.add("node");
-        String template = Optional.ofNullable(commandTemplate).orElse("${nodeModules}/.bin/jscodeshift -t ${nodeModules}/${npmPackage}/transforms/${transform} ${repoDir} ${codemodArgs}");
+
+        String exec;
+        if (executable == null) {
+            exec = "${nodeModules}/.bin/jscodeshift -t";
+        } else {
+            exec = "${nodeModules}/" + executable;
+        }
+
+        String template = "${exec} ${nodeModules}/${transform} ${repoDir}${fileFilter} ${codemodArgs}";
+        template = template.replace("${exec}", exec);
+        template = template.replace("${transform}", Objects.requireNonNull(transform));
+
         for (String part : template.split(" ")) {
             part = part.trim();
-            if (npmPackage != null) {
-                part = part.replace("${npmPackage}", npmPackage);
-            }
-            if (transform != null) {
-                part = part.replace("${transform}", transform);
-            }
+            part = part.replace("${fileFilter}", fileFilter != null ? "/" + fileFilter : "");
             int argsIdx = part.indexOf("${codemodArgs}");
             if (argsIdx != -1) {
                 String prefix = part.substring(0, argsIdx);
