@@ -168,7 +168,10 @@ const optionator = require('optionator')({
           globals,
           plugins,
           extends: extend,
-          rules,
+          rules: {
+            ...defaultRulesToDisable,
+            ...rules,
+          },
         },
         // overrideConfigFile: "config/prettier.eslintrc.json",
         // resolvePluginsRelativeTo: "../codemods-npm",
