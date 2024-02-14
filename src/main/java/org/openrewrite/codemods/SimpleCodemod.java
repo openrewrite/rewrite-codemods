@@ -23,6 +23,7 @@ import org.openrewrite.internal.lang.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static java.util.Collections.emptyList;
@@ -44,6 +45,13 @@ public class SimpleCodemod extends NodeBasedRecipe {
     )
     @Nullable
     String transform;
+
+    @Option(displayName = "File filter",
+            description = "Optional glob pattern to filter files to apply the codemod to. Defaults to all files. Note: not all codemods support file glob filtering.",
+            example = "**/*.(j|t)sx"
+    )
+    @Nullable
+    String fileFilter;
 
     @Option(displayName = "Codemod command arguments",
             description = "Arguments which get passed to the codemod command.",
@@ -68,26 +76,19 @@ public class SimpleCodemod extends NodeBasedRecipe {
         command.add("node");
 
         String exec;
-        String execFlags;
-        String transformer;
-
         if (executable == null) {
-            exec = "${nodeModules}/.bin/jscodeshift";
-            execFlags = "-t";
-            transformer = "${nodeModules}/" + transform;
+            exec = "${nodeModules}/.bin/jscodeshift -t";
         } else {
             exec = "${nodeModules}/" + executable;
-            execFlags = "";
-            transformer = transform;
         }
-        String template = "${exec} ${execFlags} ${transformer} ${repoDir} ${codemodArgs}";
+
+        String template = "${exec} ${nodeModules}/${transform} ${repoDir}${fileFilter} ${codemodArgs}";
+        template = template.replace("${exec}", exec);
+        template = template.replace("${transform}", Objects.requireNonNull(transform));
 
         for (String part : template.split(" ")) {
             part = part.trim();
-            part = part.replace("${exec}", exec);
-            part = part.replace("${execFlags}", execFlags);
-            part = part.replace("${transformer}", transformer);
-
+            part = part.replace("${fileFilter}", fileFilter != null ? "/" + fileFilter : "");
             int argsIdx = part.indexOf("${codemodArgs}");
             if (argsIdx != -1) {
                 String prefix = part.substring(0, argsIdx);

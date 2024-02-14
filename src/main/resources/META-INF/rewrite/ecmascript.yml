@@ -61,9 +61,8 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: 5to6-codemod
-      transform: cjs.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "5to6-codemod/transforms/cjs.js"
       codemodArgs:
         - hoist=true
 ---
@@ -76,9 +75,8 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: 5to6-codemod
-      transform: amd.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "5to6-codemod/transforms/amd.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.5to6.noStrict
@@ -89,9 +87,8 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: 5to6-codemod
-      transform: no-strict.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "5to6-codemod/transforms/no-strict.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.5to6.namedExportGeneration
@@ -102,9 +99,8 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: 5to6-codemod
-      transform: named-export-generation.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "5to6-codemod/transforms/named-export-generation.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.5to6.varToLet
@@ -115,9 +111,8 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: 5to6-codemod
-      transform: let.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "5to6-codemod/transforms/let.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.5to6.simpleArrow
@@ -128,6 +123,5 @@ tags:
   - codemods
   - 5to6
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
-      npmPackage: 5to6-codemod
-      transform: simple-arrow.js
+  - org.openrewrite.codemods.SimpleCodemod:
+      transform: "5to6-codemod/transforms/simple-arrow.js"

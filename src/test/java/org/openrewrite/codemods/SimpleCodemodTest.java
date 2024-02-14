@@ -31,7 +31,7 @@ public class SimpleCodemodTest implements RewriteTest {
     @Test
     void formatStatement() {
         rewriteRun(
-          spec -> spec.recipe(new SimpleCodemod(null, "@kevinbarabash/codemods/transforms/array.js", null)),
+          spec -> spec.recipe(new SimpleCodemod(null, "@kevinbarabash/codemods/transforms/array.js", null, null)),
           text(
             //language=js
             """
@@ -39,6 +39,50 @@ public class SimpleCodemodTest implements RewriteTest {
               """,
             """
               x.slice(1)
+              """,
+            spec -> spec.path("src/Foo.js")
+          )
+        );
+    }
+    @Test
+    void formatReactStatement() {
+        rewriteRun(
+          spec -> spec.recipe(new SimpleCodemod("@codemod/cli/bin/codemod --plugin",  "react-declassify", "**/*.(j|t)sx", null)),
+          text(
+            //language=js
+            """
+              import React from "react";
+                        
+                        export class C extends React.Component {
+                          render() {
+                            const { text, color } = this.props;
+                            return <button style={{ color }} onClick={() => this.onClick()}>{text}</button>;
+                          }
+                        
+                          onClick() {
+                            const { text, handleClick } = this.props;
+                            alert(`${text} was clicked!`);
+                            handleClick();
+                          }
+                        }
+              """,
+            """
+              import React from "react";
+                        
+                        export const C = props => {
+                          const {
+                            text,
+                            color,
+                            handleClick
+                          } = props;
+                        
+                          function onClick() {
+                            alert(`${text} was clicked!`);
+                            handleClick();
+                          }
+                        
+                          return <button style={{ color }} onClick={() => onClick()}>{text}</button>;
+                        };
               """,
             spec -> spec.path("src/Foo.js")
           )
