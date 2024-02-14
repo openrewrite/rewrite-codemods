@@ -108,7 +108,7 @@ const optionator = require('optionator')({
             new ESLint({
                 useEslintrc: false,
                 errorOnUnmatchedPattern: false,
-                overrideConfigFile: { ...configFile, plugins: defaultPlugins},
+                overrideConfigFile: { ...configFile, plugins: [...defaultPlugins, ...configFile.plugins]},
                 fix: fix
                 })
             :
