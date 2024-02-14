@@ -50,9 +50,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "url-to-withrouter"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}'"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -67,9 +68,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "withamp-to-config"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -87,9 +89,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "name-default-component"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -105,9 +108,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "add-missing-react-import"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -123,9 +127,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "cra-to-next"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -141,9 +146,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "next-image-to-legacy-image"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -164,9 +170,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "next-image-experimental"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -185,9 +192,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "new-link"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -202,9 +210,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "built-in-next-font"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -220,9 +229,10 @@ tags:
   - codemods
   - nextjs
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "next-og-import"
-      commandTemplate: "${nodeModules}/@next/codemod/bin/next-codemod.js ${transform} ${repoDir} --force --jscodeshift='--parser=${parser}'"
+      executable: "@next/codemod/bin/next-codemod.js"
+      commandArgs: "--force --jscodeshift='--parser=${parser}"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe

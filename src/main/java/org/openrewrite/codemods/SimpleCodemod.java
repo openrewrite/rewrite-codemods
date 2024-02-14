@@ -67,16 +67,24 @@ public class SimpleCodemod extends NodeBasedRecipe {
         List<String> command = new ArrayList<>();
         command.add("node");
 
-        String exec = Optional.ofNullable(executable).orElse(".bin/jscodeshift -t");
-        String template = "${nodeModules}/${exec} ${transform} ${repoDir} ${codemodArgs}";
+        String exec;
+        String transformer;
+
+        if (executable == null) {
+            exec = "${nodeModules}/.bin/jscodeshift";
+            transformer = "-t ${nodeModules}/" + transform;
+        } else {
+            exec = "${nodeModules}/" + executable;
+            transformer = transform;
+        }
+
+        String template = "${exec} ${transformer} ${repoDir} ${codemodArgs}";
 
         for (String part : template.split(" ")) {
             part = part.trim();
             part = part.replace("${exec}", exec);
+            part = part.replace("${transformer}", transformer);
 
-            if (transform != null) {
-                part = part.replace("${transform}", transform);
-            }
             int argsIdx = part.indexOf("${codemodArgs}");
             if (argsIdx != -1) {
                 String prefix = part.substring(0, argsIdx);

@@ -20,10 +20,10 @@ displayName: Replace lodash and underscore array functions with native JavaScrip
 description: |
   - `_.head(x)` -> `x[0]`
   - `_.head(x, n)` -> `x.slice(n)`
-  - `_.first (alias for _.head)
+  - `_.first` (alias for `_.head`)
   - `_.tail(x)` -> `x.slice(1)`
   - `_.tail(x, n)` -> `x.slice(n)`
-  - `_.rest (alias for _.tail)
+  - `_.rest` (alias for `_.tail`)
   - `_.last(x)` -> `x[x.length - 1]`
   - `_.last(x, n)` -> `x.slice(x.length - n)`
 tags:
@@ -32,7 +32,7 @@ tags:
   - underscore
 recipeList:
   - org.openrewrite.codemods.SimpleCodemod:
-      transform: "@kevinbarabash/codemods/array.js"
+      transform: "@kevinbarabash/codemods/transforms/array.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreFunction
@@ -46,7 +46,7 @@ tags:
   - underscore
 recipeList:
   - org.openrewrite.codemods.SimpleCodemod:
-      transform: "@kevinbarabash/codemods/function.js"
+      transform: "@kevinbarabash/codemods/transforms/function.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreObjects
@@ -64,7 +64,7 @@ tags:
   - underscore
 recipeList:
   - org.openrewrite.codemods.SimpleCodemod:
-      transform: "@kevinbarabash/codemods/object.js"
+      transform: "@kevinbarabash/codemods/transforms/object.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.lodashUnderscoreUtil
@@ -83,4 +83,4 @@ tags:
   - underscore
 recipeList:
   - org.openrewrite.codemods.SimpleCodemod:
-      transform: "@kevinbarabash/codemods/util.js"
+      transform: "@kevinbarabash/codemods/transforms/util.js"

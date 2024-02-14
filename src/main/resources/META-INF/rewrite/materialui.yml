@@ -24,9 +24,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "deprecations/all"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -39,9 +39,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/adapter-v4"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -54,9 +54,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/autocomplete-rename-closeicon"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -69,9 +69,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/autocomplete-rename-option"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -84,9 +84,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/avatar-circle-circular"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -99,9 +99,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/badge-overlap-value"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -114,9 +114,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/base-hook-imports"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -129,9 +129,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/base-remove-component-prop"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -144,9 +144,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/base-remove-unstyled-suffix"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -159,9 +159,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/base-rename-components-to-slots"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -174,9 +174,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/base-use-named-exports"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -189,9 +189,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/box-borderradius-values"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -204,9 +204,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/box-rename-css"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -219,9 +219,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/box-rename-gap"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -234,9 +234,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/box-sx-prop"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -249,9 +249,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/button-color-prop"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -264,9 +264,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/chip-variant-prop"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -279,9 +279,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/circularprogress-variant"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -294,9 +294,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/collapse-rename-collapsedheight"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -309,9 +309,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/component-rename-prop"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -324,9 +324,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/core-styles-import"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -339,9 +339,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/create-theme"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -354,9 +354,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/date-pickers-moved-to-x"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -369,9 +369,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/dialog-props"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -384,9 +384,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/dialog-title-props"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -399,9 +399,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/emotion-prepend-cache"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -414,9 +414,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/expansion-panel-component"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -429,9 +429,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/fab-variant"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -444,9 +444,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/fade-rename-alpha"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -459,9 +459,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/grid-justify-justifycontent"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -474,9 +474,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/grid-list-component"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -489,9 +489,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/hidden-down-props"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -504,9 +504,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/icon-button-size"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -519,9 +519,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/joy-avatar-remove-imgProps"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -534,9 +534,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/joy-rename-classname-prefix"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -549,9 +549,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/joy-rename-components-to-slots"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -564,9 +564,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/joy-rename-row-prop"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -579,9 +579,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/joy-text-field-to-input"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -594,9 +594,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/jss-to-styled"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -609,9 +609,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/jss-to-tss-react"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -624,9 +624,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/link-underline-hover"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -639,9 +639,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/material-ui-styles"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -654,9 +654,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/material-ui-types"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -669,9 +669,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/modal-props"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -684,9 +684,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/moved-lab-modules"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -699,9 +699,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/mui-replace"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -714,9 +714,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/optimal-imports"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -729,9 +729,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/pagination-round-circular"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -746,7 +746,7 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       executable: "@mui/codemod/codemod.js"
       transform: "v5.0.0/preset-safe"
 
@@ -761,9 +761,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/rename-css-variables"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -776,9 +776,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/root-ref"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -791,9 +791,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/skeleton-variant"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -806,9 +806,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/styled-engine-provider"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -821,9 +821,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/table-props"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -836,9 +836,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/tabs-scroll-buttons"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -851,9 +851,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/textarea-minmax-rows"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -866,9 +866,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/theme-augment"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -881,9 +881,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/theme-breakpoints-width"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -896,9 +896,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/theme-breakpoints"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -911,9 +911,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/theme-options"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -926,9 +926,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/theme-palette-mode"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -941,9 +941,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/theme-provider"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -956,9 +956,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/theme-spacing"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -971,9 +971,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/theme-typography-round"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -986,9 +986,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/top-level-imports"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -1001,9 +1001,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/transitions"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -1016,9 +1016,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/tree-view-moved-to-x"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -1031,9 +1031,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/use-autocomplete"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -1046,9 +1046,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/use-transitionprops"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -1061,9 +1061,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/variant-prop"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -1076,9 +1076,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/with-mobile-dialog"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -1091,9 +1091,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v5.0.0/with-width"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -1106,9 +1106,9 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v4.0.0/optimal-imports"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
@@ -1121,6 +1121,6 @@ tags:
   - material-ui
   - mui
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.codemods.SimpleCodemod:
       transform: "v4.0.0/theme-spacing-api"
-      commandTemplate: "${nodeModules}/@mui/codemod/codemod.js ${transform} ${repoDir}"
+      executable: "@mui/codemod/codemod.js"
