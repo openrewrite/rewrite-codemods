@@ -116,7 +116,12 @@ const optionator = require('optionator')({
   ];
   const rules = options['rules'] || { eqeqeq: 2, 'no-duplicate-imports': 2 };
   const fix = options['fix'] || true;
-  const configFile = options['configFile'];
+  let configFile;
+  try {
+    configFile = options['configFile']
+      ? JSON.parse(options['configFile'])
+      : null;
+  } catch (error) {}
 
   if (
     typeof rules['prettier/prettier'] === 'number' ||
