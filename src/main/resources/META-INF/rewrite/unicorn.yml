@@ -27,7 +27,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/better-regex": 2
           },
@@ -50,7 +49,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/catch-error-name": 2
           },
@@ -73,7 +71,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/consistent-destructuring": 2
           },
@@ -96,7 +93,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/custom-error-definition": 2
           },
@@ -119,7 +115,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/empty-brace-spaces": 2
           },
@@ -142,7 +137,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/escape-case": 2
           },
@@ -165,7 +159,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/explicit-length-check": 2
           },
@@ -188,7 +181,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/new-for-builtins": 2
           },
@@ -211,7 +203,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-array-for-each": 2
           },
@@ -234,7 +225,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-array-method-this-argument": 2
           },
@@ -257,7 +247,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-array-push-push": 2
           },
@@ -280,7 +269,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-await-expression-member": 2
           },
@@ -303,7 +291,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-console-spaces": 2
           },
@@ -326,7 +313,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-for-loop": 2
           },
@@ -349,7 +335,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-hex-escape": 2
           },
@@ -372,7 +357,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-instanceof-array": 2
           },
@@ -395,7 +379,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-lonely-if": 2
           },
@@ -418,7 +401,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-negated-condition": 2
           },
@@ -441,7 +423,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-nested-ternary": 2
           },
@@ -464,7 +445,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-new-array": 2
           },
@@ -487,7 +467,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-new-buffer": 2
           },
@@ -510,7 +489,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-null": 2
           },
@@ -533,7 +511,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-static-only-class": 2
           },
@@ -556,7 +533,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-typeof-undefined": 2
           },
@@ -579,7 +555,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-unnecessary-await": 2
           },
@@ -602,7 +577,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-unreadable-array-destructuring": 2
           },
@@ -625,7 +599,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-useless-fallback-in-spread": 2
           },
@@ -648,7 +621,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-useless-length-check": 2
           },
@@ -671,7 +643,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-useless-promise-resolve-reject": 2
           },
@@ -694,7 +665,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-useless-spread": 2
           },
@@ -717,7 +687,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-useless-undefined": 2
           },
@@ -740,7 +709,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/no-zero-fractions": 2
           },
@@ -763,7 +731,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/number-literal-case": 2
           },
@@ -786,7 +753,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/numeric-separators-style": 2
           },
@@ -809,7 +775,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-add-event-listener": 2
           },
@@ -832,7 +797,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-array-find": 2
           },
@@ -855,7 +819,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-array-flat": 2
           },
@@ -878,7 +841,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-array-flat-map": 2
           },
@@ -901,7 +863,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-array-index-of": 2
           },
@@ -924,7 +885,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-array-some": 2
           },
@@ -947,7 +907,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-at": 2
           },
@@ -970,7 +929,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-date-now": 2
           },
@@ -993,7 +951,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-default-parameters": 2
           },
@@ -1016,7 +973,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-dom-node-append": 2
           },
@@ -1039,7 +995,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-dom-node-dataset": 2
           },
@@ -1062,7 +1017,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-dom-node-remove": 2
           },
@@ -1085,7 +1039,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-export-from": 2
           },
@@ -1108,7 +1061,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-includes": 2
           },
@@ -1131,7 +1083,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-json-parse-buffer": 2
           },
@@ -1154,7 +1105,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-keyboard-event-key": 2
           },
@@ -1177,7 +1127,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-math-trunc": 2
           },
@@ -1200,7 +1149,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-modern-dom-apis": 2
           },
@@ -1223,7 +1171,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-modern-math-apis": 2
           },
@@ -1246,7 +1193,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-module": 2
           },
@@ -1269,7 +1215,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-native-coercion-functions": 2
           },
@@ -1292,7 +1237,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-negative-index": 2
           },
@@ -1315,7 +1259,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-node-protocol": 2
           },
@@ -1338,7 +1281,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-number-properties": 2
           },
@@ -1361,7 +1303,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-object-from-entries": 2
           },
@@ -1384,7 +1325,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-optional-catch-binding": 2
           },
@@ -1407,7 +1347,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-prototype-methods": 2
           },
@@ -1430,7 +1369,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-query-selector": 2
           },
@@ -1453,7 +1391,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-reflect-apply": 2
           },
@@ -1476,7 +1413,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-regexp-test": 2
           },
@@ -1499,7 +1435,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-set-has": 2
           },
@@ -1522,7 +1457,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-set-size": 2
           },
@@ -1545,7 +1479,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-spread": 2
           },
@@ -1568,7 +1501,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-string-replace-all": 2
           },
@@ -1591,7 +1523,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-string-slice": 2
           },
@@ -1614,7 +1545,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-string-starts-ends-with": 2
           },
@@ -1637,7 +1567,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-string-trim-start-end": 2
           },
@@ -1660,7 +1589,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-switch": 2
           },
@@ -1683,7 +1611,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-ternary": 2
           },
@@ -1706,7 +1633,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prefer-type-error": 2
           },
@@ -1729,7 +1655,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/prevent-abbreviations": 2
           },
@@ -1752,7 +1677,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/relative-url-style": 2
           },
@@ -1775,7 +1699,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/require-array-join-separator": 2
           },
@@ -1798,7 +1721,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/require-number-to-fixed-digits-argument": 2
           },
@@ -1821,7 +1743,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/string-content": 2
           },
@@ -1844,7 +1765,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/switch-case-braces": 2
           },
@@ -1867,7 +1787,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/template-indent": 2
           },
@@ -1890,7 +1809,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/text-encoding-identifier-case": 2
           },
@@ -1913,7 +1831,6 @@ recipeList:
           "root": true,
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["unicorn"],
           "rules": {
             "unicorn/throw-new-error": 2
           },
