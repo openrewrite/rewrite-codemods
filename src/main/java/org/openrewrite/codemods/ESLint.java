@@ -288,7 +288,7 @@ public class ESLint extends NodeBasedRecipe {
                             column
                     )
             );
-            currentSnippet = currentSnippet.withMarkers(currentSnippet.getMarkers().add(marker));
+            currentSnippet = Boolean.TRUE.equals(fix) ? currentSnippet : currentSnippet.withMarkers(currentSnippet.getMarkers().add(marker));
             currentPosition = nextPosition;
             previousMessage = message.has("endLine") ? message : null;
         }
