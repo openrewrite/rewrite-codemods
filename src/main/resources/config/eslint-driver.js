@@ -130,9 +130,12 @@ const optionator = require('optionator')({
   const defaultRulesToDisable = {
     'no-undef': 'off',
     'no-redeclare': 'off',
+    'no-inner-declarations': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-namespace': 'off',
+    'no-constant-condition': 'off',
   };
 
   if (
