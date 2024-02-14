@@ -106,7 +106,7 @@ const optionator = require('optionator')({
   const allowInlineConfig = options['allowInlineConfig'] || false;
   const env = options['env'] || {};
   const globals = options['globals'] || {};
-  const defaultPlugins = ['@typescript-eslint', 'unicorn', 'next'];
+  const defaultPlugins = ['@typescript-eslint', 'unicorn', '@next/next'];
   const plugins = options['plugins']
     ? [...defaultPlugins, ...options['plugins']]
     : defaultPlugins;
