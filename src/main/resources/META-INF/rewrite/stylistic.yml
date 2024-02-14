@@ -15,7 +15,7 @@
 #
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ArrayBracketNewline
+name: org.openrewrite.codemods.format.ArrayBracketNewline
 displayName: Enforce linebreaks after opening and before closing array brackets
 description: |
   Enforce linebreaks after opening and before closing array brackets
@@ -40,10 +40,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ArrayBracketSpacing
+name: org.openrewrite.codemods.format.ArrayBracketSpacing
 displayName: Enforce consistent spacing inside array brackets
 description: |
   Enforce consistent spacing inside array brackets
@@ -68,10 +67,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ArrayElementNewline
+name: org.openrewrite.codemods.format.ArrayElementNewline
 displayName: Enforce line breaks after each array element
 description: |
   Enforce line breaks after each array element
@@ -96,10 +94,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ArrowParens
+name: org.openrewrite.codemods.format.ArrowParens
 displayName: Require parentheses around arrow function arguments
 description: |
   Require parentheses around arrow function arguments
@@ -124,10 +121,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ArrowSpacing
+name: org.openrewrite.codemods.format.ArrowSpacing
 displayName: Enforce consistent spacing before and after the arrow in arrow functions
 description: |
   Enforce consistent spacing before and after the arrow in arrow functions
@@ -152,10 +148,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.BlockSpacing
+name: org.openrewrite.codemods.format.BlockSpacing
 displayName: Disallow or enforce spaces inside of blocks after opening block and before closing block
 description: |
   Disallow or enforce spaces inside of blocks after opening block and before closing block
@@ -180,10 +175,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.BraceStyle
+name: org.openrewrite.codemods.format.BraceStyle
 displayName: Enforce consistent brace style for blocks
 description: |
   Enforce consistent brace style for blocks
@@ -208,10 +202,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.CommaDangle
+name: org.openrewrite.codemods.format.CommaDangle
 displayName: Require or disallow trailing commas
 description: |
   Require or disallow trailing commas
@@ -236,10 +229,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.CommaSpacing
+name: org.openrewrite.codemods.format.CommaSpacing
 displayName: Enforce consistent spacing before and after commas
 description: |
   Enforce consistent spacing before and after commas
@@ -264,10 +256,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.CommaStyle
+name: org.openrewrite.codemods.format.CommaStyle
 displayName: Enforce consistent comma style
 description: |
   Enforce consistent comma style
@@ -292,10 +283,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ComputedPropertySpacing
+name: org.openrewrite.codemods.format.ComputedPropertySpacing
 displayName: Enforce consistent spacing inside computed property brackets
 description: |
   Enforce consistent spacing inside computed property brackets
@@ -320,10 +310,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.DotLocation
+name: org.openrewrite.codemods.format.DotLocation
 displayName: Enforce consistent newlines before and after dots
 description: |
   Enforce consistent newlines before and after dots
@@ -348,10 +337,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.EolLast
+name: org.openrewrite.codemods.format.EolLast
 displayName: Require or disallow newline at the end of files
 description: |
   Require or disallow newline at the end of files
@@ -376,13 +364,12 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.FuncCallSpacing
-displayName: Require or disallow spacing between function identifiers and their invocations. Alias of `function-call-spacing`.
+name: org.openrewrite.codemods.format.FuncCallSpacing
+displayName: Require or disallow spacing between function identifiers and their invocations. Alias of &#x60;function-call-spacing&#x60;.
 description: |
-  Require or disallow spacing between function identifiers and their invocations. Alias of `function-call-spacing`.
+  Require or disallow spacing between function identifiers and their invocations. Alias of &#x60;function-call-spacing&#x60;.
 
   See [rule details](https://eslint.style/rules/default/func-call-spacing)
 tags:
@@ -404,10 +391,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.FunctionCallArgumentNewline
+name: org.openrewrite.codemods.format.FunctionCallArgumentNewline
 displayName: Enforce line breaks between arguments of a function call
 description: |
   Enforce line breaks between arguments of a function call
@@ -432,10 +418,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.FunctionCallSpacing
+name: org.openrewrite.codemods.format.FunctionCallSpacing
 displayName: Require or disallow spacing between function identifiers and their invocations
 description: |
   Require or disallow spacing between function identifiers and their invocations
@@ -460,10 +445,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.FunctionParenNewline
+name: org.openrewrite.codemods.format.FunctionParenNewline
 displayName: Enforce consistent line breaks inside function parentheses
 description: |
   Enforce consistent line breaks inside function parentheses
@@ -488,13 +472,12 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.GeneratorStarSpacing
-displayName: Enforce consistent spacing around `*` operators in generator functions
+name: org.openrewrite.codemods.format.GeneratorStarSpacing
+displayName: Enforce consistent spacing around &#x60;*&#x60; operators in generator functions
 description: |
-  Enforce consistent spacing around `*` operators in generator functions
+  Enforce consistent spacing around &#x60;*&#x60; operators in generator functions
 
   See [rule details](https://eslint.style/rules/default/generator-star-spacing)
 tags:
@@ -516,10 +499,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ImplicitArrowLinebreak
+name: org.openrewrite.codemods.format.ImplicitArrowLinebreak
 displayName: Enforce the location of arrow function bodies
 description: |
   Enforce the location of arrow function bodies
@@ -544,10 +526,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.Indent
+name: org.openrewrite.codemods.format.Indent
 displayName: Enforce consistent indentation
 description: |
   Enforce consistent indentation
@@ -572,10 +553,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.IndentBinaryOps
+name: org.openrewrite.codemods.format.IndentBinaryOps
 displayName: Indentation for binary operators
 description: |
   Indentation for binary operators
@@ -600,10 +580,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxClosingBracketLocation
+name: org.openrewrite.codemods.format.JsxClosingBracketLocation
 displayName: Enforce closing bracket location in JSX
 description: |
   Enforce closing bracket location in JSX
@@ -628,10 +607,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxClosingTagLocation
+name: org.openrewrite.codemods.format.JsxClosingTagLocation
 displayName: Enforce closing tag location for multiline JSX
 description: |
   Enforce closing tag location for multiline JSX
@@ -656,10 +634,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxCurlyBracePresence
+name: org.openrewrite.codemods.format.JsxCurlyBracePresence
 displayName: Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
 description: |
   Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
@@ -684,10 +661,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxCurlyNewline
+name: org.openrewrite.codemods.format.JsxCurlyNewline
 displayName: Enforce consistent linebreaks in curly braces in JSX attributes and expressions
 description: |
   Enforce consistent linebreaks in curly braces in JSX attributes and expressions
@@ -712,10 +688,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxCurlySpacing
+name: org.openrewrite.codemods.format.JsxCurlySpacing
 displayName: Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
 description: |
   Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
@@ -740,10 +715,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxEqualsSpacing
+name: org.openrewrite.codemods.format.JsxEqualsSpacing
 displayName: Enforce or disallow spaces around equal signs in JSX attributes
 description: |
   Enforce or disallow spaces around equal signs in JSX attributes
@@ -768,10 +742,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxFirstPropNewLine
+name: org.openrewrite.codemods.format.JsxFirstPropNewLine
 displayName: Enforce proper position of the first property in JSX
 description: |
   Enforce proper position of the first property in JSX
@@ -796,10 +769,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxIndent
+name: org.openrewrite.codemods.format.JsxIndent
 displayName: Enforce JSX indentation
 description: |
   Enforce JSX indentation
@@ -824,10 +796,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxIndentProps
+name: org.openrewrite.codemods.format.JsxIndentProps
 displayName: Enforce props indentation in JSX
 description: |
   Enforce props indentation in JSX
@@ -852,10 +823,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxMaxPropsPerLine
+name: org.openrewrite.codemods.format.JsxMaxPropsPerLine
 displayName: Enforce maximum of props on a single line in JSX
 description: |
   Enforce maximum of props on a single line in JSX
@@ -880,10 +850,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxNewline
+name: org.openrewrite.codemods.format.JsxNewline
 displayName: Require or prevent a new line after jsx elements and expressions.
 description: |
   Require or prevent a new line after jsx elements and expressions.
@@ -908,10 +877,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxOneExpressionPerLine
+name: org.openrewrite.codemods.format.JsxOneExpressionPerLine
 displayName: Require one JSX element per line
 description: |
   Require one JSX element per line
@@ -936,10 +904,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxPascalCase
+name: org.openrewrite.codemods.format.JsxPascalCase
 displayName: Enforce PascalCase for user-defined JSX components
 description: |
   Enforce PascalCase for user-defined JSX components
@@ -964,10 +931,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxPropsNoMultiSpaces
+name: org.openrewrite.codemods.format.JsxPropsNoMultiSpaces
 displayName: Disallow multiple spaces between inline JSX props
 description: |
   Disallow multiple spaces between inline JSX props
@@ -992,10 +958,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxQuotes
+name: org.openrewrite.codemods.format.JsxQuotes
 displayName: Enforce the consistent use of either double or single quotes in JSX attributes
 description: |
   Enforce the consistent use of either double or single quotes in JSX attributes
@@ -1020,10 +985,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxSelfClosingComp
+name: org.openrewrite.codemods.format.JsxSelfClosingComp
 displayName: Disallow extra closing tags for components without children
 description: |
   Disallow extra closing tags for components without children
@@ -1048,10 +1012,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxSortProps
+name: org.openrewrite.codemods.format.JsxSortProps
 displayName: Enforce props alphabetical sorting
 description: |
   Enforce props alphabetical sorting
@@ -1076,10 +1039,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxTagSpacing
+name: org.openrewrite.codemods.format.JsxTagSpacing
 displayName: Enforce whitespace in and around the JSX opening and closing brackets
 description: |
   Enforce whitespace in and around the JSX opening and closing brackets
@@ -1104,10 +1066,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.JsxWrapMultilines
+name: org.openrewrite.codemods.format.JsxWrapMultilines
 displayName: Disallow missing parentheses around multiline JSX
 description: |
   Disallow missing parentheses around multiline JSX
@@ -1132,10 +1093,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.KeySpacing
+name: org.openrewrite.codemods.format.KeySpacing
 displayName: Enforce consistent spacing between keys and values in object literal properties
 description: |
   Enforce consistent spacing between keys and values in object literal properties
@@ -1160,10 +1120,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.KeywordSpacing
+name: org.openrewrite.codemods.format.KeywordSpacing
 displayName: Enforce consistent spacing before and after keywords
 description: |
   Enforce consistent spacing before and after keywords
@@ -1188,10 +1147,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.LinebreakStyle
+name: org.openrewrite.codemods.format.LinebreakStyle
 displayName: Enforce consistent linebreak style
 description: |
   Enforce consistent linebreak style
@@ -1216,10 +1174,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.LinesAroundComment
+name: org.openrewrite.codemods.format.LinesAroundComment
 displayName: Require empty lines around comments
 description: |
   Require empty lines around comments
@@ -1244,10 +1201,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.LinesBetweenClassMembers
+name: org.openrewrite.codemods.format.LinesBetweenClassMembers
 displayName: Require or disallow an empty line between class members
 description: |
   Require or disallow an empty line between class members
@@ -1272,10 +1228,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.MemberDelimiterStyle
+name: org.openrewrite.codemods.format.MemberDelimiterStyle
 displayName: Require a specific member delimiter style for interfaces and type literals
 description: |
   Require a specific member delimiter style for interfaces and type literals
@@ -1300,10 +1255,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.MultilineTernary
+name: org.openrewrite.codemods.format.MultilineTernary
 displayName: Enforce newlines between operands of ternary expressions
 description: |
   Enforce newlines between operands of ternary expressions
@@ -1328,10 +1282,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NewParens
+name: org.openrewrite.codemods.format.NewParens
 displayName: Enforce or disallow parentheses when invoking a constructor with no arguments
 description: |
   Enforce or disallow parentheses when invoking a constructor with no arguments
@@ -1356,10 +1309,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NewlinePerChainedCall
+name: org.openrewrite.codemods.format.NewlinePerChainedCall
 displayName: Require a newline after each call in a method chain
 description: |
   Require a newline after each call in a method chain
@@ -1384,10 +1336,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NoConfusingArrow
+name: org.openrewrite.codemods.format.NoConfusingArrow
 displayName: Disallow arrow functions where they could be confused with comparisons
 description: |
   Disallow arrow functions where they could be confused with comparisons
@@ -1412,10 +1363,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NoExtraParens
+name: org.openrewrite.codemods.format.NoExtraParens
 displayName: Disallow unnecessary parentheses
 description: |
   Disallow unnecessary parentheses
@@ -1440,10 +1390,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NoExtraSemi
+name: org.openrewrite.codemods.format.NoExtraSemi
 displayName: Disallow unnecessary semicolons
 description: |
   Disallow unnecessary semicolons
@@ -1468,10 +1417,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NoFloatingDecimal
+name: org.openrewrite.codemods.format.NoFloatingDecimal
 displayName: Disallow leading or trailing decimal points in numeric literals
 description: |
   Disallow leading or trailing decimal points in numeric literals
@@ -1496,10 +1444,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NoMultiSpaces
+name: org.openrewrite.codemods.format.NoMultiSpaces
 displayName: Disallow multiple spaces
 description: |
   Disallow multiple spaces
@@ -1524,10 +1471,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NoMultipleEmptyLines
+name: org.openrewrite.codemods.format.NoMultipleEmptyLines
 displayName: Disallow multiple empty lines
 description: |
   Disallow multiple empty lines
@@ -1552,10 +1498,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NoTrailingSpaces
+name: org.openrewrite.codemods.format.NoTrailingSpaces
 displayName: Disallow trailing whitespace at the end of lines
 description: |
   Disallow trailing whitespace at the end of lines
@@ -1580,10 +1525,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NoWhitespaceBeforeProperty
+name: org.openrewrite.codemods.format.NoWhitespaceBeforeProperty
 displayName: Disallow whitespace before properties
 description: |
   Disallow whitespace before properties
@@ -1608,10 +1552,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.NonblockStatementBodyPosition
+name: org.openrewrite.codemods.format.NonblockStatementBodyPosition
 displayName: Enforce the location of single-line statements
 description: |
   Enforce the location of single-line statements
@@ -1636,10 +1579,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ObjectCurlyNewline
+name: org.openrewrite.codemods.format.ObjectCurlyNewline
 displayName: Enforce consistent line breaks after opening and before closing braces
 description: |
   Enforce consistent line breaks after opening and before closing braces
@@ -1664,10 +1606,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ObjectCurlySpacing
+name: org.openrewrite.codemods.format.ObjectCurlySpacing
 displayName: Enforce consistent spacing inside braces
 description: |
   Enforce consistent spacing inside braces
@@ -1692,10 +1633,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.ObjectPropertyNewline
+name: org.openrewrite.codemods.format.ObjectPropertyNewline
 displayName: Enforce placing object properties on separate lines
 description: |
   Enforce placing object properties on separate lines
@@ -1720,10 +1660,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.OneVarDeclarationPerLine
+name: org.openrewrite.codemods.format.OneVarDeclarationPerLine
 displayName: Require or disallow newlines around variable declarations
 description: |
   Require or disallow newlines around variable declarations
@@ -1748,10 +1687,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.OperatorLinebreak
+name: org.openrewrite.codemods.format.OperatorLinebreak
 displayName: Enforce consistent linebreak style for operators
 description: |
   Enforce consistent linebreak style for operators
@@ -1776,10 +1714,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.PaddedBlocks
+name: org.openrewrite.codemods.format.PaddedBlocks
 displayName: Require or disallow padding within blocks
 description: |
   Require or disallow padding within blocks
@@ -1804,10 +1741,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.PaddingLineBetweenStatements
+name: org.openrewrite.codemods.format.PaddingLineBetweenStatements
 displayName: Require or disallow padding lines between statements
 description: |
   Require or disallow padding lines between statements
@@ -1832,10 +1768,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.QuoteProps
+name: org.openrewrite.codemods.format.QuoteProps
 displayName: Require quotes around object literal property names
 description: |
   Require quotes around object literal property names
@@ -1860,13 +1795,12 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.Quotes
-displayName: Enforce the consistent use of either backticks
+name: org.openrewrite.codemods.format.Quotes
+displayName: Enforce the consistent use of either backticks, double, or single quotes
 description: |
-  Enforce the consistent use of either backticks
+  Enforce the consistent use of either backticks, double, or single quotes
 
   See [rule details](https://eslint.style/rules/default/quotes)
 tags:
@@ -1888,10 +1822,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.RestSpreadSpacing
+name: org.openrewrite.codemods.format.RestSpreadSpacing
 displayName: Enforce spacing between rest and spread operators and their expressions
 description: |
   Enforce spacing between rest and spread operators and their expressions
@@ -1916,10 +1849,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.Semi
+name: org.openrewrite.codemods.format.Semi
 displayName: Require or disallow semicolons instead of ASI
 description: |
   Require or disallow semicolons instead of ASI
@@ -1944,10 +1876,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.SemiSpacing
+name: org.openrewrite.codemods.format.SemiSpacing
 displayName: Enforce consistent spacing before and after semicolons
 description: |
   Enforce consistent spacing before and after semicolons
@@ -1972,10 +1903,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.SemiStyle
+name: org.openrewrite.codemods.format.SemiStyle
 displayName: Enforce location of semicolons
 description: |
   Enforce location of semicolons
@@ -2000,10 +1930,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.SpaceBeforeBlocks
+name: org.openrewrite.codemods.format.SpaceBeforeBlocks
 displayName: Enforce consistent spacing before blocks
 description: |
   Enforce consistent spacing before blocks
@@ -2028,13 +1957,12 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.SpaceBeforeFunctionParen
-displayName: Enforce consistent spacing before `function` definition opening parenthesis
+name: org.openrewrite.codemods.format.SpaceBeforeFunctionParen
+displayName: Enforce consistent spacing before &#x60;function&#x60; definition opening parenthesis
 description: |
-  Enforce consistent spacing before `function` definition opening parenthesis
+  Enforce consistent spacing before &#x60;function&#x60; definition opening parenthesis
 
   See [rule details](https://eslint.style/rules/default/space-before-function-paren)
 tags:
@@ -2056,10 +1984,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.SpaceInParens
+name: org.openrewrite.codemods.format.SpaceInParens
 displayName: Enforce consistent spacing inside parentheses
 description: |
   Enforce consistent spacing inside parentheses
@@ -2084,10 +2011,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.SpaceInfixOps
+name: org.openrewrite.codemods.format.SpaceInfixOps
 displayName: Require spacing around infix operators
 description: |
   Require spacing around infix operators
@@ -2112,10 +2038,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.SpaceUnaryOps
+name: org.openrewrite.codemods.format.SpaceUnaryOps
 displayName: Enforce consistent spacing before or after unary operators
 description: |
   Enforce consistent spacing before or after unary operators
@@ -2140,13 +2065,12 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.SpacedComment
-displayName: Enforce consistent spacing after the `//` or `/*` in a comment
+name: org.openrewrite.codemods.format.SpacedComment
+displayName: Enforce consistent spacing after the &#x60;//&#x60; or &#x60;/*&#x60; in a comment
 description: |
-  Enforce consistent spacing after the `//` or `/*` in a comment
+  Enforce consistent spacing after the &#x60;//&#x60; or &#x60;/*&#x60; in a comment
 
   See [rule details](https://eslint.style/rules/default/spaced-comment)
 tags:
@@ -2168,10 +2092,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.SwitchColonSpacing
+name: org.openrewrite.codemods.format.SwitchColonSpacing
 displayName: Enforce spacing around colons of switch statements
 description: |
   Enforce spacing around colons of switch statements
@@ -2196,10 +2119,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.TemplateCurlySpacing
+name: org.openrewrite.codemods.format.TemplateCurlySpacing
 displayName: Require or disallow spacing around embedded expressions of template strings
 description: |
   Require or disallow spacing around embedded expressions of template strings
@@ -2224,10 +2146,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.TemplateTagSpacing
+name: org.openrewrite.codemods.format.TemplateTagSpacing
 displayName: Require or disallow spacing between template tags and their literals
 description: |
   Require or disallow spacing between template tags and their literals
@@ -2252,10 +2173,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.TypeAnnotationSpacing
+name: org.openrewrite.codemods.format.TypeAnnotationSpacing
 displayName: Require consistent spacing around type annotations
 description: |
   Require consistent spacing around type annotations
@@ -2280,10 +2200,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.TypeGenericSpacing
+name: org.openrewrite.codemods.format.TypeGenericSpacing
 displayName: Enforces consistent spacing inside TypeScript type generics
 description: |
   Enforces consistent spacing inside TypeScript type generics
@@ -2308,10 +2227,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.TypeNamedTupleSpacing
+name: org.openrewrite.codemods.format.TypeNamedTupleSpacing
 displayName: Expect space before the type declaration in the named tuple
 description: |
   Expect space before the type declaration in the named tuple
@@ -2336,13 +2254,12 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.WrapIife
-displayName: Require parentheses around immediate `function` invocations
+name: org.openrewrite.codemods.format.WrapIife
+displayName: Require parentheses around immediate &#x60;function&#x60; invocations
 description: |
-  Require parentheses around immediate `function` invocations
+  Require parentheses around immediate &#x60;function&#x60; invocations
 
   See [rule details](https://eslint.style/rules/default/wrap-iife)
 tags:
@@ -2364,10 +2281,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.WrapRegex
+name: org.openrewrite.codemods.format.WrapRegex
 displayName: Require parenthesis around regex literals
 description: |
   Require parenthesis around regex literals
@@ -2392,13 +2308,12 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.YieldStarSpacing
-displayName: Require or disallow spacing around the `*` in `yield*` expressions
+name: org.openrewrite.codemods.format.YieldStarSpacing
+displayName: Require or disallow spacing around the &#x60;*&#x60; in &#x60;yield*&#x60; expressions
 description: |
-  Require or disallow spacing around the `*` in `yield*` expressions
+  Require or disallow spacing around the &#x60;*&#x60; in &#x60;yield*&#x60; expressions
 
   See [rule details](https://eslint.style/rules/default/yield-star-spacing)
 tags:
@@ -2420,10 +2335,9 @@ recipeList:
             "node": true
           }
         }
-
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.stylistic.RecommendedESLintStyling
+name: org.openrewrite.codemods.format.RecommendedESLintStyling
 displayName: Recommended ESLint Styling
 description: |
   Collection of stylistic ESLint rules that are recommended by the [ESLint Style.](https://eslint.style/)
@@ -2524,11 +2438,10 @@ recipeList:
             "@stylistic/type-named-tuple-spacing": 2,
             "@stylistic/wrap-iife": 2,
             "@stylistic/wrap-regex": 2,
-            "@stylistic/yield-star-spacing": 2
+            "@stylistic/yield-star-spacing": 2,
           },
           "globals": {
             "browser": true,
             "node": true
           }
         }
-
