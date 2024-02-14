@@ -32,15 +32,15 @@ import static java.util.Collections.emptyList;
 public class SimpleCodemod extends NodeBasedRecipe {
 
     @Option(displayName = "Codemod executable",
-            description = "Path to the codemod executable relative to the NPM directory. Defaults to `jscodeshift`.",
+            description = "Path to the codemod executable relative to the NPM directory. Defaults to `jscodeshift/bin/jscodeshift.js`.",
             example = "@next/codemod/bin/next-codemod.js",
             required = false)
     @Nullable
     String executable;
 
     @Option(displayName = "Codemod transform",
-            description = "Transform to be applied using the executable. Defaults to `jscodeshift`.",
-            example = "path/to/transform/built-in-next-font"
+            description = "Transform to be applied using the executable.",
+            example = "-t path/to/transform/optimus-prime"
     )
     @Nullable
     String transform;
@@ -71,8 +71,8 @@ public class SimpleCodemod extends NodeBasedRecipe {
         String transformer;
 
         if (executable == null) {
-            exec = "${nodeModules}/.bin/jscodeshift -t";
-            transformer = "${nodeModules}/" + transform;
+            exec = "${nodeModules}/jscodeshift/bin/jscodeshift.js";
+            transformer = "-t ${nodeModules}/" + transform;
         } else {
             exec = "${nodeModules}/" + executable;
             transformer = transform;
