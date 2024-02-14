@@ -28,7 +28,6 @@
     "eslint-plugin-typescript-sort-keys": "^3.1.0",
     "eslint-plugin-unicorn": "^51.0.1",
     "eslint-webpack-plugin": "^4.0.1",
-    "js-codemod": "7.0.0",
     "react-declassify": "^0.2.0"
   }
 }
