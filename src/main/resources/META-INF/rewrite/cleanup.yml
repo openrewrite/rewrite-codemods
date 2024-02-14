@@ -39,9 +39,9 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.CapitalizedComments
-displayName: 'Enforce or disallow capitalization of the first letter of a comment '
+displayName: 'Enforce capitalization of the first letter of a comment '
 description: |
-  Enforce or disallow capitalization of the first letter of a comment  
+  Enforce capitalization of the first letter of a comment  
   
      See [rule details](https://eslint.org/docs/latest/rules/capitalized-comments)
 recipeList:
@@ -52,7 +52,7 @@ recipeList:
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
           "rules": {
-            "capitalized-comments": 2
+            "capitalized-comments": [2, "always"]
           },
           "globals": {
             "browser": true,
@@ -108,9 +108,9 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.Eqeqeq
-displayName: 'Require the use of `===` and `!==` '
+displayName: 'Require the use of `===` and `!==`'
 description: |
-  Require the use of === and !== 
+  Require the use of `===` and `!==` 
   
     See [rule details](https://eslint.org/docs/latest/rules/eqeqeq)
 recipeList:
@@ -131,9 +131,9 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.LogicalAssignmentOperators
-displayName: 'Require or disallow logical assignment operator shorthand '
+displayName: 'Require logical assignment operator shorthand '
 description: |
-  Require or disallow logical assignment operator shorthand 
+  Require logical assignment operator shorthand 
   
     See [rule details](https://eslint.org/docs/latest/rules/logical-assignment-operators)
 recipeList:
@@ -144,7 +144,7 @@ recipeList:
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
           "rules": {
-            "logical-assignment-operators": 2
+            "logical-assignment-operators": [2, "always"]
           },
           "globals": {
             "browser": true,
@@ -456,10 +456,10 @@ recipeList:
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.ObjectShorthand
 displayName:
-  'Require or disallow method and property shorthand syntax for object
+  'Require method and property shorthand syntax for object
   literals '
 description: |
-  Require or disallow method and property shorthand syntax for object  literals 
+  Require method and property shorthand syntax for object  literals 
   
      See [rule details](https://eslint.org/docs/latest/rules/object-shorthand)
 recipeList:
@@ -470,7 +470,7 @@ recipeList:
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
           "rules": {
-            "object-shorthand": 2
+            "object-shorthand": [2, "always"]
           },
           "globals": {
             "browser": true,
@@ -503,9 +503,9 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.OperatorAssignment
-displayName: 'Require or disallow assignment operator shorthand where possible '
+displayName: 'Require assignment operator shorthand where possible '
 description: |
-  Require or disallow assignment operator shorthand where possible 
+  Require assignment operator shorthand where possible 
   
      See [rule details](https://eslint.org/docs/latest/rules/operator-assignment)
 recipeList:
@@ -516,8 +516,7 @@ recipeList:
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
           "rules": {
-            "operator-assignment": 2
-          },
+            "operator-assignment": [2, "always"] 
           "globals": {
             "browser": true,
             "node": true
@@ -764,9 +763,9 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.Strict
-displayName: 'Require or disallow strict mode directives '
+displayName: 'Require strict mode directives '
 description: |
-  Require or disallow strict mode directives 
+  Require strict mode directives 
   
     See [rule details](https://eslint.org/docs/latest/rules/strict)
 recipeList:
@@ -777,7 +776,7 @@ recipeList:
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
           "rules": {
-            "strict": 2
+            "strict": [2, "safe"]
           },
           "globals": {
             "browser": true,
@@ -787,9 +786,9 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.Yoda
-displayName: 'Require or disallow 201CYoda201D conditions '
+displayName: 'Disallow Yoda conditions'
 description: |
-  Require or disallow 201CYoda201D conditions 
+  Disallow Yoda conditions 
   
     See [rule details](https://eslint.org/docs/latest/rules/yoda)
 recipeList:
@@ -800,7 +799,7 @@ recipeList:
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
           "rules": {
-            "yoda": 2
+            "yoda": [2, "never"]
           },
           "g: {
             "browser": true,
@@ -810,9 +809,9 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.UnicodeBom
-displayName: Require or disallow Unicode byte order mark (BOM)
+displayName: Disallow Unicode byte order mark (BOM)
 description: |
-  Require or disallow Unicode byte order mark (BOM)
+  Disallow Unicode byte order mark (BOM)
   
     See [rule details](https://eslint.org/docs/latest/rules/unicode-bom)
 recipeList:
@@ -823,7 +822,7 @@ recipeList:
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
           "rules": {
-            "unicode-bom": 2
+            "unicode-bom": [2, "never"]
           },
           "globals": {
             "browser": true,
