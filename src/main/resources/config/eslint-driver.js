@@ -135,7 +135,7 @@ const optionator = require('optionator')({
     ? new ESLint({
         useEslintrc: false,
         errorOnUnmatchedPattern: false,
-        overrideConfigFile: configFile,
+        overrideConfig: configFile,
         fix,
       })
     : new ESLint({
