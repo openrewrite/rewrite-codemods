@@ -26,6 +26,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -53,6 +54,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -80,6 +82,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -107,6 +110,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -134,6 +138,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -161,6 +166,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -188,6 +194,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -215,6 +222,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -242,6 +250,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -269,6 +278,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -296,6 +306,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -323,6 +334,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -350,6 +362,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -377,6 +390,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -404,6 +418,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -431,6 +446,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -458,6 +474,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -485,6 +502,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -512,6 +530,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -539,6 +558,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -566,6 +586,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -593,6 +614,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -620,6 +642,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -647,6 +670,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -674,6 +698,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -701,6 +726,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -728,6 +754,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -755,6 +782,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -782,6 +810,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -809,6 +838,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -836,6 +866,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -863,6 +894,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -890,6 +922,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -917,6 +950,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -944,6 +978,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -971,6 +1006,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -998,6 +1034,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1025,6 +1062,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1052,6 +1090,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1079,6 +1118,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1106,6 +1146,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1133,6 +1174,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1160,6 +1202,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1187,6 +1230,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1214,6 +1258,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1241,6 +1286,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1268,6 +1314,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1295,6 +1342,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1322,6 +1370,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1349,6 +1398,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1376,6 +1426,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1403,6 +1454,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1430,6 +1482,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1457,6 +1510,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1484,6 +1538,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1511,6 +1566,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1538,6 +1594,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1565,6 +1622,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1592,6 +1650,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1619,6 +1678,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1646,6 +1706,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1673,6 +1734,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1700,6 +1762,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1727,6 +1790,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1754,6 +1818,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1781,6 +1846,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1808,6 +1874,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1835,6 +1902,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1862,6 +1930,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1889,6 +1958,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1916,6 +1986,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1943,6 +2014,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1970,6 +2042,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -1997,6 +2070,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2024,6 +2098,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2051,6 +2126,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2078,6 +2154,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2105,6 +2182,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2132,6 +2210,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2159,6 +2238,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2186,6 +2266,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2213,6 +2294,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2240,6 +2322,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2267,6 +2350,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2294,6 +2378,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2321,6 +2406,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
@@ -2346,6 +2432,7 @@ tags:
   - stylistic
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      fix: true
       configFile: |
         {
           "root": true,
