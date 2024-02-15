@@ -130,7 +130,7 @@ public class ESLintTest implements RewriteTest {
     @Test
     void unicorn() {
         rewriteRun(
-          spec -> spec.recipe(new ESLint(List.of("**/*.jsx"), null, null, null, null, null, null, null, null, null, """
+          spec -> spec.recipe(new ESLint(List.of("**/*.jsx"), null, null, null, null, null, null, null, null, true, """
             {
               "root": true,
               "parser": "@typescript-eslint/parser",
@@ -160,7 +160,7 @@ public class ESLintTest implements RewriteTest {
     @Test
     void reactJsx() {
         rewriteRun(
-          spec -> spec.recipe(new ESLint(List.of("**/*.jsx"), null, null, null, null, null, null, null, null, null, """
+          spec -> spec.recipe(new ESLint(List.of("**/*.jsx"), null, null, null, null, null, null, null, null, true, """
             {
               "root": true,
               "parser": "@typescript-eslint/parser",
@@ -183,6 +183,36 @@ public class ESLintTest implements RewriteTest {
               <App too spacy />
               """,
             spec -> spec.path("src/Foo.jsx")
+          )
+        );
+    }
+
+    @Test
+    void reactTsx() {
+        rewriteRun(
+          spec -> spec.recipe(new ESLint(List.of("**/*.tsx"), "", List.of(), null, List.of(), List.of(), List.of(), List.of(), List.of(), true, """
+            {
+              "root": true,
+              "parser": "@typescript-eslint/parser",
+              "plugins": ["react"],
+              "rules": {
+                "react/jsx-sort-props": 2
+              },
+              "globals": {
+                "browser": true,
+                "node": true
+              }
+            }
+            """)),
+          text(
+            //language=js
+            """
+              <Hello lastName="Smith" firstName="John" />
+              """,
+            """
+              <Hello firstName="John" lastName="Smith" />
+              """,
+            spec -> spec.path("src/Foo.tsx")
           )
         );
     }
