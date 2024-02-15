@@ -17,7 +17,7 @@
 type: specs.openrewrite.org/v1beta/category
 name: ECMAScript
 packageName: org.openrewrite.codemods.ecmascript
-description: Recipes that run improve the use of JavaScript and TypeScript code in general, including many stylistic and idiomatic corrections.
+description: Recipes that improve the use of JavaScript and TypeScript code in general, including many stylistic and idiomatic corrections.
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.ESLintTypeScriptDefaults
@@ -30,13 +30,13 @@ tags:
 recipeList:
   - org.openrewrite.codemods.ESLint:
       patterns:
-        - "**/*.ts"
-        - "**/*.tsx"
+        - '**/*.ts'
+        - '**/*.tsx'
       plugins:
-        - "@typescript-eslint"
+        - '@typescript-eslint'
       extend:
-        - "eslint:recommended"
-        - "plugin:@typescript-eslint/recommended"
+        - 'eslint:recommended'
+        - 'plugin:@typescript-eslint/recommended'
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.ESLintTypeScriptPrettier
@@ -49,14 +49,14 @@ tags:
 recipeList:
   - org.openrewrite.codemods.ESLint:
       patterns:
-        - "**/*.ts"
-        - "**/*.tsx"
+        - '**/*.ts'
+        - '**/*.tsx'
       plugins:
         - prettier
       extend:
         - prettier
       rules:
-        - "prettier/prettier"
+        - 'prettier/prettier'
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.5to6.cjsToEsm
@@ -68,7 +68,7 @@ tags:
   - 5to6
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: "5to6-codemod/transforms/cjs.js"
+      transform: '5to6-codemod/transforms/cjs.js'
       codemodArgs:
         - hoist=true
 ---
@@ -82,7 +82,7 @@ tags:
   - 5to6
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: "5to6-codemod/transforms/amd.js"
+      transform: '5to6-codemod/transforms/amd.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.5to6.noStrict
@@ -94,7 +94,7 @@ tags:
   - 5to6
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: "5to6-codemod/transforms/no-strict.js"
+      transform: '5to6-codemod/transforms/no-strict.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.5to6.namedExportGeneration
@@ -106,7 +106,7 @@ tags:
   - 5to6
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: "5to6-codemod/transforms/named-export-generation.js"
+      transform: '5to6-codemod/transforms/named-export-generation.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.5to6.varToLet
@@ -118,7 +118,7 @@ tags:
   - 5to6
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: "5to6-codemod/transforms/let.js"
+      transform: '5to6-codemod/transforms/let.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.ecmascript.5to6.simpleArrow
@@ -130,4 +130,4 @@ tags:
   - 5to6
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: "5to6-codemod/transforms/simple-arrow.js"
+      transform: '5to6-codemod/transforms/simple-arrow.js'
