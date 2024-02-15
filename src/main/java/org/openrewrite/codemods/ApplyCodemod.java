@@ -33,8 +33,7 @@ import static java.util.Collections.emptyList;
 public class ApplyCodemod extends NodeBasedRecipe {
     @Option(displayName = "Codemod transform",
             description = "Transform to be applied using the executable.",
-            example = "-t path/to/transform/optimus-prime",
-            required = false
+            example = "-t path/to/transform/optimus-prime"
     )
     @Nullable
     String transform;
@@ -74,22 +73,37 @@ public class ApplyCodemod extends NodeBasedRecipe {
     @Override
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
         List<String> command = new ArrayList<>();
-
         command.add("node");
-        command.add((executable == null) ? "${nodeModules}/.bin/jscodeshift" : "${nodeModules}/" + executable);
 
-        if (executable != null && executable.contains("@angular/cli")) {
-            command.add("update");
+        String exec;
+        if (executable == null) {
+            exec = "${nodeModules}/.bin/jscodeshift -t";
         } else {
-            if (executable == null || executable.contains("jscodeshift")) {
-                command.add("-t");
-            }
-            command.add("${nodeModules}/" + Objects.requireNonNull(transform));
-            command.add(fileFilter != null ? "${repoDir}/" + fileFilter : "${repoDir}");
+            exec = "${nodeModules}/" + executable;
         }
 
-        command.addAll(Optional.ofNullable(codemodArgs).orElse(emptyList()));
+        String template = "${exec} ${nodeModules}/${transform} ${repoDir}${fileFilter} ${codemodArgs}";
+        template = template.replace("${exec}", exec);
+        template = template.replace("${transform}", Objects.requireNonNull(transform));
 
+        for (String part : template.split(" ")) {
+            part = part.trim();
+            part = part.replace("${fileFilter}", fileFilter != null ? "/" + fileFilter : "");
+            int argsIdx = part.indexOf("${codemodArgs}");
+            if (argsIdx != -1) {
+                String prefix = part.substring(0, argsIdx);
+                if (!prefix.isEmpty()) {
+                    command.add(prefix);
+                }
+                command.addAll(Optional.ofNullable(codemodArgs).orElse(emptyList()));
+                String suffix = part.substring(argsIdx + "${codemodArgs}".length());
+                if (!suffix.isEmpty()) {
+                    command.add(suffix);
+                }
+            } else {
+                command.add(part);
+            }
+        }
         return command;
     }
 }
