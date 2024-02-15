@@ -19,7 +19,7 @@ name: org.openrewrite.codemods.cleanup.react.DestructuringAssignment
 displayName: Enforce consistent usage of destructuring assignment of props, state, and context
 description: |
   Enforce consistent usage of destructuring assignment of props, state, and context
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/destructuring-assignment.md)
+  See rule details for [react/destructuring-assignment](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/destructuring-assignment.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -43,7 +43,7 @@ name: org.openrewrite.codemods.cleanup.react.FunctionComponentDefinition
 displayName: Enforce a specific function type for function components
 description: |
   Enforce a specific function type for function components
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/function-component-definition.md)
+  See rule details for [react/function-component-definition](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/function-component-definition.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -67,7 +67,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxBooleanValue
 displayName: Enforce boolean attributes notation in JSX
 description: |
   Enforce boolean attributes notation in JSX
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-boolean-value.md)
+  See rule details for [react/jsx-boolean-value](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-boolean-value.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -91,7 +91,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxClosingBracketLocation
 displayName: Enforce closing bracket location in JSX
 description: |
   Enforce closing bracket location in JSX
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-closing-bracket-location.md)
+  See rule details for [react/jsx-closing-bracket-location](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-closing-bracket-location.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -115,7 +115,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxClosingTagLocation
 displayName: Enforce closing tag location for multiline JSX
 description: |
   Enforce closing tag location for multiline JSX
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-closing-tag-location.md)
+  See rule details for [react/jsx-closing-tag-location](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-closing-tag-location.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -139,7 +139,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxCurlyBracePresence
 displayName: Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
 description: |
   Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-brace-presence.md)
+  See rule details for [react/jsx-curly-brace-presence](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-brace-presence.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -163,7 +163,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxCurlyNewline
 displayName: Enforce consistent linebreaks in curly braces in JSX attributes and expressions
 description: |
   Enforce consistent linebreaks in curly braces in JSX attributes and expressions
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-newline.md)
+  See rule details for [react/jsx-curly-newline](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-newline.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -187,7 +187,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxCurlySpacing
 displayName: Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
 description: |
   Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-spacing.md)
+  See rule details for [react/jsx-curly-spacing](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-spacing.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -211,7 +211,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxEqualsSpacing
 displayName: Enforce or disallow spaces around equal signs in JSX attributes
 description: |
   Enforce or disallow spaces around equal signs in JSX attributes
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-equals-spacing.md)
+  See rule details for [react/jsx-equals-spacing](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-equals-spacing.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -235,7 +235,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxFirstPropNewLine
 displayName: Enforce proper position of the first property in JSX
 description: |
   Enforce proper position of the first property in JSX
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-first-prop-new-line.md)
+  See rule details for [react/jsx-first-prop-new-line](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-first-prop-new-line.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -259,7 +259,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxFragments
 displayName: Enforce shorthand or standard form for React fragments
 description: |
   Enforce shorthand or standard form for React fragments
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-fragments.md)
+  See rule details for [react/jsx-fragments](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-fragments.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -283,7 +283,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxIndent
 displayName: Enforce JSX indentation
 description: |
   Enforce JSX indentation
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-indent.md)
+  See rule details for [react/jsx-indent](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-indent.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -307,7 +307,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxIndentProps
 displayName: Enforce props indentation in JSX
 description: |
   Enforce props indentation in JSX
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-indent-props.md)
+  See rule details for [react/jsx-indent-props](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-indent-props.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -331,7 +331,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxMaxPropsPerLine
 displayName: Enforce maximum of props on a single line in JSX
 description: |
   Enforce maximum of props on a single line in JSX
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-max-props-per-line.md)
+  See rule details for [react/jsx-max-props-per-line](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-max-props-per-line.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -355,7 +355,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxNewline
 displayName: Require or prevent a new line after jsx elements and expressions
 description: |
   Require or prevent a new line after jsx elements and expressions
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-newline.md)
+  See rule details for [react/jsx-newline](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-newline.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -379,7 +379,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxNoLeakedRender
 displayName: Disallow problematic leaked values from being rendered
 description: |
   Disallow problematic leaked values from being rendered
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-leaked-render.md)
+  See rule details for [react/jsx-no-leaked-render](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-leaked-render.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -403,7 +403,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxNoTargetBlank
 displayName: "Disallow target="_blank" attribute without rel="noreferrer"
 description: |
   "Disallow target="_blank" attribute without rel="noreferrer"
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-target-blank.md)
+  See rule details for [react/jsx-no-target-blank](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-target-blank.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -427,7 +427,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxNoUselessFragment
 displayName: Disallow unnecessary fragments
 description: |
   Disallow unnecessary fragments
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-useless-fragment.md)
+  See rule details for [react/jsx-no-useless-fragment](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-useless-fragment.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -451,7 +451,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxOneExpressionPerLine
 displayName: Require one JSX element per line
 description: |
   Require one JSX element per line
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-one-expression-per-line.md)
+  See rule details for [react/jsx-one-expression-per-line](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-one-expression-per-line.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -475,7 +475,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxPropsNoMultiSpaces
 displayName: Disallow multiple spaces between inline JSX props
 description: |
   Disallow multiple spaces between inline JSX props
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-props-no-multi-spaces.md)
+  See rule details for [react/jsx-props-no-multi-spaces](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-props-no-multi-spaces.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -499,7 +499,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxSortProps
 displayName: Enforce props alphabetical sorting
 description: |
   Enforce props alphabetical sorting
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-sort-props.md)
+  See rule details for [react/jsx-sort-props](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-sort-props.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -523,7 +523,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxSpaceBeforeClosing
 displayName: Enforce spacing before closing bracket in JSX
 description: |
   Enforce spacing before closing bracket in JSX
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-space-before-closing.md)
+  See rule details for [react/jsx-space-before-closing](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-space-before-closing.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -547,7 +547,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxTagSpacing
 displayName: Enforce whitespace in and around the JSX opening and closing brackets
 description: |
   Enforce whitespace in and around the JSX opening and closing brackets
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-tag-spacing.md)
+  See rule details for [react/jsx-tag-spacing](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-tag-spacing.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -571,7 +571,7 @@ name: org.openrewrite.codemods.cleanup.react.JsxWrapMultilines
 displayName: Disallow missing parentheses around multiline JSX
 description: |
   Disallow missing parentheses around multiline JSX
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-wrap-multilines.md)
+  See rule details for [react/jsx-wrap-multilines](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-wrap-multilines.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -595,7 +595,7 @@ name: org.openrewrite.codemods.cleanup.react.NoArrowFunctionLifecycle
 displayName: Lifecycle methods should be methods on the prototype, not class fields
 description: |
   Lifecycle methods should be methods on the prototype, not class fields
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-arrow-function-lifecycle.md)
+  See rule details for [react/no-arrow-function-lifecycle](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-arrow-function-lifecycle.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -621,7 +621,7 @@ prefer-read-only-props,"Enforce that props are read-only"
 description: |
   "Disallow usage of unknown DOM property,
   prefer-read-only-props,"Enforce that props are read-only"
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-unknown-property.md)
+  See rule details for [react/no-unknown-property](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-unknown-property.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -645,7 +645,7 @@ name: org.openrewrite.codemods.cleanup.react.SelfClosingComp
 displayName: Disallow extra closing tags for components without children
 description: |
   Disallow extra closing tags for components without children
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/self-closing-comp.md)
+  See rule details for [react/self-closing-comp](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/self-closing-comp.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -669,7 +669,7 @@ name: org.openrewrite.codemods.cleanup.react.SortPropTypes
 displayName: Enforce propTypes declarations alphabetical sorting
 description: |
   Enforce propTypes declarations alphabetical sorting
-  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/sort-prop-types.md)
+  See rule details for [react/sort-prop-types](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/sort-prop-types.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
