@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@angular/cli": "17.2.0",
+    "@angular/core": "17.2.0",
     "@codemod/cli": "^3.3.0",
     "@kevinbarabash/codemods": "github:kevinbarabash/codemods",
     "@mui/codemod": "5.15.10",
