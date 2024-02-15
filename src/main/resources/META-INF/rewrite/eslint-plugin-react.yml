@@ -1,0 +1,689 @@
+#
+# Copyright 2023 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.DestructuringAssignment
+displayName: Enforce consistent usage of destructuring assignment of props, state, and context
+description: |
+  Enforce consistent usage of destructuring assignment of props, state, and context
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/destructuring-assignment.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/destructuring-assignment": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.FunctionComponentDefinition
+displayName: Enforce a specific function type for function components
+description: |
+  Enforce a specific function type for function components
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/function-component-definition.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/function-component-definition": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxBooleanValue
+displayName: Enforce boolean attributes notation in JSX
+description: |
+  Enforce boolean attributes notation in JSX
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-boolean-value.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-boolean-value": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxClosingBracketLocation
+displayName: Enforce closing bracket location in JSX
+description: |
+  Enforce closing bracket location in JSX
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-closing-bracket-location.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-closing-bracket-location": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxClosingTagLocation
+displayName: Enforce closing tag location for multiline JSX
+description: |
+  Enforce closing tag location for multiline JSX
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-closing-tag-location.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-closing-tag-location": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxCurlyBracePresence
+displayName: Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
+description: |
+  Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-brace-presence.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-curly-brace-presence": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxCurlyNewline
+displayName: Enforce consistent linebreaks in curly braces in JSX attributes and expressions
+description: |
+  Enforce consistent linebreaks in curly braces in JSX attributes and expressions
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-newline.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-curly-newline": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxCurlySpacing
+displayName: Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+description: |
+  Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-spacing.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-curly-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxEqualsSpacing
+displayName: Enforce or disallow spaces around equal signs in JSX attributes
+description: |
+  Enforce or disallow spaces around equal signs in JSX attributes
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-equals-spacing.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-equals-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxFirstPropNewLine
+displayName: Enforce proper position of the first property in JSX
+description: |
+  Enforce proper position of the first property in JSX
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-first-prop-new-line.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-first-prop-new-line": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxFragments
+displayName: Enforce shorthand or standard form for React fragments
+description: |
+  Enforce shorthand or standard form for React fragments
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-fragments.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-fragments": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxIndent
+displayName: Enforce JSX indentation
+description: |
+  Enforce JSX indentation
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-indent.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-indent": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxIndentProps
+displayName: Enforce props indentation in JSX
+description: |
+  Enforce props indentation in JSX
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-indent-props.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-indent-props": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxMaxPropsPerLine
+displayName: Enforce maximum of props on a single line in JSX
+description: |
+  Enforce maximum of props on a single line in JSX
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-max-props-per-line.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-max-props-per-line": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxNewline
+displayName: Require or prevent a new line after jsx elements and expressions
+description: |
+  Require or prevent a new line after jsx elements and expressions
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-newline.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-newline": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxNoLeakedRender
+displayName: Disallow problematic leaked values from being rendered
+description: |
+  Disallow problematic leaked values from being rendered
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-leaked-render.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-no-leaked-render": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxNoTargetBlank
+displayName: "Disallow target="_blank" attribute without rel="noreferrer"
+description: |
+  "Disallow target="_blank" attribute without rel="noreferrer"
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-target-blank.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-no-target-blank": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxNoUselessFragment
+displayName: Disallow unnecessary fragments
+description: |
+  Disallow unnecessary fragments
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-useless-fragment.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-no-useless-fragment": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxOneExpressionPerLine
+displayName: Require one JSX element per line
+description: |
+  Require one JSX element per line
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-one-expression-per-line.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-one-expression-per-line": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxPropsNoMultiSpaces
+displayName: Disallow multiple spaces between inline JSX props
+description: |
+  Disallow multiple spaces between inline JSX props
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-props-no-multi-spaces.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-props-no-multi-spaces": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxSortProps
+displayName: Enforce props alphabetical sorting
+description: |
+  Enforce props alphabetical sorting
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-sort-props.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-sort-props": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxSpaceBeforeClosing
+displayName: Enforce spacing before closing bracket in JSX
+description: |
+  Enforce spacing before closing bracket in JSX
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-space-before-closing.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-space-before-closing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxTagSpacing
+displayName: Enforce whitespace in and around the JSX opening and closing brackets
+description: |
+  Enforce whitespace in and around the JSX opening and closing brackets
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-tag-spacing.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-tag-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.JsxWrapMultilines
+displayName: Disallow missing parentheses around multiline JSX
+description: |
+  Disallow missing parentheses around multiline JSX
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-wrap-multilines.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/jsx-wrap-multilines": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.NoArrowFunctionLifecycle
+displayName: Lifecycle methods should be methods on the prototype, not class fields
+description: |
+  Lifecycle methods should be methods on the prototype, not class fields
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-arrow-function-lifecycle.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/no-arrow-function-lifecycle": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.NoUnknownProperty
+displayName: "Disallow usage of unknown DOM property,
+prefer-read-only-props,"Enforce that props are read-only"
+description: |
+  "Disallow usage of unknown DOM property,
+  prefer-read-only-props,"Enforce that props are read-only"
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-unknown-property.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/no-unknown-property": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.SelfClosingComp
+displayName: Disallow extra closing tags for components without children
+description: |
+  Disallow extra closing tags for components without children
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/self-closing-comp.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/self-closing-comp": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.SortPropTypes
+displayName: Enforce propTypes declarations alphabetical sorting
+description: |
+  Enforce propTypes declarations alphabetical sorting
+  See [rule details](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/sort-prop-types.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/sort-prop-types": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }

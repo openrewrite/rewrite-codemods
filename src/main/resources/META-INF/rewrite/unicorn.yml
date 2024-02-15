@@ -15,7 +15,7 @@
 #
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.BetterRegex
+name: org.openrewrite.codemods.cleanup.javascript.BetterRegex
 displayName: Improve regexes by making them shorter, consistent, and safer.
 description: |
   Improve regexes by making them shorter, consistent, and safer.
@@ -39,7 +39,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.CatchErrorName
+name: org.openrewrite.codemods.cleanup.javascript.CatchErrorName
 displayName: Enforce a specific parameter name in catch clauses.
 description: |
   Enforce a specific parameter name in catch clauses.
@@ -63,7 +63,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.ConsistentDestructuring
+name: org.openrewrite.codemods.cleanup.javascript.ConsistentDestructuring
 displayName: Use destructured variables over properties.
 description: |
   Use destructured variables over properties.
@@ -87,7 +87,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.CustomErrorDefinition
+name: org.openrewrite.codemods.cleanup.javascript.CustomErrorDefinition
 displayName: Enforce correct Error subclassing.
 description: |
   Enforce correct Error subclassing.
@@ -111,7 +111,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.EmptyBraceSpaces
+name: org.openrewrite.codemods.cleanup.javascript.EmptyBraceSpaces
 displayName: Enforce no spaces between braces.
 description: |
   Enforce no spaces between braces.
@@ -135,7 +135,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.EscapeCase
+name: org.openrewrite.codemods.cleanup.javascript.EscapeCase
 displayName: Require escape sequences to use uppercase values.
 description: |
   Require escape sequences to use uppercase values.
@@ -159,7 +159,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.ExplicitLengthCheck
+name: org.openrewrite.codemods.cleanup.javascript.ExplicitLengthCheck
 displayName: Enforce explicitly comparing the length or size property of a value.
 description: |
   Enforce explicitly comparing the length or size property of a value.
@@ -183,7 +183,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NewForBuiltins
+name: org.openrewrite.codemods.cleanup.javascript.NewForBuiltins
 displayName: Enforce the use of new for all builtins, except String, Number, Boolean, Symbol and BigInt.
 description: |
   Enforce the use of new for all builtins, except String, Number, Boolean, Symbol and BigInt.
@@ -207,7 +207,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoArrayForEach
+name: org.openrewrite.codemods.cleanup.javascript.NoArrayForEach
 displayName: Prefer for…of over the forEach method.
 description: |
   Prefer for…of over the forEach method.
@@ -231,7 +231,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoArrayMethodThisArgument
+name: org.openrewrite.codemods.cleanup.javascript.NoArrayMethodThisArgument
 displayName: Disallow using the this argument in array methods.
 description: |
   Disallow using the this argument in array methods.
@@ -255,7 +255,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoArrayPushPush
+name: org.openrewrite.codemods.cleanup.javascript.NoArrayPushPush
 displayName: Enforce combining multiple Array#push() into one call.
 description: |
   Enforce combining multiple Array#push() into one call.
@@ -279,7 +279,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoAwaitExpressionMember
+name: org.openrewrite.codemods.cleanup.javascript.NoAwaitExpressionMember
 displayName: Disallow member access from await expression.
 description: |
   Disallow member access from await expression.
@@ -303,7 +303,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoConsoleSpaces
+name: org.openrewrite.codemods.cleanup.javascript.NoConsoleSpaces
 displayName: Do not use leading/trailing space between console.log parameters.
 description: |
   Do not use leading/trailing space between console.log parameters.
@@ -327,7 +327,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoForLoop
+name: org.openrewrite.codemods.cleanup.javascript.NoForLoop
 displayName: Do not use a for loop that can be replaced with a for-of loop.
 description: |
   Do not use a for loop that can be replaced with a for-of loop.
@@ -351,7 +351,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoHexEscape
+name: org.openrewrite.codemods.cleanup.javascript.NoHexEscape
 displayName: Enforce the use of Unicode escapes instead of hexadecimal escapes.
 description: |
   Enforce the use of Unicode escapes instead of hexadecimal escapes.
@@ -375,7 +375,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoInstanceofArray
+name: org.openrewrite.codemods.cleanup.javascript.NoInstanceofArray
 displayName: Require Array.isArray() instead of instanceof Array.
 description: |
   Require Array.isArray() instead of instanceof Array.
@@ -399,7 +399,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoLonelyIf
+name: org.openrewrite.codemods.cleanup.javascript.NoLonelyIf
 displayName: Disallow if statements as the only statement in if blocks without else.
 description: |
   Disallow if statements as the only statement in if blocks without else.
@@ -423,7 +423,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoNegatedCondition
+name: org.openrewrite.codemods.cleanup.javascript.NoNegatedCondition
 displayName: Disallow negated conditions.
 description: |
   Disallow negated conditions.
@@ -447,7 +447,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoNestedTernary
+name: org.openrewrite.codemods.cleanup.javascript.NoNestedTernary
 displayName: Disallow nested ternary expressions.
 description: |
   Disallow nested ternary expressions.
@@ -471,7 +471,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoNewArray
+name: org.openrewrite.codemods.cleanup.javascript.NoNewArray
 displayName: Disallow new Array().
 description: |
   Disallow new Array().
@@ -495,7 +495,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoNewBuffer
+name: org.openrewrite.codemods.cleanup.javascript.NoNewBuffer
 displayName: Enforce the use of Buffer.from() and Buffer.alloc() instead of the deprecated new Buffer().
 description: |
   Enforce the use of Buffer.from() and Buffer.alloc() instead of the deprecated new Buffer().
@@ -519,7 +519,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoNull
+name: org.openrewrite.codemods.cleanup.javascript.NoNull
 displayName: Disallow the use of the null literal.
 description: |
   Disallow the use of the null literal.
@@ -543,7 +543,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoStaticOnlyClass
+name: org.openrewrite.codemods.cleanup.javascript.NoStaticOnlyClass
 displayName: Disallow classes that only have static members.
 description: |
   Disallow classes that only have static members.
@@ -567,7 +567,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoTypeofUndefined
+name: org.openrewrite.codemods.cleanup.javascript.NoTypeofUndefined
 displayName: Disallow comparing undefined using typeof.
 description: |
   Disallow comparing undefined using typeof.
@@ -591,7 +591,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUnnecessaryAwait
+name: org.openrewrite.codemods.cleanup.javascript.NoUnnecessaryAwait
 displayName: Disallow awaiting non-promise values.
 description: |
   Disallow awaiting non-promise values.
@@ -615,7 +615,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUnreadableArrayDestructuring
+name: org.openrewrite.codemods.cleanup.javascript.NoUnreadableArrayDestructuring
 displayName: Disallow unreadable array destructuring.
 description: |
   Disallow unreadable array destructuring.
@@ -639,7 +639,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUselessFallbackInSpread
+name: org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread
 displayName: Disallow useless fallback when spreading in object literals.
 description: |
   Disallow useless fallback when spreading in object literals.
@@ -663,7 +663,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUselessLengthCheck
+name: org.openrewrite.codemods.cleanup.javascript.NoUselessLengthCheck
 displayName: Disallow useless array length check.
 description: |
   Disallow useless array length check.
@@ -687,7 +687,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUselessPromiseResolveReject
+name: org.openrewrite.codemods.cleanup.javascript.NoUselessPromiseResolveReject
 displayName: Disallow returning/yielding Promise.resolve/reject() in async functions or promise callbacks
 description: |
   Disallow returning/yielding Promise.resolve/reject() in async functions or promise callbacks
@@ -711,7 +711,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUselessSpread
+name: org.openrewrite.codemods.cleanup.javascript.NoUselessSpread
 displayName: Disallow unnecessary spread.
 description: |
   Disallow unnecessary spread.
@@ -735,7 +735,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUselessUndefined
+name: org.openrewrite.codemods.cleanup.javascript.NoUselessUndefined
 displayName: Disallow useless undefined.
 description: |
   Disallow useless undefined.
@@ -759,7 +759,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoZeroFractions
+name: org.openrewrite.codemods.cleanup.javascript.NoZeroFractions
 displayName: Disallow number literals with zero fractions or dangling dots.
 description: |
   Disallow number literals with zero fractions or dangling dots.
@@ -783,7 +783,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NumberLiteralCase
+name: org.openrewrite.codemods.cleanup.javascript.NumberLiteralCase
 displayName: Enforce proper case for numeric literals.
 description: |
   Enforce proper case for numeric literals.
@@ -807,7 +807,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NumericSeparatorsStyle
+name: org.openrewrite.codemods.cleanup.javascript.NumericSeparatorsStyle
 displayName: Enforce the style of numeric separators by correctly grouping digits.
 description: |
   Enforce the style of numeric separators by correctly grouping digits.
@@ -831,7 +831,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferAddEventListener
+name: org.openrewrite.codemods.cleanup.javascript.PreferAddEventListener
 displayName: Prefer .addEventListener() and .removeEventListener() over on-functions.
 description: |
   Prefer .addEventListener() and .removeEventListener() over on-functions.
@@ -855,7 +855,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferArrayFind
+name: org.openrewrite.codemods.cleanup.javascript.PreferArrayFind
 displayName: Prefer .find(…) and .findLast(…) over the first or last element from .filter(…).
 description: |
   Prefer .find(…) and .findLast(…) over the first or last element from .filter(…).
@@ -879,7 +879,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferArrayFlat
+name: org.openrewrite.codemods.cleanup.javascript.PreferArrayFlat
 displayName: Prefer Array#flat() over legacy techniques to flatten arrays.
 description: |
   Prefer Array#flat() over legacy techniques to flatten arrays.
@@ -903,7 +903,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferArrayFlatMap
+name: org.openrewrite.codemods.cleanup.javascript.PreferArrayFlatMap
 displayName: Prefer .flatMap(…) over .map(…).flat().
 description: |
   Prefer .flatMap(…) over .map(…).flat().
@@ -927,7 +927,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferArrayIndexOf
+name: org.openrewrite.codemods.cleanup.javascript.PreferArrayIndexOf
 displayName: Prefer Array#{indexOf,lastIndexOf}() over Array#{findIndex,findLastIndex}() when looking for the index of an item.
 description: |
   Prefer Array#{indexOf,lastIndexOf}() over Array#{findIndex,findLastIndex}() when looking for the index of an item.
@@ -951,7 +951,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferArraySome
+name: org.openrewrite.codemods.cleanup.javascript.PreferArraySome
 displayName: Prefer .some(…) over .filter(…).length check and .{find,findLast}(…).
 description: |
   Prefer .some(…) over .filter(…).length check and .{find,findLast}(…).
@@ -975,7 +975,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferAt
+name: org.openrewrite.codemods.cleanup.javascript.PreferAt
 displayName: Prefer .at() method for index access and String#charAt().
 description: |
   Prefer .at() method for index access and String#charAt().
@@ -999,7 +999,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferDateNow
+name: org.openrewrite.codemods.cleanup.javascript.PreferDateNow
 displayName: Prefer Date.now() to get the number of milliseconds since the Unix Epoch.
 description: |
   Prefer Date.now() to get the number of milliseconds since the Unix Epoch.
@@ -1023,7 +1023,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferDefaultParameters
+name: org.openrewrite.codemods.cleanup.javascript.PreferDefaultParameters
 displayName: Prefer default parameters over reassignment.
 description: |
   Prefer default parameters over reassignment.
@@ -1047,7 +1047,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferDomNodeAppend
+name: org.openrewrite.codemods.cleanup.javascript.PreferDomNodeAppend
 displayName: Prefer Node#append() over Node#appendChild().
 description: |
   Prefer Node#append() over Node#appendChild().
@@ -1071,7 +1071,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferDomNodeDataset
+name: org.openrewrite.codemods.cleanup.javascript.PreferDomNodeDataset
 displayName: Prefer using .dataset on DOM elements over calling attribute methods.
 description: |
   Prefer using .dataset on DOM elements over calling attribute methods.
@@ -1095,7 +1095,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferDomNodeRemove
+name: org.openrewrite.codemods.cleanup.javascript.PreferDomNodeRemove
 displayName: Prefer childNode.remove() over parentNode.removeChild(childNode).
 description: |
   Prefer childNode.remove() over parentNode.removeChild(childNode).
@@ -1119,7 +1119,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferExportFrom
+name: org.openrewrite.codemods.cleanup.javascript.PreferExportFrom
 displayName: Prefer export…from when re-exporting.
 description: |
   Prefer export…from when re-exporting.
@@ -1143,7 +1143,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferIncludes
+name: org.openrewrite.codemods.cleanup.javascript.PreferIncludes
 displayName: Prefer .includes() over .indexOf() and Array#some() when checking for existence or non-existence.
 description: |
   Prefer .includes() over .indexOf() and Array#some() when checking for existence or non-existence.
@@ -1167,7 +1167,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferJsonParseBuffer
+name: org.openrewrite.codemods.cleanup.javascript.PreferJsonParseBuffer
 displayName: Prefer reading a JSON file as a buffer.
 description: |
   Prefer reading a JSON file as a buffer.
@@ -1191,7 +1191,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferKeyboardEventKey
+name: org.openrewrite.codemods.cleanup.javascript.PreferKeyboardEventKey
 displayName: Prefer KeyboardEvent#key over KeyboardEvent#keyCode.
 description: |
   Prefer KeyboardEvent#key over KeyboardEvent#keyCode.
@@ -1215,7 +1215,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferMathTrunc
+name: org.openrewrite.codemods.cleanup.javascript.PreferMathTrunc
 displayName: Enforce the use of Math.trunc instead of bitwise operators.
 description: |
   Enforce the use of Math.trunc instead of bitwise operators.
@@ -1239,7 +1239,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferModernDomApis
+name: org.openrewrite.codemods.cleanup.javascript.PreferModernDomApis
 displayName: Prefer .before() over .insertBefore(), .replaceWith() over .replaceChild(), prefer one of .before(), .after(), .append() or .prepend() over insertAdjacentText() and insertAdjacentElement().
 description: |
   Prefer .before() over .insertBefore(), .replaceWith() over .replaceChild(), prefer one of .before(), .after(), .append() or .prepend() over insertAdjacentText() and insertAdjacentElement().
@@ -1263,7 +1263,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferModernMathApis
+name: org.openrewrite.codemods.cleanup.javascript.PreferModernMathApis
 displayName: Prefer modern Math APIs over legacy patterns.
 description: |
   Prefer modern Math APIs over legacy patterns.
@@ -1287,7 +1287,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferModule
+name: org.openrewrite.codemods.cleanup.javascript.PreferModule
 displayName: Prefer JavaScript modules (ESM) over CommonJS.
 description: |
   Prefer JavaScript modules (ESM) over CommonJS.
@@ -1311,7 +1311,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferNativeCoercionFunctions
+name: org.openrewrite.codemods.cleanup.javascript.PreferNativeCoercionFunctions
 displayName: Prefer using String, Number, BigInt, Boolean, and Symbol directly.
 description: |
   Prefer using String, Number, BigInt, Boolean, and Symbol directly.
@@ -1335,7 +1335,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferNegativeIndex
+name: org.openrewrite.codemods.cleanup.javascript.PreferNegativeIndex
 displayName: Prefer negative index over .length - index when possible.
 description: |
   Prefer negative index over .length - index when possible.
@@ -1359,7 +1359,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferNodeProtocol
+name: org.openrewrite.codemods.cleanup.javascript.PreferNodeProtocol
 displayName: Prefer using the node protocol when importing Node.js builtin modules.
 description: |
   Prefer using the node: protocol when importing Node.js builtin modules.
@@ -1383,7 +1383,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferNumberProperties
+name: org.openrewrite.codemods.cleanup.javascript.PreferNumberProperties
 displayName: Prefer Number static properties over global ones.
 description: |
   Prefer Number static properties over global ones.
@@ -1407,7 +1407,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferObjectFromEntries
+name: org.openrewrite.codemods.cleanup.javascript.PreferObjectFromEntries
 displayName: Prefer using Object.fromEntries(…) to transform a list of key-value pairs into an object.
 description: |
   Prefer using Object.fromEntries(…) to transform a list of key-value pairs into an object.
@@ -1431,7 +1431,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferOptionalCatchBinding
+name: org.openrewrite.codemods.cleanup.javascript.PreferOptionalCatchBinding
 displayName: Prefer omitting the catch binding parameter.
 description: |
   Prefer omitting the catch binding parameter.
@@ -1455,7 +1455,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferPrototypeMethods
+name: org.openrewrite.codemods.cleanup.javascript.PreferPrototypeMethods
 displayName: Prefer borrowing methods from the prototype instead of the instance.
 description: |
   Prefer borrowing methods from the prototype instead of the instance.
@@ -1479,7 +1479,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferQuerySelector
+name: org.openrewrite.codemods.cleanup.javascript.PreferQuerySelector
 displayName: Prefer .querySelector() over .getElementById(), .querySelectorAll() over .getElementsByClassName() and .getElementsByTagName().
 description: |
   Prefer .querySelector() over .getElementById(), .querySelectorAll() over .getElementsByClassName() and .getElementsByTagName().
@@ -1503,7 +1503,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferReflectApply
+name: org.openrewrite.codemods.cleanup.javascript.PreferReflectApply
 displayName: Prefer Reflect.apply() over Function#apply().
 description: |
   Prefer Reflect.apply() over Function#apply().
@@ -1527,7 +1527,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferRegexpTest
+name: org.openrewrite.codemods.cleanup.javascript.PreferRegexpTest
 displayName: Prefer RegExp#test() over String#match() and RegExp#exec().
 description: |
   Prefer RegExp#test() over String#match() and RegExp#exec().
@@ -1551,7 +1551,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferSetHas
+name: org.openrewrite.codemods.cleanup.javascript.PreferSetHas
 displayName: Prefer Set#has() over Array#includes() when checking for existence or non-existence.
 description: |
   Prefer Set#has() over Array#includes() when checking for existence or non-existence.
@@ -1575,7 +1575,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferSetSize
+name: org.openrewrite.codemods.cleanup.javascript.PreferSetSize
 displayName: Prefer using Set#size instead of Array#length.
 description: |
   Prefer using Set#size instead of Array#length.
@@ -1599,7 +1599,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferSpread
+name: org.openrewrite.codemods.cleanup.javascript.PreferSpread
 displayName: Prefer the spread operator over Array.from(…), Array#concat(…), Array#{slice,toSpliced}() and String#split(&#x27;&#x27;).
 description: |
   Prefer the spread operator over Array.from(…), Array#concat(…), Array#{slice,toSpliced}() and String#split(&#x27;&#x27;).
@@ -1623,7 +1623,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferStringReplaceAll
+name: org.openrewrite.codemods.cleanup.javascript.PreferStringReplaceAll
 displayName: Prefer String#replaceAll() over regex searches with the global flag.
 description: |
   Prefer String#replaceAll() over regex searches with the global flag.
@@ -1647,7 +1647,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferStringSlice
+name: org.openrewrite.codemods.cleanup.javascript.PreferStringSlice
 displayName: Prefer String#slice() over String#substr() and String#substring().
 description: |
   Prefer String#slice() over String#substr() and String#substring().
@@ -1671,7 +1671,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferStringStartsEndsWith
+name: org.openrewrite.codemods.cleanup.javascript.PreferStringStartsEndsWith
 displayName: Prefer String#startsWith() &amp; String#endsWith() over RegExp#test().
 description: |
   Prefer String#startsWith() &amp; String#endsWith() over RegExp#test().
@@ -1695,7 +1695,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferStringTrimStartEnd
+name: org.openrewrite.codemods.cleanup.javascript.PreferStringTrimStartEnd
 displayName: Prefer String#trimStart() / String#trimEnd() over String#trimLeft() / String#trimRight().
 description: |
   Prefer String#trimStart() / String#trimEnd() over String#trimLeft() / String#trimRight().
@@ -1719,7 +1719,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferSwitch
+name: org.openrewrite.codemods.cleanup.javascript.PreferSwitch
 displayName: Prefer switch over multiple else-if.
 description: |
   Prefer switch over multiple else-if.
@@ -1743,7 +1743,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferTernary
+name: org.openrewrite.codemods.cleanup.javascript.PreferTernary
 displayName: Prefer ternary expressions over simple if-else statements.
 description: |
   Prefer ternary expressions over simple if-else statements.
@@ -1767,7 +1767,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferTypeError
+name: org.openrewrite.codemods.cleanup.javascript.PreferTypeError
 displayName: Enforce throwing TypeError in type checking conditions.
 description: |
   Enforce throwing TypeError in type checking conditions.
@@ -1791,7 +1791,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreventAbbreviations
+name: org.openrewrite.codemods.cleanup.javascript.PreventAbbreviations
 displayName: Prevent abbreviations.
 description: |
   Prevent abbreviations.
@@ -1815,7 +1815,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.RelativeUrlStyle
+name: org.openrewrite.codemods.cleanup.javascript.RelativeUrlStyle
 displayName: Enforce consistent relative URL style.
 description: |
   Enforce consistent relative URL style.
@@ -1839,7 +1839,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.RequireArrayJoinSeparator
+name: org.openrewrite.codemods.cleanup.javascript.RequireArrayJoinSeparator
 displayName: Enforce using the separator argument with Array#join().
 description: |
   Enforce using the separator argument with Array#join().
@@ -1863,7 +1863,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.RequireNumberToFixedDigitsArgument
+name: org.openrewrite.codemods.cleanup.javascript.RequireNumberToFixedDigitsArgument
 displayName: Enforce using the digits argument with Number#toFixed().
 description: |
   Enforce using the digits argument with Number#toFixed().
@@ -1887,7 +1887,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.StringContent
+name: org.openrewrite.codemods.cleanup.javascript.StringContent
 displayName: Enforce better string content.
 description: |
   Enforce better string content.
@@ -1911,7 +1911,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.SwitchCaseBraces
+name: org.openrewrite.codemods.cleanup.javascript.SwitchCaseBraces
 displayName: Enforce consistent brace style for case clauses.
 description: |
   Enforce consistent brace style for case clauses.
@@ -1935,7 +1935,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.TemplateIndent
+name: org.openrewrite.codemods.cleanup.javascript.TemplateIndent
 displayName: Fix whitespace-insensitive template indentation.
 description: |
   Fix whitespace-insensitive template indentation.
@@ -1959,7 +1959,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.TextEncodingIdentifierCase
+name: org.openrewrite.codemods.cleanup.javascript.TextEncodingIdentifierCase
 displayName: Enforce consistent case for text encoding identifiers.
 description: |
   Enforce consistent case for text encoding identifiers.
@@ -1983,7 +1983,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.ThrowNewError
+name: org.openrewrite.codemods.cleanup.javascript.ThrowNewError
 displayName: Require new when throwing an error.
 description: |
   Require new when throwing an error.

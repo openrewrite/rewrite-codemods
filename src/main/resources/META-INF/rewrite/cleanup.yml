@@ -15,7 +15,7 @@
 #
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.ArrowBodyStyle
+name: org.openrewrite.codemods.cleanup.javascript.ArrowBodyStyle
 displayName: Require braces around arrow function bodies
 description: |
   Require braces around arrow function bodies
@@ -39,7 +39,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.CapitalizedComments
+name: org.openrewrite.codemods.cleanup.javascript.CapitalizedComments
 displayName: 'Enforce capitalization of the first letter of a comment '
 description: |
   Enforce capitalization of the first letter of a comment  
@@ -63,7 +63,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.Curly
+name: org.openrewrite.codemods.cleanup.javascript.Curly
 displayName: 'Enforce consistent brace style for all control statements '
 description: |
   Enforce consistent brace style for all control statements 
@@ -87,7 +87,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.DotNotation
+name: org.openrewrite.codemods.cleanup.javascript.DotNotation
 displayName: 'Enforce dot notation whenever possible '
 description: |
   Enforce dot notation whenever possible 
@@ -111,7 +111,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.Eqeqeq
+name: org.openrewrite.codemods.cleanup.javascript.Eqeqeq
 displayName: 'Require the use of `===` and `!==`'
 description: |
   Require the use of `===` and `!==` 
@@ -135,7 +135,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.LogicalAssignmentOperators
+name: org.openrewrite.codemods.cleanup.javascript.LogicalAssignmentOperators
 displayName: 'Require logical assignment operator shorthand '
 description: |
   Require logical assignment operator shorthand 
@@ -159,7 +159,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.MultilineCommentStyle
+name: org.openrewrite.codemods.cleanup.javascript.MultilineCommentStyle
 displayName: 'Enforce a particular style for multiline comments '
 description: |
   Enforce a particular style for multiline comments 
@@ -183,7 +183,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoDivRegex
+name: org.openrewrite.codemods.cleanup.javascript.NoDivRegex
 displayName: 'Disallow equal signs explicitly at the beginning of regular expressions '
 description: |
   Disallow equal signs explicitly at the beginning of regular expressions  
@@ -207,7 +207,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoElseReturn
+name: org.openrewrite.codemods.cleanup.javascript.NoElseReturn
 displayName: 'Disallow else blocks after return statements in if statements '
 description: |
   Disallow else blocks after return statements in if statements 
@@ -231,7 +231,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoExtraBind
+name: org.openrewrite.codemods.cleanup.javascript.NoExtraBind
 displayName: 'Disallow unnecessary calls to .bind() '
 description: |
   Disallow unnecessary calls to .bind() 
@@ -255,7 +255,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoExtraLabel
+name: org.openrewrite.codemods.cleanup.javascript.NoExtraLabel
 displayName: 'Disallow unnecessary labels '
 description: |
   Disallow unnecessary labels 
@@ -279,7 +279,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoImplicitCoercion
+name: org.openrewrite.codemods.cleanup.javascript.NoImplicitCoercion
 displayName: 'Disallow shorthand type conversions '
 description: |
   Disallow shorthand type conversions 
@@ -303,7 +303,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoLonelyIf
+name: org.openrewrite.codemods.cleanup.javascript.NoLonelyIf
 displayName: 'Disallow if statements as the only statement in else blocks '
 description: |
   Disallow if statements as the only statement in else blocks 
@@ -327,7 +327,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUndefInit
+name: org.openrewrite.codemods.cleanup.javascript.NoUndefInit
 displayName: 'Disallow initializing variables to undefined '
 description: |
   Disallow initializing variables to undefined 
@@ -351,7 +351,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUnneededTernary
+name: org.openrewrite.codemods.cleanup.javascript.NoUnneededTernary
 displayName: 'Disallow ternary operators when simpler alternatives exist '
 description: |
   Disallow ternary operators when simpler alternatives exist 
@@ -375,7 +375,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUselessComputedKey
+name: org.openrewrite.codemods.cleanup.javascript.NoUselessComputedKey
 displayName: 'Disallow unnecessary computed property keys in objects and classes '
 description: |
   Disallow unnecessary computed property keys in objects and classes 
@@ -399,7 +399,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUselessRename
+name: org.openrewrite.codemods.cleanup.javascript.NoUselessRename
 displayName:
   'Disallow renaming import, export, and destructured assignments to the
   same name '
@@ -425,7 +425,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUselessReturn
+name: org.openrewrite.codemods.cleanup.javascript.NoUselessReturn
 displayName: 'Disallow redundant return statements '
 description: |
   Disallow redundant return statements 
@@ -449,7 +449,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoVar
+name: org.openrewrite.codemods.cleanup.javascript.NoVar
 displayName: 'Require let or const instead of var '
 description: |
   Require let or const instead of var 
@@ -473,7 +473,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.ObjectShorthand
+name: org.openrewrite.codemods.cleanup.javascript.ObjectShorthand
 displayName:
   'Require method and property shorthand syntax for object
   literals '
@@ -499,7 +499,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.OneVar
+name: org.openrewrite.codemods.cleanup.javascript.OneVar
 displayName: 'Enforce variables to be declared either together or separately in functions '
 description: |
   Enforce variables to be declared either together or separately in functions  
@@ -523,7 +523,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.OperatorAssignment
+name: org.openrewrite.codemods.cleanup.javascript.OperatorAssignment
 displayName: 'Require assignment operator shorthand where possible '
 description: |
   Require assignment operator shorthand where possible 
@@ -546,7 +546,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferArrowCallback
+name: org.openrewrite.codemods.cleanup.javascript.PreferArrowCallback
 displayName: 'Require using arrow functions for callbacks '
 description: |
   Require using arrow functions for callbacks 
@@ -570,7 +570,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferConst
+name: org.openrewrite.codemods.cleanup.javascript.PreferConst
 displayName:
   'Require const declarations for variables that are never reassigned after
   declared '
@@ -596,7 +596,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferDestructuring
+name: org.openrewrite.codemods.cleanup.javascript.PreferDestructuring
 displayName: 'Require destructuring from arrays and/or objects '
 description: |
   Require destructuring from arrays and/or objects 
@@ -620,7 +620,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferExponentiationOperator
+name: org.openrewrite.codemods.cleanup.javascript.PreferExponentiationOperator
 displayName: 'Disallow the use of Math.pow in favor of the ** operator '
 description: |
   Disallow the use of Math.pow in favor of the ** operator 
@@ -644,7 +644,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferNumericLiterals
+name: org.openrewrite.codemods.cleanup.javascript.PreferNumericLiterals
 displayName:
   'Disallow parseInt() and Number.parseInt() in favor of binary, octal,
   and hexadecimal literals '
@@ -670,7 +670,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferObjectHasOwn
+name: org.openrewrite.codemods.cleanup.javascript.PreferObjectHasOwn
 displayName:
   'Disallow use of Object.prototype.hasOwnProperty.call() and prefer use
   of Object.hasOwn() '
@@ -696,7 +696,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferObjectSpread
+name: org.openrewrite.codemods.cleanup.javascript.PreferObjectSpread
 displayName:
   'Disallow using Object.assign with an object literal as the first argument
   and prefer the use of object spread instead '
@@ -722,7 +722,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.PreferTemplate
+name: org.openrewrite.codemods.cleanup.javascript.PreferTemplate
 displayName: 'Require template literals instead of string concatenation '
 description: |
   Require template literals instead of string concatenation 
@@ -746,7 +746,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.SortImports
+name: org.openrewrite.codemods.cleanup.javascript.SortImports
 displayName: 'Enforce sorted import declarations within modules '
 description: |
   Enforce sorted import declarations within modules 
@@ -770,7 +770,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.SortVars
+name: org.openrewrite.codemods.cleanup.javascript.SortVars
 displayName: 'Require variables within the same declaration block to be sorted '
 description: |
   Require variables within the same declaration block to be sorted 
@@ -794,7 +794,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.Strict
+name: org.openrewrite.codemods.cleanup.javascript.Strict
 displayName: 'Require strict mode directives '
 description: |
   Require strict mode directives 
@@ -818,7 +818,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.Yoda
+name: org.openrewrite.codemods.cleanup.javascript.Yoda
 displayName: 'Disallow Yoda conditions'
 description: |
   Disallow Yoda conditions 
@@ -842,7 +842,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.UnicodeBom
+name: org.openrewrite.codemods.cleanup.javascript.UnicodeBom
 displayName: Disallow Unicode byte order mark (BOM)
 description: |
   Disallow Unicode byte order mark (BOM)
