@@ -31,7 +31,7 @@ public class ESLintTest implements RewriteTest {
     @Test
     void formatStatement() {
         rewriteRun(
-          spec -> spec.recipe( new ESLint(null, null, null, null, null, null, null, List.of("eslint:recommended"), null, null, null)),
+          spec -> spec.recipe(new ESLint(null, null, null, null, null, null, null, List.of("eslint:recommended"), null, null, null)),
           text(
             //language=js
             """
@@ -52,7 +52,7 @@ public class ESLintTest implements RewriteTest {
     @Test
     void multiple() {
         rewriteRun(
-          spec -> spec.recipe( new ESLint(null, null, null, null, null, null, null, List.of("eslint:recommended"), null, null, null)),
+          spec -> spec.recipe(new ESLint(null, null, null, null, null, null, null, List.of("eslint:recommended"), null, null, null)),
           text(
             //language=js
             """
@@ -61,14 +61,14 @@ public class ESLintTest implements RewriteTest {
               """,
             """
               ~~('console' is not defined.
-              
+                            
               Disallow the use of undeclared variables unless mentioned in `/*global */` comments
-              
+                            
               Rule: no-undef, Severity: ERROR)~~>console.log('foo')
               ~~('console' is not defined.
-              
+                            
               Disallow the use of undeclared variables unless mentioned in `/*global */` comments
-              
+                            
               Rule: no-undef, Severity: ERROR)~~>console.log('bar')
               """,
             spec -> spec.path("src/Foo.js")
@@ -103,7 +103,7 @@ public class ESLintTest implements RewriteTest {
     @Test
     void configFile() {
         rewriteRun(
-          spec -> spec.recipe( new ESLint(List.of("**/*.js"), null, null, null, null, null, null, null, null, null, """
+          spec -> spec.recipe(new ESLint(List.of("**/*.js"), null, null, null, null, null, null, null, null, null, """
             {
                 "rules": {
                     "eqeqeq": "error",
@@ -123,6 +123,66 @@ public class ESLintTest implements RewriteTest {
               Rule: eqeqeq, Severity: ERROR)~~>== 42;
               """,
             spec -> spec.path("src/Foo.js")
+          )
+        );
+    }
+
+    @Test
+    void unicorn() {
+        rewriteRun(
+          spec -> spec.recipe(new ESLint(List.of("**/*.jsx"), null, null, null, null, null, null, null, null, null, """
+            {
+              "root": true,
+              "parser": "@typescript-eslint/parser",
+              "plugins": ["unicorn"],
+              "rules": {
+                "unicorn/better-regex": 2
+              },
+              "globals": {
+                "browser": true,
+                "node": true
+              }
+            }
+            """)),
+          text(
+            //language=js
+            """
+              const regex = /[0-9]/;
+              """,
+            """
+              const regex = /\\d/;
+              """,
+            spec -> spec.path("src/Foo.jsx")
+          )
+        );
+    }
+
+    @Test
+    void reactJsx() {
+        rewriteRun(
+          spec -> spec.recipe(new ESLint(List.of("**/*.jsx"), null, null, null, null, null, null, null, null, null, """
+            {
+              "root": true,
+              "parser": "@typescript-eslint/parser",
+              "plugins": ["react"],
+              "rules": {
+                "react/jsx-props-no-multi-spaces": 2
+              },
+              "globals": {
+                "browser": true,
+                "node": true
+              }
+            }
+            """)),
+          text(
+            //language=js
+            """
+              <App too    spacy />
+              """,
+            """
+              <App too spacy />
+              """,
+            spec -> spec.path("src/Foo.jsx")
           )
         );
     }
