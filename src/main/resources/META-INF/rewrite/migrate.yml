@@ -16,11 +16,11 @@
 ---
 type: specs.openrewrite.org/v1beta/category
 name: Lodash
-packageName: org.openrewrite.codemods.modernize.lodash
+packageName: org.openrewrite.codemods.migrate.lodash
 description: Recipes that modernize the use of [Lodash](https://lodash.com/).
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.modernize.lodash.LodashUnderscoreArray
+name: org.openrewrite.codemods.migrate.lodash.LodashUnderscoreArray
 displayName: Replace lodash and underscore array functions with native JavaScript
 description: |
   - `_.head(x)` -> `x[0]`
@@ -40,7 +40,7 @@ recipeList:
       transform: '@kevinbarabash/codemods/transforms/array.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.modernize.lodash.LodashUnderscoreFunction
+name: org.openrewrite.codemods.migrate.lodash.LodashUnderscoreFunction
 displayName: Replace lodash and underscore function functions with native JavaScript
 description: |
   - `_.bind(fn, obj, ...x)` -> `fn.bind(obj, ...x)`
@@ -54,7 +54,7 @@ recipeList:
       transform: '@kevinbarabash/codemods/transforms/function.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.modernize.lodash.LodashUnderscoreObjects
+name: org.openrewrite.codemods.migrate.lodash.LodashUnderscoreObjects
 displayName: Replace lodash and underscore object functions with native JavaScript
 description: |
   - `_.clone(x)` -> `{ ...x }`
@@ -72,7 +72,7 @@ recipeList:
       transform: '@kevinbarabash/codemods/transforms/object.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.modernize.lodash.LodashUnderscoreUtil
+name: org.openrewrite.codemods.migrate.lodash.LodashUnderscoreUtil
 displayName: Replace lodash and underscore utility functions with native JavaScript
 description: |
   - `_.isArray(x)` -> `Array.isArray(x)`

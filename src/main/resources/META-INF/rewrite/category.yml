@@ -18,3 +18,8 @@ type: specs.openrewrite.org/v1beta/category
 name: JavaScript Codemods
 packageName: org.openrewrite.codemods
 description: Recipes that run JavaScript codemods.
+---
+type: specs.openrewrite.org/v1beta/category
+name: Modernize
+packageName: org.openrewrite.codemods.migrate
+description: Recipes that modernize JavaScript code.

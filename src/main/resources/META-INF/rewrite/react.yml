@@ -16,11 +16,11 @@
 ---
 type: specs.openrewrite.org/v1beta/category
 name: React
-packageName: org.openrewrite.codemods.modernize.react
+packageName: org.openrewrite.codemods.migrate.react
 description: Recipes that modernize the use of [React](https://react.dev/).
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.modernize.react.ClassComponentToFunctionComponent
+name: org.openrewrite.codemods.migrate.react.ClassComponentToFunctionComponent
 displayName: React class component to function component
 description: |
   Class components are still going to be supported by React for the foreseeable future. However, it is no longer recommended to write new components in class-style.
