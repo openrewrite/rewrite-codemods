@@ -835,7 +835,7 @@ recipeList:
           "rules": {
             "yoda": [2, "never"]
           },
-          "g: {
+          "globals" : {
             "browser": true,
             "node": true
           }
