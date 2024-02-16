@@ -1,0 +1,495 @@
+#
+# Copyright 2023 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/category
+name: Jest
+packageName: org.openrewrite.codemods.cleanup.jest
+description: Recipes that cleanup Jest code.
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.RecommendedJestCodeCleanup
+displayName: Recommended Jest code cleanup
+description: |
+  Collection of cleanup ESLint rules that are recommended by [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest).
+recipeList:
+  - org.openrewrite.codemods.cleanup.jest.ConsistentTestIt
+  - org.openrewrite.codemods.cleanup.jest.NoAliasMethods
+  - org.openrewrite.codemods.cleanup.jest.NoDeprecatedFunctions
+  - org.openrewrite.codemods.cleanup.jest.NoJasmineGlobals
+  - org.openrewrite.codemods.cleanup.jest.NoTestPrefixes
+  - org.openrewrite.codemods.cleanup.jest.NoUntypedMockFactory
+  - org.openrewrite.codemods.cleanup.jest.PreferComparisonMatcher
+  - org.openrewrite.codemods.cleanup.jest.PreferExpectResolves
+  - org.openrewrite.codemods.cleanup.jest.PreferLowercaseTitle
+  - org.openrewrite.codemods.cleanup.jest.PreferMockPromiseShorthand
+  - org.openrewrite.codemods.cleanup.jest.PreferSpyOn
+  - org.openrewrite.codemods.cleanup.jest.PreferToBe
+  - org.openrewrite.codemods.cleanup.jest.PreferToContain
+  - org.openrewrite.codemods.cleanup.jest.PreferToHaveLength
+  - org.openrewrite.codemods.cleanup.jest.PreferTodo
+  - org.openrewrite.codemods.cleanup.jest.ValidTitle
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.ConsistentTestIt
+displayName: Enforce test and it usage conventions
+description: |
+  Enforce test and it usage conventions
+  See rule details for [jest/consistent-test-it](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/consistent-test-it.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/consistent-test-it": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.NoAliasMethods
+displayName: Disallow alias methods
+description: |
+  Disallow alias methods
+  See rule details for [jest/no-alias-methods](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-alias-methods.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/no-alias-methods": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.NoDeprecatedFunctions
+displayName: Disallow use of deprecated functions
+description: |
+  Disallow use of deprecated functions
+  See rule details for [jest/no-deprecated-functions](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-deprecated-functions.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/no-deprecated-functions": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.NoJasmineGlobals
+displayName: Disallow Jasmine globals
+description: |
+  Disallow Jasmine globals
+  See rule details for [jest/no-jasmine-globals](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-jasmine-globals.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/no-jasmine-globals": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.NoTestPrefixes
+displayName: Require using .only and .skip over f and x
+description: |
+  Require using .only and .skip over f and x
+  See rule details for [jest/no-test-prefixes](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-test-prefixes.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/no-test-prefixes": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.NoUntypedMockFactory
+displayName: Disallow using jest.mock() factories without an explicit type parameter
+description: |
+  Disallow using jest.mock() factories without an explicit type parameter
+  See rule details for [jest/no-untyped-mock-factory](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-untyped-mock-factory.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/no-untyped-mock-factory": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.PreferComparisonMatcher
+displayName: Suggest using the built-in comparison matchers
+description: |
+  Suggest using the built-in comparison matchers
+  See rule details for [jest/prefer-comparison-matcher](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-comparison-matcher.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/prefer-comparison-matcher": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.PreferExpectResolves
+displayName: Prefer await expect(...).resolves over expect(await ...) syntax
+description: |
+  Prefer await expect(...).resolves over expect(await ...) syntax
+  See rule details for [jest/prefer-expect-resolves](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-expect-resolves.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/prefer-expect-resolves": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.PreferLowercaseTitle
+displayName: Enforce lowercase test names
+description: |
+  Enforce lowercase test names
+  See rule details for [jest/prefer-lowercase-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-lowercase-title.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/prefer-lowercase-title": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.PreferMockPromiseShorthand
+displayName: Prefer mock resolved/rejected shorthands for promises
+description: |
+  Prefer mock resolved/rejected shorthands for promises
+  See rule details for [jest/prefer-mock-promise-shorthand](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-mock-promise-shorthand.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/prefer-mock-promise-shorthand": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.PreferSpyOn
+displayName: Suggest using jest.spyOn()
+description: |
+  Suggest using jest.spyOn()
+  See rule details for [jest/prefer-spy-on](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-spy-on.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/prefer-spy-on": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.PreferToBe
+displayName: Suggest using toBe() for primitive literals
+description: |
+  Suggest using toBe() for primitive literals
+  See rule details for [jest/prefer-to-be](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-be.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/prefer-to-be": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.PreferToContain
+displayName: Suggest using toContain()
+description: |
+  Suggest using toContain()
+  See rule details for [jest/prefer-to-contain](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-contain.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/prefer-to-contain": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.PreferToHaveLength
+displayName: Suggest using toHaveLength()
+description: |
+  Suggest using toHaveLength()
+  See rule details for [jest/prefer-to-have-length](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-have-length.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/prefer-to-have-length": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.PreferTodo
+displayName: Suggest using test.todo
+description: |
+  Suggest using test.todo
+  See rule details for [jest/prefer-todo](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-todo.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/prefer-todo": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.jest.ValidTitle
+displayName: Enforce valid titles
+description: |
+  Enforce valid titles
+  See rule details for [jest/valid-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/valid-title.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "rules": {
+            "jest/valid-title": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - Jest
+  - eslint-plugin-jest
