@@ -25,22 +25,42 @@ displayName: Recommended Jest code cleanup
 description: |
   Collection of cleanup ESLint rules that are recommended by [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest).
 recipeList:
-  - org.openrewrite.codemods.cleanup.jest.ConsistentTestIt
-  - org.openrewrite.codemods.cleanup.jest.NoAliasMethods
-  - org.openrewrite.codemods.cleanup.jest.NoDeprecatedFunctions
-  - org.openrewrite.codemods.cleanup.jest.NoJasmineGlobals
-  - org.openrewrite.codemods.cleanup.jest.NoTestPrefixes
-  - org.openrewrite.codemods.cleanup.jest.NoUntypedMockFactory
-  - org.openrewrite.codemods.cleanup.jest.PreferComparisonMatcher
-  - org.openrewrite.codemods.cleanup.jest.PreferExpectResolves
-  - org.openrewrite.codemods.cleanup.jest.PreferLowercaseTitle
-  - org.openrewrite.codemods.cleanup.jest.PreferMockPromiseShorthand
-  - org.openrewrite.codemods.cleanup.jest.PreferSpyOn
-  - org.openrewrite.codemods.cleanup.jest.PreferToBe
-  - org.openrewrite.codemods.cleanup.jest.PreferToContain
-  - org.openrewrite.codemods.cleanup.jest.PreferToHaveLength
-  - org.openrewrite.codemods.cleanup.jest.PreferTodo
-  - org.openrewrite.codemods.cleanup.jest.ValidTitle
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["jest"],
+          "settings": {
+            "jest": {
+              "version": 27,
+            },
+          },
+          "rules": {
+            "jest/consistent-test-it": 2
+            "jest/no-alias-methods": 2
+            "jest/no-jasmine-globals": 2
+            "jest/no-test-prefixes": 2
+            "jest/no-untyped-mock-factory": 2
+            "jest/prefer-comparison-matcher": 2
+            "jest/prefer-expect-resolves": 2
+            "jest/prefer-lowercase-title": 2
+            "jest/prefer-mock-promise-shorthand": 2
+            "jest/prefer-spy-on": 2
+            "jest/prefer-to-be": 2
+            "jest/prefer-to-contain": 2
+            "jest/prefer-to-have-length": 2
+            "jest/prefer-todo": 2
+            "jest/valid-title": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true,
+            "jest": true
+          }
+        }
 tags:
   - ESLint
   - Jest
@@ -66,7 +86,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -94,7 +115,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -103,10 +125,10 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.NoDeprecatedFunctions
-displayName: Disallow use of deprecated functions
+name: org.openrewrite.codemods.cleanup.jest.NoDeprecatedFunctions27
+displayName: Disallow use of deprecated functions from before version 27
 description: |
-  Disallow use of deprecated functions
+  Disallow use of deprecated functions from before version 27
   See rule details for [jest/no-deprecated-functions](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-deprecated-functions.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
@@ -117,12 +139,18 @@ recipeList:
           "parser": "@typescript-eslint/parser",
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["jest"],
+          "settings": {
+            "jest": {
+              "version": 27,
+            },
+          },
           "rules": {
             "jest/no-deprecated-functions": 2
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -150,7 +178,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -178,7 +207,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -206,7 +236,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -234,7 +265,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -262,7 +294,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -290,7 +323,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -318,7 +352,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -346,7 +381,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -374,7 +410,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -402,7 +439,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -430,7 +468,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -458,7 +497,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
@@ -486,7 +526,8 @@ recipeList:
           },
           "globals": {
             "browser": true,
-            "node": true
+            "node": true,
+            "jest": true
           }
         }
 tags:
