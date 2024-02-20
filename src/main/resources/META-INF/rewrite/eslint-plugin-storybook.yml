@@ -1,0 +1,273 @@
+#
+# Copyright 2023 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.storybook.RecommendedStorybookCodeCleanup
+displayName: Recommended Storybook code cleanup
+description: |
+  Collection of cleanup ESLint rules from [eslint-plugin-storybook](https://github.com/storybookjs/eslint-plugin-storybook#readme).
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["storybook"],
+          "rules": {
+            "storybook/storybook/await-interactions": 2,
+            "storybook/storybook/default-exports": 2,
+            "storybook/storybook/hierarchy-separator": 2,
+            "storybook/storybook/no-redundant-story-name": 2,
+            "storybook/storybook/no-title-property-in-meta": 2,
+            "storybook/storybook/prefer-pascal-case": 2,
+            "storybook/storybook/use-storybook-expect": 2,
+            "storybook/storybook/use-storybook-testing-library": 2,
+          },
+          "globals": {
+            "browser": true,
+            "node": true,
+          }
+        }
+tags:
+  - ESLint
+  - storybook
+  - eslint-plugin-storybook
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.storybook.StorybookAwaitInteractions
+displayName: Interactions should be awaited
+description: |
+  Interactions should be awaited
+  See rule details for [storybook/storybook/await-interactions](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/await-interactions.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["storybook"],
+          "rules": {
+            "storybook/storybook/await-interactions": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - storybook
+  - eslint-plugin-storybook
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.storybook.StorybookDefaultExports
+displayName: Story files should have a default export
+description: |
+  Story files should have a default export
+  See rule details for [storybook/storybook/default-exports](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/default-exports.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["storybook"],
+          "rules": {
+            "storybook/storybook/default-exports": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - storybook
+  - eslint-plugin-storybook
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.storybook.StorybookHierarchySeparator
+displayName: Deprecated hierarchy separator in title property
+description: |
+  Deprecated hierarchy separator in title property
+  See rule details for [storybook/storybook/hierarchy-separator](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/hierarchy-separator.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["storybook"],
+          "rules": {
+            "storybook/storybook/hierarchy-separator": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - storybook
+  - eslint-plugin-storybook
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.storybook.StorybookNoRedundantStoryName
+displayName: A story should not have a redundant name property
+description: |
+  A story should not have a redundant name property
+  See rule details for [storybook/storybook/no-redundant-story-name](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/no-redundant-story-name.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["storybook"],
+          "rules": {
+            "storybook/storybook/no-redundant-story-name": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - storybook
+  - eslint-plugin-storybook
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.storybook.StorybookNoTitlePropertyInMeta
+displayName: Do not define a title in meta
+description: |
+  Do not define a title in meta
+  See rule details for [storybook/storybook/no-title-property-in-meta](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/no-title-property-in-meta.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["storybook"],
+          "rules": {
+            "storybook/storybook/no-title-property-in-meta": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - storybook
+  - eslint-plugin-storybook
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.storybook.StorybookPreferPascalCase
+displayName: Stories should use PascalCase
+description: |
+  Stories should use PascalCase
+  See rule details for [storybook/storybook/prefer-pascal-case](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/prefer-pascal-case.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["storybook"],
+          "rules": {
+            "storybook/storybook/prefer-pascal-case": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - storybook
+  - eslint-plugin-storybook
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.storybook.StorybookUseStorybookExpect
+displayName: Use expect from @storybook/jest
+description: |
+  Use expect from @storybook/jest
+  See rule details for [storybook/storybook/use-storybook-expect](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/use-storybook-expect.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["storybook"],
+          "rules": {
+            "storybook/storybook/use-storybook-expect": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - storybook
+  - eslint-plugin-storybook
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.storybook.StorybookUseStorybookTestingLibrary
+displayName: Do not use testing-library directly on stories
+description: |
+  Do not use testing-library directly on stories
+  See rule details for [storybook/storybook/use-storybook-testing-library](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/use-storybook-testing-library.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["storybook"],
+          "rules": {
+            "storybook/storybook/use-storybook-testing-library": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - storybook
+  - eslint-plugin-storybook
