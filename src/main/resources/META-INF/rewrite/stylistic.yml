@@ -15,6 +15,118 @@
 #
 ---
 type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.format.RecommendedESLintStyling
+displayName: Recommended ESLint Styling
+description: |
+  Collection of stylistic ESLint rules that are recommended by the [ESLint Style.](https://eslint.style/)
+tags:
+  - eslint
+  - stylistic
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["@stylistic"],
+          "rules": {
+            "@stylistic/array-bracket-newline": 2,
+            "@stylistic/array-bracket-spacing": 2,
+            "@stylistic/array-element-newline": 2,
+            "@stylistic/arrow-parens": 2,
+            "@stylistic/arrow-spacing": 2,
+            "@stylistic/block-spacing": 2,
+            "@stylistic/brace-style": 2,
+            "@stylistic/comma-dangle": 2,
+            "@stylistic/comma-spacing": 2,
+            "@stylistic/comma-style": 2,
+            "@stylistic/computed-property-spacing": 2,
+            "@stylistic/dot-location": 2,
+            "@stylistic/eol-last": 2,
+            "@stylistic/func-call-spacing": 2,
+            "@stylistic/function-call-argument-newline": 2,
+            "@stylistic/function-call-spacing": 2,
+            "@stylistic/function-paren-newline": 2,
+            "@stylistic/generator-star-spacing": 2,
+            "@stylistic/implicit-arrow-linebreak": 2,
+            "@stylistic/indent": 2,
+            "@stylistic/indent-binary-ops": 2,
+            "@stylistic/jsx-closing-bracket-location": 2,
+            "@stylistic/jsx-closing-tag-location": 2,
+            "@stylistic/jsx-curly-brace-presence": 2,
+            "@stylistic/jsx-curly-newline": 2,
+            "@stylistic/jsx-curly-spacing": 2,
+            "@stylistic/jsx-equals-spacing": 2,
+            "@stylistic/jsx-first-prop-new-line": 2,
+            "@stylistic/jsx-indent": 2,
+            "@stylistic/jsx-indent-props": 2,
+            "@stylistic/jsx-max-props-per-line": 2,
+            "@stylistic/jsx-newline": 2,
+            "@stylistic/jsx-one-expression-per-line": 2,
+            "@stylistic/jsx-pascal-case": 2,
+            "@stylistic/jsx-props-no-multi-spaces": 2,
+            "@stylistic/jsx-quotes": 2,
+            "@stylistic/jsx-self-closing-comp": 2,
+            "@stylistic/jsx-sort-props": 2,
+            "@stylistic/jsx-tag-spacing": 2,
+            "@stylistic/jsx-wrap-multilines": 2,
+            "@stylistic/key-spacing": 2,
+            "@stylistic/keyword-spacing": 2,
+            "@stylistic/linebreak-style": 2,
+            "@stylistic/lines-around-comment": 2,
+            "@stylistic/lines-between-class-members": 2,
+            "@stylistic/member-delimiter-style": 2,
+            "@stylistic/multiline-ternary": 2,
+            "@stylistic/new-parens": 2,
+            "@stylistic/newline-per-chained-call": 2,
+            "@stylistic/no-confusing-arrow": 2,
+            "@stylistic/no-extra-parens": 2,
+            "@stylistic/no-extra-semi": 2,
+            "@stylistic/no-floating-decimal": 2,
+            "@stylistic/no-multi-spaces": 2,
+            "@stylistic/no-multiple-empty-lines": 2,
+            "@stylistic/no-trailing-spaces": 2,
+            "@stylistic/no-whitespace-before-property": 2,
+            "@stylistic/nonblock-statement-body-position": 2,
+            "@stylistic/object-curly-newline": 2,
+            "@stylistic/object-curly-spacing": 2,
+            "@stylistic/object-property-newline": 2,
+            "@stylistic/one-var-declaration-per-line": 2,
+            "@stylistic/operator-linebreak": 2,
+            "@stylistic/padded-blocks": 2,
+            "@stylistic/padding-line-between-statements": 2,
+            "@stylistic/quote-props": 2,
+            "@stylistic/quotes": 2,
+            "@stylistic/rest-spread-spacing": 2,
+            "@stylistic/semi": 2,
+            "@stylistic/semi-spacing": 2,
+            "@stylistic/semi-style": 2,
+            "@stylistic/space-before-blocks": 2,
+            "@stylistic/space-before-function-paren": 2,
+            "@stylistic/space-in-parens": 2,
+            "@stylistic/space-infix-ops": 2,
+            "@stylistic/space-unary-ops": 2,
+            "@stylistic/spaced-comment": 2,
+            "@stylistic/switch-colon-spacing": 2,
+            "@stylistic/template-curly-spacing": 2,
+            "@stylistic/template-tag-spacing": 2,
+            "@stylistic/type-annotation-spacing": 2,
+            "@stylistic/type-generic-spacing": 2,
+            "@stylistic/type-named-tuple-spacing": 2,
+            "@stylistic/wrap-iife": 2,
+            "@stylistic/wrap-regex": 2,
+            "@stylistic/yield-star-spacing": 2,
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+
+---
+type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.format.ArrayBracketNewline
 displayName: Enforce linebreaks after opening and before closing array brackets
 description: |
@@ -2415,117 +2527,6 @@ recipeList:
           "plugins": ["@stylistic"],
           "rules": {
             "@stylistic/yield-star-spacing": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
-          }
-        }
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.RecommendedESLintStyling
-displayName: Recommended ESLint Styling
-description: |
-  Collection of stylistic ESLint rules that are recommended by the [ESLint Style.](https://eslint.style/)
-tags:
-  - eslint
-  - stylistic
-recipeList:
-  - org.openrewrite.codemods.ESLint:
-      fix: true
-      configFile: |
-        {
-          "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
-          "plugins": ["@stylistic"],
-          "rules": {
-            "@stylistic/array-bracket-newline": 2,
-            "@stylistic/array-bracket-spacing": 2,
-            "@stylistic/array-element-newline": 2,
-            "@stylistic/arrow-parens": 2,
-            "@stylistic/arrow-spacing": 2,
-            "@stylistic/block-spacing": 2,
-            "@stylistic/brace-style": 2,
-            "@stylistic/comma-dangle": 2,
-            "@stylistic/comma-spacing": 2,
-            "@stylistic/comma-style": 2,
-            "@stylistic/computed-property-spacing": 2,
-            "@stylistic/dot-location": 2,
-            "@stylistic/eol-last": 2,
-            "@stylistic/func-call-spacing": 2,
-            "@stylistic/function-call-argument-newline": 2,
-            "@stylistic/function-call-spacing": 2,
-            "@stylistic/function-paren-newline": 2,
-            "@stylistic/generator-star-spacing": 2,
-            "@stylistic/implicit-arrow-linebreak": 2,
-            "@stylistic/indent": 2,
-            "@stylistic/indent-binary-ops": 2,
-            "@stylistic/jsx-closing-bracket-location": 2,
-            "@stylistic/jsx-closing-tag-location": 2,
-            "@stylistic/jsx-curly-brace-presence": 2,
-            "@stylistic/jsx-curly-newline": 2,
-            "@stylistic/jsx-curly-spacing": 2,
-            "@stylistic/jsx-equals-spacing": 2,
-            "@stylistic/jsx-first-prop-new-line": 2,
-            "@stylistic/jsx-indent": 2,
-            "@stylistic/jsx-indent-props": 2,
-            "@stylistic/jsx-max-props-per-line": 2,
-            "@stylistic/jsx-newline": 2,
-            "@stylistic/jsx-one-expression-per-line": 2,
-            "@stylistic/jsx-pascal-case": 2,
-            "@stylistic/jsx-props-no-multi-spaces": 2,
-            "@stylistic/jsx-quotes": 2,
-            "@stylistic/jsx-self-closing-comp": 2,
-            "@stylistic/jsx-sort-props": 2,
-            "@stylistic/jsx-tag-spacing": 2,
-            "@stylistic/jsx-wrap-multilines": 2,
-            "@stylistic/key-spacing": 2,
-            "@stylistic/keyword-spacing": 2,
-            "@stylistic/linebreak-style": 2,
-            "@stylistic/lines-around-comment": 2,
-            "@stylistic/lines-between-class-members": 2,
-            "@stylistic/member-delimiter-style": 2,
-            "@stylistic/multiline-ternary": 2,
-            "@stylistic/new-parens": 2,
-            "@stylistic/newline-per-chained-call": 2,
-            "@stylistic/no-confusing-arrow": 2,
-            "@stylistic/no-extra-parens": 2,
-            "@stylistic/no-extra-semi": 2,
-            "@stylistic/no-floating-decimal": 2,
-            "@stylistic/no-multi-spaces": 2,
-            "@stylistic/no-multiple-empty-lines": 2,
-            "@stylistic/no-trailing-spaces": 2,
-            "@stylistic/no-whitespace-before-property": 2,
-            "@stylistic/nonblock-statement-body-position": 2,
-            "@stylistic/object-curly-newline": 2,
-            "@stylistic/object-curly-spacing": 2,
-            "@stylistic/object-property-newline": 2,
-            "@stylistic/one-var-declaration-per-line": 2,
-            "@stylistic/operator-linebreak": 2,
-            "@stylistic/padded-blocks": 2,
-            "@stylistic/padding-line-between-statements": 2,
-            "@stylistic/quote-props": 2,
-            "@stylistic/quotes": 2,
-            "@stylistic/rest-spread-spacing": 2,
-            "@stylistic/semi": 2,
-            "@stylistic/semi-spacing": 2,
-            "@stylistic/semi-style": 2,
-            "@stylistic/space-before-blocks": 2,
-            "@stylistic/space-before-function-paren": 2,
-            "@stylistic/space-in-parens": 2,
-            "@stylistic/space-infix-ops": 2,
-            "@stylistic/space-unary-ops": 2,
-            "@stylistic/spaced-comment": 2,
-            "@stylistic/switch-colon-spacing": 2,
-            "@stylistic/template-curly-spacing": 2,
-            "@stylistic/template-tag-spacing": 2,
-            "@stylistic/type-annotation-spacing": 2,
-            "@stylistic/type-generic-spacing": 2,
-            "@stylistic/type-named-tuple-spacing": 2,
-            "@stylistic/wrap-iife": 2,
-            "@stylistic/wrap-regex": 2,
-            "@stylistic/yield-star-spacing": 2,
           },
           "globals": {
             "browser": true,
