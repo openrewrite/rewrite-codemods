@@ -15,7 +15,7 @@
 #
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoEmptyNamedBlocks
+name: org.openrewrite.codemods.cleanup.javascript.NoEmptyNamedBlocks
 displayName: Forbid empty named import
 description: |
   Forbid empty named import
@@ -39,7 +39,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoImportModuleExports
+name: org.openrewrite.codemods.cleanup.javascript.NoImportModuleExports
 displayName: Forbid import statements with CommonJS module.exports
 description: |
   Forbid import statements with CommonJS module.exports
@@ -63,7 +63,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoAbsolutePath
+name: org.openrewrite.codemods.cleanup.javascript.NoAbsolutePath
 displayName: Forbid import of modules using absolute paths
 description: |
   Forbid import of modules using absolute paths
@@ -87,7 +87,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoRelativePackages
+name: org.openrewrite.codemods.cleanup.javascript.NoRelativePackages
 displayName: Forbid importing packages through relative paths
 description: |
   Forbid importing packages through relative paths
@@ -111,7 +111,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoUselessPathSegments
+name: org.openrewrite.codemods.cleanup.javascript.NoUselessPathSegments
 displayName: Forbid unnecessary path segments in import and require statements
 description: |
   Forbid unnecessary path segments in import and require statements
@@ -135,7 +135,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.ConsistentTypeSpecifierStyle
+name: org.openrewrite.codemods.cleanup.javascript.ConsistentTypeSpecifierStyle
 displayName: Enforce or ban the use of inline type-only markers for named imports
 description: |
   Enforce or ban the use of inline type-only markers for named imports
@@ -159,7 +159,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.First
+name: org.openrewrite.codemods.cleanup.javascript.First
 displayName: Ensure all imports appear before other statements
 description: |
   Ensure all imports appear before other statements
@@ -183,7 +183,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NewlineAfterImport
+name: org.openrewrite.codemods.cleanup.javascript.NewlineAfterImport
 displayName: Enforce a newline after import statements
 description: |
   Enforce a newline after import statements
@@ -207,7 +207,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoDuplicates
+name: org.openrewrite.codemods.cleanup.javascript.NoDuplicates
 displayName: Forbid repeated import of the same module in multiple places
 description: |
   Forbid repeated import of the same module in multiple places
@@ -231,7 +231,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.NoNamespace
+name: org.openrewrite.codemods.cleanup.javascript.NoNamespace
 displayName: Forbid namespace (a.k.a. "wildcard" `*`) imports.
 description: |
   "Forbid namespace (a.k.a. "wildcard" `*`) imports."
@@ -255,7 +255,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.Order
+name: org.openrewrite.codemods.cleanup.javascript.Order
 displayName: Enforce a convention in module import order
 description: |
   Enforce a convention in module import order
