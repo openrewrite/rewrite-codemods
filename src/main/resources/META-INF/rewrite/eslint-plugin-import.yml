@@ -1,0 +1,279 @@
+#
+# Copyright 2023 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.NoEmptyNamedBlocks
+displayName: Forbid empty named import
+description: |
+  Forbid empty named import
+  See rule details for [import/no-empty-named-blocks](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-empty-named-blocks.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/no-empty-named-blocks": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.NoImportModuleExports
+displayName: Forbid import statements with CommonJS module.exports
+description: |
+  Forbid import statements with CommonJS module.exports
+  See rule details for [import/no-import-module-exports](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-import-module-exports.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/no-import-module-exports": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.NoAbsolutePath
+displayName: Forbid import of modules using absolute paths
+description: |
+  Forbid import of modules using absolute paths
+  See rule details for [import/no-absolute-path](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-absolute-path.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/no-absolute-path": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.NoRelativePackages
+displayName: Forbid importing packages through relative paths
+description: |
+  Forbid importing packages through relative paths
+  See rule details for [import/no-relative-packages](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-relative-packages.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/no-relative-packages": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.NoUselessPathSegments
+displayName: Forbid unnecessary path segments in import and require statements
+description: |
+  Forbid unnecessary path segments in import and require statements
+  See rule details for [import/no-useless-path-segments](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-useless-path-segments.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/no-useless-path-segments": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.ConsistentTypeSpecifierStyle
+displayName: Enforce or ban the use of inline type-only markers for named imports
+description: |
+  Enforce or ban the use of inline type-only markers for named imports
+  See rule details for [import/consistent-type-specifier-style](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/consistent-type-specifier-style.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/consistent-type-specifier-style": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.First
+displayName: Ensure all imports appear before other statements
+description: |
+  Ensure all imports appear before other statements
+  See rule details for [import/first](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/first.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/first": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.NewlineAfterImport
+displayName: Enforce a newline after import statements
+description: |
+  Enforce a newline after import statements
+  See rule details for [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/newline-after-import.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/newline-after-import": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.NoDuplicates
+displayName: Forbid repeated import of the same module in multiple places
+description: |
+  Forbid repeated import of the same module in multiple places
+  See rule details for [import/no-duplicates](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-duplicates.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/no-duplicates": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.NoNamespace
+displayName: Forbid namespace (a.k.a. "wildcard" `*`) imports.
+description: |
+  "Forbid namespace (a.k.a. "wildcard" `*`) imports."
+  See rule details for [import/no-namespace](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-namespace.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/no-namespace": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.Order
+displayName: Enforce a convention in module import order
+description: |
+  Enforce a convention in module import order
+  See rule details for [import/order](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/order.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+           "plugins": ["import"],
+          "rules": {
+            "import/order": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
