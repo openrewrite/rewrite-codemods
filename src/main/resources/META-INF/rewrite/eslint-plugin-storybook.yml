@@ -29,14 +29,14 @@ recipeList:
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["storybook"],
           "rules": {
-            "storybook/storybook/await-interactions": 2,
-            "storybook/storybook/default-exports": 2,
-            "storybook/storybook/hierarchy-separator": 2,
-            "storybook/storybook/no-redundant-story-name": 2,
-            "storybook/storybook/no-title-property-in-meta": 2,
-            "storybook/storybook/prefer-pascal-case": 2,
-            "storybook/storybook/use-storybook-expect": 2,
-            "storybook/storybook/use-storybook-testing-library": 2,
+            "storybook/await-interactions": 2,
+            "storybook/default-exports": 2,
+            "storybook/hierarchy-separator": 2,
+            "storybook/no-redundant-story-name": 2,
+            "storybook/no-title-property-in-meta": 2,
+            "storybook/prefer-pascal-case": 2,
+            "storybook/use-storybook-expect": 2,
+            "storybook/use-storybook-testing-library": 2,
           },
           "globals": {
             "browser": true,
@@ -53,7 +53,7 @@ name: org.openrewrite.codemods.cleanup.storybook.StorybookAwaitInteractions
 displayName: Interactions should be awaited
 description: |
   Interactions should be awaited
-  See rule details for [storybook/storybook/await-interactions](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/await-interactions.md)
+  See rule details for [storybook/await-interactions](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/await-interactions.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -64,7 +64,7 @@ recipeList:
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["storybook"],
           "rules": {
-            "storybook/storybook/await-interactions": 2
+            "storybook/await-interactions": 2
           },
           "globals": {
             "browser": true,
@@ -81,7 +81,7 @@ name: org.openrewrite.codemods.cleanup.storybook.StorybookDefaultExports
 displayName: Story files should have a default export
 description: |
   Story files should have a default export
-  See rule details for [storybook/storybook/default-exports](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/default-exports.md)
+  See rule details for [storybook/default-exports](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/default-exports.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -92,7 +92,7 @@ recipeList:
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["storybook"],
           "rules": {
-            "storybook/storybook/default-exports": 2
+            "storybook/default-exports": 2
           },
           "globals": {
             "browser": true,
@@ -109,7 +109,7 @@ name: org.openrewrite.codemods.cleanup.storybook.StorybookHierarchySeparator
 displayName: Deprecated hierarchy separator in title property
 description: |
   Deprecated hierarchy separator in title property
-  See rule details for [storybook/storybook/hierarchy-separator](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/hierarchy-separator.md)
+  See rule details for [storybook/hierarchy-separator](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/hierarchy-separator.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -120,7 +120,7 @@ recipeList:
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["storybook"],
           "rules": {
-            "storybook/storybook/hierarchy-separator": 2
+            "storybook/hierarchy-separator": 2
           },
           "globals": {
             "browser": true,
@@ -137,7 +137,7 @@ name: org.openrewrite.codemods.cleanup.storybook.StorybookNoRedundantStoryName
 displayName: A story should not have a redundant name property
 description: |
   A story should not have a redundant name property
-  See rule details for [storybook/storybook/no-redundant-story-name](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/no-redundant-story-name.md)
+  See rule details for [storybook/no-redundant-story-name](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/no-redundant-story-name.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -148,7 +148,7 @@ recipeList:
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["storybook"],
           "rules": {
-            "storybook/storybook/no-redundant-story-name": 2
+            "storybook/no-redundant-story-name": 2
           },
           "globals": {
             "browser": true,
@@ -165,7 +165,7 @@ name: org.openrewrite.codemods.cleanup.storybook.StorybookNoTitlePropertyInMeta
 displayName: Do not define a title in meta
 description: |
   Do not define a title in meta
-  See rule details for [storybook/storybook/no-title-property-in-meta](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/no-title-property-in-meta.md)
+  See rule details for [storybook/no-title-property-in-meta](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/no-title-property-in-meta.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -176,7 +176,7 @@ recipeList:
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["storybook"],
           "rules": {
-            "storybook/storybook/no-title-property-in-meta": 2
+            "storybook/no-title-property-in-meta": 2
           },
           "globals": {
             "browser": true,
@@ -193,7 +193,7 @@ name: org.openrewrite.codemods.cleanup.storybook.StorybookPreferPascalCase
 displayName: Stories should use PascalCase
 description: |
   Stories should use PascalCase
-  See rule details for [storybook/storybook/prefer-pascal-case](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/prefer-pascal-case.md)
+  See rule details for [storybook/prefer-pascal-case](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/prefer-pascal-case.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -204,7 +204,7 @@ recipeList:
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["storybook"],
           "rules": {
-            "storybook/storybook/prefer-pascal-case": 2
+            "storybook/prefer-pascal-case": 2
           },
           "globals": {
             "browser": true,
@@ -221,7 +221,7 @@ name: org.openrewrite.codemods.cleanup.storybook.StorybookUseStorybookExpect
 displayName: Use expect from @storybook/jest
 description: |
   Use expect from @storybook/jest
-  See rule details for [storybook/storybook/use-storybook-expect](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/use-storybook-expect.md)
+  See rule details for [storybook/use-storybook-expect](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/use-storybook-expect.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -232,7 +232,7 @@ recipeList:
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["storybook"],
           "rules": {
-            "storybook/storybook/use-storybook-expect": 2
+            "storybook/use-storybook-expect": 2
           },
           "globals": {
             "browser": true,
@@ -249,7 +249,7 @@ name: org.openrewrite.codemods.cleanup.storybook.StorybookUseStorybookTestingLib
 displayName: Do not use testing-library directly on stories
 description: |
   Do not use testing-library directly on stories
-  See rule details for [storybook/storybook/use-storybook-testing-library](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/use-storybook-testing-library.md)
+  See rule details for [storybook/use-storybook-testing-library](https://github.com/storybookjs/eslint-plugin-storybook/blob/HEAD/docs/rules/storybook/use-storybook-testing-library.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
       fix: true
@@ -260,7 +260,7 @@ recipeList:
           "parserOptions": { "project": ["./tsconfig.json"] },
           "plugins": ["storybook"],
           "rules": {
-            "storybook/storybook/use-storybook-testing-library": 2
+            "storybook/use-storybook-testing-library": 2
           },
           "globals": {
             "browser": true,
