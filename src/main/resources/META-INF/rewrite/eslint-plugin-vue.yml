@@ -118,8 +118,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -154,8 +152,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -190,8 +186,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -226,8 +220,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -262,8 +254,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -298,8 +288,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -334,8 +322,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -370,8 +356,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -406,8 +390,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -442,8 +424,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -478,8 +458,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -514,8 +492,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -550,8 +526,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -586,8 +560,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -622,8 +594,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -658,8 +628,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -694,8 +662,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -730,8 +696,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -766,8 +730,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -802,8 +764,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -838,8 +798,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -874,8 +832,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -910,8 +866,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -946,8 +900,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -982,8 +934,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1018,8 +968,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1054,8 +1002,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1090,8 +1036,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1126,8 +1070,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1162,8 +1104,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1198,8 +1138,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1234,8 +1172,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1270,8 +1206,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1306,8 +1240,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1342,8 +1274,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1378,8 +1308,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1414,8 +1342,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1450,8 +1376,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1486,8 +1410,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1522,8 +1444,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1558,8 +1478,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1594,8 +1512,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1630,8 +1546,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1666,8 +1580,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1702,8 +1614,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1738,8 +1648,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1774,8 +1682,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1810,8 +1716,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1846,8 +1750,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1882,8 +1784,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1918,8 +1818,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1954,8 +1852,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1990,8 +1886,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -2026,8 +1920,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -2062,8 +1954,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -2098,8 +1988,6 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -2119,3 +2007,4 @@ tags:
   - ESLint
   - vue
   - eslint-plugin-vue
+
