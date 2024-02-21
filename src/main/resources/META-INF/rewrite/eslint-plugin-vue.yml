@@ -25,8 +25,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/attributes-order": 2,
@@ -108,8 +112,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/attributes-order": 2
@@ -136,8 +144,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/component-tags-order": 2
@@ -164,8 +176,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/order-in-components": 2
@@ -192,8 +208,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/this-in-template": 2
@@ -220,8 +240,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/block-order": 2
@@ -248,8 +272,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/block-tag-newline": 2
@@ -276,8 +304,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/component-name-in-template-casing": 2
@@ -304,8 +336,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/component-options-name-casing": 2
@@ -332,8 +368,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/define-macros-order": 2
@@ -360,8 +400,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/html-comment-content-newline": 2
@@ -388,8 +432,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/html-comment-content-spacing": 2
@@ -416,8 +464,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/html-comment-indent": 2
@@ -444,8 +496,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/new-line-between-multi-line-property": 2
@@ -472,8 +528,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/next-tick-style": 2
@@ -500,8 +560,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/no-required-prop-with-default": 2
@@ -528,8 +592,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/no-unsupported-features": 2
@@ -556,8 +624,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/no-useless-mustaches": 2
@@ -584,8 +656,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/no-useless-v-bind": 2
@@ -612,8 +688,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/padding-line-between-blocks": 2
@@ -640,8 +720,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/padding-line-between-tags": 2
@@ -668,8 +752,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/padding-lines-in-component-definition": 2
@@ -696,8 +784,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/prefer-define-options": 2
@@ -724,8 +816,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/prefer-separate-static-class": 2
@@ -752,8 +848,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/script-indent": 2
@@ -780,8 +880,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/static-class-names-order": 2
@@ -808,8 +912,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/v-for-delimiter-style": 2
@@ -836,8 +944,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/v-if-else-key": 2
@@ -864,8 +976,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/v-on-handler-style": 2
@@ -892,8 +1008,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/array-bracket-newline": 2
@@ -920,8 +1040,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/array-bracket-spacing": 2
@@ -948,8 +1072,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/array-element-newline": 2
@@ -976,8 +1104,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/arrow-spacing": 2
@@ -1004,8 +1136,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/block-spacing": 2
@@ -1032,8 +1168,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/brace-style": 2
@@ -1060,8 +1200,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/comma-dangle": 2
@@ -1088,8 +1232,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/comma-spacing": 2
@@ -1116,8 +1264,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/comma-style": 2
@@ -1144,8 +1296,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/dot-location": 2
@@ -1172,8 +1328,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/dot-notation": 2
@@ -1200,8 +1360,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/eqeqeq": 2
@@ -1228,8 +1392,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/func-call-spacing": 2
@@ -1256,8 +1424,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/key-spacing": 2
@@ -1284,8 +1456,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/keyword-spacing": 2
@@ -1312,8 +1488,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/multiline-ternary": 2
@@ -1340,8 +1520,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/no-extra-parens": 2
@@ -1368,8 +1552,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/object-curly-newline": 2
@@ -1396,8 +1584,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/object-curly-spacing": 2
@@ -1424,8 +1616,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/object-property-newline": 2
@@ -1452,8 +1648,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/object-shorthand": 2
@@ -1480,8 +1680,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/operator-linebreak": 2
@@ -1508,8 +1712,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/prefer-template": 2
@@ -1536,8 +1744,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/quote-props": 2
@@ -1564,8 +1776,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/space-in-parens": 2
@@ -1592,8 +1808,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/space-infix-ops": 2
@@ -1620,8 +1840,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/space-unary-ops": 2
@@ -1648,8 +1872,12 @@ recipeList:
       configFile: |
         {
           "root": true,
-          "parser": "@typescript-eslint/parser",
-          "parserOptions": { "project": ["./tsconfig.json"] },
+          "parser": "vue-eslint-parser",
+          "parserOptions": {
+            "parser": "@typescript-eslint/parser",
+            "project": "./tsconfig.json",
+            "extraFileExtensions": [".vue"]
+          },
           "plugins": ["vue"],
           "rules": {
             "vue/template-curly-spacing": 2
