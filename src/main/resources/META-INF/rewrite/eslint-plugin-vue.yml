@@ -1,0 +1,1665 @@
+#
+# Copyright 2023 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.RecommendedVueCodeCleanup
+displayName: Recommended vue code cleanup
+description: |
+  Collection of cleanup ESLint rules from [eslint-plugin-vue](https://eslint.vuejs.org/).
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/attributes-order": 2,
+            "vue/component-tags-order": 2,
+            "vue/order-in-components": 2,
+            "vue/this-in-template": 2,
+            "vue/block-order": 2,
+            "vue/block-tag-newline": 2,
+            "vue/component-name-in-template-casing": 2,
+            "vue/component-options-name-casing": 2,
+            "vue/define-macros-order": 2,
+            "vue/html-comment-content-newline": 2,
+            "vue/html-comment-content-spacing": 2,
+            "vue/html-comment-indent": 2,
+            "vue/new-line-between-multi-line-property": 2,
+            "vue/next-tick-style": 2,
+            "vue/no-required-prop-with-default": 2,
+            "vue/no-unsupported-features": 2,
+            "vue/no-useless-mustaches": 2,
+            "vue/no-useless-v-bind": 2,
+            "vue/padding-line-between-blocks": 2,
+            "vue/padding-line-between-tags": 2,
+            "vue/padding-lines-in-component-definition": 2,
+            "vue/prefer-define-options": 2,
+            "vue/prefer-separate-static-class": 2,
+            "vue/script-indent": 2,
+            "vue/static-class-names-order": 2,
+            "vue/v-for-delimiter-style": 2,
+            "vue/v-if-else-key": 2,
+            "vue/v-on-handler-style": 2,
+            "vue/array-bracket-newline": 2,
+            "vue/array-bracket-spacing": 2,
+            "vue/array-element-newline": 2,
+            "vue/arrow-spacing": 2,
+            "vue/block-spacing": 2,
+            "vue/brace-style": 2,
+            "vue/comma-dangle": 2,
+            "vue/comma-spacing": 2,
+            "vue/comma-style": 2,
+            "vue/dot-location": 2,
+            "vue/dot-notation": 2,
+            "vue/eqeqeq": 2,
+            "vue/func-call-spacing": 2,
+            "vue/key-spacing": 2,
+            "vue/keyword-spacing": 2,
+            "vue/multiline-ternary": 2,
+            "vue/no-extra-parens": 2,
+            "vue/object-curly-newline": 2,
+            "vue/object-curly-spacing": 2,
+            "vue/object-property-newline": 2,
+            "vue/object-shorthand": 2,
+            "vue/operator-linebreak": 2,
+            "vue/prefer-template": 2,
+            "vue/quote-props": 2,
+            "vue/space-in-parens": 2,
+            "vue/space-infix-ops": 2,
+            "vue/space-unary-ops": 2,
+            "vue/template-curly-spacing": 2,
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.AttributesOrder
+displayName: Enforce order of attributes
+description: |
+  Enforce order of attributes
+  See rule details for [vue/attributes-order](https://eslint.vuejs.org/rules/attributes-order.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/attributes-order": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ComponentTagsOrder
+displayName: Enforce order of component top-level elements
+description: |
+  Enforce order of component top-level elements
+  See rule details for [vue/component-tags-order](https://eslint.vuejs.org/rules/component-tags-order.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/component-tags-order": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.OrderInComponents
+displayName: Enforce order of properties in components
+description: |
+  Enforce order of properties in components
+  See rule details for [vue/order-in-components](https://eslint.vuejs.org/rules/order-in-components.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/order-in-components": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ThisInTemplate
+displayName: Disallow usage of this in template
+description: |
+  Disallow usage of this in template
+  See rule details for [vue/this-in-template](https://eslint.vuejs.org/rules/this-in-template.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/this-in-template": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.BlockOrder
+displayName: Enforce order of component top-level elements
+description: |
+  Enforce order of component top-level elements
+  See rule details for [vue/block-order](https://eslint.vuejs.org/rules/block-order.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/block-order": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.BlockTagNewline
+displayName: Enforce line breaks after opening and before closing block-level tags
+description: |
+  Enforce line breaks after opening and before closing block-level tags
+  See rule details for [vue/block-tag-newline](https://eslint.vuejs.org/rules/block-tag-newline.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/block-tag-newline": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ComponentNameInTemplateCasing
+displayName: Enforce specific casing for the component naming style in template
+description: |
+  Enforce specific casing for the component naming style in template
+  See rule details for [vue/component-name-in-template-casing](https://eslint.vuejs.org/rules/component-name-in-template-casing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/component-name-in-template-casing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ComponentOptionsNameCasing
+displayName: Enforce the casing of component name in components options
+description: |
+  Enforce the casing of component name in components options
+  See rule details for [vue/component-options-name-casing](https://eslint.vuejs.org/rules/component-options-name-casing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/component-options-name-casing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.DefineMacrosOrder
+displayName: Enforce order of defineEmits and defineProps compiler macros
+description: |
+  Enforce order of defineEmits and defineProps compiler macros
+  See rule details for [vue/define-macros-order](https://eslint.vuejs.org/rules/define-macros-order.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/define-macros-order": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.HtmlCommentContentNewline
+displayName: Enforce unified line brake in HTML comments
+description: |
+  Enforce unified line brake in HTML comments
+  See rule details for [vue/html-comment-content-newline](https://eslint.vuejs.org/rules/html-comment-content-newline.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/html-comment-content-newline": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.HtmlCommentContentSpacing
+displayName: Enforce unified spacing in HTML comments
+description: |
+  Enforce unified spacing in HTML comments
+  See rule details for [vue/html-comment-content-spacing](https://eslint.vuejs.org/rules/html-comment-content-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/html-comment-content-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.HtmlCommentIndent
+displayName: Enforce consistent indentation in HTML comments
+description: |
+  Enforce consistent indentation in HTML comments
+  See rule details for [vue/html-comment-indent](https://eslint.vuejs.org/rules/html-comment-indent.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/html-comment-indent": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.NewLineBetweenMultiLineProperty
+displayName: Enforce new lines between multi-line properties in Vue components
+description: |
+  Enforce new lines between multi-line properties in Vue components
+  See rule details for [vue/new-line-between-multi-line-property](https://eslint.vuejs.org/rules/new-line-between-multi-line-property.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/new-line-between-multi-line-property": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.NextTickStyle
+displayName: Enforce Promise or callback style in nextTick
+description: |
+  Enforce Promise or callback style in nextTick
+  See rule details for [vue/next-tick-style](https://eslint.vuejs.org/rules/next-tick-style.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/next-tick-style": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.NoRequiredPropWithDefault
+displayName: Enforce props with default values to be optional
+description: |
+  Enforce props with default values to be optional
+  See rule details for [vue/no-required-prop-with-default](https://eslint.vuejs.org/rules/no-required-prop-with-default.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/no-required-prop-with-default": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.NoUnsupportedFeatures
+displayName: Disallow unsupported Vue.js syntax on the specified version
+description: |
+  Disallow unsupported Vue.js syntax on the specified version
+  See rule details for [vue/no-unsupported-features](https://eslint.vuejs.org/rules/no-unsupported-features.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/no-unsupported-features": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.NoUselessMustaches
+displayName: Disallow unnecessary mustache interpolations
+description: |
+  Disallow unnecessary mustache interpolations
+  See rule details for [vue/no-useless-mustaches](https://eslint.vuejs.org/rules/no-useless-mustaches.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/no-useless-mustaches": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.NoUselessVBind
+displayName: Disallow unnecessary v-bind directives
+description: |
+  Disallow unnecessary v-bind directives
+  See rule details for [vue/no-useless-v-bind](https://eslint.vuejs.org/rules/no-useless-v-bind.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/no-useless-v-bind": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.PaddingLineBetweenBlocks
+displayName: Require or disallow padding lines between blocks
+description: |
+  Require or disallow padding lines between blocks
+  See rule details for [vue/padding-line-between-blocks](https://eslint.vuejs.org/rules/padding-line-between-blocks.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/padding-line-between-blocks": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.PaddingLineBetweenTags
+displayName: Require or disallow newlines between sibling tags in template
+description: |
+  Require or disallow newlines between sibling tags in template
+  See rule details for [vue/padding-line-between-tags](https://eslint.vuejs.org/rules/padding-line-between-tags.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/padding-line-between-tags": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.PaddingLinesInComponentDefinition
+displayName: Require or disallow padding lines in component definition
+description: |
+  Require or disallow padding lines in component definition
+  See rule details for [vue/padding-lines-in-component-definition](https://eslint.vuejs.org/rules/padding-lines-in-component-definition.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/padding-lines-in-component-definition": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.PreferDefineOptions
+displayName: Enforce use of defineOptions instead of default export.
+description: |
+  Enforce use of defineOptions instead of default export.
+  See rule details for [vue/prefer-define-options](https://eslint.vuejs.org/rules/prefer-define-options.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/prefer-define-options": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.PreferSeparateStaticClass
+displayName: Require static class names in template to be in a separate class attribute
+description: |
+  Require static class names in template to be in a separate class attribute
+  See rule details for [vue/prefer-separate-static-class](https://eslint.vuejs.org/rules/prefer-separate-static-class.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/prefer-separate-static-class": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ScriptIndent
+displayName: Enforce consistent indentation in <script>
+description: |
+  Enforce consistent indentation in <script>
+  See rule details for [vue/script-indent](https://eslint.vuejs.org/rules/script-indent.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/script-indent": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.StaticClassNamesOrder
+displayName: Enforce static class names order
+description: |
+  Enforce static class names order
+  See rule details for [vue/static-class-names-order](https://eslint.vuejs.org/rules/static-class-names-order.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/static-class-names-order": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.VForDelimiterStyle
+displayName: Enforce v-for directive's delimiter style
+description: |
+  Enforce v-for directive's delimiter style
+  See rule details for [vue/v-for-delimiter-style](https://eslint.vuejs.org/rules/v-for-delimiter-style.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/v-for-delimiter-style": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.VIfElseKey
+displayName: Require key attribute for conditionally rendered repeated components
+description: |
+  Require key attribute for conditionally rendered repeated components
+  See rule details for [vue/v-if-else-key](https://eslint.vuejs.org/rules/v-if-else-key.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/v-if-else-key": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.VOnHandlerStyle
+displayName: Enforce writing style for handlers in v-on directives
+description: |
+  Enforce writing style for handlers in v-on directives
+  See rule details for [vue/v-on-handler-style](https://eslint.vuejs.org/rules/v-on-handler-style.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/v-on-handler-style": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ArrayBracketNewline
+displayName: Enforce linebreaks after opening and before closing array brackets in <template>
+description: |
+  Enforce linebreaks after opening and before closing array brackets in <template>
+  See rule details for [vue/array-bracket-newline](https://eslint.vuejs.org/rules/array-bracket-newline.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/array-bracket-newline": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ArrayBracketSpacing
+displayName: Enforce consistent spacing inside array brackets in <template>
+description: |
+  Enforce consistent spacing inside array brackets in <template>
+  See rule details for [vue/array-bracket-spacing](https://eslint.vuejs.org/rules/array-bracket-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/array-bracket-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ArrayElementNewline
+displayName: Enforce line breaks after each array element in <template>
+description: |
+  Enforce line breaks after each array element in <template>
+  See rule details for [vue/array-element-newline](https://eslint.vuejs.org/rules/array-element-newline.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/array-element-newline": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ArrowSpacing
+displayName: Enforce consistent spacing before and after the arrow in arrow functions in <template>
+description: |
+  Enforce consistent spacing before and after the arrow in arrow functions in <template>
+  See rule details for [vue/arrow-spacing](https://eslint.vuejs.org/rules/arrow-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/arrow-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.BlockSpacing
+displayName: Disallow or enforce spaces inside of blocks after opening block and before closing block in <template>
+description: |
+  Disallow or enforce spaces inside of blocks after opening block and before closing block in <template>
+  See rule details for [vue/block-spacing](https://eslint.vuejs.org/rules/block-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/block-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.BraceStyle
+displayName: Enforce consistent brace style for blocks in <template>
+description: |
+  Enforce consistent brace style for blocks in <template>
+  See rule details for [vue/brace-style](https://eslint.vuejs.org/rules/brace-style.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/brace-style": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.CommaDangle
+displayName: Require or disallow trailing commas in <template>
+description: |
+  Require or disallow trailing commas in <template>
+  See rule details for [vue/comma-dangle](https://eslint.vuejs.org/rules/comma-dangle.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/comma-dangle": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.CommaSpacing
+displayName: Enforce consistent spacing before and after commas in <template>
+description: |
+  Enforce consistent spacing before and after commas in <template>
+  See rule details for [vue/comma-spacing](https://eslint.vuejs.org/rules/comma-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/comma-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.CommaStyle
+displayName: Enforce consistent comma style in <template>
+description: |
+  Enforce consistent comma style in <template>
+  See rule details for [vue/comma-style](https://eslint.vuejs.org/rules/comma-style.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/comma-style": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.DotLocation
+displayName: Enforce consistent newlines before and after dots in <template>
+description: |
+  Enforce consistent newlines before and after dots in <template>
+  See rule details for [vue/dot-location](https://eslint.vuejs.org/rules/dot-location.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/dot-location": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.DotNotation
+displayName: Enforce dot notation whenever possible in <template>
+description: |
+  Enforce dot notation whenever possible in <template>
+  See rule details for [vue/dot-notation](https://eslint.vuejs.org/rules/dot-notation.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/dot-notation": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.Eqeqeq
+displayName: Require the use of === and !== in <template>
+description: |
+  Require the use of === and !== in <template>
+  See rule details for [vue/eqeqeq](https://eslint.vuejs.org/rules/eqeqeq.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/eqeqeq": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.FuncCallSpacing
+displayName: Require or disallow spacing between function identifiers and their invocations in <template>
+description: |
+  Require or disallow spacing between function identifiers and their invocations in <template>
+  See rule details for [vue/func-call-spacing](https://eslint.vuejs.org/rules/func-call-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/func-call-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.KeySpacing
+displayName: Enforce consistent spacing between keys and values in object literal properties in <template>
+description: |
+  Enforce consistent spacing between keys and values in object literal properties in <template>
+  See rule details for [vue/key-spacing](https://eslint.vuejs.org/rules/key-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/key-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.KeywordSpacing
+displayName: Enforce consistent spacing before and after keywords in <template>
+description: |
+  Enforce consistent spacing before and after keywords in <template>
+  See rule details for [vue/keyword-spacing](https://eslint.vuejs.org/rules/keyword-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/keyword-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.MultilineTernary
+displayName: Enforce newlines between operands of ternary expressions in <template>
+description: |
+  Enforce newlines between operands of ternary expressions in <template>
+  See rule details for [vue/multiline-ternary](https://eslint.vuejs.org/rules/multiline-ternary.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/multiline-ternary": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.NoExtraParens
+displayName: Disallow unnecessary parentheses in <template>
+description: |
+  Disallow unnecessary parentheses in <template>
+  See rule details for [vue/no-extra-parens](https://eslint.vuejs.org/rules/no-extra-parens.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/no-extra-parens": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ObjectCurlyNewline
+displayName: Enforce consistent line breaks after opening and before closing braces in <template>
+description: |
+  Enforce consistent line breaks after opening and before closing braces in <template>
+  See rule details for [vue/object-curly-newline](https://eslint.vuejs.org/rules/object-curly-newline.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/object-curly-newline": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ObjectCurlySpacing
+displayName: Enforce consistent spacing inside braces in <template>
+description: |
+  Enforce consistent spacing inside braces in <template>
+  See rule details for [vue/object-curly-spacing](https://eslint.vuejs.org/rules/object-curly-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/object-curly-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ObjectPropertyNewline
+displayName: Enforce placing object properties on separate lines in <template>
+description: |
+  Enforce placing object properties on separate lines in <template>
+  See rule details for [vue/object-property-newline](https://eslint.vuejs.org/rules/object-property-newline.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/object-property-newline": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.ObjectShorthand
+displayName: Require or disallow method and property shorthand syntax for object literals in <template>
+description: |
+  Require or disallow method and property shorthand syntax for object literals in <template>
+  See rule details for [vue/object-shorthand](https://eslint.vuejs.org/rules/object-shorthand.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/object-shorthand": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.OperatorLinebreak
+displayName: Enforce consistent linebreak style for operators in <template>
+description: |
+  Enforce consistent linebreak style for operators in <template>
+  See rule details for [vue/operator-linebreak](https://eslint.vuejs.org/rules/operator-linebreak.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/operator-linebreak": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.PreferTemplate
+displayName: Require template literals instead of string concatenation in <template>
+description: |
+  Require template literals instead of string concatenation in <template>
+  See rule details for [vue/prefer-template](https://eslint.vuejs.org/rules/prefer-template.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/prefer-template": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.QuoteProps
+displayName: Require quotes around object literal property names in <template>
+description: |
+  Require quotes around object literal property names in <template>
+  See rule details for [vue/quote-props](https://eslint.vuejs.org/rules/quote-props.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/quote-props": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.SpaceInParens
+displayName: Enforce consistent spacing inside parentheses in <template>
+description: |
+  Enforce consistent spacing inside parentheses in <template>
+  See rule details for [vue/space-in-parens](https://eslint.vuejs.org/rules/space-in-parens.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/space-in-parens": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.SpaceInfixOps
+displayName: Require spacing around infix operators in <template>
+description: |
+  Require spacing around infix operators in <template>
+  See rule details for [vue/space-infix-ops](https://eslint.vuejs.org/rules/space-infix-ops.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/space-infix-ops": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.SpaceUnaryOps
+displayName: Enforce consistent spacing before or after unary operators in <template>
+description: |
+  Enforce consistent spacing before or after unary operators in <template>
+  See rule details for [vue/space-unary-ops](https://eslint.vuejs.org/rules/space-unary-ops.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/space-unary-ops": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.vue.TemplateCurlySpacing
+displayName: Require or disallow spacing around embedded expressions of template strings in <template>
+description: |
+  Require or disallow spacing around embedded expressions of template strings in <template>
+  See rule details for [vue/template-curly-spacing](https://eslint.vuejs.org/rules/template-curly-spacing.html)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["vue"],
+          "rules": {
+            "vue/template-curly-spacing": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+tags:
+  - ESLint
+  - vue
+  - eslint-plugin-vue
