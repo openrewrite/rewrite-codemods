@@ -82,7 +82,7 @@ const optionator = require('optionator')({
         return;
     }
 
-    const patterns = options['patterns'] || ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'];
+    const patterns = options['patterns'] || ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.vue', '**/*.svelte'];
     const parser = options['parser'] || '@typescript-eslint/parser';
     const parserOptions = options['parserOptions'] || {
         ecmaVersion: "latest",
