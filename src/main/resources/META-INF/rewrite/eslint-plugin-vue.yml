@@ -27,8 +27,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "project": "./tsconfig.json",
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -118,6 +117,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -152,6 +152,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -186,6 +187,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -220,6 +222,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -254,6 +257,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -288,6 +292,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -322,6 +327,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -356,6 +362,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -390,6 +397,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -424,6 +432,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -458,6 +467,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -492,6 +502,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -526,6 +537,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -560,6 +572,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -594,6 +607,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -628,6 +642,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -662,6 +677,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -696,6 +712,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -730,6 +747,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -764,6 +782,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -798,6 +817,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -832,6 +852,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -866,6 +887,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -900,6 +922,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -934,6 +957,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -968,6 +992,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1002,6 +1027,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1036,6 +1062,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1070,6 +1097,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1104,6 +1132,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1138,6 +1167,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1172,6 +1202,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1206,6 +1237,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1240,6 +1272,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1274,6 +1307,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1308,6 +1342,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1342,6 +1377,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1376,6 +1412,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1410,6 +1447,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1444,6 +1482,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1478,6 +1517,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1512,6 +1552,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1546,6 +1587,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1580,6 +1622,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1614,6 +1657,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1648,6 +1692,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1682,6 +1727,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1716,6 +1762,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1750,6 +1797,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1784,6 +1832,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1818,6 +1867,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1852,6 +1902,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1886,6 +1937,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1920,6 +1972,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1954,6 +2007,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
@@ -1988,6 +2042,7 @@ recipeList:
           "root": true,
           "parser": "vue-eslint-parser",
           "parserOptions": {
+            "ecmaVersion": "2015",
             "sourceType": "module",
               "ecmaFeatures": {
               "jsx": true,
