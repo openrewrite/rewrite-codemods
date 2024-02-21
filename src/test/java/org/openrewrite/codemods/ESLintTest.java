@@ -160,7 +160,7 @@ public class ESLintTest implements RewriteTest {
     @Test
     void reactJsx() {
         rewriteRun(
-          spec -> spec.recipe(new ESLint(List.of("**/*.jsx"), null, null, null, null, null, null, null, null, true, """
+          spec -> spec.recipe(new ESLint(null, null, null, null, null, null, null, null, null, true, """
             {
               "root": true,
               "parser": "@typescript-eslint/parser",
@@ -190,7 +190,7 @@ public class ESLintTest implements RewriteTest {
     @Test
     void reactTsx() {
         rewriteRun(
-          spec -> spec.recipe(new ESLint(List.of("**/*.tsx"), "", List.of(), null, List.of(), List.of(), List.of(), List.of(), List.of(), true, """
+          spec -> spec.recipe(new ESLint(null, "", List.of(), null, List.of(), List.of(), List.of(), List.of(), List.of(), true, """
             {
               "root": true,
               "parser": "@typescript-eslint/parser",
@@ -213,6 +213,56 @@ public class ESLintTest implements RewriteTest {
               <Hello firstName="John" lastName="Smith" />
               """,
             spec -> spec.path("src/Foo.tsx")
+          )
+        );
+    }
+
+    @Test
+    void vue() {
+        rewriteRun(
+          spec -> spec.recipe(new ESLint(null, "", List.of(), null, List.of(), List.of(), List.of(), List.of(), List.of(), true, """
+            {
+              "root": true,
+              "parser": "vue-eslint-parser",
+              "parserOptions": {
+                "ecmaVersion": "2015",
+                "sourceType": "module",
+                  "ecmaFeatures": {
+                  "jsx": true,
+                  "experimentalObjectRestSpread": true
+                }
+              },
+              "plugins": ["vue"],
+              "rules": {
+                "vue/attributes-order": 2
+              },
+              "globals": {
+                "browser": true,
+                "node": true
+              }
+            }
+            """)),
+          text(
+            //language=js
+            """
+              <template>
+                <MyComponent
+                  key="x"
+                  v-model="x"
+                  v-bind="object">
+                </MyComponent>
+              </template>
+              """,
+            """
+              <template>
+                <MyComponent
+                  v-bind="object"
+                  key="x"
+                  v-model="x">
+                </MyComponent>
+              </template>
+              """,
+            spec -> spec.path("src/Foo.vue")
           )
         );
     }
