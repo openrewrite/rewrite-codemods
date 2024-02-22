@@ -21,10 +21,16 @@ description: |
   Collection of cleanup ESLint rules from [eslint-plugin-svelte](https://github.com/sveltejs/eslint-plugin-svelte).
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -48,10 +54,6 @@ recipeList:
             "svelte/shorthand-directive": 2,
             "svelte/sort-attributes": 2,
             "svelte/spaced-html-comment": 2,
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -67,10 +69,16 @@ description: |
   See rule details for [svelte/no-dynamic-slot-name](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-dynamic-slot-name/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -78,10 +86,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/no-dynamic-slot-name": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -97,10 +101,16 @@ description: |
   See rule details for [svelte/require-store-reactive-access](https://sveltejs.github.io/eslint-plugin-svelte/rules/require-store-reactive-access/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -108,10 +118,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/require-store-reactive-access": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -127,10 +133,16 @@ description: |
   See rule details for [svelte/no-useless-mustaches](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-useless-mustaches/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -138,10 +150,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/no-useless-mustaches": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -157,10 +165,16 @@ description: |
   See rule details for [svelte/first-attribute-linebreak](https://sveltejs.github.io/eslint-plugin-svelte/rules/first-attribute-linebreak/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -168,10 +182,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/first-attribute-linebreak": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -187,10 +197,16 @@ description: |
   See rule details for [svelte/html-closing-bracket-spacing](https://sveltejs.github.io/eslint-plugin-svelte/rules/html-closing-bracket-spacing/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -198,10 +214,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/html-closing-bracket-spacing": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -217,10 +229,16 @@ description: |
   See rule details for [svelte/html-quotes](https://sveltejs.github.io/eslint-plugin-svelte/rules/html-quotes/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -228,10 +246,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/html-quotes": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -247,10 +261,16 @@ description: |
   See rule details for [svelte/html-self-closing](https://sveltejs.github.io/eslint-plugin-svelte/rules/html-self-closing/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -258,10 +278,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/html-self-closing": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -277,10 +293,16 @@ description: |
   See rule details for [svelte/indent](https://sveltejs.github.io/eslint-plugin-svelte/rules/indent/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -288,10 +310,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/indent": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -307,10 +325,16 @@ description: |
   See rule details for [svelte/max-attributes-per-line](https://sveltejs.github.io/eslint-plugin-svelte/rules/max-attributes-per-line/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -318,10 +342,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/max-attributes-per-line": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -337,10 +357,16 @@ description: |
   See rule details for [svelte/mustache-spacing](https://sveltejs.github.io/eslint-plugin-svelte/rules/mustache-spacing/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -348,10 +374,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/mustache-spacing": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -367,10 +389,16 @@ description: |
   See rule details for [svelte/no-spaces-around-equal-signs-in-attribute](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-spaces-around-equal-signs-in-attribute/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -378,10 +406,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/no-spaces-around-equal-signs-in-attribute": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -397,10 +421,16 @@ description: |
   See rule details for [svelte/prefer-class-directive](https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-class-directive/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -408,10 +438,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/prefer-class-directive": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -427,10 +453,16 @@ description: |
   See rule details for [svelte/prefer-style-directive](https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-style-directive/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -438,10 +470,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/prefer-style-directive": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -457,10 +485,16 @@ description: |
   See rule details for [svelte/shorthand-attribute](https://sveltejs.github.io/eslint-plugin-svelte/rules/shorthand-attribute/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -468,10 +502,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/shorthand-attribute": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -487,10 +517,16 @@ description: |
   See rule details for [svelte/shorthand-directive](https://sveltejs.github.io/eslint-plugin-svelte/rules/shorthand-directive/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -498,10 +534,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/shorthand-directive": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -517,10 +549,16 @@ description: |
   See rule details for [svelte/sort-attributes](https://sveltejs.github.io/eslint-plugin-svelte/rules/sort-attributes/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -528,10 +566,6 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/sort-attributes": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
@@ -547,10 +581,16 @@ description: |
   See rule details for [svelte/spaced-html-comment](https://sveltejs.github.io/eslint-plugin-svelte/rules/spaced-html-comment/)
 recipeList:
   - org.openrewrite.codemods.ESLint:
+      patterns:
+        - "**/*.svelte"
       fix: true
       configFile: |
         {
           "root": true,
+          "globals": {
+            "browser": true,
+            "node": true
+          },
           "parser": "svelte-eslint-parser",
           "parserOptions": {
             "parser": "@typescript-eslint/parser",
@@ -558,13 +598,10 @@ recipeList:
           "plugins": ["svelte"],
           "rules": {
             "svelte/spaced-html-comment": 2
-          },
-          "globals": {
-            "browser": true,
-            "node": true
           }
         }
 tags:
   - ESLint
   - svelte
   - eslint-plugin-svelte
+
