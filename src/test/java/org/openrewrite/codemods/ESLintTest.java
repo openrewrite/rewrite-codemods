@@ -235,7 +235,7 @@ public class ESLintTest implements RewriteTest {
               },
               "plugins": ["vue"],
               "rules": {
-                "vue/attributes-order": 2
+                "vue/this-in-template": 2
               },
               "globals": {
                 "browser": true,
@@ -247,20 +247,16 @@ public class ESLintTest implements RewriteTest {
             //language=js
             """
               <template>
-                <MyComponent
-                  key="x"
-                  v-model="x"
-                  v-bind="object">
-                </MyComponent>
+                <a :href="this.url">
+                  {{ this.text }}
+                </a>
               </template>
               """,
             """
               <template>
-                <MyComponent
-                  v-bind="object"
-                  key="x"
-                  v-model="x">
-                </MyComponent>
+                <a :href="url">
+                  {{ text }}
+                </a>
               </template>
               """,
             spec -> spec.path("src/Foo.vue")
