@@ -266,4 +266,47 @@ public class ESLintTest implements RewriteTest {
           )
         );
     }
+
+    @Test
+    void svelte() {
+        rewriteRun(
+          spec -> spec.recipe(new ESLint(null, "", List.of(), null, List.of(), List.of(), List.of(), List.of(), List.of(), true, """
+            {
+              "root": true,
+              "parser": "svelte-eslint-parser",
+               "parserOptions": {
+                  "parser": "@typescript-eslint/parser",
+               },
+              "plugins": ["svelte"],
+              "rules": {
+                "svelte/prefer-style-directive": 2
+              },
+              "globals": {
+                "browser": true,
+                "node": true
+              }
+            }
+            """)),
+          text(
+            //language=js
+            """
+              <div style="color: {color};">...</div>
+              <div
+                style="
+                  position: {position};
+                  {position === 'absolute' ? 'top: 20px;' : ''}
+                  {pointerEvents === false ? 'pointer-events:none;' : ''}
+                "
+              />
+              """,
+            """
+              <div style:color="{color}">...</div>
+              <div
+                style:position="{position}" style:top={position === 'absolute' ? '20px' : null} style:pointer-events={pointerEvents === false ? 'none' : null}
+              />
+              """,
+            spec -> spec.path("src/Foo.svelte")
+          )
+        );
+    }
 }
