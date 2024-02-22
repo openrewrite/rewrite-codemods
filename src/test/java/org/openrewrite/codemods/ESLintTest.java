@@ -225,6 +225,7 @@ public class ESLintTest implements RewriteTest {
               "root": true,
               "parser": "vue-eslint-parser",
               "parserOptions": {
+                "parser": "@typescript-eslint/parser",
                 "ecmaVersion": "2015",
                 "sourceType": "module",
                   "ecmaFeatures": {
