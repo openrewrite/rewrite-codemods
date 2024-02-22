@@ -274,7 +274,7 @@ public class ESLintTest implements RewriteTest {
             {
               "root": true,
               "parser": "svelte-eslint-parser",
-               "parserOptions": {
+              "parserOptions": {
                   "parser": "@typescript-eslint/parser",
                },
               "plugins": ["svelte"],
