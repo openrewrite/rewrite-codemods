@@ -400,9 +400,9 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.react.JsxNoTargetBlank
-displayName: "Disallow target="_blank" attribute without rel="noreferrer"
+displayName: Disallow target="_blank" attribute without rel="noreferrer"
 description: |
-  "Disallow target="_blank" attribute without rel="noreferrer"
+  Disallow target="_blank" attribute without rel="noreferrer"
   See rule details for [react/jsx-no-target-blank](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-target-blank.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
@@ -616,11 +616,9 @@ recipeList:
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.cleanup.react.NoUnknownProperty
-displayName: "Disallow usage of unknown DOM property,
-prefer-read-only-props,"Enforce that props are read-only"
+displayName: Disallow usage of unknown DOM property
 description: |
-  "Disallow usage of unknown DOM property,
-  prefer-read-only-props,"Enforce that props are read-only"
+  Disallow usage of unknown DOM property
   See rule details for [react/no-unknown-property](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-unknown-property.md)
 recipeList:
   - org.openrewrite.codemods.ESLint:
@@ -633,6 +631,30 @@ recipeList:
           "plugins": ["react"],
           "rules": {
             "react/no-unknown-property": 2
+          },
+          "globals": {
+            "browser": true,
+            "node": true
+          }
+        }
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.cleanup.react.PreferReadOnlyProps
+displayName: Enforce that props are read-only
+description: |
+  Enforce that props are read-only
+  See rule details for [react/prefer-read-only-props](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/prefer-read-only-props.md)
+recipeList:
+  - org.openrewrite.codemods.ESLint:
+      fix: true
+      configFile: |
+        {
+          "root": true,
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": { "project": ["./tsconfig.json"] },
+          "plugins": ["react"],
+          "rules": {
+            "react/prefer-read-only-props": 2
           },
           "globals": {
             "browser": true,
