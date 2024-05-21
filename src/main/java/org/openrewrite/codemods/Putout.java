@@ -54,7 +54,6 @@ public class Putout extends NodeBasedRecipe {
     @Override
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
         List<String> command = new ArrayList<>();
-        command.add("node");
         command.add("${nodeModules}/.bin/putout ${repoDir}");
         command.add("--fix");
         return command;
