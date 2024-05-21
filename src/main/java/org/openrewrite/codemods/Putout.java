@@ -27,7 +27,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Value
 @EqualsAndHashCode(callSuper = true)
@@ -52,19 +54,25 @@ public class Putout extends NodeBasedRecipe {
     @Override
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
         List<String> command = new ArrayList<>();
-        if (configFile != null) {
-            try {
-                Path directory = WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory();
-                Path configFile = Files.write(Files.createTempFile(directory, "putout-config", null), this.configFile.getBytes(StandardCharsets.UTF_8));
-                command.add("PUTOUT_CONFIG_FILE=" + configFile);
-                command.add("&&");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
         command.add("node");
         command.add("${nodeModules}/.bin/putout ${repoDir}");
         command.add("--fix");
         return command;
+    }
+
+    @Override
+    protected Map<String, String> getCommandEnvironment(Accumulator acc, ExecutionContext ctx) {
+        if (configFile != null) {
+            try {
+                Path directory = WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory();
+                Path configFile = Files.write(Files.createTempFile(directory, "putout-config", null), this.configFile.getBytes(StandardCharsets.UTF_8));
+                return new HashMap<String, String>() {{
+                    put("PUTOUT_CONFIG_FILE", configFile.toString());
+                }};
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return new HashMap<>();
     }
 }

@@ -58,7 +58,7 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
             @Override
             public @Nullable Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
                 if (tree instanceof SourceFile && !(tree instanceof Quark) && !(tree instanceof ParseError) &&
-                    !tree.getClass().getName().equals("org.openrewrite.java.tree.J$CompilationUnit")) {
+                        !tree.getClass().getName().equals("org.openrewrite.java.tree.J$CompilationUnit")) {
                     SourceFile sourceFile = (SourceFile) tree;
                     String fileName = sourceFile.getSourcePath().getFileName().toString();
                     if (fileName.indexOf('.') > 0) {
@@ -100,6 +100,8 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
             return;
         }
 
+        Map<String, String> env = getCommandEnvironment(acc, ctx);
+
         command.replaceAll(s -> s
                 .replace("${nodeModules}", nodeModules.toString())
                 .replace("${repoDir}", ".")
@@ -111,6 +113,7 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
             builder.directory(dir.toFile());
             builder.environment().put("NODE_PATH", nodeModules.toString());
             builder.environment().put("TERM", "dumb");
+            env.forEach(builder.environment()::put);
 
             out = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
             err = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
@@ -152,8 +155,13 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
 
     protected abstract List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx);
 
+    protected Map<String, String> getCommandEnvironment(Accumulator acc, ExecutionContext ctx) {
+        return new HashMap<>();
+    }
+
     protected void processOutput(Path out, Accumulator acc, ExecutionContext ctx) {
     }
+
 
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor(Accumulator acc) {
