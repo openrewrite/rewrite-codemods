@@ -57,13 +57,13 @@ public class Putout extends NodeBasedRecipe {
                 Path directory = WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory();
                 Path configFile = Files.write(Files.createTempFile(directory, "putout-config", null), this.configFile.getBytes(StandardCharsets.UTF_8));
                 command.add("PUTOUT_CONFIG_FILE=" + configFile);
+                command.add("&&");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
         command.add("node");
-        command.add("${nodeModules}/node_modules/.bin/putout");
-        command.add(".");
+        command.add("${nodeModules}/.bin/putout ${repoDir}");
         command.add("--fix");
         return command;
     }
