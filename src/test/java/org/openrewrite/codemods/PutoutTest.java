@@ -71,4 +71,38 @@ public class PutoutTest implements RewriteTest {
           )
         );
     }
+
+    @Test
+    void jsx() {
+        rewriteRun(
+          spec -> spec.recipe(new Putout(null)),
+          text(
+            //language=js
+            """
+              export function Test() {
+                  const greet = 'Hello World';
+                  const unused = 'unused';
+                  return (
+                      <div>
+                          <h1>{greet}</h1>
+                      </div>
+                  );
+              }
+              """,
+            """
+              export function Test() {
+                  const greet = 'Hello World';
+                 \s
+                  return (
+                      <div>
+                          <h1>{greet}</h1>
+                      </div>
+                  );
+              }
+                            
+              """,
+            spec -> spec.path("src/Foo.jsx")
+          )
+        );
+    }
 }
