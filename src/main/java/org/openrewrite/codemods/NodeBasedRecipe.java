@@ -91,7 +91,7 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
         return emptyList();
     }
 
-    private void runNode(Accumulator acc, ExecutionContext ctx) {
+    protected void runNode(Accumulator acc, ExecutionContext ctx) {
         Path dir = acc.getDirectory();
         Path nodeModules = RecipeResources.from(getClass()).init(ctx);
 

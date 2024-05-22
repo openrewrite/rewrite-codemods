@@ -33,8 +33,10 @@
     "eslint-webpack-plugin": "^4.0.1",
     "putout": "^35.25.1",
     "react-declassify": "^0.2.0",
+
     "svelte": "^4.0.0",
     "svelte-eslint-parser": "^0.33.1",
+
     "vue-eslint-parser": "^9.4.2"
   }
 }
