@@ -2,7 +2,7 @@
   "dependencies": {
     "@codemod/cli": "^3.3.0",
     "@kevinbarabash/codemods": "github:kevinbarabash/codemods",
-    "@mui/codemod": "5.15.10",
+    "@mui/codemod": "6.0.0",
     "@next/codemod": "^14.0.4",
     "@next/eslint-plugin-next": "^14.1.0",
     "@stylistic/eslint-plugin": "1.6.1",
