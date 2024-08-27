@@ -1,5 +1,5 @@
 #
-# Copyright 2023 the original author or authors.
+# Copyright 2024 the original author or authors.
 # <p>
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,28 +14,92 @@
 # limitations under the License.
 #
 ---
-type: specs.openrewrite.org/v1beta/category
-name: Material UI
-packageName: org.openrewrite.codemods.migrate.mui
-description: Recipes that modernize the use of [MUI](https://mui.com/).
----
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.migrate.mui.deprecations
-displayName: All deprecations of older MUI versions
+name: org.openrewrite.codemods.migrate.mui.All
+displayName: Combination of all deprecations
 description: >
-  Clean-up deprecations from older MUI versions
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#all)
 tags:
   - codemods
   - material-ui
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'deprecations/all'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "deprecations/all"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.migrate.mui.AdapterV4
+name: org.openrewrite.codemods.migrate.mui.SxProp
+displayName: Update the usage of the `sx` prop to be compatible with `@pigment-css/react`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#sx-prop)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v6.0.0/sx-prop"
+      executable: "@mui/codemod/codemod.js"
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.SystemProps
+displayName: Remove system props and add them to the `sx` prop
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#system-props)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v6.0.0/system-props"
+      executable: "@mui/codemod/codemod.js"
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.ThemeV
+displayName: Update the theme creation from `@mui/system@v5` to be compatible with `@pigment-css/react`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-v6)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v6.0.0/theme-v6"
+      executable: "@mui/codemod/codemod.js"
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.Styled
+displayName: Updates the usage of `styled` from `@mui/system@v5` to be compatible with` @pigment-css/react`
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#styled)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v6.0.0/styled"
+      executable: "@mui/codemod/codemod.js"
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.GridVProps
+displayName: Updates the usage of the `@mui/material/Grid2`, `@mui/system/Grid`, and `@mui/joy/Grid` components to their updated APIs.
+description: >
+  See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#grid-v2-props)
+tags:
+  - codemods
+  - material-ui
+  - mui
+recipeList:
+  - org.openrewrite.codemods.ApplyCodemod:
+      transform: "v6.0.0/grid-v2-props"
+      executable: "@mui/codemod/codemod.js"
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.migrate.mui.AdapterV
 displayName: Converts components to use the v4 adapter module
 description: >
   See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#adapter-v4)
@@ -45,9 +109,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/adapter-v4'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/adapter-v4"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.AutocompleteRenameCloseicon
@@ -60,9 +123,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/autocomplete-rename-closeicon'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/autocomplete-rename-closeicon"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.AutocompleteRenameOption
@@ -75,9 +137,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/autocomplete-rename-option'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/autocomplete-rename-option"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.AvatarCircleCircular
@@ -90,9 +151,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/avatar-circle-circular'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/avatar-circle-circular"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BadgeOverlapValue
@@ -105,9 +165,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/badge-overlap-value'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/badge-overlap-value"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BaseHookImports
@@ -120,9 +179,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/base-hook-imports'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/base-hook-imports"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BaseRemoveComponentProp
@@ -135,9 +193,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/base-remove-component-prop'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/base-remove-component-prop"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BaseRemoveUnstyledSuffix
@@ -150,9 +207,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/base-remove-unstyled-suffix'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/base-remove-unstyled-suffix"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BaseRenameComponentsToSlots
@@ -165,9 +221,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/base-rename-components-to-slots'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/base-rename-components-to-slots"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BaseUseNamedExports
@@ -180,9 +235,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/base-use-named-exports'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/base-use-named-exports"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BoxBorderradiusValues
@@ -195,9 +249,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/box-borderradius-values'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/box-borderradius-values"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BoxRenameCss
@@ -210,9 +263,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/box-rename-css'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/box-rename-css"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BoxRenameGap
@@ -225,9 +277,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/box-rename-gap'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/box-rename-gap"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.BoxSxProp
@@ -240,9 +291,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/box-sx-prop'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/box-sx-prop"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ButtonColorProp
@@ -255,9 +305,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/button-color-prop'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/button-color-prop"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ChipVariantProp
@@ -270,9 +319,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/chip-variant-prop'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/chip-variant-prop"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.CircularprogressVariant
@@ -285,9 +333,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/circularprogress-variant'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/circularprogress-variant"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.CollapseRenameCollapsedheight
@@ -300,9 +347,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/collapse-rename-collapsedheight'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/collapse-rename-collapsedheight"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ComponentRenameProp
@@ -315,9 +361,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/component-rename-prop'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/component-rename-prop"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.CoreStylesImport
@@ -330,9 +375,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/core-styles-import'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/core-styles-import"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.CreateTheme
@@ -345,9 +389,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/create-theme'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/create-theme"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.DatePickersMovedToX
@@ -360,9 +403,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/date-pickers-moved-to-x'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/date-pickers-moved-to-x"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.DialogProps
@@ -375,9 +417,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/dialog-props'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/dialog-props"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.DialogTitleProps
@@ -390,9 +431,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/dialog-title-props'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/dialog-title-props"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.EmotionPrependCache
@@ -405,9 +445,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/emotion-prepend-cache'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/emotion-prepend-cache"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ExpansionPanelComponent
@@ -420,9 +459,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/expansion-panel-component'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/expansion-panel-component"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.FabVariant
@@ -435,9 +473,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/fab-variant'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/fab-variant"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.FadeRenameAlpha
@@ -450,9 +487,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/fade-rename-alpha'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/fade-rename-alpha"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.GridJustifyJustifycontent
@@ -465,9 +501,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/grid-justify-justifycontent'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/grid-justify-justifycontent"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.GridListComponent
@@ -480,9 +515,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/grid-list-component'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/grid-list-component"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.HiddenDownProps
@@ -495,9 +529,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/hidden-down-props'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/hidden-down-props"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.IconButtonSize
@@ -510,12 +543,11 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/icon-button-size'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/icon-button-size"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.migrate.mui.JoyAvatarRemoveImgProps
+name: org.openrewrite.codemods.migrate.mui.JoyAvatarRemoveImgprops
 displayName: Removes `imgProps` prop from Avatar component
 description: >
   See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#joy-avatar-remove-imgProps)
@@ -525,9 +557,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/joy-avatar-remove-imgProps'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/joy-avatar-remove-imgProps"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.JoyRenameClassnamePrefix
@@ -540,9 +571,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/joy-rename-classname-prefix'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/joy-rename-classname-prefix"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.JoyRenameComponentsToSlots
@@ -555,9 +585,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/joy-rename-components-to-slots'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/joy-rename-components-to-slots"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.JoyRenameRowProp
@@ -570,9 +599,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/joy-rename-row-prop'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/joy-rename-row-prop"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.JoyTextFieldToInput
@@ -585,9 +613,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/joy-text-field-to-input'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/joy-text-field-to-input"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.JssToStyled
@@ -600,9 +627,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/jss-to-styled'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/jss-to-styled"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.JssToTssReact
@@ -615,9 +641,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/jss-to-tss-react'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/jss-to-tss-react"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.LinkUnderlineHover
@@ -630,9 +655,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/link-underline-hover'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/link-underline-hover"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.MaterialUiStyles
@@ -645,9 +669,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/material-ui-styles'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/material-ui-styles"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.MaterialUiTypes
@@ -660,9 +683,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/material-ui-types'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/material-ui-types"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ModalProps
@@ -675,9 +697,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/modal-props'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/modal-props"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.MovedLabModules
@@ -690,9 +711,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/moved-lab-modules'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/moved-lab-modules"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.MuiReplace
@@ -705,9 +725,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/mui-replace'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/mui-replace"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.OptimalImports
@@ -720,9 +739,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/optimal-imports'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/optimal-imports"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.PaginationRoundCircular
@@ -735,16 +753,13 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/pagination-round-circular'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/pagination-round-circular"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.PresetSafe
-displayName: A combination of all important transformers for migrating v4 to v5.
-description: |
-  **Note**: This codemod should be run only once
-
+displayName: Ensures presets are safe to use
+description: >
   See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#preset-safe)
 tags:
   - codemods
@@ -752,9 +767,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      executable: '@mui/codemod/codemod.js'
-      transform: 'v5.0.0/preset-safe'
-
+      transform: "v5.0.0/preset-safe"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.RenameCssVariables
@@ -767,9 +781,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/rename-css-variables'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/rename-css-variables"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.RootRef
@@ -782,9 +795,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/root-ref'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/root-ref"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.SkeletonVariant
@@ -797,9 +809,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/skeleton-variant'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/skeleton-variant"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.StyledEngineProvider
@@ -812,9 +823,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/styled-engine-provider'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/styled-engine-provider"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.TableProps
@@ -827,9 +837,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/table-props'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/table-props"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.TabsScrollButtons
@@ -842,9 +851,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/tabs-scroll-buttons'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/tabs-scroll-buttons"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.TextareaMinmaxRows
@@ -857,9 +865,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/textarea-minmax-rows'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/textarea-minmax-rows"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ThemeAugment
@@ -872,9 +879,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/theme-augment'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/theme-augment"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ThemeBreakpointsWidth
@@ -887,9 +893,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/theme-breakpoints-width'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/theme-breakpoints-width"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ThemeBreakpoints
@@ -902,9 +907,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/theme-breakpoints'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/theme-breakpoints"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ThemeOptions
@@ -917,9 +921,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/theme-options'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/theme-options"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ThemePaletteMode
@@ -932,9 +935,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/theme-palette-mode'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/theme-palette-mode"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ThemeProvider
@@ -947,9 +949,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/theme-provider'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/theme-provider"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ThemeSpacing
@@ -962,9 +963,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/theme-spacing'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/theme-spacing"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ThemeTypographyRound
@@ -977,9 +977,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/theme-typography-round'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/theme-typography-round"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.TopLevelImports
@@ -992,9 +991,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/top-level-imports'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/top-level-imports"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.Transitions
@@ -1007,9 +1005,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/transitions'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/transitions"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.TreeViewMovedToX
@@ -1022,9 +1019,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/tree-view-moved-to-x'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/tree-view-moved-to-x"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.UseAutocomplete
@@ -1037,9 +1033,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/use-autocomplete'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/use-autocomplete"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.UseTransitionprops
@@ -1052,9 +1047,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/use-transitionprops'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/use-transitionprops"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.VariantProp
@@ -1067,9 +1061,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/variant-prop'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/variant-prop"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.WithMobileDialog
@@ -1082,9 +1075,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/with-mobile-dialog'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/with-mobile-dialog"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.WithWidth
@@ -1097,9 +1089,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v5.0.0/with-width'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v5.0.0/with-width"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.OptimalImports
@@ -1112,9 +1103,8 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v4.0.0/optimal-imports'
-      executable: '@mui/codemod/codemod.js'
-
+      transform: "v4.0.0/optimal-imports"
+      executable: "@mui/codemod/codemod.js"
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.migrate.mui.ThemeSpacingApi
@@ -1127,5 +1117,5 @@ tags:
   - mui
 recipeList:
   - org.openrewrite.codemods.ApplyCodemod:
-      transform: 'v4.0.0/theme-spacing-api'
-      executable: '@mui/codemod/codemod.js'
+      transform: "v4.0.0/theme-spacing-api"
+      executable: "@mui/codemod/codemod.js"
