@@ -1,3 +1,6 @@
+# GENERATED FILE, DO NOT MODIFY MANUALLY
+# To regenerate this file, run `node apply-template stylistic` command from 
+# the root of the https://github.com/moderneinc/generate-codemod-categories
 #
 # Copyright 2024 the original author or authors.
 # <p>
@@ -13,6 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.openrewrite.codemods.format.RecommendedESLintStyling
