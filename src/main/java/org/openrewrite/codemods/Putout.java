@@ -57,15 +57,16 @@ public class Putout extends NodeBasedRecipe {
         String executable = "${nodeModules}/.bin/putout";
 
         if (rules != null) {
-            commands.add(executable + " ${repoDir} --disable-all || true"); // hacky because disable-all throws
+            commands.add(executable + " ${repoDir} --disable-all || true"); // hacky because putout throws
 
             // enable only rules that are provided
             for (String rule : rules) {
-                commands.add(executable + " ${repoDir} --enable " + rule);
+                commands.add(executable + " ${repoDir} --enable " + rule + " || true");
             }
         }
 
-        commands.add(executable + " ${repoDir}" + " --fix");
+        commands.add(executable + " ${repoDir}" + " --disable no-html-link-for-pages || true");
+        commands.add(executable + " ${repoDir}" + " --fix || true");
         return commands;
     }
 
