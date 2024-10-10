@@ -17,9 +17,9 @@ package org.openrewrite.codemods;
 
 import lombok.EqualsAndHashCode;
 import lombok.Value;
+import org.jspecify.annotations.Nullable;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Option;
-import org.openrewrite.internal.lang.Nullable;
 import org.openrewrite.scheduling.WorkingDirectoryExecutionContextView;
 
 import java.io.IOException;
@@ -45,8 +45,8 @@ public class Putout extends NodeBasedRecipe {
         return "Run [Putout](https://github.com/coderaiser/putout) on your projects.";
     }
 
-    @Option(displayName = "Config file",
-            description = "A list of rules to enable",
+    @Option(displayName = "Rules",
+            description = "Names of rules to enable. If not provided, all rules are enabled.",
             required = false)
     @Nullable
     Set<String> rules;
@@ -55,14 +55,15 @@ public class Putout extends NodeBasedRecipe {
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
         List<String> commands = new ArrayList<>();
         String executable = "${nodeModules}/.bin/putout";
+
         if (rules != null) {
             commands.add(executable + " ${repoDir} --disable-all || true"); // hacky because disable-all throws
 
+            // enable only rules that are provided
             for (String rule : rules) {
                 commands.add(executable + " ${repoDir} --enable " + rule);
             }
         }
-
 
         commands.add(executable + " ${repoDir}" + " --fix");
         return commands;
@@ -87,6 +88,7 @@ public class Putout extends NodeBasedRecipe {
                     .replace("${nodeModules}", nodeModules.toString())
                     .replace("${repoDir}", ".")
                     .replace("${parser}", acc.parser()));
+
         }
 
         Path out = null, err = null;

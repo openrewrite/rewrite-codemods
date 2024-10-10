@@ -20,10 +20,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
+import org.jspecify.annotations.Nullable;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Option;
 import org.openrewrite.SourceFile;
-import org.openrewrite.internal.lang.Nullable;
 import org.openrewrite.marker.Marker;
 import org.openrewrite.marker.Markers;
 import org.openrewrite.marker.SearchResult;
@@ -60,7 +60,7 @@ public class ESLint extends NodeBasedRecipe {
 
     @Option(displayName = "Parser to be used by ESLint",
             description = "Parser used by ESLint to parse the source files. Defaults to `@typescript-eslint/parser`. " +
-                          "See [ESLint documentation](https://eslint.org/docs/latest/use/configure/parsers) for more details.",
+                    "See [ESLint documentation](https://eslint.org/docs/latest/use/configure/parsers) for more details.",
             example = "esprima",
             required = false)
     @Nullable
@@ -68,8 +68,8 @@ public class ESLint extends NodeBasedRecipe {
 
     @Option(displayName = "List of parser options for ESLint",
             description = "A list of parser options for ESLint. The format is `key: value`. Defaults to " +
-                          "`ecmaVersion: \"latest\", ecmaFeatures: { jsx: true }, sourceType: \"module\"`. See " +
-                          "[ESLint documentation](https://eslint.org/docs/latest/use/configure/language-options#specifying-parser-options) for more details.",
+                    "`ecmaVersion: \"latest\", ecmaFeatures: { jsx: true }, sourceType: \"module\"`. See " +
+                    "[ESLint documentation](https://eslint.org/docs/latest/use/configure/language-options#specifying-parser-options) for more details.",
             example = "ecmaVersion: 6, ecmaFeatures: { jsx: true }",
             required = false)
     @Nullable
@@ -77,7 +77,7 @@ public class ESLint extends NodeBasedRecipe {
 
     @Option(displayName = "Allow inline configuration for ESLint",
             description = "Whether inline config comments are allowed. Defaults to `false`. See " +
-                          "[ESLint documentation](https://eslint.org/docs/latest/use/configure/rules#disabling-inline-comments) for more details.",
+                    "[ESLint documentation](https://eslint.org/docs/latest/use/configure/rules#disabling-inline-comments) for more details.",
             example = "true",
             required = false)
     @Nullable
@@ -113,10 +113,10 @@ public class ESLint extends NodeBasedRecipe {
 
     @Option(displayName = "ESLint rules and rule configuration",
             description = "List of rules to be checked by ESLint. Optionally, the severity and other rule options can " +
-                          "also be specified as e.g. `off`, `warn` or `[\"error\", \"always\"]`. " +
-                          "The severity `off` is useful when the rule is declared by an extended " +
-                          "[shareable config](https://eslint.org/docs/latest/extend/ways-to-extend#shareable-configs). " +
-                          "For more information, see the [ESLint documentation](https://eslint.org/docs/latest/use/configure/rules)",
+                    "also be specified as e.g. `off`, `warn` or `[\"error\", \"always\"]`. " +
+                    "The severity `off` is useful when the rule is declared by an extended " +
+                    "[shareable config](https://eslint.org/docs/latest/extend/ways-to-extend#shareable-configs). " +
+                    "For more information, see the [ESLint documentation](https://eslint.org/docs/latest/use/configure/rules)",
             example = "eqeqeq: warn, multiline-comment-style: [\"error\", \"starred-block\"], prettier/prettier",
             required = false)
     @Nullable
@@ -131,8 +131,8 @@ public class ESLint extends NodeBasedRecipe {
 
     @Option(displayName = "Override config file",
             description = "Allows specifying the full ESLint configuration file contents as multiline JSON. " +
-                          "See [ESLint documentation](https://eslint.org/docs/latest/use/configure/configuration-files) for more details.\n\n" +
-                          "Note that this will override any other configuration options.",
+                    "See [ESLint documentation](https://eslint.org/docs/latest/use/configure/configuration-files) for more details.\n\n" +
+                    "Note that this will override any other configuration options.",
             required = false)
     @Nullable
     String configFile;
@@ -145,7 +145,7 @@ public class ESLint extends NodeBasedRecipe {
     @Override
     public String getDescription() {
         return "Run [ESLint](https://eslint.org/) across the code to fix common static analysis issues in the code.\n\n" +
-               "This requires the code to have an existing ESLint configuration.";
+                "This requires the code to have an existing ESLint configuration.";
     }
 
     @Override
