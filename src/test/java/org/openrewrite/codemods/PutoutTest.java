@@ -27,7 +27,7 @@ import static org.openrewrite.test.SourceSpecs.text;
 public class PutoutTest implements RewriteTest {
 
     @Test
-    void noConfig() {
+    void noRules() {
         rewriteRun(
           spec -> spec.recipe(new Putout(null)),
           text(
@@ -38,7 +38,7 @@ public class PutoutTest implements RewriteTest {
               """,
             """
               export function used() {}
-
+              
               """,
             spec -> spec.path("src/Foo.js")
           )
@@ -54,18 +54,18 @@ public class PutoutTest implements RewriteTest {
             """
               function notUsed() {}
               export function used() {}
-                            
+              
               if (a > b)
                   if (b < c)
                       console.log('hi');
               """,
             """
               function notUsed() {}
-                            
+              
               export function used() {}
               if (a > b && b < c)
                   console.log('hi');
-                  
+              
               """,
             spec -> spec.path("src/Foo.js")
           )
@@ -99,7 +99,7 @@ public class PutoutTest implements RewriteTest {
                       </div>
                   );
               }
-                            
+              
               """,
             spec -> spec.path("src/Foo.jsx")
           )
