@@ -61,7 +61,7 @@ public class Putout extends NodeBasedRecipe {
 
     @Override
     public Accumulator getInitialValue(ExecutionContext ctx) {
-        Path path = RecipeResources.from(getClass()).extractResources("config", "", ctx);
+        Path path = RecipeResources.from(getClass()).extractResources("config", PUTOUT_DIR, ctx);
         ctx.putMessage(PUTOUT_DIR, path);
         return super.getInitialValue(ctx);
     }
@@ -83,7 +83,7 @@ public class Putout extends NodeBasedRecipe {
         commands.add(executable + " ${repoDir}" + " --disable no-html-link-for-pages || true");
 
         if (printer != null) {
-            commands.add("node " + ctx.getMessage(PUTOUT_DIR).toString() + "/putout.js " + printer);
+            commands.add("node " + Objects.requireNonNull(ctx.getMessage(PUTOUT_DIR)) + "/putout.js " + printer);
         }
 
         commands.add(executable + " ${repoDir}" + " --fix || true");
