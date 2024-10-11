@@ -53,7 +53,7 @@ public class Putout extends NodeBasedRecipe {
     Set<String> rules;
 
     @Option(displayName = "Printer",
-            description = "By default Putout uses its own [putout] printer for formatting code. You can choose an alternative printer.",
+            description = "By default Putout uses its own [putout](https://github.com/coderaiser/putout?tab=readme-ov-file#printer) printer for formatting code. You can choose an alternative printer.",
             valid = {"putout", "recast", "babel"},
             required = false)
     @Nullable
