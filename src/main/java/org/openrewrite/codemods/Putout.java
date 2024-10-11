@@ -34,6 +34,7 @@ import java.util.concurrent.TimeUnit;
 public class Putout extends NodeBasedRecipe {
 
     private static final String PUTOUT_DIR = Putout.class.getName() + ".PUTOUT_DIR";
+    private static final String REPO_DIRECTORY = ".";
 
     @Override
     public String getDisplayName() {
@@ -51,6 +52,20 @@ public class Putout extends NodeBasedRecipe {
     @Nullable
     Set<String> rules;
 
+    @Option(displayName = "Printer",
+            description = "By default Putout uses its own [putout] printer for formatting code. You can choose an alternative printer.",
+            valid = {"putout", "recast", "babel"},
+            required = false)
+    @Nullable
+    String printer;
+
+    @Override
+    public Accumulator getInitialValue(ExecutionContext ctx) {
+        Path path = RecipeResources.from(getClass()).extractResources("config", "", ctx);
+        ctx.putMessage(PUTOUT_DIR, path);
+        return super.getInitialValue(ctx);
+    }
+
     @Override
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
         List<String> commands = new ArrayList<>();
@@ -66,6 +81,11 @@ public class Putout extends NodeBasedRecipe {
         }
 
         commands.add(executable + " ${repoDir}" + " --disable no-html-link-for-pages || true");
+
+        if (printer != null) {
+            commands.add("node " + ctx.getMessage(PUTOUT_DIR).toString() + "/putout.js " + printer);
+        }
+
         commands.add(executable + " ${repoDir}" + " --fix || true");
         return commands;
     }

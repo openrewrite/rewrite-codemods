@@ -29,7 +29,7 @@ public class PutoutTest implements RewriteTest {
     @Test
     void noRules() {
         rewriteRun(
-          spec -> spec.recipe(new Putout(null)),
+          spec -> spec.recipe(new Putout(null, null)),
           text(
             //language=js
             """
@@ -48,7 +48,7 @@ public class PutoutTest implements RewriteTest {
     @Test
     void withRules() {
         rewriteRun(
-          spec -> spec.recipe(new Putout(Set.of("conditions/merge-if-statements"))),
+          spec -> spec.recipe(new Putout(Set.of("conditions/merge-if-statements"), null)),
           text(
             //language=js
             """
@@ -75,7 +75,7 @@ public class PutoutTest implements RewriteTest {
     @Test
     void jsx() {
         rewriteRun(
-          spec -> spec.recipe(new Putout(null)),
+          spec -> spec.recipe(new Putout(null, null)),
           text(
             //language=js
             """
@@ -102,6 +102,45 @@ public class PutoutTest implements RewriteTest {
               
               """,
             spec -> spec.path("src/Foo.jsx")
+          )
+        );
+    }
+
+    /**
+     * recast should keep format close to original while putout would format it
+     * have all props on a new line, leave trailing commas, etc.
+     */
+    @Test
+    void printer() {
+        rewriteRun(
+          spec -> spec.recipe(new Putout(null, "recast")),
+          text(
+            //language=js
+            """
+              export const square = (x) => {
+                return x * x
+              }
+              export const sum = (a, b) => { return a + b };
+              export const obj = {
+                key: 'value',
+                method: function() {
+                      return something;
+                },
+                sum, square
+              };
+              """,
+            """
+                export const square = x => x ** 2
+                export const sum = (a, b) => a + b;
+                export const obj = {
+                  key: 'value',
+                  method: function() {
+                        return something;
+                  },
+                  sum, square
+                };
+              """,
+            spec -> spec.path("src/Foo.js")
           )
         );
     }
