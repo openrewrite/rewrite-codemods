@@ -47,7 +47,7 @@ public class Putout extends NodeBasedRecipe {
     }
 
     @Option(displayName = "Rules",
-            description = "Names of rules to enable. If not provided, all rules are enabled.",
+            description = "Names of rules to enable. If not provided, putout's default rules are used.",
             required = false)
     @Nullable
     Set<String> rules;
